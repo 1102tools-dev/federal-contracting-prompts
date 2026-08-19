@@ -27,14 +27,14 @@ Everything below is meant to be copied, pasted, and adapted. Square brackets mar
 
 A lot of this library runs the same way: the research prompts live on key-free USASpending, and SAM.gov enters when you reach live opportunities and company vetting. Your AI will usually pick the right server on its own; if it reaches for the wrong one or answers from memory, name the one you want: "use the sam-gov MCP" or "use USASpending for this." When a number matters, ask for the raw value and where it came from, and when recency matters, 1 cheap call checks when USASpending last refreshed its award data.
 
-Prompts are written for one job each. Chain them: run a competitor scan, then feed what came back into the next prompt. The combination plays below show what chaining looks like when it is aimed at a bid decision.
+Prompts are written for one job each, and every prompt names the MCPs it uses right under it, so you know what has to be installed before you paste. Chain them: run a competitor scan, then feed what came back into the next prompt. The combination plays below show what chaining looks like when it is aimed at a bid decision.
 
 > [!NOTE]
 > **If the acronyms are new, 30 seconds of vocabulary.** An MCP server is 1 of the 8 data sources named above; each speaks for one government system. NAICS and PSC are the catalog codes for what you sell: NAICS names your industry, PSC names the service or product. A set-aside is a competition restricted to small businesses, sometimes to one SBA program: 8(a) for disadvantaged firms, HUBZone for firms in designated underutilized zones, SDVOSB for service-disabled-veteran-owned, WOSB for woman-owned. A UEI is a company's ID in SAM.gov. An IDV is an umbrella contract that task orders are placed under, and a recompete is the rebid when a contract ends. PWS, SOO, and IGCE are defined in [the government side](#the-government-side-six-launch-lines), where they are used.
 
 ## Combination plays
 
-SAM.gov and USASpending answer different halves of the same question, so the strongest prompts use both. Run these as one request; your AI will make several tool calls and stitch the answer.
+SAM.gov and USASpending answer different halves of the same question, so the strongest prompts use both. Run these as one request; your AI will make several tool calls and stitch the answer. Four of the five run on the big two alone; the pricing play reaches into GSA CALC+, and its label says so.
 
 #### Size up a competitor
 
@@ -45,6 +45,8 @@ exclusions from SAM.gov. If SAM returns multiple registrations, say so and list 
 before picking. Finish with 2 sentences on where they are strong and where they are
 exposed.
 ```
+
+*MCPs used: USASpending + SAM.gov*
 
 #### The graduation window
 
@@ -59,6 +61,8 @@ certification despite winning 8(a) work, or an exit date already past, read that
 graduated; lapsed entries can linger on the record with their dates intact.
 ```
 
+*MCPs used: USASpending + SAM.gov*
+
 #### Vet a teammate
 
 ```text
@@ -66,6 +70,8 @@ Vet [COMPANY] as a teammate: exclusions and registration expiration from SAM.gov
 then their award history from USASpending, including whether they have primed work
 at [AGENCY] before.
 ```
+
+*MCPs used: SAM.gov + USASpending*
 
 #### Should I bid this?
 
@@ -77,6 +83,8 @@ the incumbent; an already-ended award usually means the work moved to a follow-o
 order, so look for a newer award to the same recipient before concluding they exited.
 ```
 
+*MCPs used: SAM.gov + USASpending*
+
 #### What did the government actually pay?
 
 ```text
@@ -87,6 +95,8 @@ rates for the matching labor categories next to them as the per-hour benchmark.
 Scale from one, rates from the other; do not divide one by the other without a
 period of performance and staffing count you can defend.
 ```
+
+*MCPs used: USASpending + GSA CALC+*
 
 ## The two databases that matter most
 
@@ -125,6 +135,8 @@ still marks it active. The search filters 1 notice type per call, so expect 2
 searches merged, not 1.
 ```
 
+*MCPs used: SAM.gov*
+
 #### Sources sought and RFIs
 
 ```text
@@ -135,6 +147,8 @@ under PSC [PSC] if I give you one; the filters combine as AND, so separate runs
 cover more ground than one narrow query.
 ```
 
+*MCPs used: SAM.gov*
+
 #### Read one opportunity properly
 
 ```text
@@ -142,6 +156,8 @@ Pull the full description for opportunity [NOTICE ID] and summarize what they
 actually want, the evaluation approach if stated, and anything that looks like
 incumbent language.
 ```
+
+*MCPs used: SAM.gov*
 
 #### Fresh award notices
 
@@ -155,6 +171,8 @@ narrow code over a short window can legitimately return 0 or 1 notice, so widen 
 window before concluding nothing posted.
 ```
 
+*MCPs used: SAM.gov*
+
 #### One agency's postings
 
 ```text
@@ -163,6 +181,8 @@ set high, then filter for [AGENCY] yourself from the agency path field in the
 results. The agency filter only screens what was fetched, so if the total count is
 much larger than what came back, page through before concluding anything.
 ```
+
+*MCPs used: SAM.gov*
 
 ## Competitor intelligence
 
@@ -178,6 +198,8 @@ pick and use it in everything that follows. If the search returns only near-miss
 try the other recipient search tool before deciding the company is not in the data.
 ```
 
+*MCPs used: USASpending*
+
 #### Their last 12 months
 
 ```text
@@ -185,6 +207,8 @@ Pull [COMPANY]'s federal contract awards with activity in the last 12 months: aw
 ID, agency, amount, NAICS, and period of performance end date. Sort by amount. Add
 "in NAICS [NAICS] only" if I want one code.
 ```
+
+*MCPs used: USASpending*
 
 #### Where their money comes from
 
@@ -196,6 +220,8 @@ call; for a company with hundreds of awards, the top 25 to 30 by dollar shows th
 real concentration, just say that is what the tally covers.
 ```
 
+*MCPs used: USASpending*
+
 #### Who they sub to
 
 ```text
@@ -206,6 +232,8 @@ merge the results. Who do they sub to, and for how much? Expect some of the larg
 primes to show 0 subawards on file; treat that as a reporting gap, not proof they
 self-perform everything.
 ```
+
+*MCPs used: USASpending*
 
 > [!WARNING]
 > **Subaward data is only as good as the prime's reporting.** Primes self-report subawards through FSRS, small subcontracts below the reporting threshold often never appear, and there is no lookup for "who does this company sub under" at all; the data only travels prime-downward. A thin subaward picture may be a reporting gap, not the whole story.
@@ -225,6 +253,8 @@ recompete targets. For a broad agency and code that takes several pages, not the
 first one.
 ```
 
+*MCPs used: USASpending*
+
 #### When a company's contracts end
 
 What they will be defending, and when.
@@ -236,6 +266,8 @@ keep paging until the dates cross today, and stop once they fall inside the next
 to 24 months. That stretch is what they will be defending and when; no filter jumps
 straight to it.
 ```
+
+*MCPs used: USASpending*
 
 ## Vetting and teaming
 
@@ -250,6 +282,8 @@ Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell 
 whether any are currently active and what they are for.
 ```
 
+*MCPs used: SAM.gov*
+
 #### Untangle multiple registrations
 
 ```text
@@ -260,6 +294,8 @@ you check. Group them by mailing address to spot the headquarters, and normalize
 punctuation first; the same address gets spelled several ways across records.
 ```
 
+*MCPs used: SAM.gov*
+
 #### Registration status at a glance
 
 ```text
@@ -268,6 +304,8 @@ expire, what is its primary NAICS, and what socioeconomic categories does it hol
 If more than 1 active registration exists, say how many and name the UEI you picked
 before answering.
 ```
+
+*MCPs used: SAM.gov*
 
 #### SBA certification dates
 
@@ -279,6 +317,8 @@ list or an exit date already past, and the dates on the record are the authorita
 answer.
 ```
 
+*MCPs used: SAM.gov*
+
 #### Responsibility check with FAPIIS
 
 A contracting officer's move: the responsibility determination file, in two pulls.
@@ -289,6 +329,8 @@ then pull FAPIIS integrity records separately; the one-pass check does not inclu
 those.
 ```
 
+*MCPs used: SAM.gov*
+
 #### How far back they go
 
 ```text
@@ -297,6 +339,8 @@ contract awards decade by decade, FY1970 forward; the data reaches back that far
 even though most tools never look before 2008. Volumes thin out before 1980, so read
 single-digit years as archival traces, not gaps in your search.
 ```
+
+*MCPs used: SAM.gov*
 
 #### Build a teaming shortlist
 
@@ -313,6 +357,8 @@ server if that search errors. Either way, confirm the certification entry and ex
 dates on each firm's record; lapses are common.
 ```
 
+*MCPs used: SAM.gov*
+
 ## Market and agency intel
 
 #### Who an agency pays under your code
@@ -324,6 +370,8 @@ agencies report as a single flat sub-agency here, VA included; a 1-row breakdown
 means there is no further split, not that the query failed.
 ```
 
+*MCPs used: USASpending*
+
 #### Where the work is, by state
 
 ```text
@@ -331,6 +379,8 @@ Show me total federal spending under NAICS [NAICS] by state for the last fiscal
 year. The geography tool returns states unsorted, so sort them by amount yourself
 before showing me. I am deciding where the work actually is.
 ```
+
+*MCPs used: USASpending*
 
 #### An agency's set-aside share
 
@@ -342,6 +392,8 @@ once without, then divide. Break out [8(a) / SDVOSB / WOSB] specifically if I as
 each set-aside type is its own query.
 ```
 
+*MCPs used: USASpending*
+
 #### The five-year trend
 
 When I ran this one, the most recently completed year turned out to be the low point of the whole range; a single-year number would have hidden it.
@@ -351,6 +403,8 @@ Show me [AGENCY]'s obligations under NAICS [NAICS] by fiscal year for the last 5
 years. Growing, flat, or shrinking is the first bid decision, and a single-year
 number hides it.
 ```
+
+*MCPs used: USASpending*
 
 #### The big vehicles
 
@@ -362,9 +416,11 @@ concluding it has no orders, because the gap is usually in how USASpending links
 children, not in reality.
 ```
 
+*MCPs used: USASpending*
+
 ## Speaking the government's codes
 
-Nearly every prompt in this library wants a code. These find yours, and none of them needs a SAM.gov key; if a PSC search stalls on a rate limit, say "use USASpending to find the PSC code" and the same answer comes back key-free.
+Nearly every prompt in this library wants a code. These find yours, and the lookups need no SAM.gov key; if a PSC search stalls on a rate limit, say "use USASpending to find the PSC code" and the same answer comes back key-free. The one exception is the chain at the end: its second half is a SAM.gov opportunity search, and that half does need the key.
 
 #### Find your NAICS
 
@@ -372,6 +428,8 @@ Nearly every prompt in this library wants a code. These find yours, and none of 
 What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and the
 closest alternates so I do not file under the wrong one.
 ```
+
+*MCPs used: USASpending*
 
 #### The size standard
 
@@ -383,12 +441,16 @@ dollars or employees, and say plainly that the figure comes from training data, 
 a live lookup, so I know to confirm it at sba.gov.
 ```
 
+*MCPs used: none; the answer is training data, confirm at sba.gov*
+
 #### Find your PSC
 
 ```text
 What PSC codes cover [PLAIN-ENGLISH SERVICE]? Give me the codes and official names
 so I can search with them.
 ```
+
+*MCPs used: USASpending or SAM.gov*
 
 #### Decode a PSC
 
@@ -397,6 +459,8 @@ Look up PSC [CODE] and tell me exactly what it covers and whether it is current 
 retired.
 ```
 
+*MCPs used: USASpending or SAM.gov*
+
 #### Codes to opportunities, one chain
 
 ```text
@@ -404,6 +468,8 @@ Find the PSC code for [PLAIN-ENGLISH SERVICE], then search SAM.gov opportunities
 under that exact code with a response deadline still open. Codes first,
 opportunities second, one chain.
 ```
+
+*MCPs used: USASpending + SAM.gov*
 
 ## What should it cost
 
@@ -419,6 +485,8 @@ matching titles with how many rate records each carries, so I search the right
 string.
 ```
 
+*MCPs used: GSA CALC+*
+
 #### The rate distribution
 
 ```text
@@ -430,6 +498,8 @@ containing the phrase, not the bare title alone; check the title-count prompt ab
 against it before quoting.
 ```
 
+*MCPs used: GSA CALC+*
+
 #### A company's rate card
 
 ```text
@@ -440,12 +510,16 @@ server-side vendor-plus-keyword search, so the keyword screen happens on the row
 you fetched.
 ```
 
+*MCPs used: GSA CALC+*
+
 #### Is this rate defensible?
 
 ```text
 Is $[RATE]/hr defensible for [LABOR CATEGORY]? Run a price reasonableness check
 against awarded CALC+ rates and tell me what percentile band it lands in.
 ```
+
+*MCPs used: GSA CALC+*
 
 ### BLS OEWS
 
@@ -459,6 +533,8 @@ current data year. Confirm the data year first; a wrong year fails silently as e
 data, which is exactly why the confirmation comes first.
 ```
 
+*MCPs used: BLS OEWS*
+
 #### Metro versus metro
 
 ```text
@@ -466,6 +542,8 @@ Compare wages for [OCCUPATION] across [METRO 1] and [METRO 2], then pull the
 national median separately as the baseline. I am deciding where a position can
 realistically be staffed.
 ```
+
+*MCPs used: BLS OEWS*
 
 #### Raw wage, your burden math
 
@@ -475,6 +553,8 @@ percentile, current data year, with no loaded-rate estimate attached. The burden
 math is mine.
 ```
 
+*MCPs used: BLS OEWS*
+
 #### Market floor against awarded ceiling
 
 ```text
@@ -483,6 +563,8 @@ standard multipliers, and where does that land against awarded CALC+ rates for t
 closest labor category?
 ```
 
+*MCPs used: BLS OEWS + GSA CALC+*
+
 #### The whole staffing picture
 
 ```text
@@ -490,6 +572,8 @@ Compare median wages for [OCCUPATION 1], [OCCUPATION 2], and [OCCUPATION 3] side
 side in [METRO]. I am pricing a mixed labor category task order and want the whole
 staffing picture in one table, not separate lookups.
 ```
+
+*MCPs used: BLS OEWS*
 
 ### GSA Per Diem
 
@@ -501,6 +585,8 @@ rate changes inside the fiscal year, and confirm which locality the rate table
 actually matched.
 ```
 
+*MCPs used: GSA Per Diem*
+
 #### Price a trip
 
 ```text
@@ -510,6 +596,8 @@ estimate prices the locality's most expensive one. I will multiply by headcount
 myself; the estimator prices one traveler.
 ```
 
+*MCPs used: GSA Per Diem*
+
 #### The ZIP fallback
 
 ```text
@@ -517,6 +605,8 @@ Look up the per diem rate for ZIP [ZIP] instead of city and state. Use this when
 a city lookup answers with an unmatched-locality warning; the ZIP path resolves the
 same rate table cleanly.
 ```
+
+*MCPs used: GSA Per Diem*
 
 ## Watching the rules
 
@@ -532,6 +622,8 @@ the latest substantive amendment date from there; the citation note baked into t
 clause text can run behind it.
 ```
 
+*MCPs used: eCFR*
+
 #### What changed in a FAR part
 
 ```text
@@ -539,6 +631,8 @@ List the sections in FAR Part [PART] that changed in the last year, then compare
 before and after on whichever look substantive. Whole-part comparisons do not work;
 it is section by section.
 ```
+
+*MCPs used: eCFR*
 
 #### Chase a FAR definition
 
@@ -551,6 +645,8 @@ looks cut off mid-list; multi-part definitions continue in clauses that never re
 the term.
 ```
 
+*MCPs used: eCFR*
+
 ### Federal Register
 
 #### What's moving on a topic
@@ -561,6 +657,8 @@ document types, ordered by relevance; the live items are often notices and RFIs,
 just proposed rules. For anything with an open comment period, give me the deadline.
 ```
 
+*MCPs used: Federal Register*
+
 #### Which agencies are moving
 
 ```text
@@ -568,6 +666,8 @@ Before reading individual documents, give me the count of Federal Register activ
 on [TOPIC] by agency for the last 12 months. 1 call, and it shows which agencies are
 actually moving before I drill into anything.
 ```
+
+*MCPs used: Federal Register*
 
 #### Track a FAR case
 
@@ -578,6 +678,8 @@ back padded with semiannual Unified Agenda notices that merely list the case amo
 hundreds; separate the documents whose title names the case from that background
 noise before summarizing.
 ```
+
+*MCPs used: Federal Register*
 
 ### Regulations.gov
 
@@ -590,6 +692,8 @@ by agency only. Give me the docket ID, or the document number when a notice carr
 no docket, and the closing date.
 ```
 
+*MCPs used: Federal Register; the Regulations.gov variant filters by agency only*
+
 #### The real FAR and DFARS pipeline
 
 ```text
@@ -599,6 +703,8 @@ codes; a case can sit under either. This is the clean pipeline view; the raw
 open-comment feed buries the 2 or 3 real rulemakings under dozens of renewals.
 ```
 
+*MCPs used: Regulations.gov*
+
 #### Who's lobbying a docket
 
 ```text
@@ -607,6 +713,8 @@ coalition, or institute to surface the organizational submitters, then pull full
 detail with attachments on the top hits. I want the industry positions with real
 names, not a random page of individual filers.
 ```
+
+*MCPs used: Regulations.gov*
 
 ## The government side: six launch lines
 
@@ -620,11 +728,15 @@ Contract types, if the shorthand is new: FFP is firm-fixed-price, T&M is time-an
 Write me a PWS for [REQUIREMENT].
 ```
 
+*Runs: the sow-pws-builder skill*
+
 #### SOO into PWS
 
 ```text
 Convert this SOO into a PWS. [PASTE SOO]
 ```
+
+*Runs: the sow-pws-builder skill*
 
 #### The FFP estimate
 
@@ -632,11 +744,15 @@ Convert this SOO into a PWS. [PASTE SOO]
 Build a firm-fixed-price IGCE for [REQUIREMENT].
 ```
 
+*Runs: the igce-builder-ffp skill*
+
 #### The T&M estimate
 
 ```text
 Build a T&M IGCE for [REQUIREMENT], [N]-year period of performance.
 ```
+
+*Runs: the igce-builder-lh-tm skill*
 
 #### The CPFF estimate
 
@@ -644,11 +760,15 @@ Build a T&M IGCE for [REQUIREMENT], [N]-year period of performance.
 Build a CPFF IGCE for [N] researchers in [CITY], [N]-year period of performance.
 ```
 
+*Runs: the igce-builder-cr skill*
+
 #### The OT cost analysis
 
 ```text
 Build an OT cost analysis for a [N]-milestone prototype effort.
 ```
+
+*Runs: the ot-cost-analysis skill*
 
 The pricing skills will check that the three pricing MCPs are connected before they start, and the scope skills end by handing their staffing table to the IGCE builders, so the chain from "write me a PWS" to a priced estimate is those prompts in sequence and nothing more.
 
