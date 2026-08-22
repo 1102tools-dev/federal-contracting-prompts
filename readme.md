@@ -1,8 +1,11 @@
 # federal-contracting-prompts
 
-Sixty-two copy-paste prompts for federal contracting research: competitor intelligence, bid decisions, recompete timing, pricing, market research, and the regulatory checks in between. Written for small businesses chasing federal work first, and for the acquisition workforce second. The 60 MCP patterns were executed against live government APIs before publishing. The two agent launch prompts were tested as menu-only entry points in Codex and Claude without making federal API calls.
+> [!IMPORTANT]
+> **Advanced MCP request library.** You do not need this repository to use a packaged 1102tools agent. Agents accept ordinary-language requests and open their own menus. Start at the [Agents page](https://1102tools.com/tools) and [How It Works](https://1102tools.com/examples) unless you deliberately maintain standalone MCP servers.
 
-**These are not standalone prompts.** They run on the eight free [federal contracting MCP servers](https://github.com/1102tools-dev/federal-contracting-mcps): SAM.gov, USASpending, GSA CALC+, BLS OEWS, GSA Per Diem, eCFR, Federal Register, and Regulations.gov, 124 tool calls total. Without the servers installed, your AI answers these prompts from memory and guesses. With them, it queries the real systems and shows you where the numbers came from. One config block installs all eight; the [universal setup guide](https://1102tools.com/downloads/1102tools-universal-setup.pdf) walks any AI through it on 11 platforms.
+Sixty-four copy-paste prompts for federal contracting research: competitor intelligence, bid decisions, recompete timing, pricing, market research, and the regulatory checks in between. Written for small businesses chasing federal work first, and for the acquisition workforce second. The 60 original MCP patterns were executed against live government APIs before publishing. Four agent launch prompts have deterministic routing contracts; the two acquisition-policy patterns remain release-candidate patterns pending the clean-client matrix.
+
+**These are not standalone prompts.** They depend on the appropriate [federal contracting MCP servers](https://github.com/1102tools-dev/federal-contracting-mcps), such as SAM.gov, USASpending, GSA CALC+, BLS OEWS, GSA Per Diem, eCFR, Federal Register, Regulations.gov, or Acquisition.gov. Without the required server, an AI may answer from memory instead of querying the named source. Standalone MCP installation is advanced and documented in each server directory.
 
 Website: [1102tools.com](https://1102tools.com)
 
@@ -19,7 +22,7 @@ Website: [1102tools.com](https://1102tools.com)
 | [Speaking the government's codes](#speaking-the-governments-codes) | 5 | NAICS and PSC, found and decoded |
 | [What should it cost](#what-should-it-cost) | 12 | Awarded rates, market wages, travel |
 | [Watching the rules](#watching-the-rules) | 9 | The FAR today, what's changing, who's fighting it |
-| [The government side](#the-government-side-six-launch-lines) | 6 | PWS, IGCE, and OT documents via the skills |
+| [Agent and skill workflows](#agent-and-skill-workflows-ten-launch-lines) | 10 | PWS, IGCE, OT, research, growth, and acquisition-policy workflows |
 
 ## How to use this library
 
@@ -30,7 +33,7 @@ A lot of this library runs the same way: the research prompts live on key-free U
 Prompts are written for one job each, and every prompt names the MCPs it uses right under it, so you know what has to be installed before you paste. Chain them: run a competitor scan, then feed what came back into the next prompt. The combination plays below show what chaining looks like when it is aimed at a bid decision.
 
 > [!NOTE]
-> **If the acronyms are new, 30 seconds of vocabulary.** An MCP server is 1 of the 8 data sources named above; each speaks for one government system. NAICS and PSC are the catalog codes for what you sell: NAICS names your industry, PSC names the service or product. A set-aside is a competition restricted to small businesses, sometimes to one SBA program: 8(a) for disadvantaged firms, HUBZone for firms in designated underutilized zones, SDVOSB for service-disabled-veteran-owned, WOSB for woman-owned. A UEI is a company's ID in SAM.gov. An IDV is an umbrella contract that task orders are placed under, and a recompete is the rebid when a contract ends. PWS, SOO, and IGCE are defined in [the government side](#the-government-side-six-launch-lines), where they are used.
+> **If the acronyms are new, 30 seconds of vocabulary.** An MCP server is a source adapter for an official federal system. NAICS and PSC are the catalog codes for what you sell: NAICS names your industry, PSC names the service or product. A set-aside is a competition restricted to small businesses, sometimes to one SBA program: 8(a) for disadvantaged firms, HUBZone for firms in designated underutilized zones, SDVOSB for service-disabled-veteran-owned, WOSB for woman-owned. A UEI is a company's ID in SAM.gov. An IDV is an umbrella contract that task orders are placed under, and a recompete is the rebid when a contract ends. PWS, SOO, and IGCE are defined in [the agent and skill workflows](#agent-and-skill-workflows-ten-launch-lines), where they are used.
 
 ## Combination plays
 
@@ -716,9 +719,9 @@ names, not a random page of individual filers.
 
 *MCPs used: Regulations.gov*
 
-## Agent and skill workflows: eight launch lines
+## Agent and skill workflows: ten launch lines
 
-The eight [1102tools skills](https://github.com/1102tools-dev/federal-contracting-skills) and four [agent packages](https://github.com/1102tools-dev/federal-contracting-agents) are different animals, and this is why the catalog above is mostly MCP prompts. A skill is launched, not prompted. Say the job and it takes over: it shows the applicable menu or asks the framing questions, walks the decision tree, pauses for approval, and produces the requested findings or artifact. The agent packages install the skill and MCP definitions together.
+Standalone [1102tools skills](https://github.com/1102tools-dev/federal-contracting-skills) and packaged [agents](https://github.com/1102tools-dev/federal-contracting-agents) are different from the MCP patterns above. A skill is launched, not prompted. Say the job and it takes over: it shows the applicable menu or asks the framing questions, walks the decision tree, pauses for approval, and produces the requested findings or artifact. An agent package brings the workflow and source connections together.
 
 Contract types, if the shorthand is new: FFP is firm-fixed-price, T&M is time-and-materials, CPFF is cost-plus-fixed-fee, OT is an other transaction agreement. And the deliverables themselves: a PWS (performance work statement) and a SOO (statement of objectives) describe the work a contract will buy, and an IGCE (independent government cost estimate) is the government's own price estimate for it. If you are bidding rather than buying, these are still your tools; they build the scope and pricing backup behind a proposal.
 
@@ -784,19 +787,37 @@ Help me find and evaluate federal growth opportunities.
 Help me conduct market research for [REQUIREMENT].
 ```
 
-*Runs: the Market Research Agent and its market-research-builder skill. The first response is the complete six-choice menu; the next stage asks separately for any existing acquisition documents.*
+*Runs: the Market Research Agent and its market-research-workflow skill. The first response is the complete six-choice menu; the next stage asks separately for any existing acquisition documents.*
+
+#### Acquisition policy menu
+
+```text
+Help me with federal acquisition policy.
+```
+
+*Documented gated-preview behavior: a vague request returns the Acquisition Policy Agent's complete ten-choice menu without retrieving a source. This is not currently an installable supported path.*
+
+#### Agency RFO status, direct route
+
+```text
+Determine the documented RFO policy status for [AGENCY] and FAR Part [NUMBER] as of
+[DATE]. The relevant procurement date is [SOLICITATION, AWARD, MODIFICATION, OR OPTION
+DATE]. Use a [GOVERNMENT / INDUSTRY / NEUTRAL] lens and keep codified text, model text,
+and the agency deviation separately classified.
+```
+
+*Documented gated-preview behavior: the Acquisition Policy Agent routes directly to agency-status mode and must not call model text operative without a documented agency deviation. This is not currently an installable supported path.*
 
 The pricing skills will check that the three pricing MCPs are connected before they start, and the scope skills end by handing their staffing table to the IGCE builders, so the chain from "write me a PWS" to a priced estimate is those prompts in sequence and nothing more.
 
 ## More info
 
-- Install everything: [the universal setup guide (PDF)](https://1102tools.com/downloads/1102tools-universal-setup.pdf), 11 platforms, drop it into your AI
+- Beginner path: [choose a packaged agent](https://1102tools.com/tools) and follow the [agent setup guide](https://1102tools.com/downloads/1102tools-agent-setup-guide.pdf)
+- Agent walkthroughs: [How It Works](https://1102tools.com/examples)
 - The servers these prompts run on: [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps)
-- The document-writing skills: [federal-contracting-skills](https://github.com/1102tools-dev/federal-contracting-skills)
-- Four public-preview agent packages: [federal-contracting-agents](https://github.com/1102tools-dev/federal-contracting-agents)
-- Tool catalog and per-server detail: [1102tools.com/tools](https://1102tools.com/tools)
-- This library as a PDF for inboxes and offline reading: [the prompt guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf)
+- The standalone workflow packages: [federal-contracting-skills](https://github.com/1102tools-dev/federal-contracting-skills)
+- Four installable public previews and the gated Acquisition Policy preview: [federal-contracting-agents](https://github.com/1102tools-dev/federal-contracting-agents)
 
 ---
 
-Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). The 60 MCP prompt patterns were executed against the live servers before publishing (suite release 1.0.x, August 2026), and the wording reflects what that testing found, including the limits. The two agent launch prompts were verified in Codex and Claude as no-call menu gates. This repository is the canonical home of the library; the PDF edition is rebuilt from it. MIT licensed. Independently developed and not endorsed by any federal agency.
+Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). The 60 original MCP prompt patterns were executed against the live servers before publishing (suite release 1.0.x, August 2026), and the wording reflects what that testing found, including the limits. The acquisition-policy launch patterns are bounded release-candidate patterns: deterministic routing tests pass, while the clean-client and live-source matrix remains open. This repository is the canonical and only maintained edition of the advanced library. MIT licensed. Independently developed and not endorsed by any federal agency.
