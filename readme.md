@@ -1,6 +1,6 @@
 # federal-contracting-prompts
 
-Sixty copy-paste prompts for federal contracting research: competitor intelligence, bid decisions, recompete timing, pricing, and the regulatory checks in between. Written for small businesses chasing federal work first, and for the acquisition workforce second. Every pattern was executed against the live government APIs before publishing, and the wording carries what that testing found, including the limits.
+Sixty-two copy-paste prompts for federal contracting research: competitor intelligence, bid decisions, recompete timing, pricing, market research, and the regulatory checks in between. Written for small businesses chasing federal work first, and for the acquisition workforce second. The 60 MCP patterns were executed against live government APIs before publishing. The two agent launch prompts were tested as menu-only entry points in Codex and Claude without making federal API calls.
 
 **These are not standalone prompts.** They run on the eight free [federal contracting MCP servers](https://github.com/1102tools-dev/federal-contracting-mcps): SAM.gov, USASpending, GSA CALC+, BLS OEWS, GSA Per Diem, eCFR, Federal Register, and Regulations.gov, 124 tool calls total. Without the servers installed, your AI answers these prompts from memory and guesses. With them, it queries the real systems and shows you where the numbers came from. One config block installs all eight; the [universal setup guide](https://1102tools.com/downloads/1102tools-universal-setup.pdf) walks any AI through it on 11 platforms.
 
@@ -716,9 +716,9 @@ names, not a random page of individual filers.
 
 *MCPs used: Regulations.gov*
 
-## The government side: six launch lines
+## Agent and skill workflows: eight launch lines
 
-The six [1102tools skills](https://github.com/1102tools-dev/federal-contracting-skills) are different animals, and this is why the catalog above is all MCPs. A skill is launched, not prompted. Say the deliverable and it takes over: it asks the framing questions, walks the decision tree, pauses for your approval, and writes the document. There is no prompt craft to teach because the interview is the craft, and the skill conducts it.
+The eight [1102tools skills](https://github.com/1102tools-dev/federal-contracting-skills) and four [agent packages](https://github.com/1102tools-dev/federal-contracting-agents) are different animals, and this is why the catalog above is mostly MCP prompts. A skill is launched, not prompted. Say the job and it takes over: it shows the applicable menu or asks the framing questions, walks the decision tree, pauses for approval, and produces the requested findings or artifact. The agent packages install the skill and MCP definitions together.
 
 Contract types, if the shorthand is new: FFP is firm-fixed-price, T&M is time-and-materials, CPFF is cost-plus-fixed-fee, OT is an other transaction agreement. And the deliverables themselves: a PWS (performance work statement) and a SOO (statement of objectives) describe the work a contract will buy, and an IGCE (independent government cost estimate) is the government's own price estimate for it. If you are bidding rather than buying, these are still your tools; they build the scope and pricing backup behind a proposal.
 
@@ -770,6 +770,22 @@ Build an OT cost analysis for a [N]-milestone prototype effort.
 
 *Runs: the ot-cost-analysis skill*
 
+#### GovCon growth menu
+
+```text
+Help me find and evaluate federal growth opportunities.
+```
+
+*Runs: the GovCon Growth Agent and its govcon-growth-workflow skill. The first response is the complete nine-choice menu; no research starts until you select a mode and approve the plan.*
+
+#### FAR Part 10 market research menu
+
+```text
+Help me conduct market research for [REQUIREMENT].
+```
+
+*Runs: the Market Research Agent and its market-research-builder skill. The first response is the complete six-choice menu; the next stage asks separately for any existing acquisition documents.*
+
 The pricing skills will check that the three pricing MCPs are connected before they start, and the scope skills end by handing their staffing table to the IGCE builders, so the chain from "write me a PWS" to a priced estimate is those prompts in sequence and nothing more.
 
 ## More info
@@ -777,10 +793,10 @@ The pricing skills will check that the three pricing MCPs are connected before t
 - Install everything: [the universal setup guide (PDF)](https://1102tools.com/downloads/1102tools-universal-setup.pdf), 11 platforms, drop it into your AI
 - The servers these prompts run on: [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps)
 - The document-writing skills: [federal-contracting-skills](https://github.com/1102tools-dev/federal-contracting-skills)
-- Pre-composed agents, coming soon: [federal-contracting-agents](https://github.com/1102tools-dev/federal-contracting-agents)
+- Four public-preview agent packages: [federal-contracting-agents](https://github.com/1102tools-dev/federal-contracting-agents)
 - Tool catalog and per-server detail: [1102tools.com/tools](https://1102tools.com/tools)
 - This library as a PDF for inboxes and offline reading: [the prompt guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf)
 
 ---
 
-Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). Every prompt pattern in this library was executed against the live servers before publishing (suite release 1.0.x, August 2026), and the wording reflects what that testing found, including the limits. This repository is the canonical home of the library; the PDF edition is rebuilt from it. MIT licensed. Independently developed and not endorsed by any federal agency.
+Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). The 60 MCP prompt patterns were executed against the live servers before publishing (suite release 1.0.x, August 2026), and the wording reflects what that testing found, including the limits. The two agent launch prompts were verified in Codex and Claude as no-call menu gates. This repository is the canonical home of the library; the PDF edition is rebuilt from it. MIT licensed. Independently developed and not endorsed by any federal agency.
