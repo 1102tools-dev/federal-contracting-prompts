@@ -795,7 +795,7 @@ Help me conduct market research for [REQUIREMENT].
 Help me with federal acquisition policy.
 ```
 
-*Public-preview behavior: the installable Acquisition Policy Agent `1.0.0-rc.2` returns its complete ten-choice menu without retrieving a source. Its complete clean-client and live-artifact matrix remains open.*
+*Stable behavior: the Acquisition Policy Agent `1.0.0` returns its complete ten-choice menu without retrieving a source. Explicitly select or invoke the installed agent first; ambient routing remains host-controlled and best effort.*
 
 #### Agency RFO status, direct route
 
@@ -806,7 +806,7 @@ DATE]. Use a [GOVERNMENT / INDUSTRY / NEUTRAL] lens and keep codified text, mode
 and the agency deviation separately classified.
 ```
 
-*Public-preview behavior: the installable Acquisition Policy Agent routes directly to agency-status mode and must not call model text operative without a documented agency deviation. Its complete clean-client and live-artifact matrix remains open.*
+*Stable behavior: the Acquisition Policy Agent routes directly to agency-status mode and must not call model text operative without a documented agency deviation.*
 
 The pricing skills will check that the three pricing MCPs are connected before they start, and the scope skills end by handing their staffing table to the IGCE builders, so the chain from "write me a PWS" to a priced estimate is those prompts in sequence and nothing more.
 
@@ -816,8 +816,8 @@ The pricing skills will check that the three pricing MCPs are connected before t
 - Agent walkthroughs: [How It Works](https://1102tools.com/examples)
 - The servers these prompts run on: [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps)
 - The standalone workflow packages: [federal-contracting-skills](https://github.com/1102tools-dev/federal-contracting-skills)
-- Five installable public previews: [federal-contracting-agents](https://github.com/1102tools-dev/federal-contracting-agents)
+- Five stable packaged agents: [federal-contracting-agents](https://github.com/1102tools-dev/federal-contracting-agents)
 
 ---
 
-Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). The 60 original MCP prompt patterns were executed against the live servers before publishing (suite release 1.0.x, August 2026), and the wording reflects what that testing found, including the limits. The acquisition-policy launch patterns are bounded release-candidate patterns: the agent and its four source connections are installable, while the complete clean-client and live-artifact matrix remains open. This repository is the canonical and only maintained edition of the advanced library. MIT licensed. Independently developed and not endorsed by any federal agency.
+Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). The 60 original MCP prompt patterns were executed against the live servers before publishing (suite release 1.0.x, August 2026), and the wording reflects what that testing found, including the limits. The five packaged agents are now the stable beginner path; this repository remains the canonical advanced MCP-oriented request library. MIT licensed. Independently developed and not endorsed by any federal agency.
