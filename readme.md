@@ -1,11 +1,14 @@
 # federal-contracting-prompts
 
 > [!IMPORTANT]
-> **Advanced MCP request library.** You do not need this repository to use a packaged 1102tools agent. Agents accept ordinary-language requests and open their own menus. Start at the [Agents page](https://1102tools.com/tools) and [How It Works](https://1102tools.com/examples) unless you deliberately maintain standalone MCP servers.
+> **No special prompt is required to start a packaged 1102tools agent.** Select the agent, press Enter or describe the job in ordinary language, and choose a numbered route. Agent `1.0.2` names the recommended product, its contents, its boundary or default, and the next gate before intake. Use the optional Agent Playbook below when you want to see the strongest version of a route before deciding what to request.
 
-Sixty-four copy-paste prompts for federal contracting research: competitor intelligence, bid decisions, recompete timing, pricing, market research, and the regulatory checks in between. Written for small businesses chasing federal work first, and for the acquisition workforce second. The 60 original MCP patterns were executed against live government APIs before publishing. Four agent launch prompts have deterministic routing contracts; the two acquisition-policy patterns remain release-candidate patterns pending the clean-client matrix.
+This repository now has two lanes:
 
-**These are not standalone prompts.** They depend on the appropriate [federal contracting MCP servers](https://github.com/1102tools-dev/federal-contracting-mcps), such as SAM.gov, USASpending, GSA CALC+, BLS OEWS, GSA Per Diem, eCFR, Federal Register, Regulations.gov, or Acquisition.gov. Without the required server, an AI may answer from memory instead of querying the named source. Standalone MCP installation is advanced and documented in each server directory.
+1. **Recommended Agent Playbook** for people using the five packaged agents. It pairs ordinary starters with ambitious requests that reveal what each menu route can produce.
+2. **Advanced Direct-MCP Library** for people deliberately operating standalone federal-data servers. The 64 audited patterns below retain their technical source instructions and now carry agent-compatibility guidance.
+
+The direct-MCP patterns depend on the appropriate [federal contracting MCP servers](https://github.com/1102tools-dev/federal-contracting-mcps), such as SAM.gov, USASpending, GSA CALC+, BLS OEWS, GSA Per Diem, eCFR, Federal Register, Regulations.gov, or Acquisition.gov. Without the required server, an AI may answer from memory instead of querying the named source. Standalone MCP installation is advanced and documented in each server directory.
 
 Website: [1102tools.com](https://1102tools.com)
 
@@ -13,7 +16,8 @@ Website: [1102tools.com](https://1102tools.com)
 
 | Section | Prompts | The job |
 |---|---|---|
-| [Combination plays](#combination-plays) | 5 | Cross-database moves aimed at a bid decision |
+| [Recommended Agent Playbook](#recommended-agent-playbook) | 33 routes | Ordinary starts, ambitious requests, expected products, and timing |
+| [Combination plays](#combination-plays) | 5 | Cross-database moves for pursuit evidence and positioning |
 | [Catching opportunities](#catching-opportunities) | 5 | Solicitations, sources sought, fresh award notices |
 | [Competitor intelligence](#competitor-intelligence) | 4 | Who wins what, where, and who they sub to |
 | [Recompete radar](#recompete-radar) | 2 | Contracts coming up for rebid |
@@ -24,20 +28,124 @@ Website: [1102tools.com](https://1102tools.com)
 | [Watching the rules](#watching-the-rules) | 9 | The FAR today, what's changing, who's fighting it |
 | [Agent and skill workflows](#agent-and-skill-workflows-ten-launch-lines) | 10 | PWS, IGCE, OT, research, growth, and acquisition-policy workflows |
 
+## Recommended Agent Playbook
+
+Use the **ordinary starter** when you launch the agent or do not yet know the best route. Use a numbered **power request** after the agent shows its menu, or immediately when you already know the route. A power request adds ambition and useful context; it does not skip readiness, research-plan approval, artifact approval, pricing-method confirmation, or a Contracting Officer or Agreements Officer decision.
+
+After a productive selection, expect these first four nonblank lines:
+
+```text
+Recommended outcome: <named chat product, .docx, .xlsx, or combined package>
+Includes: <major contents>
+Boundary/default: <recommended default and reserved decisions>
+Next: <first required fact, document, authority choice, or approval>
+```
+
+If an agent instead asks you to invent or name a report, point it back to the selected route and ask it to recommend the default product. You should not have to know the product catalog in advance.
+
+### Market Research Agent
+
+**Ordinary starter:** `Help me conduct acquisition market research.`
+
+**When to paste the power request:** after choosing the numbered route, or at launch when the route is already clear.
+
+| Route | Expected product | Ambitious power request |
+|---|---|---|
+| 1. Research and findings only | Sourced Market Research Findings in chat | `Build decision-ready findings for [REQUIREMENT]. Cover market structure, commercial availability, competition, small-business sources, comparable awards, risks, and evidence gaps. Recommend a research plan before retrieving sources.` |
+| 2. Complete report | Validated FAR Part 10 Market Research Report `.docx` | `Develop a contract-file-ready FAR Part 10 report for [REQUIREMENT]. Use supplied acquisition documents, propose the research plan, distinguish evidence from acquisition decisions, and carry approved findings into a validated DOCX.` |
+| 3. Refresh prior work | Refreshed findings or report plus change log | `Refresh this prior market research as of [DATE]. Preserve still-supported conclusions, revalidate time-sensitive evidence, identify what changed, and deliver the updated product with a before-and-after change log.` |
+| 4. Focused question | Focused Acquisition Question Analysis in chat | `Answer this focused acquisition question: [QUESTION]. Show the strongest supporting and contrary evidence, unresolved gaps, and the decision that remains with the acquisition team.` |
+| 5. Pre-Award handoff | Structured Pre-Award Market Research Handoff | `Turn the approved market-research findings into a structured Pre-Award handoff covering scope assumptions, market constraints, acquisition risks, and decisions that must remain unresolved.` |
+| 6. Help me choose | One diagnosed recommendation | `Help me choose. My objective is [OBJECTIVE], I have [MATERIAL], and I will use the result for [USE]. Recommend one route and at most one materially different alternative.` |
+
+### GovCon Growth Agent
+
+**Ordinary starter:** `Help me find and evaluate federal growth opportunities.`
+
+**When to paste the power request:** after choosing the numbered route; provide internal company context when asked because public data alone cannot make a bid decision.
+
+| Route | Expected product | Ambitious power request |
+|---|---|---|
+| 1. Opportunity discovery | Federal Opportunity Shortlist | `Find a prioritized shortlist for [COMPANY/OFFERING] across [AGENCIES/NAICS/PSC], limited to deadlines after [DATE]. Explain fit signals, competition clues, timing, evidence gaps, and the internal facts needed before pursuit.` |
+| 2. Opportunity evidence screen | Opportunity Evidence Screen | `Screen [NOTICE ID] against our capabilities, vehicles, past performance, staffing, price position, and risk tolerance. Separate public evidence from internal assumptions and stop short of a bid/no-bid verdict.` |
+| 3. Competitor intelligence | Competitor/Incumbent Intelligence Profile | `Build an evidence-based profile of [COMPANY] covering awards, customers, vehicles, partners, concentration, recent momentum, and likely exposure. Distinguish confirmed incumbency from inference.` |
+| 4. Recompete pipeline | Recompete Pipeline | `Build a recompete pipeline for [MARKET/AGENCY/COMPANY] over [HORIZON]. Reconcile end dates, likely follow-ons, incumbent evidence, vehicle context, and confidence so stale awards are not mistaken for open targets.` |
+| 5. Teaming research | Partner Shortlist or named-company Due-Diligence Profile | `Develop a partner shortlist for [PURSUIT] using capability, vehicle, geography, socioeconomic, performance, and integrity evidence, or thoroughly profile [NAMED COMPANY]. Keep responsibility and final teaming decisions with us.` |
+| 6. Agency or market intelligence | Agency/Market Intelligence Snapshot | `Map [AGENCY/MARKET] by spend, offices, NAICS/PSC, vendors, set-asides, vehicles, trends, and recent notices. End with evidence-backed positioning questions rather than a generic data dump.` |
+| 7. Labor-rate or pricing context | Labor-Rate/Pricing Context Table | `Build neutral pricing context for [ROLES/LOCATIONS/COMPANIES] using awarded ceiling rates and relevant labor-market evidence. Show distributions and assumptions without calling a proposed rate reasonable or defensible.` |
+| 8. Refresh prior work | Refreshed prior product plus change log | `Refresh this prior growth product as of [DATE]. Recheck expiring dates, active notices, registrations, awards, and other volatile facts, then provide the revised product and change log.` |
+| 9. Help me choose | One diagnosed recommendation | `Help me choose. We sell [OFFERING], our immediate objective is [OBJECTIVE], we have [MATERIAL], and the decision this will inform is [USE]. Recommend one route and at most one materially different alternative.` |
+
+### Acquisition Policy Agent
+
+**Ordinary starter:** `Help me with federal acquisition policy.`
+
+**When to paste the power request:** after choosing a route, or immediately when the regulation, agency, date, and intended use are already known.
+
+| Route | Expected product | Ambitious power request |
+|---|---|---|
+| 1. Current rule | Current Rule Explanation | `Explain the current published text for [CITATION/TOPIC] as of [DATE], including definitions, cross-references, effective text, and source hierarchy. Do not decide procurement-specific applicability.` |
+| 2. Agency status | Documented Agency Policy Status Matrix | `Determine the documented status for [AGENCY] and [FAR PART/TOPIC] as of [DATE]. Keep codified text, RFO model text, agency deviations, local policy, and unresolved gaps separately classified.` |
+| 3. Three-layer comparison | Three-Layer Policy Comparison | `Compare current codified text, RFO model text, and documented agency deviations for [TOPIC]. Show exact differences, effective dates, conflicts, and what remains nonoperative or unresolved.` |
+| 4. Regulatory change | Regulatory Change Comparison | `Compare [CITATION] between [DATE/VERSION A] and [DATE/VERSION B]. Explain additions, removals, unchanged obligations, effective timing, and likely implementation questions without legal advice.` |
+| 5. Rulemaking history | Rulemaking Timeline | `Trace [CASE/DOCKET/TOPIC] from proposed action through the latest published event. Link notices, comments, final action, effective dates, and unresolved next steps.` |
+| 6. Open rulemakings | Open Rulemaking Watchlist | `Build a watchlist for open [FAR/DFARS/AGENCY/TOPIC] rulemakings. Include comment deadlines, affected parts, stated impacts, procedural stage, and monitoring priority.` |
+| 7. Comment analysis | Public Comment Position Analysis | `Analyze comments on [DOCKET] by stakeholder group, position, evidence, and requested change. Explain the sample and avoid treating submitter volume as consensus.` |
+| 8. Impact brief | Validated Acquisition Policy Impact Brief `.docx` | `Produce a validated impact brief for [AUDIENCE] on [CHANGE]. Cover current status, timeline, affected workflows, implementation questions, risks, and actions while preserving legal and applicability boundaries.` |
+| 9. Refresh prior analysis | Refreshed analysis plus change log | `Refresh this policy analysis as of [DATE]. Revalidate operative text, notices, deviations, deadlines, and status, then provide the updated product and a change log.` |
+| 10. Help me choose | One diagnosed recommendation | `Help me choose. The issue is [TOPIC], the agency is [AGENCY], the relevant date is [DATE], I have [MATERIAL], and the result will support [USE]. Recommend one route and at most one materially different alternative.` |
+
+### Pre-Award Agent
+
+**Ordinary starter:** `Help me develop the requirement and government estimate.`
+
+**When to paste the power request:** after choosing the route. Confirm the pricing method or hybrid CLIN structure when the agent asks; that choice controls workbook routing.
+
+| Route | Expected product | Ambitious power request |
+|---|---|---|
+| 1. Scope only | Validated SOW/PWS `.docx` plus two chat-only handoffs | `Develop a measurable [SOW/PWS] for [REQUIREMENT]. Use supplied source material, separate outcomes from methods, define deliverables and standards, and provide the staffing and Section B handoffs outside the document.` |
+| 2. Pricing only | Routed IGCE `.xlsx`, separated by confirmed pricing method or hybrid CLIN | `Build an auditable IGCE for [REQUIREMENT]. Confirm FFP, LH/T&M, CR, or hybrid routing; document labor, burden, travel, materials, fee/profit, sources, and scenarios without making the Contracting Officer's price determination.` |
+| 3. End to end | SOW/PWS, approved handoffs, and routed IGCE workbook(s) | `Run the full scope-to-pricing workflow for [REQUIREMENT]. Develop and validate the work statement first, obtain approval for the handoffs, then build the correctly routed IGCE workbook or workbooks.` |
+| 4. Revise or reprice | Affected artifact rebuild plus before/after change register | `Revise this approved package for [CHANGE]. Identify every affected scope, staffing, CLIN, pricing, and source assumption, rebuild only the affected artifacts, and provide a before-and-after change register.` |
+
+### Other Transaction Agent
+
+**Ordinary starter:** `Help me develop and cost a prototype Other Transaction.`
+
+**When to paste the power request:** after choosing the route. Supply or approve the milestone structure before cost analysis; reserved Agreements Officer determinations are not inferred.
+
+| Route | Expected product | Ambitious power request |
+|---|---|---|
+| 1. Project description only | Validated OT Project Description `.docx` plus chat-only milestone handoff | `Develop a milestone-based OT project description for [PROJECT]. Define objectives, phases, deliverables, acceptance evidence, go/no-go logic, transition, and the separate milestone handoff without adding prices or making authority determinations.` |
+| 2. Cost analysis only | Milestone-based OT Cost Analysis `.xlsx` | `Build an auditable milestone cost analysis from these approved milestones: [MILESTONES]. Show labor, travel, materials, indirects, contributions, fees when applicable, funding by milestone, and scenarios without making price-reasonableness or participant-status determinations.` |
+| 3. End to end | Both validated artifacts with approved handoff carried forward | `Run the full project-description-to-cost-analysis workflow for [PROJECT]. Obtain approval of the milestone handoff before costing it, preserve all Agreements Officer boundaries, and validate both artifacts.` |
+| 4. Revise or recost | Affected artifact rebuild plus before/after milestone register | `Revise this approved OT package for [CHANGE]. Trace effects across milestones, acceptance evidence, schedule, cost, contribution, and funding, rebuild affected artifacts, and provide a before-and-after milestone register.` |
+
+### Compatibility of the 64 direct-MCP patterns
+
+The August 2026 audit classified every existing pattern against the packaged agent workflows:
+
+- **19 agent-safe unchanged:** 46-64. These requests can be pasted into the named agent; its normal gates still apply.
+- **36 usable after agent gates:** 1-3, 5-20, 22-36, and 41-42. Paste these after selecting the compatible route and answering its intake questions.
+- **6 direct-MCP-only:** 38-40 and 43-45. These are narrow BLS OEWS or GSA Per Diem operations, not agent-level products.
+- **3 rewritten for decision boundaries:** 4, 21, and 37. The original bid-verdict, responsibility, and rate-defensibility wording has been replaced below with neutral evidence or positioning requests.
+
+## Advanced Direct-MCP Library
+
 ## How to use this library
 
 Everything below is meant to be copied, pasted, and adapted. Square brackets mark the parts you replace: `[COMPANY]`, `[NAICS]`, `[STATE]`. If you do not know your NAICS or PSC code yet, the [codes prompts](#speaking-the-governments-codes) find them; run those first. They need no API key, USASpending answers both lookups, so a rate-limited SAM.gov key cannot stand between you and your own codes.
 
 A lot of this library runs the same way: the research prompts live on key-free USASpending, and SAM.gov enters when you reach live opportunities and company vetting. Your AI will usually pick the right server on its own; if it reaches for the wrong one or answers from memory, name the one you want: "use the sam-gov MCP" or "use USASpending for this." When a number matters, ask for the raw value and where it came from, and when recency matters, 1 cheap call checks when USASpending last refreshed its award data.
 
-Prompts are written for one job each, and every prompt names the MCPs it uses right under it, so you know what has to be installed before you paste. Chain them: run a competitor scan, then feed what came back into the next prompt. The combination plays below show what chaining looks like when it is aimed at a bid decision.
+Prompts are written for one job each, and every prompt names the MCPs it uses right under it, so you know what has to be installed before you paste. Chain them: run a competitor scan, then feed what came back into the next prompt. The combination plays below show what chaining looks like when it supports pursuit evidence without replacing an internal bid decision.
 
 > [!NOTE]
 > **If the acronyms are new, 30 seconds of vocabulary.** An MCP server is a source adapter for an official federal system. NAICS and PSC are the catalog codes for what you sell: NAICS names your industry, PSC names the service or product. A set-aside is a competition restricted to small businesses, sometimes to one SBA program: 8(a) for disadvantaged firms, HUBZone for firms in designated underutilized zones, SDVOSB for service-disabled-veteran-owned, WOSB for woman-owned. A UEI is a company's ID in SAM.gov. An IDV is an umbrella contract that task orders are placed under, and a recompete is the rebid when a contract ends. PWS, SOO, and IGCE are defined in [the agent and skill workflows](#agent-and-skill-workflows-ten-launch-lines), where they are used.
 
 ## Combination plays
 
-SAM.gov and USASpending answer different halves of the same question, so the strongest prompts use both. Run these as one request; your AI will make several tool calls and stitch the answer. Four of the five run on the big two alone; the pricing play reaches into GSA CALC+, and its label says so.
+SAM.gov and USASpending answer different halves of the same question, so the strongest prompts use both. Run these as one request; your AI will make several tool calls and stitch the answer. Four of the five run on the big two alone; the pricing play reaches into GSA CALC+, and its label says so. These are evidence products, not automated bid/no-bid verdicts.
 
 #### Size up a competitor
 
@@ -76,14 +184,15 @@ at [AGENCY] before.
 
 *MCPs used: SAM.gov + USASpending*
 
-#### Should I bid this?
+#### Opportunity evidence screen
 
 ```text
-Should I bid [NOTICE ID]? Pull the opportunity description from SAM.gov, then use
-USASpending to find who holds similar work at that agency under the same NAICS:
-award sizes and end dates, biggest first. Check the end dates before calling anyone
-the incumbent; an already-ended award usually means the work moved to a follow-on
-order, so look for a newer award to the same recipient before concluding they exited.
+Build an opportunity evidence screen for [NOTICE ID]. Pull the opportunity from
+SAM.gov, then use USASpending to find comparable work at that agency under the same
+NAICS, including award sizes, end dates, and evidence of a current incumbent. Keep
+public facts separate from assumptions. List the internal capability, vehicle, past
+performance, staffing, pricing, and risk-tolerance facts we still need; do not make
+the company's bid/no-bid decision from public data alone.
 ```
 
 *MCPs used: SAM.gov + USASpending*
@@ -322,14 +431,15 @@ answer.
 
 *MCPs used: SAM.gov*
 
-#### Responsibility check with FAPIIS
+#### Registration, exclusion, and integrity evidence
 
-A contracting officer's move: the responsibility determination file, in two pulls.
+Collects factual inputs for an authorized official without making the responsibility determination.
 
 ```text
-Run a vendor responsibility check on [UEI] for registration status and exclusions,
-then pull FAPIIS integrity records separately; the one-pass check does not include
-those.
+For [UEI], retrieve current SAM registration status and exclusions, then pull FAPIIS
+integrity records separately because the one-pass check does not include them. Report
+the source, date, entity match, and unresolved identity issues. Present neutral
+evidence only; do not determine present responsibility.
 ```
 
 *MCPs used: SAM.gov*
@@ -515,11 +625,13 @@ you fetched.
 
 *MCPs used: GSA CALC+*
 
-#### Is this rate defensible?
+#### Where does this rate sit?
 
 ```text
-Is $[RATE]/hr defensible for [LABOR CATEGORY]? Run a price reasonableness check
-against awarded CALC+ rates and tell me what percentile band it lands in.
+Position $[RATE]/hr for [LABOR CATEGORY] against relevant awarded CALC+ ceiling-rate
+distributions. Show the comparison set, percentile band, geography, education and
+experience differences, and data limitations. Do not call the rate defensible,
+reasonable, fair, or acceptable; leave that determination to the authorized official.
 ```
 
 *MCPs used: GSA CALC+*
@@ -795,7 +907,7 @@ Help me conduct market research for [REQUIREMENT].
 Help me with federal acquisition policy.
 ```
 
-*Stable behavior: the Acquisition Policy Agent `1.0.0` returns its complete ten-choice menu without retrieving a source. Explicitly select or invoke the installed agent first; ambient routing remains host-controlled and best effort.*
+*Stable behavior: the Acquisition Policy Agent `1.0.2` returns its complete ten-choice menu without retrieving a source. After selection it names the recommended product, contents, boundary/default, and next gate before retrieval. Explicitly select or invoke the installed agent first; ambient routing remains host-controlled and best effort.*
 
 #### Agency RFO status, direct route
 
@@ -812,7 +924,7 @@ The pricing skills will check that the three pricing MCPs are connected before t
 
 ## More info
 
-- Beginner path: [choose a packaged agent](https://1102tools.com/tools) and follow the [agent setup guide](https://1102tools.com/downloads/1102tools-agent-setup-guide.pdf)
+- Beginner path: [choose a packaged agent](https://1102tools.com/tools), review the [complete menu-to-outcome map](https://1102tools.com/tools#outcome-map-title), and follow the [agent setup guide](https://1102tools.com/downloads/1102tools-agent-setup-guide.pdf)
 - Agent walkthroughs: [How It Works](https://1102tools.com/examples)
 - The servers these prompts run on: [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps)
 - The standalone workflow packages: [federal-contracting-skills](https://github.com/1102tools-dev/federal-contracting-skills)
@@ -820,4 +932,4 @@ The pricing skills will check that the three pricing MCPs are connected before t
 
 ---
 
-Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). The 60 original MCP prompt patterns were executed against the live servers before publishing (suite release 1.0.x, August 2026), and the wording reflects what that testing found, including the limits. The five packaged agents are now the stable beginner path; this repository remains the canonical advanced MCP-oriented request library. MIT licensed. Independently developed and not endorsed by any federal agency.
+Written August 2026 by James Jenrette / [1102tools](https://1102tools.com). The 60 original MCP prompt patterns were executed against the live servers before publishing (suite release 1.0.x, August 2026), and all 64 were audited for agent compatibility before this two-lane playbook was published. The five packaged agents are the recommended path; this repository preserves the optional power-user playbook and canonical advanced direct-MCP library. MIT licensed. Independently developed and not endorsed by any federal agency.
