@@ -1,0 +1,8 @@
+# 1102tools
+
+Federal contracting MCP servers and prompts.
+
+- [Prompt library](https://github.com/1102tools-dev/federal-contracting-prompts)
+- [MCP catalog and setup](https://github.com/1102tools-dev/federal-contracting-mcps)
+- [Print guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf)
+- [Structured prompts](https://1102tools.com/prompts.json)

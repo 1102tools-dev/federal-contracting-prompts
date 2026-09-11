@@ -1,43 +1,61 @@
-# Federal contracting prompts
+# Federal contracting MCP prompts
 
-**Copy, adapt, and run federal contracting research requests with the matching MCP servers.**
+**September 2026 · Copy, paste, adapt.**
 
-Each prompt describes a specific job and names the **MCPs used** beneath it. The prompt guides your assistant; the connected MCP retrieves the official data or documents. A request can use one source or combine several.
+Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, connect the MCPs named beneath the prompt, and replace the bracketed details.
 
-[Get the MCP servers](https://github.com/1102tools-dev/federal-contracting-mcps) · [1102tools on GitHub](https://github.com/1102tools-dev)
+[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions](https://github.com/1102tools-dev/federal-contracting-mcps#install)
 
-## Which MCP does my prompt need?
+## Start here
 
-| What you want to do | MCP to connect | Matching prompts |
+1. Choose a prompt and check its **MCPs used** line.
+2. Install those servers using their individual READMEs. Configure any required API keys outside chat and confirm that your client can see the tools.
+3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.
+
+The print guide contains 54 prompts for the original eight MCP sources. The online library also includes two Acquisition.gov examples for FAR Overhaul research. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
+
+## Browse by task
+
+| Task | Prompts |
+|---|---|
+| [Combine sources](#combination-plays) | 5 |
+| [Find opportunities](#catching-opportunities) | 5 |
+| [Research competitors](#competitor-intelligence) | 4 |
+| [Track potential recompetes](#recompete-radar) | 2 |
+| [Vet companies and find teammates](#vetting-and-teaming) | 7 |
+| [Understand a market](#market-and-agency-intel) | 5 |
+| [Find the right codes](#speaking-the-governments-codes) | 5 |
+| [Compare labor rates](#gsa-calc) | 4 |
+| [Research wages](#bls-oews) | 5 |
+| [Estimate travel](#gsa-per-diem) | 3 |
+| [Read the regulations](#ecfr) | 3 |
+| [Follow published changes](#federal-register) | 3 |
+| [Explore dockets and comments](#regulationsgov) | 3 |
+| [FAR Overhaul and deviations](#far-overhaul-and-agency-deviations) | 2 |
+
+## MCPs and setup
+
+| Source | What it provides | Access |
 |---|---|---|
-| Find solicitations and check company registrations | [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | [Open prompts](#catching-opportunities) |
-| Research awards, competitors, agencies, and recompetes | [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) | [Open prompts](#competitor-intelligence) |
-| Compare awarded labor-rate ceilings | [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) | [Open prompts](#gsa-calc) |
-| Look up occupation and location wage data | [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | [Open prompts](#bls-oews) |
-| Estimate lodging and meals for travel | [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp) | [Open prompts](#gsa-per-diem) |
-| Read and compare codified FAR, DFARS, and CFR text | [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) | [Open prompts](#ecfr) |
-| Follow proposed rules, final rules, and FAR cases | [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp) | [Open prompts](#federal-register) |
-| Explore rulemaking dockets and public comments | [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp) | [Open prompts](#regulationsgov) |
-| Research FAR Overhaul model text and posted agency deviations | [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp) | [Open prompts](#far-overhaul-and-agency-deviations) |
+| [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Opportunities, entity registrations, exclusions, and contract-award records. | User API key required |
+| [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) | Awards, obligations, recipients, agencies, and reported subawards. | No user API key |
+| [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) | Awarded labor-category ceiling rates and comparison data. | No user API key |
+| [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year. | Optional key; limited keyless access |
+| [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp) | Lodging and meals-and-incidental-expense rates by locality. | Personal key recommended; shared fallback |
+| [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) | Codified regulatory text, dates, and version comparisons. | No user API key |
+| [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp) | Published rules, notices, comment periods, and FAR cases. | No user API key |
+| [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp) | Rulemaking dockets, documents, and public comments. | Personal key recommended; shared fallback |
+| [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp) | FAR Overhaul model text, posted agency deviations, and guidance. | No user API key |
 
-Connect the named servers before running a prompt. Each server's README provides its setup instructions and API-key requirements. If the tools are unavailable, the assistant should identify that gap rather than present a memory-based answer as a retrieved result.
+The individual server READMEs contain installation instructions, configuration examples, access requirements, and testing records. A prompt does not install an MCP.
 
-## How to use this library
+<a id="combination-plays"></a>
+## Combine sources
 
-Everything below is meant to be copied, pasted, and adapted. Square brackets mark the parts you replace: `[COMPANY]`, `[NAICS]`, `[STATE]`. If you do not know your NAICS or PSC code yet, the [codes prompts](#speaking-the-governments-codes) find them; run those first. They need no API key, USASpending answers both lookups, so a rate-limited SAM.gov key cannot stand between you and your own codes.
+Use multiple MCPs to connect award history, company records, and pricing context.
 
-A lot of this library runs the same way: the research prompts live on key-free USASpending, and SAM.gov enters when you reach live opportunities and company vetting. Your AI will usually pick the right server on its own; if it reaches for the wrong one or answers from memory, name the one you want: "use the sam-gov MCP" or "use USASpending for this." When a number matters, ask for the raw value and where it came from, and when recency matters, 1 cheap call checks when USASpending last refreshed its award data.
-
-Prompts are written for one job each, and every prompt names the MCPs it uses right under it, so you know what has to be installed before you paste. Chain them: run a competitor scan, then feed what came back into the next prompt. The combination plays below show what chaining looks like when it supports pursuit evidence without replacing an internal bid decision.
-
-> [!NOTE]
-> **If the acronyms are new, 30 seconds of vocabulary.** An MCP server is a source adapter for an official federal system. NAICS and PSC are the catalog codes for what you sell: NAICS names your industry, PSC names the service or product. A set-aside is a competition restricted to small businesses, sometimes to one SBA program: 8(a) for disadvantaged firms, HUBZone for firms in designated underutilized zones, SDVOSB for service-disabled-veteran-owned, WOSB for woman-owned. A UEI is a company's ID in SAM.gov. An IDV is an umbrella contract that task orders are placed under, and a recompete is the rebid when a contract ends.
-
-## Combination plays
-
-SAM.gov and USASpending answer different halves of the same question, so the strongest prompts use both. Run these as one request; your AI will make several tool calls and stitch the answer. Four of the five run on the big two alone; the pricing play reaches into GSA CALC+, and its label says so. These are evidence products, not automated bid/no-bid verdicts.
-
-#### Size up a competitor
+<a id="p01"></a>
+### Size up a competitor
 
 ```text
 Size up [COMPANY] as a competitor: their last 24 months of awards and top agencies
@@ -47,24 +65,24 @@ before picking. Finish with 2 sentences on where they are strong and where they 
 exposed.
 ```
 
-*MCPs used: USASpending + SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### The graduation window
-
-Finds 8(a) firms whose program exit and contract end dates line up. Those are the firms whose work is about to be in play.
+<a id="p02"></a>
+### The graduation window
 
 ```text
-Find 8(a) firms winning work under NAICS [NAICS]: search USASpending for awards with
-8(a) set-aside types, take the top recipients, then pull each one's SBA certification
-dates and current contract end dates. Flag firms graduating within 18 months whose
-contracts also end within 12; those are the real targets. If a firm shows no 8(a)
-certification despite winning 8(a) work, or an exit date already past, read that as
-graduated; lapsed entries can linger on the record with their dates intact.
+Find firms with 8(a) set-aside awards under NAICS [NAICS] in USASpending. Check each
+selected recipient's SBA certification dates in SAM.gov and the end dates of its
+relevant awards. Flag documented program exit dates within 18 months that overlap
+with contract end dates within 12 months. Show the dates and source records. Treat
+missing certification data as unresolved, not proof of graduation; treat an
+approaching award end as a research lead, not a confirmed recompete.
 ```
 
-*MCPs used: USASpending + SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### Vet a teammate
+<a id="p03"></a>
+### Vet a teammate
 
 ```text
 Vet [COMPANY] as a teammate: exclusions and registration expiration from SAM.gov,
@@ -72,9 +90,10 @@ then their award history from USASpending, including whether they have primed wo
 at [AGENCY] before.
 ```
 
-*MCPs used: SAM.gov + USASpending*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### Opportunity evidence screen
+<a id="p04"></a>
+### Opportunity evidence screen
 
 ```text
 Build an opportunity evidence screen for [NOTICE ID]. Pull the opportunity from
@@ -85,49 +104,29 @@ performance, staffing, pricing, and risk-tolerance facts we still need; do not m
 the company's bid/no-bid decision from public data alone.
 ```
 
-*MCPs used: SAM.gov + USASpending*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### What did the government actually pay?
+<a id="p05"></a>
+### What did the government actually pay?
 
 ```text
-What did the government actually pay for work like [REQUIREMENT]? Find comparable
-awards under NAICS [NAICS] in USASpending and label the values for what they are:
-multi-year contract ceilings, not hourly prices. Then put awarded CALC+ ceiling
-rates for the matching labor categories next to them as the per-hour benchmark.
-Scale from one, rates from the other; do not divide one by the other without a
-period of performance and staffing count you can defend.
+Find comparable federal contract awards for [REQUIREMENT] under NAICS [NAICS] in
+USASpending. Distinguish obligations, current award value, and potential ceiling
+wherever the source provides them; identify the field used for each amount. Show
+performance dates and scope differences. Compare relevant CALC+ labor-category
+ceiling rates separately. Do not convert a total award amount into an hourly price
+without a documented staffing and performance-period basis.
 ```
 
-*MCPs used: USASpending + GSA CALC+*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) + [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
-## The two databases that matter most
+<a id="catching-opportunities"></a>
+## Find opportunities
 
-Most of the value, and most of the confusion, lives in SAM.gov and USASpending. They sound interchangeable and are not. SAM.gov is the government's front door: who is registered to do business, who is excluded, and what opportunities are posted right now. USASpending is the government's receipts: every award that has already happened, who got it, from which office, and for how much. Forward-looking versus backward-looking. You market with one and you research with the other.
+Start with the requirement, deadline, and notice. Keep amendments and incomplete searches visible.
 
-| | SAM.gov | USASpending |
-|---|---|---|
-| What it is | Registration, exclusions, and posted opportunities | Award and spending history for every agency |
-| API key | Required, free, rotates every 90 days | None |
-| Rate limits | Tiered by account role; see the warning below | Generous; comfortable for deep research |
-| Freshness | Opportunities and registrations are live | Fed by FPDS on a lag, and new DoD awards are withheld from public reporting for 90 days |
-| What only it has | Exclusion records, registration status and expiration, SBA certification entry and exit dates, active solicitations, sources sought | Complete award history, subawards, recipient profiles, agency spending breakdowns, IDV structures |
-| Best at | Vetting a specific company; catching opportunities | Sizing markets and competitors; timing recompetes |
-
-**You may not need SAM.gov at all.** If the job is competitor research, market sizing, or finding out who buys what you sell, USASpending answers it with no key, no rotation, and no meaningful rate ceiling. A surprising amount of what people reach for SAM.gov to do is really an awards question, and awards live in USASpending.
-
-**You need SAM.gov when the question is about a specific company's standing or about work that has not been awarded yet.** Exclusion and debarment checks before you team. Whether a registration is active and when it expires. Small business status and SBA certifications, including when a company entered a program like 8(a) and when it exits, which used to mean a separate trip to the SBA's Dynamic Small Business Search. And the forward pipeline: solicitations, sources sought, and RFIs are posted here and nowhere else.
-
-> [!WARNING]
-> **Check your SAM.gov key tier before you rely on it.** SAM.gov keys are rate-limited by the account behind them, and the API discloses the tiers when you hit the wall: 10 requests per day for an account holding no SAM role, 1,000 per day for a personal account with a role, 10,000 for a federal system account. A 10-a-day key dies inside a single combination play from this library. The tier rides the account, not the key: regenerating keys buys you nothing, I watched 3 keys from roleless accounts hit the same wall in one evening. Blowing the cap also costs more than the day; the lockout I measured ran past the next daily reset. So the fix is roles, not keys: log in, get a role on your account, then generate the key from there. Ignore the error text's advice to switch to a system account key; system accounts are issued to government systems, not vendors. No SAM.gov account at all? Registering is free at sam.gov and can take days to weeks, so plan for it. And know the one failure with no workaround: live opportunity search exists only on SAM.gov, so when that prompt stalls on a rate limit, wait for the reset instead of hunting a reroute that does not exist.
-
-> [!IMPORTANT]
-> **The DoD delay, checked against the live data.** New DoD awards are withheld from public FPDS reporting for 90 days for operational security, and USASpending inherits that. But the picture is messier than "everything is a quarter behind": modifications and obligation activity on existing DoD contracts show up within days, and award notices posted on SAM.gov are not delayed at all. Practical reading: treat a competitor's newest DoD awards as invisible for up to 90 days, trust the activity you can see on their existing contracts, and use SAM.gov award notices when you need the fresh wins.
-
-## Catching opportunities
-
-One behavior worth knowing first: SAM marks a notice active until its archive date, so "active" does not mean the response deadline has not passed; in live testing, half the notices marked active had deadlines already behind them. The prompts below filter on the deadline, which is the date you actually care about.
-
-#### Open solicitations, deadline first
+<a id="p06"></a>
+### Open solicitations, deadline first
 
 ```text
 Search SAM.gov for solicitations and combined synopses under NAICS [NAICS] with a
@@ -137,45 +136,49 @@ still marks it active. The search filters 1 notice type per call, so expect 2
 searches merged, not 1.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### Sources sought and RFIs
-
-```text
-Find sources sought notices under NAICS [NAICS] from the last 60 days, plus anything
-titled RFI; RFI is a title word, not a notice type, so it rides on the sources sought
-search as a title check. Flag which ones close within 2 weeks. Then run it again
-under PSC [PSC] if I give you one; the filters combine as AND, so separate runs
-cover more ground than one narrow query.
-```
-
-*MCPs used: SAM.gov*
-
-#### Read one opportunity properly
+<a id="p07"></a>
+### Sources sought and RFIs
 
 ```text
-Pull the full description for opportunity [NOTICE ID] and summarize what they
-actually want, the evaluation approach if stated, and anything that looks like
-incumbent language.
+Find sources sought notices under NAICS [NAICS] from the last 60 days, then
+separately search notice titles for RFI. Identify the returned notice types and flag
+response deadlines within two weeks. If I supply PSC [PSC], run a separate PSC
+search, merge the results, and deduplicate by notice ID. Identify limits or missing
+pages instead of treating a partial search as complete.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### Fresh award notices
-
-The one place new DoD wins show up without the 90-day wait.
+<a id="p08"></a>
+### Read one opportunity properly
 
 ```text
-Show me contract award notices under NAICS [NAICS] from the last [N] days: who won,
-how much, and the award date. These post to SAM immediately, including DoD awards
-that will not hit USASpending for 90 days. Coverage is uneven by NAICS, though: a
-narrow code over a short window can legitimately return 0 or 1 notice, so widen the
-window before concluding nothing posted.
+Retrieve opportunity [NOTICE ID] from SAM.gov, including the full description when
+available. Summarize the requirement, response deadline, evaluation approach if
+stated, and any explicit incumbent references. Cite the notice and distinguish
+stated requirements from your interpretation. Identify attachments or amendments the
+MCP did not retrieve.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### One agency's postings
+<a id="p09"></a>
+### Fresh award notices
+
+```text
+Find contract award notices under NAICS [NAICS] posted to SAM.gov in the last [N]
+days. Show the winner, reported amount, award date, posting date, notice ID, and
+source link where available. Keep missing amounts or dates marked as missing. If few
+results appear, report the search coverage and offer a wider window; do not infer
+that no awards occurred or assume every award posts immediately.
+```
+
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+
+<a id="p10"></a>
+### One agency's postings
 
 ```text
 Search opportunities under NAICS [NAICS] from the last 90 days with the result limit
@@ -184,13 +187,15 @@ results. The agency filter only screens what was fetched, so if the total count 
 much larger than what came back, page through before concluding anything.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-## Competitor intelligence
+<a id="competitor-intelligence"></a>
+## Research competitors
 
-One quirk to know: date-window filters here run on when an award was last touched, not when it was signed, so "last 12 months" means recent activity, which usually is what you want anyway.
+Confirm the recipient identity before comparing customers, awards, and subcontracting records.
 
-#### Find the right recipient record
+<a id="p11"></a>
+### Find the right recipient record
 
 ```text
 Search USASpending recipients for [COMPANY] and list every match with its lifetime
@@ -200,9 +205,10 @@ pick and use it in everything that follows. If the search returns only near-miss
 try the other recipient search tool before deciding the company is not in the data.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### Their last 12 months
+<a id="p12"></a>
+### Their last 12 months
 
 ```text
 Pull [COMPANY]'s federal contract awards with activity in the last 12 months: award
@@ -210,95 +216,99 @@ ID, agency, amount, NAICS, and period of performance end date. Sort by amount. A
 "in NAICS [NAICS] only" if I want one code.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### Where their money comes from
-
-```text
-Pull [COMPANY]'s awards for the last 2 years sorted by amount, in batches of 25 to
-30 rows so nothing overflows, then tally them by awarding agency yourself and show
-me where the concentration is. There is no direct agency-breakdown-by-recipient
-call; for a company with hundreds of awards, the top 25 to 30 by dollar shows the
-real concentration, just say that is what the tally covers.
-```
-
-*MCPs used: USASpending*
-
-#### Who they sub to
+<a id="p13"></a>
+### Where their money comes from
 
 ```text
-Pull [COMPANY]'s 10 largest prime awards by amount, and check each recipient name
-actually contains the company's name; name matching can pull in joint ventures under
-a different display name. Then search subawards under each genuine award ID and
-merge the results. Who do they sub to, and for how much? Expect some of the largest
-primes to show 0 subawards on file; treat that as a reporting gap, not proof they
-self-perform everything.
+Retrieve [COMPANY]'s federal contract awards for the last two years from USASpending
+using the selected recipient record. Summarize obligations by awarding agency, with
+agency share and the underlying award count. Use compatible source filters and
+paginate as needed. If only a sample is retrieved, state its size and selection
+method and label the shares as sample shares, not the company's complete revenue
+concentration.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-> [!WARNING]
-> **Subaward data is only as good as the prime's reporting.** Primes self-report subawards through FSRS, small subcontracts below the reporting threshold often never appear, and there is no lookup for "who does this company sub under" at all; the data only travels prime-downward. A thin subaward picture may be a reporting gap, not the whole story.
-
-## Recompete radar
-
-The date filters cannot select on period of performance end dates, so the working method is sort and scan, and it works well.
-
-#### An agency's expiring contracts
+<a id="p14"></a>
+### Who they sub to
 
 ```text
-Pull [AGENCY]'s contracts under NAICS [NAICS] above $[FLOOR], sorted by end date
-descending. Drop any row with an obviously corrupted end date; they occasionally
-come back centuries off and tend to sit right at the top. Then keep paging past the
-far-future awards until the end dates fall inside the next 9 months; those are my
-recompete targets. For a broad agency and code that takes several pages, not the
-first one.
+Retrieve [COMPANY]'s ten largest prime awards from USASpending using a confirmed
+recipient identity. For each, search the reported subawards and list the prime
+award, subaward recipient, amount, and date. Keep similarly named firms and joint
+ventures separate unless identifiers establish the relationship. Empty subaward
+results mean no matching reports were returned; they do not establish that the prime
+self-performed everything.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### When a company's contracts end
+<a id="recompete-radar"></a>
+## Track potential recompetes
 
-What they will be defending, and when.
+Award end dates identify research leads. They do not guarantee a new solicitation.
+
+<a id="p15"></a>
+### An agency's expiring contracts
 
 ```text
-When do [COMPANY]'s contracts end? List their awards sorted by end date descending,
-dropping corrupted dates on sight. Their longest-remaining commitments come first;
-keep paging until the dates cross today, and stop once they fall inside the next 12
-to 24 months. That stretch is what they will be defending and when; no filter jumps
-straight to it.
+Find [AGENCY]'s contract awards under NAICS [NAICS] above $[FLOOR] with recorded
+performance end dates in the next nine months. Use USASpending's available filters
+and paginate through the results; if end dates require local filtering, explain the
+coverage. Flag implausible dates, possible follow-on awards, and option-period
+uncertainty. Present the results as potential recompete leads, not confirmed future
+solicitations.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-## Vetting and teaming
+<a id="p16"></a>
+### When a company's contracts end
 
-One naming trap: SBA program certifications live in the entity record, not in the tool named for reps and certs, which returns FAR clause responses instead. The wording below steers around it.
+```text
+List [COMPANY]'s USASpending contract awards with recorded performance end dates
+between today and [N] months from now. Sort the selected results by end date and
+report the recipient identity, award ID, agency, amount field, and end date. If the
+tool cannot filter directly by end date, paginate and filter the retrieved records.
+State incomplete coverage and distinguish award end dates from confirmed recompete
+plans.
+```
 
-#### Exclusion check
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-The standalone version of the check a contracting officer runs before award; as a vendor you run it before you put a company on your team.
+<a id="vetting-and-teaming"></a>
+## Vet companies and find teammates
+
+Use entity identifiers, registration records, and supporting evidence to build a useful shortlist.
+
+<a id="p17"></a>
+### Exclusion check
 
 ```text
 Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell me
 whether any are currently active and what they are for.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### Untangle multiple registrations
+<a id="p18"></a>
+### Untangle multiple registrations
 
 ```text
-Search SAM.gov entities for [COMPANY]. If more than one active registration comes
-back, list every UEI, CAGE code, and address before picking one; large companies
-register each location separately, and the answer changes depending on which record
-you check. Group them by mailing address to spot the headquarters, and normalize the
-punctuation first; the same address gets spelled several ways across records.
+Search SAM.gov for [COMPANY]. List each matching entity's legal name, UEI, CAGE
+code, address, and registration status before choosing a record. Group
+related-looking records for review, but do not infer headquarters or corporate
+ownership from a shared address alone. Identify which UEI best matches the company I
+mean and explain any unresolved ambiguity.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### Registration status at a glance
+<a id="p19"></a>
+### Registration status at a glance
 
 ```text
 Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does it
@@ -307,164 +317,184 @@ If more than 1 active registration exists, say how many and name the UEI you pic
 before answering.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### SBA certification dates
-
-```text
-Pull [COMPANY]'s SBA certifications from their SAM entity record, with the entry and
-exit date for each. If they are in the 8(a) program, the exit date is the graduation
-date. Expect lapses: a firm found through its old set-aside wins can show an empty
-list or an exit date already past, and the dates on the record are the authoritative
-answer.
-```
-
-*MCPs used: SAM.gov*
-
-#### Registration, exclusion, and integrity evidence
-
-Collects factual inputs for an authorized official without making the responsibility determination.
+<a id="p20"></a>
+### SBA certification dates
 
 ```text
-For [UEI], retrieve current SAM registration status and exclusions, then pull FAPIIS
-integrity records separately because the one-pass check does not include them. Report
-the source, date, entity match, and unresolved identity issues. Present neutral
-evidence only; do not determine present responsibility.
+Retrieve [COMPANY]'s SBA certification fields from its SAM.gov entity record. Report
+each listed program, status, entry date, and exit date using the source's own
+labels. Distinguish a documented date from an inferred current status. An empty
+certification list or a historical set-aside award does not by itself prove present
+eligibility, graduation, or ineligibility.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### How far back they go
+<a id="p21"></a>
+### Registration, exclusion, and integrity evidence
 
 ```text
-How far back does [COMPANY]'s federal award history actually go? Check SAM.gov
-contract awards decade by decade, FY1970 forward; the data reaches back that far
-even though most tools never look before 2008. Volumes thin out before 1980, so read
-single-digit years as archival traces, not gaps in your search.
+For [UEI], retrieve the current SAM.gov registration status and exclusions, then
+request the separately available entity integrity information. Report the source,
+retrieval date, entity match, and any access restrictions or missing records.
+Present the evidence and unresolved gaps without making a responsibility
+determination.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### Build a teaming shortlist
+<a id="p22"></a>
+### How far back they go
 
 ```text
-Search SAM.gov for active registrants in [STATE] under NAICS [NAICS], counting any
-NAICS on file rather than primary only, which surfaced 4x more firms in testing,
-holding [woman-owned / SDVOSB] status. Ask for the total count first: results come
-back 10 to a page, so tell me how many pages that implies and keep paging until done
-or I say stop, deduping by UEI since a page can repeat a record. I am building a
-teaming shortlist. For HUBZone or 8(a), name the program instead of a code: SBA
-certifications filter through their own SBA parameter, separate from the plain
-business type codes, added to the sam-gov server in August 2026, so update the
-server if that search errors. Either way, confirm the certification entry and exit
-dates on each firm's record; lapses are common.
+Research [COMPANY]'s historical contract awards in SAM.gov for [START FY] through
+[END FY], in manageable fiscal-year ranges supported by the server. Use a confirmed
+entity identifier where the tool permits it. Show the earliest returned award,
+counts by period, and query coverage. Separate unsupported date ranges, empty
+responses, and sparse reporting; do not treat the earliest returned record as the
+company's first-ever federal award.
 ```
 
-*MCPs used: SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-## Market and agency intel
-
-#### Who an agency pays under your code
+<a id="p23"></a>
+### Build a teaming shortlist
 
 ```text
-How much did [AGENCY] obligate under NAICS [NAICS] in the most recently completed
-fiscal year? Break it down by sub-agency and show the top 10 recipients. Some
-agencies report as a single flat sub-agency here, VA included; a 1-row breakdown
-means there is no further split, not that the query failed.
+Build a teaming shortlist from active SAM.gov registrants in [STATE] with NAICS
+[NAICS] anywhere on their records and [SOCIOECONOMIC STATUS]. Use the server's
+appropriate business-type or SBA-certification filter. Report the total count and
+returned page size, paginate within the agreed scope, and deduplicate by UEI. Show
+each firm's name, UEI, relevant NAICS, registration expiration, and returned
+certification status and dates. Flag missing evidence and explain search coverage.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-#### Where the work is, by state
+<a id="market-and-agency-intel"></a>
+## Understand a market
+
+Keep fiscal years, amount fields, and geography consistent when comparing spending.
+
+<a id="p24"></a>
+### Who an agency pays under your code
 
 ```text
-Show me total federal spending under NAICS [NAICS] by state for the last fiscal
-year. The geography tool returns states unsorted, so sort them by amount yourself
-before showing me. I am deciding where the work actually is.
+Show [AGENCY]'s USASpending contract obligations under NAICS [NAICS] for the most
+recently completed fiscal year. State the exact fiscal-year dates, show the
+available sub-agency breakdown, and list the top ten recipients. Distinguish a
+single returned category from complete organizational detail and identify any source
+or filter limitations.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### An agency's set-aside share
+<a id="p25"></a>
+### Where the work is, by state
 
 ```text
-What percent of [AGENCY]'s dollars under NAICS [NAICS] in the last 2 years carried a
-small business set-aside versus none? There is no direct breakdown call: run the
-NAICS total twice, once with the full small-business set-aside code list applied and
-once without, then divide. Break out [8(a) / SDVOSB / WOSB] specifically if I ask;
-each set-aside type is its own query.
+Show federal contract obligations under NAICS [NAICS] by place-of-performance state
+for the most recently completed fiscal year. State the exact period and geography
+basis, sort the states by amount, and separate unknown locations. Do not describe
+recipient headquarters spending as the location where work is performed.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### The five-year trend
-
-When I ran this one, the most recently completed year turned out to be the low point of the whole range; a single-year number would have hidden it.
+<a id="p26"></a>
+### An agency's set-aside share
 
 ```text
-Show me [AGENCY]'s obligations under NAICS [NAICS] by fiscal year for the last 5
-years. Growing, flat, or shrinking is the first bid decision, and a single-year
-number hides it.
+Estimate the share of [AGENCY]'s contract obligations under NAICS [NAICS] associated
+with small-business set-aside codes over the last two years. Use matching periods
+and award filters for numerator and denominator, list the codes included, and show
+the calculation. Keep unknown classifications separate where the source allows.
+Explain that set-aside coding is not the same measure as all awards to small
+businesses.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### The big vehicles
+<a id="p27"></a>
+### The five-year trend
 
 ```text
-List the largest IDVs under NAICS [NAICS]. For the one I pick, try the direct
-children lookup first, then a keyword search on the IDV's contract number. Both can
-come back empty on the same active vehicle; if they do, say so plainly instead of
-concluding it has no orders, because the gap is usually in how USASpending links the
-children, not in reality.
+Show [AGENCY]'s USASpending contract obligations under NAICS [NAICS] for the last
+five completed fiscal years. Give the exact fiscal years, amounts, year-over-year
+changes, and a short explanation of the trend. Keep any current partial fiscal year
+separate. Treat past obligations as market context rather than a forecast of future
+opportunities.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-## Speaking the government's codes
+<a id="p28"></a>
+### The big vehicles
 
-Nearly every prompt in this library wants a code. These find yours, and the lookups need no SAM.gov key; if a PSC search stalls on a rate limit, say "use USASpending to find the PSC code" and the same answer comes back key-free. The one exception is the chain at the end: its second half is a SAM.gov opportunity search, and that half does need the key.
+```text
+Identify large IDVs under NAICS [NAICS] in USASpending, stating the amount field and
+period used for ranking. For the vehicle I select, retrieve its detail and linked
+child awards. Use additional searches only when their relationship to the vehicle
+can be supported. Report missing links or incomplete coverage; do not conclude that
+an active vehicle has no orders solely from an empty response.
+```
 
-#### Find your NAICS
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+
+<a id="speaking-the-governments-codes"></a>
+## Find the right codes
+
+Use source references for NAICS, PSC, and size-standard research.
+
+<a id="p29"></a>
+### Find your NAICS
 
 ```text
 What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and the
 closest alternates so I do not file under the wrong one.
 ```
 
-*MCPs used: USASpending*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### The size standard
-
-The one prompt in this library with no live source behind it: no tool in the suite returns the SBA size standard table, so the answer comes from your AI's training data. Confirm the current threshold at sba.gov before you rely on it.
+<a id="p30"></a>
+### Retrieve the size standard
 
 ```text
-Look up NAICS [CODE] and tell me the SBA small business size standard for it, in
-dollars or employees, and say plainly that the figure comes from training data, not
-a live lookup, so I know to confirm it at sba.gov.
+Use the eCFR MCP to retrieve the currently available size-standard table in 13 CFR
+121.201 for NAICS [CODE]. Return the matching industry, dollar or employee
+threshold, and relevant exceptions or footnotes, with the source date and citation.
+If the table, row, or notes cannot be retrieved completely, state that limitation
+and do not supply a threshold from memory.
 ```
 
-*MCPs used: none; the answer is training data, confirm at sba.gov*
+**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
 
-#### Find your PSC
+<a id="p31"></a>
+### Find your PSC
 
 ```text
 What PSC codes cover [PLAIN-ENGLISH SERVICE]? Give me the codes and official names
 so I can search with them.
 ```
 
-*MCPs used: USASpending or SAM.gov*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### Decode a PSC
+<a id="p32"></a>
+### Decode a PSC
 
 ```text
-Look up PSC [CODE] and tell me exactly what it covers and whether it is current or
-retired.
+Use the available PSC reference tools to retrieve PSC [CODE], its official
+description, and related categories. Report active or retired status only if the
+returned reference explicitly provides it. If status or a detailed definition is
+unavailable, identify that gap instead of inferring it from a missing search result.
 ```
 
-*MCPs used: USASpending or SAM.gov*
+**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-#### Codes to opportunities, one chain
+<a id="p33"></a>
+### Codes to opportunities, one chain
 
 ```text
 Find the PSC code for [PLAIN-ENGLISH SERVICE], then search SAM.gov opportunities
@@ -472,15 +502,15 @@ under that exact code with a response deadline still open. Codes first,
 opportunities second, one chain.
 ```
 
-*MCPs used: USASpending + SAM.gov*
+**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-## What should it cost
+<a id="gsa-calc"></a>
+## Compare labor rates
 
-GSA CALC+, BLS OEWS, and GSA Per Diem answer one question from three directions: what should this cost? CALC+ is what awarded GSA Schedule (MAS) contractors carry as ceiling rates, and only them; the big direct-agency contracts are bought outside the Schedule, so read CALC+ as the rate sanity check, not a price match for any specific contract. OEWS is what the labor underneath costs on the open market. Per diem is what the travel line is allowed to be. Use these prompts to compare the pricing inputs separately before carrying them into an estimate or proposal.
+CALC+ rates are awarded ceilings. Compare like categories and disclose differences.
 
-### GSA CALC+
-
-#### Find the right labor category title
+<a id="p34"></a>
+### Find the right labor category title
 
 ```text
 I do not know GSA's exact labor category title for [ROLE]. Show me the closest
@@ -488,22 +518,23 @@ matching titles with how many rate records each carries, so I search the right
 string.
 ```
 
-*MCPs used: GSA CALC+*
+**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
-#### The rate distribution
+<a id="p35"></a>
+### The rate distribution
 
 ```text
-What do awarded GSA schedule rates look like for [LABOR CATEGORY]? Give me the
-percentile distribution and the education breakdown, then run it again filtered to
-junior and senior experience bands so I can compare. Treat exact percentile figures
-as approximate past whole dollars, and know the distribution runs on every title
-containing the phrase, not the bare title alone; check the title-count prompt above
-against it before quoting.
+Show CALC+ ceiling-rate distributions for labor-category titles matching [LABOR
+CATEGORY]. Identify the exact titles, filters, record count, and available
+percentile or summary statistics. Compare relevant education and experience groups
+using supported filters. Explain whether results combine multiple titles, and do not
+present calculated precision beyond what the source supports.
 ```
 
-*MCPs used: GSA CALC+*
+**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
-#### A company's rate card
+<a id="p36"></a>
+### A company's rate card
 
 ```text
 Pull [COMPANY]'s GSA rate card and every row whose labor category contains
@@ -513,34 +544,40 @@ server-side vendor-plus-keyword search, so the keyword screen happens on the row
 you fetched.
 ```
 
-*MCPs used: GSA CALC+*
+**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
-#### Where does this rate sit?
+<a id="p37"></a>
+### Where does this rate sit?
 
 ```text
 Position $[RATE]/hr for [LABOR CATEGORY] against relevant awarded CALC+ ceiling-rate
 distributions. Show the comparison set, percentile band, geography, education and
 experience differences, and data limitations. Do not call the rate defensible,
-reasonable, fair, or acceptable; leave that determination to the authorized official.
+reasonable, fair, or acceptable; leave that determination to the authorized
+official.
 ```
 
-*MCPs used: GSA CALC+*
+**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
-### BLS OEWS
+<a id="bls-oews"></a>
+## Research wages
 
-The built-in shortcut lists lean toward IT and professional titles; if your occupation or metro is missing from them, ask for the SOC and metro codes by name first, and read a "not in the built-in lookup" warning as not-on-the-shortlist, not wrong-number.
+BLS wages describe a labor-market input. Show the occupation, location, and data year.
 
-#### What the labor earns
+<a id="p38"></a>
+### What the labor earns
 
 ```text
-What does [OCCUPATION] earn in [METRO AREA]? Median and 75th percentile annual wage,
-current data year. Confirm the data year first; a wrong year fails silently as empty
-data, which is exactly why the confirmation comes first.
+Use BLS OEWS to find median and 75th-percentile annual wages for [OCCUPATION] in
+[METRO AREA]. Confirm the available data year, SOC code, and geographic match first.
+Report missing, suppressed, or unavailable figures explicitly, along with the source
+period; do not silently substitute a different year or location.
 ```
 
-*MCPs used: BLS OEWS*
+**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
-#### Metro versus metro
+<a id="p39"></a>
+### Metro versus metro
 
 ```text
 Compare wages for [OCCUPATION] across [METRO 1] and [METRO 2], then pull the
@@ -548,9 +585,10 @@ national median separately as the baseline. I am deciding where a position can
 realistically be staffed.
 ```
 
-*MCPs used: BLS OEWS*
+**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
-#### Raw wage, your burden math
+<a id="p40"></a>
+### Raw wage, your burden math
 
 ```text
 Give me the raw BLS wage for [OCCUPATION] in [METRO], median and 10th and 90th
@@ -558,19 +596,23 @@ percentile, current data year, with no loaded-rate estimate attached. The burden
 math is mine.
 ```
 
-*MCPs used: BLS OEWS*
+**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
-#### Market floor against awarded ceiling
+<a id="p41"></a>
+### Market floor against awarded ceiling
 
 ```text
-Cross-check [OCCUPATION] in [METRO]: what burdened rate does the BLS wage imply at
-standard multipliers, and where does that land against awarded CALC+ rates for the
-closest labor category?
+Compare the BLS OEWS wage for [OCCUPATION] in [METRO] with CALC+ ceiling rates for a
+closely matched labor category. Keep raw wages and fully burdened ceiling rates
+distinct. If showing a burdened-wage scenario, use [BURDEN MULTIPLIER] or ask me to
+supply it, and show the formula. Explain occupation, experience, geography, and
+pricing-basis differences.
 ```
 
-*MCPs used: BLS OEWS + GSA CALC+*
+**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) + [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
-#### The whole staffing picture
+<a id="p42"></a>
+### The whole staffing picture
 
 ```text
 Compare median wages for [OCCUPATION 1], [OCCUPATION 2], and [OCCUPATION 3] side by
@@ -578,83 +620,101 @@ side in [METRO]. I am pricing a mixed labor category task order and want the who
 staffing picture in one table, not separate lookups.
 ```
 
-*MCPs used: BLS OEWS*
+**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
-### GSA Per Diem
+<a id="gsa-per-diem"></a>
+## Estimate travel
 
-#### Lodging and M&IE
+Name the location and travel dates before using lodging or M&IE rates.
 
-```text
-What are the current lodging and M&IE rates for [CITY, STATE]? Note any seasonal
-rate changes inside the fiscal year, and confirm which locality the rate table
-actually matched.
-```
-
-*MCPs used: GSA Per Diem*
-
-#### Price a trip
+<a id="p43"></a>
+### Lodging and M&IE
 
 ```text
-Estimate per-traveler travel cost for [N] nights in [CITY, STATE] in [MONTH],
-including first and last day M&IE at 75 percent. Name the month; without it the
-estimate prices the locality's most expensive one. I will multiply by headcount
-myself; the estimator prices one traveler.
+Retrieve GSA lodging and M&IE rates for [CITY, STATE] in [FISCAL YEAR]. Show
+seasonal lodging changes, the matched locality, and the rate period. Identify an
+unmatched or fallback locality clearly before using the rates in an estimate.
 ```
 
-*MCPs used: GSA Per Diem*
+**MCPs used:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
 
-#### The ZIP fallback
+<a id="p44"></a>
+### Price a trip
 
 ```text
-Look up the per diem rate for ZIP [ZIP] instead of city and state. Use this whenever
-a city lookup answers with an unmatched-locality warning; the ZIP path resolves the
-same rate table cleanly.
+Estimate per-traveler lodging and M&IE for [N] nights in [CITY, STATE] during
+[MONTH, YEAR]. Use the matching fiscal-year rates, identify the locality, show the
+daily components, and apply the tool's first/last-day M&IE treatment explicitly.
+State the assumed travel days and exclude airfare and other expenses unless
+separately supplied. Ask for a date if it is missing instead of silently pricing
+another season.
 ```
 
-*MCPs used: GSA Per Diem*
+**MCPs used:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
 
-## Watching the rules
-
-eCFR, Federal Register, and Regulations.gov are the compliance and pipeline layer. eCFR settles what the rule says today. The Federal Register shows what is changing. Regulations.gov shows who is fighting about it and what they said.
-
-### eCFR
-
-#### The FAR as it reads today
+<a id="p45"></a>
+### The ZIP fallback
 
 ```text
-Quote FAR [CITATION] as it reads today. Then pull its version history and give me
-the latest substantive amendment date from there; the citation note baked into the
-clause text can run behind it.
+Look up GSA per diem for ZIP [ZIP] in [FISCAL YEAR]. Report the locality actually
+returned, lodging seasonality, and M&IE. If the ZIP lookup also falls back or fails
+to match, keep that uncertainty visible rather than treating the location as
+confirmed.
 ```
 
-*MCPs used: eCFR*
+**MCPs used:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
 
-#### What changed in a FAR part
+<a id="ecfr"></a>
+## Read the regulations
+
+Retrieve the relevant codified text and its source date; check completeness before quoting.
+
+<a id="p46"></a>
+### The FAR as it reads today
 
 ```text
-List the sections in FAR Part [PART] that changed in the last year, then compare
-before and after on whichever look substantive. Whole-part comparisons do not work;
-it is section by section.
+Retrieve FAR [CITATION] using the eCFR MCP's latest available Title 48 date. Quote
+the relevant text and provide the citation and source date. Inspect its version
+history and compare relevant revisions before calling a change substantive;
+distinguish publication, amendment, effective, and retrieval dates when the source
+supplies them.
 ```
 
-*MCPs used: eCFR*
+**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
 
-#### Chase a FAR definition
+<a id="p47"></a>
+### What changed in a FAR part
 
 ```text
-Find where the FAR defines [TERM], then pull the full text of that section so I get
-the complete definition with its citation, unless the term lives in FAR 2.101: that
-section runs past 100,000 characters and the pull can fail outright. For 2.101
-terms, list the matched paragraphs in order instead and tell me if the last one
-looks cut off mid-list; multi-part definitions continue in clauses that never repeat
-the term.
+Find sections in FAR Part [PART] with eCFR version changes in the last year, then
+compare before and after section by section for the changes relevant to [TOPIC].
+State the dates used and distinguish substantive wording changes from editorial or
+structural changes. Identify incomplete comparisons rather than claiming the entire
+part was reviewed.
 ```
 
-*MCPs used: eCFR*
+**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
 
-### Federal Register
+<a id="p48"></a>
+### Chase a FAR definition
 
-#### What's moving on a topic
+```text
+Find the FAR definition of [TERM] using the eCFR MCP. Retrieve the relevant section
+or complete matching definition, including numbered subparagraphs and exceptions.
+Give the citation and source date. If a large section such as FAR 2.101 is
+truncated, identify the missing portion and do not present a partial definition as
+complete.
+```
+
+**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+
+<a id="federal-register"></a>
+## Follow published changes
+
+Separate direct rulemaking documents from related mentions and background notices.
+
+<a id="p49"></a>
+### What's moving on a topic
 
 ```text
 Search Federal Register documents on [TOPIC] from the last 6 months across all
@@ -662,33 +722,40 @@ document types, ordered by relevance; the live items are often notices and RFIs,
 just proposed rules. For anything with an open comment period, give me the deadline.
 ```
 
-*MCPs used: Federal Register*
+**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
 
-#### Which agencies are moving
-
-```text
-Before reading individual documents, give me the count of Federal Register activity
-on [TOPIC] by agency for the last 12 months. 1 call, and it shows which agencies are
-actually moving before I drill into anything.
-```
-
-*MCPs used: Federal Register*
-
-#### Track a FAR case
+<a id="p50"></a>
+### Which agencies are moving
 
 ```text
-Track FAR Case [NUMBER]: every Federal Register document in its history, in order,
-with where it stands now, including whether it was withdrawn. The full history comes
-back padded with semiannual Unified Agenda notices that merely list the case among
-hundreds; separate the documents whose title names the case from that background
-noise before summarizing.
+Count Federal Register documents on [TOPIC] by agency for the last twelve months
+using the available facet tools. State the date range, search terms, document types,
+and returned counts. Use the result to choose which agencies to examine next; a
+count alone does not indicate the significance of a policy change.
 ```
 
-*MCPs used: Federal Register*
+**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
 
-### Regulations.gov
+<a id="p51"></a>
+### Track a FAR case
 
-#### Open for comment right now
+```text
+Trace FAR Case [NUMBER] through Federal Register documents in date order. Separate
+documents directly addressing the case from Unified Agenda entries or other notices
+that merely mention it. Show proposed, final, withdrawn, and effective-date
+information only where supported, with source links and any gaps in the retrieved
+history.
+```
+
+**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+
+<a id="regulationsgov"></a>
+## Explore dockets and comments
+
+Make the docket, deadline, sample, and supporting documents clear.
+
+<a id="p52"></a>
+### Open for comment right now
 
 ```text
 What is open for comment right now on [TOPIC]? Use the Federal Register's open
@@ -697,35 +764,44 @@ by agency only. Give me the docket ID, or the document number when a notice carr
 no docket, and the closing date.
 ```
 
-*MCPs used: Federal Register; the Regulations.gov variant filters by agency only*
+**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
 
-#### The real FAR and DFARS pipeline
-
-```text
-Show me FAR and DFARS proposed rules with an open comment period right now,
-filtering out the routine paperwork notices, and check both the FAR and DARS agency
-codes; a case can sit under either. This is the clean pipeline view; the raw
-open-comment feed buries the 2 or 3 real rulemakings under dozens of renewals.
-```
-
-*MCPs used: Regulations.gov*
-
-#### Who's lobbying a docket
+<a id="p53"></a>
+### The real FAR and DFARS pipeline
 
 ```text
-On docket [DOCKET ID], search the comments for words like association, chamber,
-coalition, or institute to surface the organizational submitters, then pull full
-detail with attachments on the top hits. I want the industry positions with real
-names, not a random page of individual filers.
+Find FAR and DFARS proposed rules with open comment periods using the
+Regulations.gov MCP's available agency and document filters. Check the relevant FAR
+and DARS agency codes, then distinguish actual proposed rule changes from routine
+information-collection notices. Return the docket or document ID, title, closing
+date, source link, and any filter or coverage limitations.
 ```
 
-*MCPs used: Regulations.gov*
+**MCPs used:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
 
-## FAR Overhaul and agency deviations
+<a id="p54"></a>
+### Who's lobbying a docket
 
-Use Acquisition.gov for FAR Overhaul model text and the posted agency-deviation index. Use eCFR alongside it when you need a comparison with codified text. A model part alone does not establish adoption by an agency.
+```text
+For docket [DOCKET ID], search Regulations.gov comments for organizational
+submitters, including terms such as association, chamber, coalition, or institute.
+Retrieve details and attachment references for the relevant matches. Summarize each
+identified organization's position with citations, distinguish names from verified
+affiliations, and explain the selection method. Do not treat this keyword sample as
+all comments or a measure of consensus.
+```
 
-#### Find the model text and the agency's posted deviation
+**MCPs used:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
+
+<a id="far-overhaul-and-agency-deviations"></a>
+## FAR Overhaul and deviations
+
+Additional online examples for Acquisition.gov. Kept outside the eight-source print guide.
+
+These two examples have not been live-tested as part of this guide refresh.
+
+<a id="p55"></a>
+### Find the model text and the agency's posted deviation
 
 ```text
 Use the Acquisition.gov MCP to retrieve the FAR Overhaul model text for FAR Part
@@ -736,28 +812,23 @@ text separate from the agency's documented action, and clearly identify missing 
 conflicting evidence. Do not decide which rule governs my procurement.
 ```
 
-*MCPs used: Acquisition.gov*
+**MCPs used:** [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
 
-#### Compare codified text, model text, and an agency deviation
+<a id="p56"></a>
+### Compare codified text, model text, and an agency deviation
 
 ```text
 Compare the current codified text for FAR [CITATION] using eCFR with the relevant
-FAR Overhaul model part and [AGENCY]'s posted deviation using Acquisition.gov.
-Show the three sources separately, cite exact sections or PDF pages, and explain
-the differences. Include retrieval dates and document-stated dates. Do not treat
-model text as agency adoption or infer applicability from a filename.
+FAR Overhaul model part and [AGENCY]'s posted deviation using Acquisition.gov. Show
+the three sources separately, cite exact sections or PDF pages, and explain the
+differences. Include retrieval dates and document-stated dates. Do not treat model
+text as agency adoption or infer applicability from a filename.
 ```
 
-*MCPs used: eCFR + Acquisition.gov*
+**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) + [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
 
-These two FAR Overhaul examples describe the published server tools; they have not been live-tested as part of this README update.
+## Maintaining this library
 
-## Source setup and project information
+Edit `catalog/prompts.json`, then run `python tools/build.py`. The README, PDF, and website are generated from that one file. `python tools/build.py --check` verifies that generated copies match. See [maintenance notes](MAINTAINING.md).
 
-- [MCP server catalog and setup](https://github.com/1102tools-dev/federal-contracting-mcps)
-- [1102tools GitHub profile](https://github.com/1102tools-dev)
-- The [website](https://1102tools.com) is temporarily under construction. Use GitHub for the library and setup instructions.
-
-The existing direct-MCP research requests are retained from the earlier library; this documentation update is not a fresh live validation of every prompt or upstream source. Confirm current tool availability, returned dates, and source limitations when you use them.
-
-MIT licensed. Written by James Jenrette. Independently developed and not endorsed by any federal agency.
+MIT licensed. Built by James Jenrette. Independently developed and not affiliated with or endorsed by any federal agency.
