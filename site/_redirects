@@ -8,3 +8,6 @@
 /about.html / 302
 /install /#mcps 302
 /downloads/1102tools-mcp-prompt-guide.pdf /downloads/1102tools-prompt-guide.pdf 302
+/downloads/1102tools-agent-setup-guide.pdf /#guide 302
+/downloads/1102tools-universal-setup-guide.pdf /#mcps 302
+/.well-known/agent-skills/* /retired-content 302
