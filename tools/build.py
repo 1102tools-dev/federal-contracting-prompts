@@ -23,11 +23,15 @@ def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
 def readme():
     lines=['# Federal contracting MCP prompts','',f"**{DATA['edition']} · Copy, paste, adapt.**",'',
-    'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, connect the MCPs named beneath the prompt, and replace the bracketed details.','',
+    'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions]('+MR+'#install)','',
-    '## Start here','','1. Choose a prompt and check its **MCPs used** line.','2. Install those servers using their individual READMEs. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
+    '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
     'The print guide contains 54 prompts for the original eight MCP sources. The online library also includes two Acquisition.gov examples for FAR Overhaul research. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
-    '## Browse by task','','| Task | Prompts |','|---|---|']
+    ]
+    lines+=['## Available in ChatGPT','','USAspending, GSA CALC+, and eCFR are also available as published plugins in the ChatGPT directory. Open a listing to install and connect it; no user API key or local Python setup is required.','','| Plugin | Install |','|---|---|']
+    for server in DATA['servers']:
+        if server.get('directory_url'):lines.append(f"| {server['name']} | [Install in ChatGPT]({server['directory_url']}) |")
+    lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
         lines.append(f"| [{sec['title']}](#{sec['id']}) | {len(ps)} |")
@@ -39,7 +43,7 @@ def readme():
         if sec['id']=='far-overhaul-and-agency-deviations':lines+=['These two examples have not been live-tested as part of this guide refresh.','']
         for p in DATA['prompts']:
             if p['category']!=sec['id']:continue
-            lines += [f'<a id="{p["id"]}"></a>',f"### {p['title']}",'','```text',textwrap.fill(p['text'],width=84,break_long_words=False,break_on_hyphens=False),'```','',f"**MCPs used:** {linklabel(p)}",'']
+            lines += [f'<a id="{p["id"]}"></a>',f"### {p['title']}",'','```text',textwrap.fill(p['text'],width=84,break_long_words=False,break_on_hyphens=False),'```','',f"**Required MCPs:** {linklabel(p)}",'']
     lines+=['## Maintaining this library','','Edit `catalog/prompts.json`, then run `python tools/build.py`. The README, PDF, and website are generated from that one file. `python tools/build.py --check` verifies that generated copies match. See [maintenance notes](MAINTAINING.md).','','MIT licensed. Built by James Jenrette. Independently developed and not affiliated with or endorsed by any federal agency.','']
     return '\n'.join(lines)
 class Doc(BaseDocTemplate):

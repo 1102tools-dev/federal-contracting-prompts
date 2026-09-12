@@ -2,17 +2,29 @@
 
 **September 2026 · Copy, paste, adapt.**
 
-Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, connect the MCPs named beneath the prompt, and replace the bracketed details.
+Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, install and connect the required MCPs, and replace the bracketed details.
 
 [Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions](https://github.com/1102tools-dev/federal-contracting-mcps#install)
 
 ## Start here
 
-1. Choose a prompt and check its **MCPs used** line.
-2. Install those servers using their individual READMEs. Configure any required API keys outside chat and confirm that your client can see the tools.
+1. Choose a prompt and check its **Required MCPs** line.
+2. Use the ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.
 3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.
 
 The print guide contains 54 prompts for the original eight MCP sources. The online library also includes two Acquisition.gov examples for FAR Overhaul research. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
+
+## Available in ChatGPT
+
+USAspending, GSA CALC+, and eCFR are also available as published plugins in the ChatGPT directory. Open a listing to install and connect it; no user API key or local Python setup is required.
+
+| Plugin | Install |
+|---|---|
+| USASpending | [Install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
+| GSA CALC+ | [Install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) |
+| eCFR | [Install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) |
+
+A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
 
 ## Browse by task
 
@@ -65,7 +77,7 @@ before picking. Finish with 2 sentences on where they are strong and where they 
 exposed.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p02"></a>
 ### The graduation window
@@ -79,7 +91,7 @@ missing certification data as unresolved, not proof of graduation; treat an
 approaching award end as a research lead, not a confirmed recompete.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p03"></a>
 ### Vet a teammate
@@ -90,7 +102,7 @@ then their award history from USASpending, including whether they have primed wo
 at [AGENCY] before.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p04"></a>
 ### Opportunity evidence screen
@@ -104,7 +116,7 @@ performance, staffing, pricing, and risk-tolerance facts we still need; do not m
 the company's bid/no-bid decision from public data alone.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p05"></a>
 ### What did the government actually pay?
@@ -118,7 +130,7 @@ ceiling rates separately. Do not convert a total award amount into an hourly pri
 without a documented staffing and performance-period basis.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) + [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) + [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
 <a id="catching-opportunities"></a>
 ## Find opportunities
@@ -136,7 +148,7 @@ still marks it active. The search filters 1 notice type per call, so expect 2
 searches merged, not 1.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p07"></a>
 ### Sources sought and RFIs
@@ -149,7 +161,7 @@ search, merge the results, and deduplicate by notice ID. Identify limits or miss
 pages instead of treating a partial search as complete.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p08"></a>
 ### Read one opportunity properly
@@ -162,7 +174,7 @@ stated requirements from your interpretation. Identify attachments or amendments
 MCP did not retrieve.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p09"></a>
 ### Fresh award notices
@@ -175,7 +187,7 @@ results appear, report the search coverage and offer a wider window; do not infe
 that no awards occurred or assume every award posts immediately.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p10"></a>
 ### One agency's postings
@@ -187,7 +199,7 @@ results. The agency filter only screens what was fetched, so if the total count 
 much larger than what came back, page through before concluding anything.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="competitor-intelligence"></a>
 ## Research competitors
@@ -205,7 +217,7 @@ pick and use it in everything that follows. If the search returns only near-miss
 try the other recipient search tool before deciding the company is not in the data.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p12"></a>
 ### Their last 12 months
@@ -216,7 +228,7 @@ ID, agency, amount, NAICS, and period of performance end date. Sort by amount. A
 "in NAICS [NAICS] only" if I want one code.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p13"></a>
 ### Where their money comes from
@@ -230,7 +242,7 @@ method and label the shares as sample shares, not the company's complete revenue
 concentration.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p14"></a>
 ### Who they sub to
@@ -244,7 +256,7 @@ results mean no matching reports were returned; they do not establish that the p
 self-performed everything.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="recompete-radar"></a>
 ## Track potential recompetes
@@ -263,7 +275,7 @@ uncertainty. Present the results as potential recompete leads, not confirmed fut
 solicitations.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p16"></a>
 ### When a company's contracts end
@@ -277,7 +289,7 @@ State incomplete coverage and distinguish award end dates from confirmed recompe
 plans.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="vetting-and-teaming"></a>
 ## Vet companies and find teammates
@@ -292,7 +304,7 @@ Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell 
 whether any are currently active and what they are for.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p18"></a>
 ### Untangle multiple registrations
@@ -305,7 +317,7 @@ ownership from a shared address alone. Identify which UEI best matches the compa
 mean and explain any unresolved ambiguity.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p19"></a>
 ### Registration status at a glance
@@ -317,7 +329,7 @@ If more than 1 active registration exists, say how many and name the UEI you pic
 before answering.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p20"></a>
 ### SBA certification dates
@@ -330,7 +342,7 @@ certification list or a historical set-aside award does not by itself prove pres
 eligibility, graduation, or ineligibility.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p21"></a>
 ### Registration, exclusion, and integrity evidence
@@ -343,7 +355,7 @@ Present the evidence and unresolved gaps without making a responsibility
 determination.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p22"></a>
 ### How far back they go
@@ -357,7 +369,7 @@ responses, and sparse reporting; do not treat the earliest returned record as th
 company's first-ever federal award.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="p23"></a>
 ### Build a teaming shortlist
@@ -371,7 +383,7 @@ each firm's name, UEI, relevant NAICS, registration expiration, and returned
 certification status and dates. Flag missing evidence and explain search coverage.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
 <a id="market-and-agency-intel"></a>
 ## Understand a market
@@ -389,7 +401,7 @@ single returned category from complete organizational detail and identify any so
 or filter limitations.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p25"></a>
 ### Where the work is, by state
@@ -401,7 +413,7 @@ basis, sort the states by amount, and separate unknown locations. Do not describ
 recipient headquarters spending as the location where work is performed.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p26"></a>
 ### An agency's set-aside share
@@ -415,7 +427,7 @@ Explain that set-aside coding is not the same measure as all awards to small
 businesses.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p27"></a>
 ### The five-year trend
@@ -428,7 +440,7 @@ separate. Treat past obligations as market context rather than a forecast of fut
 opportunities.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p28"></a>
 ### The big vehicles
@@ -441,7 +453,7 @@ can be supported. Report missing links or incomplete coverage; do not conclude t
 an active vehicle has no orders solely from an empty response.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="speaking-the-governments-codes"></a>
 ## Find the right codes
@@ -456,7 +468,7 @@ What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and t
 closest alternates so I do not file under the wrong one.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p30"></a>
 ### Retrieve the size standard
@@ -469,7 +481,7 @@ If the table, row, or notes cannot be retrieved completely, state that limitatio
 and do not supply a threshold from memory.
 ```
 
-**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+**Required MCPs:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
 
 <a id="p31"></a>
 ### Find your PSC
@@ -479,7 +491,7 @@ What PSC codes cover [PLAIN-ENGLISH SERVICE]? Give me the codes and official nam
 so I can search with them.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p32"></a>
 ### Decode a PSC
@@ -491,7 +503,7 @@ returned reference explicitly provides it. If status or a detailed definition is
 unavailable, identify that gap instead of inferring it from a missing search result.
 ```
 
-**MCPs used:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p33"></a>
 ### Codes to opportunities, one chain
@@ -502,7 +514,7 @@ under that exact code with a response deadline still open. Codes first,
 opportunities second, one chain.
 ```
 
-**MCPs used:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="gsa-calc"></a>
 ## Compare labor rates
@@ -518,7 +530,7 @@ matching titles with how many rate records each carries, so I search the right
 string.
 ```
 
-**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+**Required MCPs:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
 <a id="p35"></a>
 ### The rate distribution
@@ -531,7 +543,7 @@ using supported filters. Explain whether results combine multiple titles, and do
 present calculated precision beyond what the source supports.
 ```
 
-**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+**Required MCPs:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
 <a id="p36"></a>
 ### A company's rate card
@@ -544,7 +556,7 @@ server-side vendor-plus-keyword search, so the keyword screen happens on the row
 you fetched.
 ```
 
-**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+**Required MCPs:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
 <a id="p37"></a>
 ### Where does this rate sit?
@@ -557,7 +569,7 @@ reasonable, fair, or acceptable; leave that determination to the authorized
 official.
 ```
 
-**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+**Required MCPs:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
 <a id="bls-oews"></a>
 ## Research wages
@@ -574,7 +586,7 @@ Report missing, suppressed, or unavailable figures explicitly, along with the so
 period; do not silently substitute a different year or location.
 ```
 
-**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
+**Required MCPs:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
 <a id="p39"></a>
 ### Metro versus metro
@@ -585,7 +597,7 @@ national median separately as the baseline. I am deciding where a position can
 realistically be staffed.
 ```
 
-**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
+**Required MCPs:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
 <a id="p40"></a>
 ### Raw wage, your burden math
@@ -596,7 +608,7 @@ percentile, current data year, with no loaded-rate estimate attached. The burden
 math is mine.
 ```
 
-**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
+**Required MCPs:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
 <a id="p41"></a>
 ### Market floor against awarded ceiling
@@ -609,7 +621,7 @@ supply it, and show the formula. Explain occupation, experience, geography, and
 pricing-basis differences.
 ```
 
-**MCPs used:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) + [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
+**Required MCPs:** [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) + [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
 <a id="p42"></a>
 ### The whole staffing picture
@@ -620,7 +632,7 @@ side in [METRO]. I am pricing a mixed labor category task order and want the who
 staffing picture in one table, not separate lookups.
 ```
 
-**MCPs used:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
+**Required MCPs:** [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
 
 <a id="gsa-per-diem"></a>
 ## Estimate travel
@@ -636,7 +648,7 @@ seasonal lodging changes, the matched locality, and the rate period. Identify an
 unmatched or fallback locality clearly before using the rates in an estimate.
 ```
 
-**MCPs used:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
+**Required MCPs:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
 
 <a id="p44"></a>
 ### Price a trip
@@ -650,7 +662,7 @@ separately supplied. Ask for a date if it is missing instead of silently pricing
 another season.
 ```
 
-**MCPs used:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
+**Required MCPs:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
 
 <a id="p45"></a>
 ### The ZIP fallback
@@ -662,7 +674,7 @@ to match, keep that uncertainty visible rather than treating the location as
 confirmed.
 ```
 
-**MCPs used:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
+**Required MCPs:** [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
 
 <a id="ecfr"></a>
 ## Read the regulations
@@ -680,7 +692,7 @@ distinguish publication, amendment, effective, and retrieval dates when the sour
 supplies them.
 ```
 
-**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+**Required MCPs:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
 
 <a id="p47"></a>
 ### What changed in a FAR part
@@ -693,7 +705,7 @@ structural changes. Identify incomplete comparisons rather than claiming the ent
 part was reviewed.
 ```
 
-**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+**Required MCPs:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
 
 <a id="p48"></a>
 ### Chase a FAR definition
@@ -706,7 +718,7 @@ truncated, identify the missing portion and do not present a partial definition 
 complete.
 ```
 
-**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+**Required MCPs:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
 
 <a id="federal-register"></a>
 ## Follow published changes
@@ -722,7 +734,7 @@ document types, ordered by relevance; the live items are often notices and RFIs,
 just proposed rules. For anything with an open comment period, give me the deadline.
 ```
 
-**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+**Required MCPs:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
 
 <a id="p50"></a>
 ### Which agencies are moving
@@ -734,7 +746,7 @@ and returned counts. Use the result to choose which agencies to examine next; a
 count alone does not indicate the significance of a policy change.
 ```
 
-**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+**Required MCPs:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
 
 <a id="p51"></a>
 ### Track a FAR case
@@ -747,7 +759,7 @@ information only where supported, with source links and any gaps in the retrieve
 history.
 ```
 
-**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+**Required MCPs:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
 
 <a id="regulationsgov"></a>
 ## Explore dockets and comments
@@ -764,7 +776,7 @@ by agency only. Give me the docket ID, or the document number when a notice carr
 no docket, and the closing date.
 ```
 
-**MCPs used:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+**Required MCPs:** [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
 
 <a id="p53"></a>
 ### The real FAR and DFARS pipeline
@@ -777,7 +789,7 @@ information-collection notices. Return the docket or document ID, title, closing
 date, source link, and any filter or coverage limitations.
 ```
 
-**MCPs used:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
+**Required MCPs:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
 
 <a id="p54"></a>
 ### Who's lobbying a docket
@@ -791,7 +803,7 @@ affiliations, and explain the selection method. Do not treat this keyword sample
 all comments or a measure of consensus.
 ```
 
-**MCPs used:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
+**Required MCPs:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
 
 <a id="far-overhaul-and-agency-deviations"></a>
 ## FAR Overhaul and deviations
@@ -812,7 +824,7 @@ text separate from the agency's documented action, and clearly identify missing 
 conflicting evidence. Do not decide which rule governs my procurement.
 ```
 
-**MCPs used:** [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
+**Required MCPs:** [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
 
 <a id="p56"></a>
 ### Compare codified text, model text, and an agency deviation
@@ -825,7 +837,7 @@ differences. Include retrieval dates and document-stated dates. Do not treat mod
 text as agency adoption or infer applicability from a filename.
 ```
 
-**MCPs used:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) + [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
+**Required MCPs:** [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) + [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
 
 ## Maintaining this library
 
