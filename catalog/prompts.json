@@ -17,7 +17,8 @@
       "slug": "usaspending-gov-mcp",
       "description": "Awards, obligations, recipients, agencies, and reported subawards.",
       "access": "No user API key",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp",
+      "directory_url": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799"
     },
     {
       "id": "calc",
@@ -25,7 +26,8 @@
       "slug": "gsa-calc-mcp",
       "description": "Awarded labor-category ceiling rates and comparison data.",
       "access": "No user API key",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp",
+      "directory_url": "https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1"
     },
     {
       "id": "bls",
@@ -49,7 +51,8 @@
       "slug": "ecfr-mcp",
       "description": "Codified regulatory text, dates, and version comparisons.",
       "access": "No user API key",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp",
+      "directory_url": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34"
     },
     {
       "id": "fr",
@@ -717,5 +720,6 @@
       ],
       "in_pdf": false
     }
-  ]
+  ],
+  "website_updated": "2026-09-12"
 }

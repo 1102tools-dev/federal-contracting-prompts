@@ -1,8 +1,53 @@
 # 1102tools
 
-Federal contracting MCP servers and prompts.
+> Independent, open-source MCP servers and practical prompts for federal contracting research.
 
-- [Prompt library](https://github.com/1102tools-dev/federal-contracting-prompts)
-- [MCP catalog and setup](https://github.com/1102tools-dev/federal-contracting-mcps)
-- [Print guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf)
-- [Structured prompts](https://1102tools.com/prompts.json)
+## Start here
+
+- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.
+- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.
+- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and available directory links.
+- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 54 core prompts for eight sources; excludes the two online-only Acquisition.gov examples.
+- [Prompt source repository](https://github.com/1102tools-dev/federal-contracting-prompts): canonical catalog and generated website/PDF.
+- [MCP source repository](https://github.com/1102tools-dev/federal-contracting-mcps): server implementations, installation, and testing records.
+
+## Prerequisites and scope
+
+A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.
+Some prompts combine two sources; both MCPs are required. Use published ChatGPT directory installations where listed below, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.
+These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.
+The online Acquisition.gov examples were not live-tested during this guide refresh. The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.
+
+## MCP sources
+
+- [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Opportunities, entity registrations, exclusions, and contract-award records. Access: User API key required.
+- [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key.
+  [Published ChatGPT plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
+- [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key.
+  [Published ChatGPT plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
+- [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year. Access: Optional key; limited keyless access.
+- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key recommended; shared fallback.
+- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key.
+  [Published ChatGPT plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
+- [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key.
+- [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Personal key recommended; shared fallback.
+- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key.
+
+## Browse by task
+
+- [Combine sources](https://1102tools.com/#combination-plays): Use multiple MCPs to connect award history, company records, and pricing context.
+- [Find opportunities](https://1102tools.com/#catching-opportunities): Start with the requirement, deadline, and notice. Keep amendments and incomplete searches visible.
+- [Research competitors](https://1102tools.com/#competitor-intelligence): Confirm the recipient identity before comparing customers, awards, and subcontracting records.
+- [Track potential recompetes](https://1102tools.com/#recompete-radar): Award end dates identify research leads. They do not guarantee a new solicitation.
+- [Vet companies and find teammates](https://1102tools.com/#vetting-and-teaming): Use entity identifiers, registration records, and supporting evidence to build a useful shortlist.
+- [Understand a market](https://1102tools.com/#market-and-agency-intel): Keep fiscal years, amount fields, and geography consistent when comparing spending.
+- [Find the right codes](https://1102tools.com/#speaking-the-governments-codes): Use source references for NAICS, PSC, and size-standard research.
+- [Compare labor rates](https://1102tools.com/#gsa-calc): CALC+ rates are awarded ceilings. Compare like categories and disclose differences.
+- [Research wages](https://1102tools.com/#bls-oews): BLS wages describe a labor-market input. Show the occupation, location, and data year.
+- [Estimate travel](https://1102tools.com/#gsa-per-diem): Name the location and travel dates before using lodging or M&IE rates.
+- [Read the regulations](https://1102tools.com/#ecfr): Retrieve the relevant codified text and its source date; check completeness before quoting.
+- [Follow published changes](https://1102tools.com/#federal-register): Separate direct rulemaking documents from related mentions and background notices.
+- [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
+- [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Additional online examples for Acquisition.gov. Kept outside the eight-source print guide.
+
+Website metadata updated 2026-09-12. Prompt edition: September 2026.
