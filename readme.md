@@ -20,7 +20,7 @@ USAspending, GSA CALC+, and eCFR are also available as published plugins in the 
 
 | Plugin | Install |
 |---|---|
-| USASpending | [Install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
+| USAspending | [Install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
 | GSA CALC+ | [Install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) |
 | eCFR | [Install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) |
 
@@ -50,7 +50,7 @@ A prompt does not install an MCP. Connect every source listed under **Required M
 | Source | What it provides | Access |
 |---|---|---|
 | [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Opportunities, entity registrations, exclusions, and contract-award records. | User API key required |
-| [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) | Awards, obligations, recipients, agencies, and reported subawards. | No user API key |
+| [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) | Awards, obligations, recipients, agencies, and reported subawards. | No user API key |
 | [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) | Awarded labor-category ceiling rates and comparison data. | No user API key |
 | [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year. | Optional key; limited keyless access |
 | [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp) | Lodging and meals-and-incidental-expense rates by locality. | Personal key recommended; shared fallback |
@@ -71,19 +71,19 @@ Use multiple MCPs to connect award history, company records, and pricing context
 
 ```text
 Size up [COMPANY] as a competitor: their last 24 months of awards and top agencies
-from USASpending, then their registration status, socioeconomic categories, and any
+from USAspending, then their registration status, socioeconomic categories, and any
 exclusions from SAM.gov. If SAM returns multiple registrations, say so and list them
 before picking. Finish with 2 sentences on where they are strong and where they are
 exposed.
 ```
 
-**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p02"></a>
 ### The graduation window
 
 ```text
-Find firms with 8(a) set-aside awards under NAICS [NAICS] in USASpending. Check each
+Find firms with 8(a) set-aside awards under NAICS [NAICS] in USAspending. Check each
 selected recipient's SBA certification dates in SAM.gov and the end dates of its
 relevant awards. Flag documented program exit dates within 18 months that overlap
 with contract end dates within 12 months. Show the dates and source records. Treat
@@ -91,46 +91,46 @@ missing certification data as unresolved, not proof of graduation; treat an
 approaching award end as a research lead, not a confirmed recompete.
 ```
 
-**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p03"></a>
 ### Vet a teammate
 
 ```text
 Vet [COMPANY] as a teammate: exclusions and registration expiration from SAM.gov,
-then their award history from USASpending, including whether they have primed work
+then their award history from USAspending, including whether they have primed work
 at [AGENCY] before.
 ```
 
-**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p04"></a>
 ### Opportunity evidence screen
 
 ```text
 Build an opportunity evidence screen for [NOTICE ID]. Pull the opportunity from
-SAM.gov, then use USASpending to find comparable work at that agency under the same
+SAM.gov, then use USAspending to find comparable work at that agency under the same
 NAICS, including award sizes, end dates, and evidence of a current incumbent. Keep
 public facts separate from assumptions. List the internal capability, vehicle, past
 performance, staffing, pricing, and risk-tolerance facts we still need; do not make
 the company's bid/no-bid decision from public data alone.
 ```
 
-**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p05"></a>
 ### What did the government actually pay?
 
 ```text
 Find comparable federal contract awards for [REQUIREMENT] under NAICS [NAICS] in
-USASpending. Distinguish obligations, current award value, and potential ceiling
+USAspending. Distinguish obligations, current award value, and potential ceiling
 wherever the source provides them; identify the field used for each amount. Show
 performance dates and scope differences. Compare relevant CALC+ labor-category
 ceiling rates separately. Do not convert a total award amount into an hourly price
 without a documented staffing and performance-period basis.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) + [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) + [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 
 <a id="catching-opportunities"></a>
 ## Find opportunities
@@ -210,14 +210,14 @@ Confirm the recipient identity before comparing customers, awards, and subcontra
 ### Find the right recipient record
 
 ```text
-Search USASpending recipients for [COMPANY] and list every match with its lifetime
+Search USAspending recipients for [COMPANY] and list every match with its lifetime
 award total and whether it is the parent rollup or a subsidiary record. The same
 company appears several times and the totals differ by a lot, so name the record you
 pick and use it in everything that follows. If the search returns only near-misses,
 try the other recipient search tool before deciding the company is not in the data.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p12"></a>
 ### Their last 12 months
@@ -228,13 +228,13 @@ ID, agency, amount, NAICS, and period of performance end date. Sort by amount. A
 "in NAICS [NAICS] only" if I want one code.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p13"></a>
 ### Where their money comes from
 
 ```text
-Retrieve [COMPANY]'s federal contract awards for the last two years from USASpending
+Retrieve [COMPANY]'s federal contract awards for the last two years from USAspending
 using the selected recipient record. Summarize obligations by awarding agency, with
 agency share and the underlying award count. Use compatible source filters and
 paginate as needed. If only a sample is retrieved, state its size and selection
@@ -242,13 +242,13 @@ method and label the shares as sample shares, not the company's complete revenue
 concentration.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p14"></a>
 ### Who they sub to
 
 ```text
-Retrieve [COMPANY]'s ten largest prime awards from USASpending using a confirmed
+Retrieve [COMPANY]'s ten largest prime awards from USAspending using a confirmed
 recipient identity. For each, search the reported subawards and list the prime
 award, subaward recipient, amount, and date. Keep similarly named firms and joint
 ventures separate unless identifiers establish the relationship. Empty subaward
@@ -256,7 +256,7 @@ results mean no matching reports were returned; they do not establish that the p
 self-performed everything.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="recompete-radar"></a>
 ## Track potential recompetes
@@ -268,20 +268,20 @@ Award end dates identify research leads. They do not guarantee a new solicitatio
 
 ```text
 Find [AGENCY]'s contract awards under NAICS [NAICS] above $[FLOOR] with recorded
-performance end dates in the next nine months. Use USASpending's available filters
+performance end dates in the next nine months. Use USAspending's available filters
 and paginate through the results; if end dates require local filtering, explain the
 coverage. Flag implausible dates, possible follow-on awards, and option-period
 uncertainty. Present the results as potential recompete leads, not confirmed future
 solicitations.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p16"></a>
 ### When a company's contracts end
 
 ```text
-List [COMPANY]'s USASpending contract awards with recorded performance end dates
+List [COMPANY]'s USAspending contract awards with recorded performance end dates
 between today and [N] months from now. Sort the selected results by end date and
 report the recipient identity, award ID, agency, amount field, and end date. If the
 tool cannot filter directly by end date, paginate and filter the retrieved records.
@@ -289,7 +289,7 @@ State incomplete coverage and distinguish award end dates from confirmed recompe
 plans.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="vetting-and-teaming"></a>
 ## Vet companies and find teammates
@@ -394,14 +394,14 @@ Keep fiscal years, amount fields, and geography consistent when comparing spendi
 ### Who an agency pays under your code
 
 ```text
-Show [AGENCY]'s USASpending contract obligations under NAICS [NAICS] for the most
+Show [AGENCY]'s USAspending contract obligations under NAICS [NAICS] for the most
 recently completed fiscal year. State the exact fiscal-year dates, show the
 available sub-agency breakdown, and list the top ten recipients. Distinguish a
 single returned category from complete organizational detail and identify any source
 or filter limitations.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p25"></a>
 ### Where the work is, by state
@@ -413,7 +413,7 @@ basis, sort the states by amount, and separate unknown locations. Do not describ
 recipient headquarters spending as the location where work is performed.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p26"></a>
 ### An agency's set-aside share
@@ -427,33 +427,33 @@ Explain that set-aside coding is not the same measure as all awards to small
 businesses.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p27"></a>
 ### The five-year trend
 
 ```text
-Show [AGENCY]'s USASpending contract obligations under NAICS [NAICS] for the last
+Show [AGENCY]'s USAspending contract obligations under NAICS [NAICS] for the last
 five completed fiscal years. Give the exact fiscal years, amounts, year-over-year
 changes, and a short explanation of the trend. Keep any current partial fiscal year
 separate. Treat past obligations as market context rather than a forecast of future
 opportunities.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p28"></a>
 ### The big vehicles
 
 ```text
-Identify large IDVs under NAICS [NAICS] in USASpending, stating the amount field and
+Identify large IDVs under NAICS [NAICS] in USAspending, stating the amount field and
 period used for ranking. For the vehicle I select, retrieve its detail and linked
 child awards. Use additional searches only when their relationship to the vehicle
 can be supported. Report missing links or incomplete coverage; do not conclude that
 an active vehicle has no orders solely from an empty response.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="speaking-the-governments-codes"></a>
 ## Find the right codes
@@ -468,7 +468,7 @@ What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and t
 closest alternates so I do not file under the wrong one.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p30"></a>
 ### Retrieve the size standard
@@ -491,7 +491,7 @@ What PSC codes cover [PLAIN-ENGLISH SERVICE]? Give me the codes and official nam
 so I can search with them.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p32"></a>
 ### Decode a PSC
@@ -503,7 +503,7 @@ returned reference explicitly provides it. If status or a detailed definition is
 unavailable, identify that gap instead of inferring it from a missing search result.
 ```
 
-**Required MCPs:** [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p33"></a>
 ### Codes to opportunities, one chain
@@ -514,7 +514,7 @@ under that exact code with a response deadline still open. Codes first,
 opportunities second, one chain.
 ```
 
-**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="gsa-calc"></a>
 ## Compare labor rates

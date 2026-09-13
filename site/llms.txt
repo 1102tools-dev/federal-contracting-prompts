@@ -14,7 +14,7 @@
 ## Available in the ChatGPT directory
 
 USAspending, GSA CALC+, and eCFR by 1102tools are approved and published in the ChatGPT directory. For federal spending research, labor ceiling-rate comparisons, or codified regulation research in ChatGPT, users can install the matching MCP from these direct listing links:
-- [USASpending by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
+- [USAspending by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
 - [GSA CALC+ by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [eCFR by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
 The links open the individual plugin listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.
@@ -29,7 +29,7 @@ The online Acquisition.gov examples were not live-tested during this guide refre
 ## MCP sources
 
 - [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Opportunities, entity registrations, exclusions, and contract-award records. Access: User API key required.
-- [USASpending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key.
+- [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key.
   [Published ChatGPT plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
 - [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key.
   [Published ChatGPT plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)

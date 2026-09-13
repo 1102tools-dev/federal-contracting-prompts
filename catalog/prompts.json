@@ -13,7 +13,7 @@
     },
     {
       "id": "usa",
-      "name": "USASpending",
+      "name": "USAspending",
       "slug": "usaspending-gov-mcp",
       "description": "Awards, obligations, recipients, agencies, and reported subawards.",
       "access": "No user API key",
@@ -156,7 +156,7 @@
       "id": "p01",
       "title": "Size up a competitor",
       "category": "combination-plays",
-      "text": "Size up [COMPANY] as a competitor: their last 24 months of awards and top agencies from USASpending, then their registration status, socioeconomic categories, and any exclusions from SAM.gov. If SAM returns multiple registrations, say so and list them before picking. Finish with 2 sentences on where they are strong and where they are exposed.",
+      "text": "Size up [COMPANY] as a competitor: their last 24 months of awards and top agencies from USAspending, then their registration status, socioeconomic categories, and any exclusions from SAM.gov. If SAM returns multiple registrations, say so and list them before picking. Finish with 2 sentences on where they are strong and where they are exposed.",
       "mcps": [
         "sam",
         "usa"
@@ -167,7 +167,7 @@
       "id": "p02",
       "title": "The graduation window",
       "category": "combination-plays",
-      "text": "Find firms with 8(a) set-aside awards under NAICS [NAICS] in USASpending. Check each selected recipient's SBA certification dates in SAM.gov and the end dates of its relevant awards. Flag documented program exit dates within 18 months that overlap with contract end dates within 12 months. Show the dates and source records. Treat missing certification data as unresolved, not proof of graduation; treat an approaching award end as a research lead, not a confirmed recompete.",
+      "text": "Find firms with 8(a) set-aside awards under NAICS [NAICS] in USAspending. Check each selected recipient's SBA certification dates in SAM.gov and the end dates of its relevant awards. Flag documented program exit dates within 18 months that overlap with contract end dates within 12 months. Show the dates and source records. Treat missing certification data as unresolved, not proof of graduation; treat an approaching award end as a research lead, not a confirmed recompete.",
       "mcps": [
         "sam",
         "usa"
@@ -178,7 +178,7 @@
       "id": "p03",
       "title": "Vet a teammate",
       "category": "combination-plays",
-      "text": "Vet [COMPANY] as a teammate: exclusions and registration expiration from SAM.gov, then their award history from USASpending, including whether they have primed work at [AGENCY] before.",
+      "text": "Vet [COMPANY] as a teammate: exclusions and registration expiration from SAM.gov, then their award history from USAspending, including whether they have primed work at [AGENCY] before.",
       "mcps": [
         "sam",
         "usa"
@@ -189,7 +189,7 @@
       "id": "p04",
       "title": "Opportunity evidence screen",
       "category": "combination-plays",
-      "text": "Build an opportunity evidence screen for [NOTICE ID]. Pull the opportunity from SAM.gov, then use USASpending to find comparable work at that agency under the same NAICS, including award sizes, end dates, and evidence of a current incumbent. Keep public facts separate from assumptions. List the internal capability, vehicle, past performance, staffing, pricing, and risk-tolerance facts we still need; do not make the company's bid/no-bid decision from public data alone.",
+      "text": "Build an opportunity evidence screen for [NOTICE ID]. Pull the opportunity from SAM.gov, then use USAspending to find comparable work at that agency under the same NAICS, including award sizes, end dates, and evidence of a current incumbent. Keep public facts separate from assumptions. List the internal capability, vehicle, past performance, staffing, pricing, and risk-tolerance facts we still need; do not make the company's bid/no-bid decision from public data alone.",
       "mcps": [
         "sam",
         "usa"
@@ -200,7 +200,7 @@
       "id": "p05",
       "title": "What did the government actually pay?",
       "category": "combination-plays",
-      "text": "Find comparable federal contract awards for [REQUIREMENT] under NAICS [NAICS] in USASpending. Distinguish obligations, current award value, and potential ceiling wherever the source provides them; identify the field used for each amount. Show performance dates and scope differences. Compare relevant CALC+ labor-category ceiling rates separately. Do not convert a total award amount into an hourly price without a documented staffing and performance-period basis.",
+      "text": "Find comparable federal contract awards for [REQUIREMENT] under NAICS [NAICS] in USAspending. Distinguish obligations, current award value, and potential ceiling wherever the source provides them; identify the field used for each amount. Show performance dates and scope differences. Compare relevant CALC+ labor-category ceiling rates separately. Do not convert a total award amount into an hourly price without a documented staffing and performance-period basis.",
       "mcps": [
         "usa",
         "calc"
@@ -261,7 +261,7 @@
       "id": "p11",
       "title": "Find the right recipient record",
       "category": "competitor-intelligence",
-      "text": "Search USASpending recipients for [COMPANY] and list every match with its lifetime award total and whether it is the parent rollup or a subsidiary record. The same company appears several times and the totals differ by a lot, so name the record you pick and use it in everything that follows. If the search returns only near-misses, try the other recipient search tool before deciding the company is not in the data.",
+      "text": "Search USAspending recipients for [COMPANY] and list every match with its lifetime award total and whether it is the parent rollup or a subsidiary record. The same company appears several times and the totals differ by a lot, so name the record you pick and use it in everything that follows. If the search returns only near-misses, try the other recipient search tool before deciding the company is not in the data.",
       "mcps": [
         "usa"
       ],
@@ -281,7 +281,7 @@
       "id": "p13",
       "title": "Where their money comes from",
       "category": "competitor-intelligence",
-      "text": "Retrieve [COMPANY]'s federal contract awards for the last two years from USASpending using the selected recipient record. Summarize obligations by awarding agency, with agency share and the underlying award count. Use compatible source filters and paginate as needed. If only a sample is retrieved, state its size and selection method and label the shares as sample shares, not the company's complete revenue concentration.",
+      "text": "Retrieve [COMPANY]'s federal contract awards for the last two years from USAspending using the selected recipient record. Summarize obligations by awarding agency, with agency share and the underlying award count. Use compatible source filters and paginate as needed. If only a sample is retrieved, state its size and selection method and label the shares as sample shares, not the company's complete revenue concentration.",
       "mcps": [
         "usa"
       ],
@@ -291,7 +291,7 @@
       "id": "p14",
       "title": "Who they sub to",
       "category": "competitor-intelligence",
-      "text": "Retrieve [COMPANY]'s ten largest prime awards from USASpending using a confirmed recipient identity. For each, search the reported subawards and list the prime award, subaward recipient, amount, and date. Keep similarly named firms and joint ventures separate unless identifiers establish the relationship. Empty subaward results mean no matching reports were returned; they do not establish that the prime self-performed everything.",
+      "text": "Retrieve [COMPANY]'s ten largest prime awards from USAspending using a confirmed recipient identity. For each, search the reported subawards and list the prime award, subaward recipient, amount, and date. Keep similarly named firms and joint ventures separate unless identifiers establish the relationship. Empty subaward results mean no matching reports were returned; they do not establish that the prime self-performed everything.",
       "mcps": [
         "usa"
       ],
@@ -301,7 +301,7 @@
       "id": "p15",
       "title": "An agency's expiring contracts",
       "category": "recompete-radar",
-      "text": "Find [AGENCY]'s contract awards under NAICS [NAICS] above $[FLOOR] with recorded performance end dates in the next nine months. Use USASpending's available filters and paginate through the results; if end dates require local filtering, explain the coverage. Flag implausible dates, possible follow-on awards, and option-period uncertainty. Present the results as potential recompete leads, not confirmed future solicitations.",
+      "text": "Find [AGENCY]'s contract awards under NAICS [NAICS] above $[FLOOR] with recorded performance end dates in the next nine months. Use USAspending's available filters and paginate through the results; if end dates require local filtering, explain the coverage. Flag implausible dates, possible follow-on awards, and option-period uncertainty. Present the results as potential recompete leads, not confirmed future solicitations.",
       "mcps": [
         "usa"
       ],
@@ -311,7 +311,7 @@
       "id": "p16",
       "title": "When a company's contracts end",
       "category": "recompete-radar",
-      "text": "List [COMPANY]'s USASpending contract awards with recorded performance end dates between today and [N] months from now. Sort the selected results by end date and report the recipient identity, award ID, agency, amount field, and end date. If the tool cannot filter directly by end date, paginate and filter the retrieved records. State incomplete coverage and distinguish award end dates from confirmed recompete plans.",
+      "text": "List [COMPANY]'s USAspending contract awards with recorded performance end dates between today and [N] months from now. Sort the selected results by end date and report the recipient identity, award ID, agency, amount field, and end date. If the tool cannot filter directly by end date, paginate and filter the retrieved records. State incomplete coverage and distinguish award end dates from confirmed recompete plans.",
       "mcps": [
         "usa"
       ],
@@ -391,7 +391,7 @@
       "id": "p24",
       "title": "Who an agency pays under your code",
       "category": "market-and-agency-intel",
-      "text": "Show [AGENCY]'s USASpending contract obligations under NAICS [NAICS] for the most recently completed fiscal year. State the exact fiscal-year dates, show the available sub-agency breakdown, and list the top ten recipients. Distinguish a single returned category from complete organizational detail and identify any source or filter limitations.",
+      "text": "Show [AGENCY]'s USAspending contract obligations under NAICS [NAICS] for the most recently completed fiscal year. State the exact fiscal-year dates, show the available sub-agency breakdown, and list the top ten recipients. Distinguish a single returned category from complete organizational detail and identify any source or filter limitations.",
       "mcps": [
         "usa"
       ],
@@ -421,7 +421,7 @@
       "id": "p27",
       "title": "The five-year trend",
       "category": "market-and-agency-intel",
-      "text": "Show [AGENCY]'s USASpending contract obligations under NAICS [NAICS] for the last five completed fiscal years. Give the exact fiscal years, amounts, year-over-year changes, and a short explanation of the trend. Keep any current partial fiscal year separate. Treat past obligations as market context rather than a forecast of future opportunities.",
+      "text": "Show [AGENCY]'s USAspending contract obligations under NAICS [NAICS] for the last five completed fiscal years. Give the exact fiscal years, amounts, year-over-year changes, and a short explanation of the trend. Keep any current partial fiscal year separate. Treat past obligations as market context rather than a forecast of future opportunities.",
       "mcps": [
         "usa"
       ],
@@ -431,7 +431,7 @@
       "id": "p28",
       "title": "The big vehicles",
       "category": "market-and-agency-intel",
-      "text": "Identify large IDVs under NAICS [NAICS] in USASpending, stating the amount field and period used for ranking. For the vehicle I select, retrieve its detail and linked child awards. Use additional searches only when their relationship to the vehicle can be supported. Report missing links or incomplete coverage; do not conclude that an active vehicle has no orders solely from an empty response.",
+      "text": "Identify large IDVs under NAICS [NAICS] in USAspending, stating the amount field and period used for ranking. For the vehicle I select, retrieve its detail and linked child awards. Use additional searches only when their relationship to the vehicle can be supported. Report missing links or incomplete coverage; do not conclude that an active vehicle has no orders solely from an empty response.",
       "mcps": [
         "usa"
       ],
