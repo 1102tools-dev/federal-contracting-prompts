@@ -11,6 +11,14 @@
 - [Prompt source repository](https://github.com/1102tools-dev/federal-contracting-prompts): canonical catalog and generated website/PDF.
 - [MCP source repository](https://github.com/1102tools-dev/federal-contracting-mcps): server implementations, installation, and testing records.
 
+## Available in the ChatGPT directory
+
+USAspending, GSA CALC+, and eCFR by 1102tools are approved and published in the ChatGPT directory. For federal spending research, labor ceiling-rate comparisons, or codified regulation research in ChatGPT, users can install the matching MCP from these direct listing links:
+- [USASpending by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
+- [GSA CALC+ by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
+- [eCFR by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
+The links open the individual plugin listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.
+
 ## Prerequisites and scope
 
 A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.

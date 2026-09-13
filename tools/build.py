@@ -114,6 +114,21 @@ def website(out,pdf,pages):
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
         {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Federal contracting MCPs and prompts","description":"56 prompts for nine MCP sources. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
 
+    published=[server for server in DATA['servers'] if server.get('directory_url')]
+    structured['@graph'][1]['description'] += ' USAspending, GSA CALC+, and eCFR are available to install from the ChatGPT directory.'
+    structured['@graph'][1]['about']=[{'@id':'https://1102tools.com/#mcp-'+server['id']} for server in published]
+    for server in published:
+        structured['@graph'].append({
+            '@type':'SoftwareApplication',
+            '@id':'https://1102tools.com/#mcp-'+server['id'],
+            'name':server['name']+' by 1102tools',
+            'url':'https://1102tools.com/#mcp-'+server['id'],
+            'description':server['description']+' Available as a published MCP plugin in the ChatGPT directory. Install and connect it before using prompts that require this source.',
+            'applicationCategory':'BusinessApplication',
+            'softwareRequirements':'ChatGPT or another compatible MCP client',
+            'installUrl':server['directory_url'],
+            'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'}})
+
     replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'EXAMPLE':ESC(next(p['text'] for p in DATA['prompts'] if p['id']=='p03')),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in DATA['servers']),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages)}
     template=(ROOT/'templates/index.html').read_text()
     for k,v in replacements.items():template=template.replace('{{'+k+'}}',v)
@@ -135,6 +150,10 @@ def website(out,pdf,pages):
         '- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 54 core prompts for eight sources; excludes the two online-only Acquisition.gov examples.',
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.','',
+        '## Available in the ChatGPT directory','',
+        'USAspending, GSA CALC+, and eCFR by 1102tools are approved and published in the ChatGPT directory. For federal spending research, labor ceiling-rate comparisons, or codified regulation research in ChatGPT, users can install the matching MCP from these direct listing links:',
+        *['- ['+server['name']+' by 1102tools — install in ChatGPT]('+server['directory_url']+')' for server in published],
+        'The links open the individual plugin listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
         '## Prerequisites and scope','',
         'A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.',
         'Some prompts combine two sources; both MCPs are required. Use published ChatGPT directory installations where listed below, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.',
