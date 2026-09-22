@@ -107,7 +107,9 @@ def website(out,pdf,pages):
         note='<p class="online-note">Additional online examples; not live-tested as part of this guide refresh.</p>' if sec['id'].startswith('far-overhaul') else ''
         groups.append(f'<section class="prompt-group" id="{sec["id"]}"><div class="group-heading"><span>{n:02}</span><h3>{ESC(sec["title"])}</h3></div>{note}<div class="prompt-grid">'+''.join(cards)+'</div></section>')
     cards=[]
-    for i,s in enumerate(DATA['servers'],1):
+    source_order=('usa','calc','ecfr','fr','acq','sam','bls','travel','regs')
+    for i,source_id in enumerate(source_order,1):
+        s=SERVERS[source_id]
         directory=f'<a class="directory-link" href="{s["directory_url"]}">Install in ChatGPT ↗</a>' if s.get('directory_url') else ''
         cards.append(f'<article class="server-card" id="mcp-{s["id"]}"><span>SOURCE {i:02}</span><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p><small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
