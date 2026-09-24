@@ -19,18 +19,22 @@ PR='https://github.com/1102tools-dev/federal-contracting-prompts'
 MR='https://github.com/1102tools-dev/federal-contracting-mcps'
 ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
+SOURCE_ORDER=('usa','calc','ecfr','fr','acq','sam','bls','travel','regs')
+DIRECTORIES=(('chatgpt','ChatGPT'),('claude','Claude'))
+def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
+def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
 def readme():
     lines=['# Federal contracting MCP prompts','',f"**{DATA['edition']} · Copy, paste, adapt.**",'',
     'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions]('+MR+'#install)','',
-    '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
+    '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the ChatGPT and Claude directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
     'The print guide contains 54 prompts for the original eight MCP sources. The online library also includes two Acquisition.gov examples for FAR Overhaul research. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
-    lines+=['## Available in ChatGPT','','USAspending, GSA CALC+, and eCFR are also available as published plugins in the ChatGPT directory. Open a listing to install and connect it; no user API key or local Python setup is required.','','| Plugin | Install |','|---|---|']
-    for server in DATA['servers']:
-        if server.get('directory_url'):lines.append(f"| {server['name']} | [Install in ChatGPT]({server['directory_url']}) |")
+    lines+=['## Available in ChatGPT and Claude','','Select MCPs are published in the ChatGPT and Claude directories. Open a listing to install and connect it; no user API key or local Python setup is required.','','| MCP | ChatGPT | Claude |','|---|---|---|']
+    for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
+        lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]})" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+' |')
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
@@ -78,7 +82,7 @@ def build_pdf(dest):
         for s in DATA['servers'][i:i+2]:row.append([Paragraph(ESC(s['name']),styles['title']),Paragraph(ESC(s['description']),styles['small'])])
         grid.append(row)
     table=Table(grid,colWidths=[254,254]);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.5,LINE),('LEFTPADDING',(0,0),(-1,-1),14),('RIGHTPADDING',(0,0),(-1,-1),14),('TOPPADDING',(0,0),(-1,-1),13),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story += [table,Spacer(1,35),Paragraph(DATA['edition'].upper()+'  ·  54 PROMPTS  ·  8 MCP SOURCES',styles['eyebrow']),Paragraph(f'<link href="{PR}" color="#008766">Federal contracting prompts</link>  /  <link href="{MR}" color="#008766">MCP servers and setup</link>',styles['small']),PageBreak()]
-    story += [Paragraph('Start with the work',ParagraphStyle('Start',parent=styles['section'],spaceBefore=0)),Paragraph('<b>A prompt does not install an MCP.</b> Install and connect every required MCP in your AI client before running a prompt. If two are listed, both are required.',styles['body']),Paragraph('1. Check the <b>Required MCPs</b> line. Each source name links to its setup instructions.<br/>2. Configure any API keys outside chat and confirm your client can see the tools.<br/>3. Replace the brackets, run the prompt, and check the sources and dates.',styles['body']),Paragraph('Ask for the exact source, data period, and retrieval date. Keep missing records, incomplete pages, and uncertain matches visible.',styles['body']),Paragraph('<link href="https://1102tools.com/#mcps" color="#008766">Setup and available ChatGPT installs: 1102tools.com/#mcps</link>',styles['small']),Spacer(1,6),Paragraph('Find a prompt',ParagraphStyle('IndexTitle',parent=styles['section'],spaceBefore=0))]
+    story += [Paragraph('Start with the work',ParagraphStyle('Start',parent=styles['section'],spaceBefore=0)),Paragraph('<b>A prompt does not install an MCP.</b> Install and connect every required MCP in your AI client before running a prompt. If two are listed, both are required.',styles['body']),Paragraph('1. Check the <b>Required MCPs</b> line. Each source name links to its setup instructions.<br/>2. Configure any API keys outside chat and confirm your client can see the tools.<br/>3. Replace the brackets, run the prompt, and check the sources and dates.',styles['body']),Paragraph('Ask for the exact source, data period, and retrieval date. Keep missing records, incomplete pages, and uncertain matches visible.',styles['body']),Paragraph('<link href="https://1102tools.com/#mcps" color="#008766">Setup and available ChatGPT and Claude installs: 1102tools.com/#mcps</link>',styles['small']),Spacer(1,6),Paragraph('Find a prompt',ParagraphStyle('IndexTitle',parent=styles['section'],spaceBefore=0))]
     toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC',fontName='Helvetica',fontSize=10,leading=16,textColor=NAVY,leftIndent=0,firstLineIndent=0,rightIndent=20,spaceBefore=2)];story+=[toc,Spacer(1,16),Paragraph('September 2026 edition. Prompt wording and source mappings have been reviewed. Provider data and tool availability can change; this is not a claim that every request was re-run live.',styles['small']),PageBreak()]
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id'] and p['in_pdf']]
@@ -107,17 +111,19 @@ def website(out,pdf,pages):
         note='<p class="online-note">Additional online examples; not live-tested as part of this guide refresh.</p>' if sec['id'].startswith('far-overhaul') else ''
         groups.append(f'<section class="prompt-group" id="{sec["id"]}"><div class="group-heading"><span>{n:02}</span><h3>{ESC(sec["title"])}</h3></div>{note}<div class="prompt-grid">'+''.join(cards)+'</div></section>')
     cards=[]
-    source_order=('usa','calc','ecfr','fr','acq','sam','bls','travel','regs')
-    for i,source_id in enumerate(source_order,1):
+    for i,source_id in enumerate(SOURCE_ORDER,1):
         s=SERVERS[source_id]
-        directory=f'<a class="directory-link" href="{s["directory_url"]}">Install in ChatGPT ↗</a>' if s.get('directory_url') else ''
+        directory=''
+        if s.get('directories'):
+            directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label} ↗</a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
         cards.append(f'<article class="server-card" id="mcp-{s["id"]}"><span>SOURCE {i:02}</span><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p><small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
         {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Federal contracting MCPs and prompts","description":"56 prompts for nine MCP sources. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
 
-    published=[server for server in DATA['servers'] if server.get('directory_url')]
-    structured['@graph'][1]['description'] += ' USAspending, GSA CALC+, and eCFR are available to install from the ChatGPT directory.'
+    published=[SERVERS[x] for x in SOURCE_ORDER if listed(SERVERS[x])]
+    by_directory=[(label,[server['name'] for server in published if server['directories'][key]]) for key,label in DIRECTORIES]
+    structured['@graph'][1]['description'] += ' '+'; '.join(f"{series(found)} {'is' if len(found)==1 else 'are'} available to install from the {label} directory" for label,found in by_directory if found)+'.'
     structured['@graph'][1]['about']=[{'@id':'https://1102tools.com/#mcp-'+server['id']} for server in published]
     for server in published:
         structured['@graph'].append({
@@ -125,10 +131,10 @@ def website(out,pdf,pages):
             '@id':'https://1102tools.com/#mcp-'+server['id'],
             'name':server['name']+' by 1102tools',
             'url':'https://1102tools.com/#mcp-'+server['id'],
-            'description':server['description']+' Available as a published MCP plugin in the ChatGPT directory. Install and connect it before using prompts that require this source.',
+            'description':server['description']+' Available as a published MCP in the '+series([label for label,_ in listed(server)])+(' directories' if len(listed(server))>1 else ' directory')+'. Install and connect it before using prompts that require this source.',
             'applicationCategory':'BusinessApplication',
-            'softwareRequirements':'ChatGPT or another compatible MCP client',
-            'installUrl':server['directory_url'],
+            'softwareRequirements':series([label for label,_ in listed(server)]+['another compatible MCP client'],'or'),
+            'installUrl':[url for _,url in listed(server)] if len(listed(server))>1 else listed(server)[0][1],
             'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'}})
 
     replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'EXAMPLE':ESC(next(p['text'] for p in DATA['prompts'] if p['id']=='p03')),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in DATA['servers']),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages)}
@@ -148,23 +154,23 @@ def website(out,pdf,pages):
         '## Start here','',
         '- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.',
         '- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.',
-        '- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and available directory links.',
+        '- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and ChatGPT and Claude directory links.',
         '- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 54 core prompts for eight sources; excludes the two online-only Acquisition.gov examples.',
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.','',
-        '## Available in the ChatGPT directory','',
-        'USAspending, GSA CALC+, and eCFR by 1102tools are approved and published in the ChatGPT directory. For federal spending research, labor ceiling-rate comparisons, or codified regulation research in ChatGPT, users can install the matching MCP from these direct listing links:',
-        *['- ['+server['name']+' by 1102tools — install in ChatGPT]('+server['directory_url']+')' for server in published],
-        'The links open the individual plugin listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
+        '## Available in the ChatGPT and Claude directories','',
+        'Select 1102tools MCPs are approved and published in the ChatGPT and Claude directories. For federal spending research, labor ceiling-rate comparisons, codified regulation research, or Federal Register rulemaking research, users can install the matching MCP from these direct listing links:','',
+        *[line for key,label in DIRECTORIES for line in ['### '+label+' directory','',*['- ['+server['name']+' by 1102tools — install in '+label+']('+server['directories'][key]+')' for server in published if server['directories'][key]],'']],
+        'The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
         '## Prerequisites and scope','',
         'A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.',
-        'Some prompts combine two sources; both MCPs are required. Use published ChatGPT directory installations where listed below, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.',
+        'Some prompts combine two sources; both MCPs are required. Use published ChatGPT or Claude directory listings where available, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.',
         'These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.',
         'The online Acquisition.gov examples were not live-tested during this guide refresh. The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.','',
         '## MCP sources','']
     for server in DATA['servers']:
         llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'.')
-        if server.get('directory_url'):llms.append('  [Published ChatGPT plugin]('+server['directory_url']+')')
+        if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
     llms+=['','## Browse by task','']
     for section in DATA['sections']:llms.append('- ['+section['title']+'](https://1102tools.com/#'+section['id']+'): '+section['intro'])
     llms+=['','Website metadata updated '+DATA['website_updated']+'. Prompt edition: '+DATA['edition']+'.','']

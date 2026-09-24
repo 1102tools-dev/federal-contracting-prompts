@@ -18,7 +18,10 @@
       "description": "Awards, obligations, recipients, agencies, and reported subawards.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp",
-      "directory_url": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799"
+      "directories": {
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799",
+        "claude": null
+      }
     },
     {
       "id": "calc",
@@ -27,7 +30,10 @@
       "description": "Awarded labor-category ceiling rates and comparison data.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp",
-      "directory_url": "https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1"
+      "directories": {
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1",
+        "claude": null
+      }
     },
     {
       "id": "bls",
@@ -52,7 +58,10 @@
       "description": "Codified regulatory text, dates, and version comparisons.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp",
-      "directory_url": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34"
+      "directories": {
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34",
+        "claude": "https://claude.ai/directory/ecfr-by-1102tools"
+      }
     },
     {
       "id": "fr",
@@ -60,7 +69,11 @@
       "slug": "federal-register-mcp",
       "description": "Published rules, notices, comment periods, and FAR cases.",
       "access": "No user API key",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp",
+      "directories": {
+        "chatgpt": null,
+        "claude": "https://claude.ai/directory/federal-register-by-1102tools"
+      }
     },
     {
       "id": "regs",
@@ -76,7 +89,11 @@
       "slug": "acquisition-gov-mcp",
       "description": "FAR Overhaul model text, posted agency deviations, and guidance.",
       "access": "No user API key",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp",
+      "directories": {
+        "chatgpt": null,
+        "claude": null
+      }
     }
   ],
   "sections": [
@@ -721,5 +738,5 @@
       "in_pdf": false
     }
   ],
-  "website_updated": "2026-09-12"
+  "website_updated": "2026-09-24"
 }

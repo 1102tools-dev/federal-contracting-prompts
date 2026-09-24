@@ -26,7 +26,7 @@ assert len(page.prompts)==56
 for p in data['prompts']:assert page.prompts[p['id']]==p['text'],p['id']
 for link in page.links:
  if link.startswith('#'):assert link[1:] in page.ids,link
- if link.startswith('https://'):assert link in {s['directory_url'] for s in data['servers'] if s.get('directory_url')} or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
+ if link.startswith('https://'):assert link in {url for s in data['servers'] for url in s.get('directories',{}).values() if url} or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
  else:assert link.startswith(('#','/')),link
 readme=(ROOT/'readme.md').read_text()
 blocks=re.findall(r'```text\n(.*?)```',readme,re.S)
