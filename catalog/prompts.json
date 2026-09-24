@@ -19,8 +19,8 @@
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp",
       "directories": {
-        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799",
-        "claude": null
+        "claude": null,
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799"
       }
     },
     {
@@ -31,8 +31,8 @@
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp",
       "directories": {
-        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1",
-        "claude": null
+        "claude": null,
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1"
       }
     },
     {
@@ -59,8 +59,8 @@
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp",
       "directories": {
-        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34",
-        "claude": "https://claude.ai/directory/ecfr-by-1102tools"
+        "claude": "https://claude.ai/directory/ecfr-by-1102tools",
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34"
       }
     },
     {
@@ -71,8 +71,8 @@
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp",
       "directories": {
-        "chatgpt": null,
-        "claude": "https://claude.ai/directory/federal-register-by-1102tools"
+        "claude": "https://claude.ai/directory/federal-register-by-1102tools",
+        "chatgpt": null
       }
     },
     {
@@ -91,8 +91,8 @@
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp",
       "directories": {
-        "chatgpt": null,
-        "claude": null
+        "claude": null,
+        "chatgpt": null
       }
     }
   ],

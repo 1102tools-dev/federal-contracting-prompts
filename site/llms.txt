@@ -6,14 +6,19 @@
 
 - [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.
 - [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.
-- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and ChatGPT and Claude directory links.
+- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and Claude and ChatGPT directory links.
 - [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 54 core prompts for eight sources; excludes the two online-only Acquisition.gov examples.
 - [Prompt source repository](https://github.com/1102tools-dev/federal-contracting-prompts): canonical catalog and generated website/PDF.
 - [MCP source repository](https://github.com/1102tools-dev/federal-contracting-mcps): server implementations, installation, and testing records.
 
-## Available in the ChatGPT and Claude directories
+## Available in the Claude and ChatGPT directories
 
-Select 1102tools MCPs are approved and published in the ChatGPT and Claude directories. For federal spending research, labor ceiling-rate comparisons, codified regulation research, or Federal Register rulemaking research, users can install the matching MCP from these direct listing links:
+Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For federal spending research, labor ceiling-rate comparisons, codified regulation research, or Federal Register rulemaking research, users can install the matching MCP from these direct listing links:
+
+### Claude directory
+
+- [eCFR by 1102tools — install in Claude](https://claude.ai/directory/ecfr-by-1102tools)
+- [Federal Register by 1102tools — install in Claude](https://claude.ai/directory/federal-register-by-1102tools)
 
 ### ChatGPT directory
 
@@ -21,17 +26,12 @@ Select 1102tools MCPs are approved and published in the ChatGPT and Claude direc
 - [GSA CALC+ by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [eCFR by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
 
-### Claude directory
-
-- [eCFR by 1102tools — install in Claude](https://claude.ai/directory/ecfr-by-1102tools)
-- [Federal Register by 1102tools — install in Claude](https://claude.ai/directory/federal-register-by-1102tools)
-
 The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.
 
 ## Prerequisites and scope
 
 A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.
-Some prompts combine two sources; both MCPs are required. Use published ChatGPT or Claude directory listings where available, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.
+Some prompts combine two sources; both MCPs are required. Use published Claude or ChatGPT directory listings where available, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.
 These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.
 The online Acquisition.gov examples were not live-tested during this guide refresh. The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.
 
@@ -45,7 +45,7 @@ The online Acquisition.gov examples were not live-tested during this guide refre
 - [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year. Access: Optional key; limited keyless access.
 - [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key recommended; shared fallback.
 - [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key.
-  Install: [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) · [Claude directory](https://claude.ai/directory/ecfr-by-1102tools)
+  Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
 - [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key.
   Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools)
 - [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Personal key recommended; shared fallback.

@@ -9,21 +9,21 @@ Practical questions for federal opportunities, competitor research, teaming, pri
 ## Start here
 
 1. Choose a prompt and check its **Required MCPs** line.
-2. Use the ChatGPT and Claude directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.
+2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.
 3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.
 
 The print guide contains 54 prompts for the original eight MCP sources. The online library also includes two Acquisition.gov examples for FAR Overhaul research. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
 
-## Available in ChatGPT and Claude
+## Available in Claude and ChatGPT
 
-Select MCPs are published in the ChatGPT and Claude directories. Open a listing to install and connect it; no user API key or local Python setup is required.
+Select MCPs are published in the Claude and ChatGPT directories. Open a listing to install and connect it; no user API key or local Python setup is required.
 
-| MCP | ChatGPT | Claude |
+| MCP | Claude | ChatGPT |
 |---|---|---|
-| USAspending | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) | Coming soon |
-| GSA CALC+ | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) | Coming soon |
-| eCFR | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) | [Install](https://claude.ai/directory/ecfr-by-1102tools) |
-| Federal Register | Coming soon | [Install](https://claude.ai/directory/federal-register-by-1102tools) |
+| USAspending | Coming soon | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
+| GSA CALC+ | Coming soon | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) |
+| eCFR | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) |
+| Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon |
 | Acquisition.gov | Coming soon | Coming soon |
 
 A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
