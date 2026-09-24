@@ -17,6 +17,7 @@ Select 1102tools MCPs are approved and published in the Claude and ChatGPT direc
 
 ### Claude directory
 
+- [USAspending by 1102tools — install in Claude](https://claude.ai/directory/usaspending-by-1102tools)
 - [eCFR by 1102tools — install in Claude](https://claude.ai/directory/ecfr-by-1102tools)
 - [Federal Register by 1102tools — install in Claude](https://claude.ai/directory/federal-register-by-1102tools)
 
@@ -39,7 +40,7 @@ The online Acquisition.gov examples were not live-tested during this guide refre
 
 - [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Opportunities, entity registrations, exclusions, and contract-award records. Access: User API key required.
 - [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key.
-  Install: [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
+  Install: [Claude directory](https://claude.ai/directory/usaspending-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
 - [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key.
   Install: [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year. Access: Optional key; limited keyless access.
