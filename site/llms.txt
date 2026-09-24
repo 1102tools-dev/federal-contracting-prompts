@@ -7,7 +7,7 @@
 - [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.
 - [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.
 - [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and Claude and ChatGPT directory links.
-- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 54 core prompts for eight sources; excludes the two online-only Acquisition.gov examples.
+- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): all 56 prompts for the nine sources, organized by task.
 - [Prompt source repository](https://github.com/1102tools-dev/federal-contracting-prompts): canonical catalog and generated website/PDF.
 - [MCP source repository](https://github.com/1102tools-dev/federal-contracting-mcps): server implementations, installation, and testing records.
 
@@ -34,7 +34,7 @@ The links open the individual directory listings. Installation and connection ar
 A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.
 Some prompts combine two sources; both MCPs are required. Use published Claude or ChatGPT directory listings where available, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.
 These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.
-The online Acquisition.gov examples were not live-tested during this guide refresh. The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.
+The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.
 
 ## MCP sources
 
@@ -67,6 +67,6 @@ The online Acquisition.gov examples were not live-tested during this guide refre
 - [Read the regulations](https://1102tools.com/#ecfr): Retrieve the relevant codified text and its source date; check completeness before quoting.
 - [Follow published changes](https://1102tools.com/#federal-register): Separate direct rulemaking documents from related mentions and background notices.
 - [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
-- [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Additional online examples for Acquisition.gov. Kept outside the eight-source print guide.
+- [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
 Website metadata updated 2026-09-24. Prompt edition: September 2026.

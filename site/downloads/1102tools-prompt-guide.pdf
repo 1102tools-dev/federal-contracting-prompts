@@ -2,7 +2,7 @@
 %“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
 <<
-/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 8 0 R /F5 37 0 R
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 8 0 R /F5 39 0 R
 >>
 endobj
 2 0 obj
@@ -24,19 +24,19 @@ endobj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-prompts)
->> /Border [ 0 0 0 ] /Rect [ 52 120.56 160.3063 131 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 52 162.56 160.3063 173 ] /Subtype /Link /Type /Annot
 >>
 endobj
 6 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps)
->> /Border [ 0 0 0 ] /Rect [ 167.5621 120.56 258.4597 131 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 167.5621 162.56 258.4597 173 ] /Subtype /Link /Type /Annot
 >>
 endobj
 7 0 obj
 <<
-/Annots [ 5 0 R 6 0 R ] /Contents 128 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
+/Annots [ 5 0 R 6 0 R ] /Contents 135 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -58,139 +58,149 @@ endobj
 endobj
 10 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 46 0 R /Fit ] /Rect [ 554.44 478 560 494 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 48 0 R /Fit ] /Rect [ 554.44 486 560 503 ] /Subtype /Link /Type /Annot
 >>
 endobj
 11 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 46 0 R /Fit ] /Rect [ 52 476 129.8 488 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 48 0 R /Fit ] /Rect [ 52 484 129.8 496 ] /Subtype /Link /Type /Annot
 >>
 endobj
 12 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 52 0 R /Fit ] /Rect [ 554.44 448 560 464 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 54 0 R /Fit ] /Rect [ 554.44 463 560 480 ] /Subtype /Link /Type /Annot
 >>
 endobj
 13 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 52 0 R /Fit ] /Rect [ 52 446 131.48 458 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 54 0 R /Fit ] /Rect [ 52 461 131.48 473 ] /Subtype /Link /Type /Annot
 >>
 endobj
 14 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 58 0 R /Fit ] /Rect [ 554.44 418 560 434 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 60 0 R /Fit ] /Rect [ 554.44 440 560 457 ] /Subtype /Link /Type /Annot
 >>
 endobj
 15 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 58 0 R /Fit ] /Rect [ 52 416 149.25 428 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 60 0 R /Fit ] /Rect [ 52 438 149.25 450 ] /Subtype /Link /Type /Annot
 >>
 endobj
 16 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 63 0 R /Fit ] /Rect [ 554.44 388 560 404 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 65 0 R /Fit ] /Rect [ 554.44 417 560 434 ] /Subtype /Link /Type /Annot
 >>
 endobj
 17 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 63 0 R /Fit ] /Rect [ 52 386 172.6 398 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 65 0 R /Fit ] /Rect [ 52 415 172.6 427 ] /Subtype /Link /Type /Annot
 >>
 endobj
 18 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 63 0 R /Fit ] /Rect [ 554.44 358 560 374 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 65 0 R /Fit ] /Rect [ 554.44 394 560 411 ] /Subtype /Link /Type /Annot
 >>
 endobj
 19 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 63 0 R /Fit ] /Rect [ 52 356 208.74 368 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 65 0 R /Fit ] /Rect [ 52 392 208.74 404 ] /Subtype /Link /Type /Annot
 >>
 endobj
 20 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 74 0 R /Fit ] /Rect [ 554.44 328 560 344 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 76 0 R /Fit ] /Rect [ 554.44 371 560 388 ] /Subtype /Link /Type /Annot
 >>
 endobj
 21 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 74 0 R /Fit ] /Rect [ 52 326 145.37 338 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 76 0 R /Fit ] /Rect [ 52 369 145.37 381 ] /Subtype /Link /Type /Annot
 >>
 endobj
 22 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 80 0 R /Fit ] /Rect [ 554.44 298 560 314 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 82 0 R /Fit ] /Rect [ 554.44 348 560 365 ] /Subtype /Link /Type /Annot
 >>
 endobj
 23 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 80 0 R /Fit ] /Rect [ 52 296 139.82 308 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 82 0 R /Fit ] /Rect [ 52 346 139.82 358 ] /Subtype /Link /Type /Annot
 >>
 endobj
 24 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 87 0 R /Fit ] /Rect [ 548.88 268 560 284 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 89 0 R /Fit ] /Rect [ 548.88 325 560 342 ] /Subtype /Link /Type /Annot
 >>
 endobj
 25 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 87 0 R /Fit ] /Rect [ 52 266 143.14 278 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 89 0 R /Fit ] /Rect [ 52 323 143.14 335 ] /Subtype /Link /Type /Annot
 >>
 endobj
 26 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 94 0 R /Fit ] /Rect [ 548.88 238 560 254 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 96 0 R /Fit ] /Rect [ 548.88 302 560 319 ] /Subtype /Link /Type /Annot
 >>
 endobj
 27 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 94 0 R /Fit ] /Rect [ 52 236 126.47 248 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 96 0 R /Fit ] /Rect [ 52 300 126.47 312 ] /Subtype /Link /Type /Annot
 >>
 endobj
 28 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 99 0 R /Fit ] /Rect [ 548.88 208 560 224 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 101 0 R /Fit ] /Rect [ 548.88 279 560 296 ] /Subtype /Link /Type /Annot
 >>
 endobj
 29 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 99 0 R /Fit ] /Rect [ 52 206 118.13 218 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 101 0 R /Fit ] /Rect [ 52 277 118.13 289 ] /Subtype /Link /Type /Annot
 >>
 endobj
 30 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 104 0 R /Fit ] /Rect [ 548.88 178 560 194 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 106 0 R /Fit ] /Rect [ 548.88 256 560 273 ] /Subtype /Link /Type /Annot
 >>
 endobj
 31 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 104 0 R /Fit ] /Rect [ 52 176 144.27 188 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 106 0 R /Fit ] /Rect [ 52 254 144.27 266 ] /Subtype /Link /Type /Annot
 >>
 endobj
 32 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 104 0 R /Fit ] /Rect [ 548.88 148 560 164 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 106 0 R /Fit ] /Rect [ 548.88 233 560 250 ] /Subtype /Link /Type /Annot
 >>
 endobj
 33 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 104 0 R /Fit ] /Rect [ 52 146 167.05 158 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 106 0 R /Fit ] /Rect [ 52 231 167.05 243 ] /Subtype /Link /Type /Annot
 >>
 endobj
 34 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 110 0 R /Fit ] /Rect [ 548.88 118 560 134 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 112 0 R /Fit ] /Rect [ 548.88 210 560 227 ] /Subtype /Link /Type /Annot
 >>
 endobj
 35 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 110 0 R /Fit ] /Rect [ 52 116 191.5 128 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 112 0 R /Fit ] /Rect [ 52 208 191.5 220 ] /Subtype /Link /Type /Annot
 >>
 endobj
 36 0 obj
 <<
+/Border [ 0 0 0 ] /Contents () /Dest [ 116 0 R /Fit ] /Rect [ 548.88 187 560 204 ] /Subtype /Link /Type /Annot
+>>
+endobj
+37 0 obj
+<<
+/Border [ 0 0 0 ] /Contents () /Dest [ 116 0 R /Fit ] /Rect [ 52 185 182.61 197 ] /Subtype /Link /Type /Annot
+>>
+endobj
+38 0 obj
+<<
 /Annots [ 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 
   19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R 27 0 R 28 0 R 
-  29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R 35 0 R ] /Contents 129 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
+  29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R 35 0 R 36 0 R 37 0 R ] /Contents 136 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -198,551 +208,506 @@ endobj
 >> /Type /Page
 >>
 endobj
-37 0 obj
-<<
-/BaseFont /Times-Italic /Encoding /WinAnsiEncoding /Name /F5 /Subtype /Type1 /Type /Font
->>
-endobj
-38 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 567.16 162.8756 577 ] /Subtype /Link /Type /Annot
->>
-endobj
 39 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 172.2236 567.16 222.3584 577 ] /Subtype /Link /Type /Annot
+/BaseFont /Times-Italic /Encoding /WinAnsiEncoding /Name /F5 /Subtype /Type1 /Type /Font
 >>
 endobj
 40 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 432.66 162.8756 442.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 567.16 162.8756 577 ] /Subtype /Link /Type /Annot
 >>
 endobj
 41 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 172.2236 432.66 222.3584 442.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 172.2236 567.16 222.3584 577 ] /Subtype /Link /Type /Annot
 >>
 endobj
 42 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 344.66 162.8756 354.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 432.66 162.8756 442.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 43 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 172.2236 344.66 222.3584 354.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 172.2236 432.66 222.3584 442.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 44 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 210.16 162.8756 220 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 344.66 162.8756 354.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 45 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 172.2236 210.16 222.3584 220 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 172.2236 344.66 222.3584 354.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 46 0 obj
 <<
-/Annots [ 38 0 R 39 0 R 40 0 R 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R ] /Contents 130 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 210.16 162.8756 220 ] /Subtype /Link /Type /Annot
 >>
 endobj
 47 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 619.66 179.743 629.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 172.2236 210.16 222.3584 220 ] /Subtype /Link /Type /Annot
 >>
 endobj
 48 0 obj
+<<
+/Annots [ 40 0 R 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R 46 0 R 47 0 R ] /Contents 137 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+49 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 619.66 179.743 629.5 ] /Subtype /Link /Type /Annot
+>>
+endobj
+50 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
 >> /Border [ 0 0 0 ] /Rect [ 189.091 619.66 235.3472 629.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
-49 0 obj
+51 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 >> /Border [ 0 0 0 ] /Rect [ 129.6082 412.66 162.8756 422.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
-50 0 obj
+52 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 >> /Border [ 0 0 0 ] /Rect [ 129.6082 293.66 162.8756 303.5 ] /Subtype /Link /Type /Annot
->>
-endobj
-51 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 174.66 162.8756 184.5 ] /Subtype /Link /Type /Annot
->>
-endobj
-52 0 obj
-<<
-/Annots [ 47 0 R 48 0 R 49 0 R 50 0 R 51 0 R ] /Contents 131 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
 >>
 endobj
 53 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 162.8756 645 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 174.66 162.8756 184.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 54 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 531.66 162.8756 541.5 ] /Subtype /Link /Type /Annot
+/Annots [ 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R ] /Contents 138 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 55 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 324.66 179.743 334.5 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 162.8756 645 ] /Subtype /Link /Type /Annot
 >>
 endobj
 56 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 236.66 179.743 246.5 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 531.66 162.8756 541.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 57 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 117.66 179.743 127.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 324.66 179.743 334.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 58 0 obj
 <<
-/Annots [ 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R ] /Contents 132 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 236.66 179.743 246.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 59 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 179.743 645 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 117.66 179.743 127.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 60 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 428.16 179.743 438 ] /Subtype /Link /Type /Annot
+/Annots [ 55 0 R 56 0 R 57 0 R 58 0 R 59 0 R ] /Contents 139 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 61 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 309.16 179.743 319 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 179.743 645 ] /Subtype /Link /Type /Annot
 >>
 endobj
 62 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 133.16 162.8756 143 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 428.16 179.743 438 ] /Subtype /Link /Type /Annot
 >>
 endobj
 63 0 obj
 <<
-/Annots [ 59 0 R 60 0 R 61 0 R 62 0 R ] /Contents 133 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 309.16 179.743 319 ] /Subtype /Link /Type /Annot
 >>
 endobj
 64 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 162.8756 645 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 133.16 162.8756 143 ] /Subtype /Link /Type /Annot
 >>
 endobj
 65 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 531.66 162.8756 541.5 ] /Subtype /Link /Type /Annot
+/Annots [ 61 0 R 62 0 R 63 0 R 64 0 R ] /Contents 140 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 66 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 412.66 162.8756 422.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 162.8756 645 ] /Subtype /Link /Type /Annot
 >>
 endobj
 67 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 293.66 162.8756 303.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 531.66 162.8756 541.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 68 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 159.16 162.8756 169 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 412.66 162.8756 422.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 69 0 obj
 <<
-/Annots [ 64 0 R 65 0 R 66 0 R 67 0 R 68 0 R ] /Contents 134 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 293.66 162.8756 303.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 70 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 619.66 162.8756 629.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 159.16 162.8756 169 ] /Subtype /Link /Type /Annot
 >>
 endobj
 71 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 412.66 179.743 422.5 ] /Subtype /Link /Type /Annot
+/Annots [ 66 0 R 67 0 R 68 0 R 69 0 R 70 0 R ] /Contents 141 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 72 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 309.16 179.743 319 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 619.66 162.8756 629.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 73 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 190.16 179.743 200 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 412.66 179.743 422.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 74 0 obj
 <<
-/Annots [ 70 0 R 71 0 R 72 0 R 73 0 R ] /Contents 135 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 309.16 179.743 319 ] /Subtype /Link /Type /Annot
 >>
 endobj
 75 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 179.743 645 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 190.16 179.743 200 ] /Subtype /Link /Type /Annot
 >>
 endobj
 76 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 516.16 179.743 526 ] /Subtype /Link /Type /Annot
+/Annots [ 72 0 R 73 0 R 74 0 R 75 0 R ] /Contents 142 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 77 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 179.743 350 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 179.743 645 ] /Subtype /Link /Type /Annot
 >>
 endobj
 78 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 221.16 151.0184 231 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 516.16 179.743 526 ] /Subtype /Link /Type /Annot
 >>
 endobj
 79 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 133.16 179.743 143 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 179.743 350 ] /Subtype /Link /Type /Annot
 >>
 endobj
 80 0 obj
 <<
-/Annots [ 75 0 R 76 0 R 77 0 R 78 0 R 79 0 R ] /Contents 136 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 221.16 151.0184 231 ] /Subtype /Link /Type /Annot
 >>
 endobj
 81 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 650.66 179.743 660.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 133.16 179.743 143 ] /Subtype /Link /Type /Annot
 >>
 endobj
 82 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 562.66 162.8756 572.5 ] /Subtype /Link /Type /Annot
+/Annots [ 77 0 R 78 0 R 79 0 R 80 0 R 81 0 R ] /Contents 143 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 83 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 172.2236 562.66 222.3584 572.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 650.66 179.743 660.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 84 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 386.66 175.8644 396.5 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 562.66 162.8756 572.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 85 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 267.66 175.8644 277.5 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 172.2236 562.66 222.3584 572.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 86 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 148.66 175.8644 158.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 386.66 175.8644 396.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 87 0 obj
 <<
-/Annots [ 81 0 R 82 0 R 83 0 R 84 0 R 85 0 R 86 0 R ] /Contents 137 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 267.66 175.8644 277.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 88 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 175.8644 645 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 148.66 175.8644 158.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 89 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 428.16 172.445 438 ] /Subtype /Link /Type /Annot
+/Annots [ 83 0 R 84 0 R 85 0 R 86 0 R 87 0 R 88 0 R ] /Contents 144 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 90 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 172.445 350 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 635.16 175.8644 645 ] /Subtype /Link /Type /Annot
 >>
 endobj
 91 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 252.16 172.445 262 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 428.16 172.445 438 ] /Subtype /Link /Type /Annot
 >>
 endobj
 92 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 133.16 175.8644 143 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 172.445 350 ] /Subtype /Link /Type /Annot
 >>
 endobj
 93 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
->> /Border [ 0 0 0 ] /Rect [ 185.2124 133.16 228.0492 143 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 252.16 172.445 262 ] /Subtype /Link /Type /Annot
 >>
 endobj
 94 0 obj
 <<
-/Annots [ 88 0 R 89 0 R 90 0 R 91 0 R 92 0 R 93 0 R ] /Contents 138 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 133.16 175.8644 143 ] /Subtype /Link /Type /Annot
 >>
 endobj
 95 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 650.66 172.445 660.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 185.2124 133.16 228.0492 143 ] /Subtype /Link /Type /Annot
 >>
 endobj
 96 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 459.16 183.3756 469 ] /Subtype /Link /Type /Annot
+/Annots [ 90 0 R 91 0 R 92 0 R 93 0 R 94 0 R 95 0 R ] /Contents 145 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 97 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 183.3756 350 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 650.66 172.445 660.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 98 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 236.66 183.3756 246.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 459.16 183.3756 469 ] /Subtype /Link /Type /Annot
 >>
 endobj
 99 0 obj
 <<
-/Annots [ 95 0 R 96 0 R 97 0 R 98 0 R ] /Contents 139 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 183.3756 350 ] /Subtype /Link /Type /Annot
 >>
 endobj
 100 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 567.16 151.0184 577 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 236.66 183.3756 246.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 101 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 448.16 151.0184 458 ] /Subtype /Link /Type /Annot
+/Annots [ 97 0 R 98 0 R 99 0 R 100 0 R ] /Contents 146 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 102 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 329.16 151.0184 339 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 567.16 151.0184 577 ] /Subtype /Link /Type /Annot
 >>
 endobj
 103 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 137.66 190.2144 147.5 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 448.16 151.0184 458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 104 0 obj
 <<
-/Annots [ 100 0 R 101 0 R 102 0 R 103 0 R ] /Contents 140 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 329.16 151.0184 339 ] /Subtype /Link /Type /Annot
 >>
 endobj
 105 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 650.66 190.2144 660.5 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 137.66 190.2144 147.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 106 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 531.66 190.2144 541.5 ] /Subtype /Link /Type /Annot
->>
-endobj
-107 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 190.2144 350 ] /Subtype /Link /Type /Annot
->>
-endobj
-108 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 221.16 188.4022 231 ] /Subtype /Link /Type /Annot
->>
-endobj
-109 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
->> /Border [ 0 0 0 ] /Rect [ 129.6082 86.66 188.4022 96.5 ] /Subtype /Link /Type /Annot
->>
-endobj
-110 0 obj
-<<
-/Annots [ 105 0 R 106 0 R 107 0 R 108 0 R 109 0 R ] /Contents 141 0 R /MediaBox [ 0 0 612 792 ] /Parent 127 0 R /Resources <<
+/Annots [ 102 0 R 103 0 R 104 0 R 105 0 R ] /Contents 147 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -750,193 +715,281 @@ endobj
 >> /Type /Page
 >>
 endobj
+107 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 650.66 190.2144 660.5 ] /Subtype /Link /Type /Annot
+>>
+endobj
+108 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 531.66 190.2144 541.5 ] /Subtype /Link /Type /Annot
+>>
+endobj
+109 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 340.16 190.2144 350 ] /Subtype /Link /Type /Annot
+>>
+endobj
+110 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 221.16 188.4022 231 ] /Subtype /Link /Type /Annot
+>>
+endobj
 111 0 obj
 <<
-/Outlines 113 0 R /PageMode /UseNone /Pages 127 0 R /Type /Catalog
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 86.66 188.4022 96.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 112 0 obj
+<<
+/Annots [ 107 0 R 108 0 R 109 0 R 110 0 R 111 0 R ] /Contents 148 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+113 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 551.66 184.7532 561.5 ] /Subtype /Link /Type /Annot
+>>
+endobj
+114 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 129.6082 432.66 151.0184 442.5 ] /Subtype /Link /Type /Annot
+>>
+endobj
+115 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp)
+>> /Border [ 0 0 0 ] /Rect [ 160.3664 432.66 215.5114 442.5 ] /Subtype /Link /Type /Annot
+>>
+endobj
+116 0 obj
+<<
+/Annots [ 113 0 R 114 0 R 115 0 R ] /Contents 149 0 R /MediaBox [ 0 0 612 792 ] /Parent 134 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+117 0 obj
+<<
+/Outlines 119 0 R /PageMode /UseNone /Pages 134 0 R /Type /Catalog
+>>
+endobj
+118 0 obj
 <<
 /Author (James Jenrette / 1102tools) /CreationDate (D:20000101000000+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20000101000000+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
   /Subject (September 2026 MCP prompt guide) /Title (1102tools MCP Prompt Guide) /Trapped /False
 >>
 endobj
-113 0 obj
-<<
-/Count 13 /First 114 0 R /Last 126 0 R /Type /Outlines
->>
-endobj
-114 0 obj
-<<
-/Dest [ 46 0 R /Fit ] /Next 115 0 R /Parent 113 0 R /Title (Combine sources)
->>
-endobj
-115 0 obj
-<<
-/Dest [ 52 0 R /Fit ] /Next 116 0 R /Parent 113 0 R /Prev 114 0 R /Title (Find opportunities)
->>
-endobj
-116 0 obj
-<<
-/Dest [ 58 0 R /Fit ] /Next 117 0 R /Parent 113 0 R /Prev 115 0 R /Title (Research competitors)
->>
-endobj
-117 0 obj
-<<
-/Dest [ 63 0 R /Fit ] /Next 118 0 R /Parent 113 0 R /Prev 116 0 R /Title (Track potential recompetes)
->>
-endobj
-118 0 obj
-<<
-/Dest [ 63 0 R /Fit ] /Next 119 0 R /Parent 113 0 R /Prev 117 0 R /Title (Vet companies and find teammates)
->>
-endobj
 119 0 obj
 <<
-/Dest [ 74 0 R /Fit ] /Next 120 0 R /Parent 113 0 R /Prev 118 0 R /Title (Understand a market)
+/Count 14 /First 120 0 R /Last 133 0 R /Type /Outlines
 >>
 endobj
 120 0 obj
 <<
-/Dest [ 80 0 R /Fit ] /Next 121 0 R /Parent 113 0 R /Prev 119 0 R /Title (Find the right codes)
+/Dest [ 48 0 R /Fit ] /Next 121 0 R /Parent 119 0 R /Title (Combine sources)
 >>
 endobj
 121 0 obj
 <<
-/Dest [ 87 0 R /Fit ] /Next 122 0 R /Parent 113 0 R /Prev 120 0 R /Title (Compare labor rates)
+/Dest [ 54 0 R /Fit ] /Next 122 0 R /Parent 119 0 R /Prev 120 0 R /Title (Find opportunities)
 >>
 endobj
 122 0 obj
 <<
-/Dest [ 94 0 R /Fit ] /Next 123 0 R /Parent 113 0 R /Prev 121 0 R /Title (Research wages)
+/Dest [ 60 0 R /Fit ] /Next 123 0 R /Parent 119 0 R /Prev 121 0 R /Title (Research competitors)
 >>
 endobj
 123 0 obj
 <<
-/Dest [ 99 0 R /Fit ] /Next 124 0 R /Parent 113 0 R /Prev 122 0 R /Title (Estimate travel)
+/Dest [ 65 0 R /Fit ] /Next 124 0 R /Parent 119 0 R /Prev 122 0 R /Title (Track potential recompetes)
 >>
 endobj
 124 0 obj
 <<
-/Dest [ 104 0 R /Fit ] /Next 125 0 R /Parent 113 0 R /Prev 123 0 R /Title (Read the regulations)
+/Dest [ 65 0 R /Fit ] /Next 125 0 R /Parent 119 0 R /Prev 123 0 R /Title (Vet companies and find teammates)
 >>
 endobj
 125 0 obj
 <<
-/Dest [ 104 0 R /Fit ] /Next 126 0 R /Parent 113 0 R /Prev 124 0 R /Title (Follow published changes)
+/Dest [ 76 0 R /Fit ] /Next 126 0 R /Parent 119 0 R /Prev 124 0 R /Title (Understand a market)
 >>
 endobj
 126 0 obj
 <<
-/Dest [ 110 0 R /Fit ] /Parent 113 0 R /Prev 125 0 R /Title (Explore dockets and comments)
+/Dest [ 82 0 R /Fit ] /Next 127 0 R /Parent 119 0 R /Prev 125 0 R /Title (Find the right codes)
 >>
 endobj
 127 0 obj
 <<
-/Count 14 /Kids [ 7 0 R 36 0 R 46 0 R 52 0 R 58 0 R 63 0 R 69 0 R 74 0 R 80 0 R 87 0 R 
-  94 0 R 99 0 R 104 0 R 110 0 R ] /Type /Pages
+/Dest [ 89 0 R /Fit ] /Next 128 0 R /Parent 119 0 R /Prev 126 0 R /Title (Compare labor rates)
 >>
 endobj
 128 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1422
+/Dest [ 96 0 R /Fit ] /Next 129 0 R /Parent 119 0 R /Prev 127 0 R /Title (Research wages)
 >>
-stream
-Gatm;?#S^^'Rf.GgdcOr:#gWm8/\@<eZ'<=>-5.b-8E?c,Yf#N/cU:&SV4GYabgg%"`n[2NmI[n2$"@t7))50^i]oa$Ne7uE!sT=*!gIk*f`oJ>\i>l*DL*#b&P-;"Q5sW%1K]&7Sb8WY3&pG>8AhNH8r4!J[.If=q>VpJVjhDVJ/^B(5g"SG/*q[rj=j1QIBt9Dhca0dq/:ZKYJZ-VJ&.5"+$in!.Foe1kK5:Ks)7-fG_gb-RP7+@$&1/&_4*JbK$Sn!b4Pj9+$e^)GHiamq,3pQ6Ih)B]IL+@!koEQjo1!4joGX8,gTaCP8sCpkl:eCLn84AgL.p'"KQ-,^GuS7k.!OBQjJ$B2DZG>GpsiZV#8#"-l,;nr+GRoUO%a1jZTC":'\"BO]'3*#kS$fSU;0;2A-$3L?79(J$V<R,h/0pdHs,+o_qC0=6\cOO=S%;GsKk^<f8ri%CX)MKA>*2k&5F<P,7>plSX@VQ'EcgXm?Ca]TlTmMJ]JWd2]q5i5SWF4cD^K]s#';U0:h)i"9T>Y7<iKdLY%\77N_>GO)bHCYMfr5^-9'Ji=+>%oJ6N^]!6g]gR*AWG4h`/.SR/@XeiOYN/9Fr@&]NT<,h9eER!-Ks2OkTJ(B:\:1)L6dhbWh_kTh0OB[,iZA$\3_u51u%^Uf>[MT9[%Ur5u=@tN(.'imSZ/$r3q*5mluO2qLm&*nhI>pl.X<oI>q-HOWGTi>0$Z>NZEKs&f<t6RTj*;:8NEBVcCS((h71qnpGIPgE[B#PUE"a\8P]PE)uNT/<@0&9s,mefpcGN]kR&=?R4DHnP:]7r>OLnV_FUscMeg%F3%Jf_Yhk_j>+S%P)+,h&`]jnP,bT?\VlkN94!JQ+APTV*=eYs$?LX-LAUf(lX;p-5"um+2p\4s/p+ne\Y6&RD"`rEOd*6*mBn3Ss00OBA2lPBpRK()A0lWd//s35h/e:jXb[Wrl>aERUM4k-UJ$Ur'4_$goTHms7TZZ#Pg01=*3"a-MRD\5!p"agYh<JCL_ZF^<I/.b-=X^Nlu9>3KTYV$?Dr\D9$&k><<[i<2o@Mk5.-[>'r(#;<r,X#jUg_<>_02^Z,0O',ta^X%<<V;e93L5C)mX^EY5eG/>fJW;i+OB#JY<8q8?FLl\:-hD1)nb=Clg]AqcCYoMHo4/6#u0.c?uFg+s!<.?o9Y-e=W)r.Y0c7Rj&TD(l#uBn2fsrqWe0)<%H"oY&/Z7O\EUWN&f&CMbq5S,'m0^73ULqXI.pD&4L^T`%HA\g</LF]KK)<mPQ@3,!,olfb1qB=INNk8','mM@GrEQS6o'WpQAE.3!o?X[#EH-Mlc.4eQpGKXs]Hk02c$g[\^X4b/cHr3#IjGUWJlZU]_Q4D4?FPZcX)U``Sc)%C(c<q&^4a/;C]jdff2`d$Mm&5i;9u,sOHNKX/~>endstream
 endobj
 129 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1575
+/Dest [ 101 0 R /Fit ] /Next 130 0 R /Parent 119 0 R /Prev 128 0 R /Title (Estimate travel)
 >>
-stream
-Gb!$G9lK&M&;KZL'a+*f/lG-64tO/jDq55H2H[0C/Pr)V>,#Lb&ud0kHh6\fUhn(H'I>>QfGI-f7NB.gb](W8JIk&as3<-FO)qh@,![R#QU'OQLA;oFR@f0E,]ja\3"G3M1PsEgZOB_O_#Y%h%qiMbR@?5EdbW+iMM<rZE#omn@>99lLdXUC"=K;eq?_jaJhnno&/%mA<+u=b!,aHf0V*X+S^-3jlcl?LcS5A(jr^,TUZq:s%+=oYibgNB:MrBlAjA_P*_cqr[rqm?2U"u%r_;oq#d\:l64Io9'dRMW^6EU2$IYnk1um0"r&jocrha@F3kh(ZR]kaIj6=3^Efq\6nhcmY4n\4/fI_baA8j(*7j5GT!og#r&C?XO;<Oo';7a)XE>8TK6)7i[i6F)p@4U[Om#&\]l%c#K^Yn9ceT;WdX.G]U@Gi/"]M5j>+b="^F`B)P6`j?g>::1E+I**RNFcZ-9Y1!'?HC)#4]iZ=c/FK\E[<$X/as5$O-j_?ejAuFB82N;W7Dm,2isAX9+)-A<1&\l/Z"R'_"NkB7RI/79<_V($m-sQZ+N&OKgMuQJ\CHDdl!N`03o6fVll`^EX`?5ElIVT+-W67St%j/*O2%K09nlp!%'7(JO)6U*$hR)Q[CJp'aSTjE4`9da7VL&6:oYQH)FJD?cf.S?R%^tO"d0^^]T'CT[q\MJj[7]FruF7crK,pS[3AGT]+\,pKR@4F;2NLf-SV0IkNY%+1O2k/i8$Q$-7C%r8<6__t_W2=`-91OmLQh]piN(_8h"@68f[M#Jf-b.en4B$.iiNG<-Sj>ROOgE](=0n-pn]_uP8L]S9#qj&/YD>j2;UL!5[`j;(nO4ZCX@[EQ1i9ZTS5<m2c&JW2?m;=\V_3,=&:(Za%U%&*q=933h>N3oPc4rKk![UGn@\/\b>CgD!EG_s8N`_*ktTB937']T0r/q0hkg2tJq@OLX?BUJHi_QJR@]uult'dOddS`DtoFapKH:VJffZfn\GH*5q>lKH2f:I9q/(o2K`+5?/9l;@F5&2ojJARfY^bL35e(:`o/>NN*N?FU%;OuB>=5H;4P.N_qrf1Of*'NVjI7bb_qrkO]R^h2A@VQiP$C;?sU8p@#W;%"9_p4nt-L,O6E*GT0U0G%=q?0QEhh6E_h)drRg!rg<D%i^^AG:"nIRTe":MS4]][:,6t0XKUi^WM.D/G[#o<_VO>h+8BjOHHV/Z;JA:`LZ3rgojs6Msd7#@2iD@&hP0`KeN>lBI)s9*2rfnQ7_U[U>O*`'"=R^*mmOY208(9:7Y@[Kkf*^'^Z?E@]XNK"0?)R??T2R>t/#c,6&U^^WX]WZeYiGpZn"<#,@*XrBg'"P$P&m<*Q<Q$g\O.gbgNS^6+DW\!$aKqR^T=^=T4IP7-KaZ<`5e<HsV7!.K3=a)8?<o@A/1msa.U+'2QODcCJpWs.,S%1_ko\BG:fg:U#0@Ya("H^)50Hn/7L3+QENRgU"%92*Hei*1$\h6[W7Zasl4gaq(,m$f+p$N'%Vfd=YP*Ek82&dCbqdXkoZb=%'+cApdNE.`1u_=,.KcF+FV(EFKcr<p<SSr!~>endstream
 endobj
 130 0 obj
+<<
+/Dest [ 106 0 R /Fit ] /Next 131 0 R /Parent 119 0 R /Prev 129 0 R /Title (Read the regulations)
+>>
+endobj
+131 0 obj
+<<
+/Dest [ 106 0 R /Fit ] /Next 132 0 R /Parent 119 0 R /Prev 130 0 R /Title (Follow published changes)
+>>
+endobj
+132 0 obj
+<<
+/Dest [ 112 0 R /Fit ] /Next 133 0 R /Parent 119 0 R /Prev 131 0 R /Title (Explore dockets and comments)
+>>
+endobj
+133 0 obj
+<<
+/Dest [ 116 0 R /Fit ] /Parent 119 0 R /Prev 132 0 R /Title (FAR Overhaul and deviations)
+>>
+endobj
+134 0 obj
+<<
+/Count 15 /Kids [ 7 0 R 38 0 R 48 0 R 54 0 R 60 0 R 65 0 R 71 0 R 76 0 R 82 0 R 89 0 R 
+  96 0 R 101 0 R 106 0 R 112 0 R 116 0 R ] /Type /Pages
+>>
+endobj
+135 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1519
+>>
+stream
+Gatm;>>sNP'Ro4HS4@a'@d\e;AC-bs/J'\F[8lhH,]2a"8]ORrjkoOk:'-"[bGe$HiZU=KmsO<H(7=m%o\V&!\-h3cg&fHPn,Y)lE$;lJGrRLonEc!iEYO@@OQ5rKGRQc.:dF!ugYcdR2;1/3!o$1uKDQ=]3EFS+GP][h[<KTB0[jo5C+ke^_qAMp+8iGC!1))V33R7uhl"Ze0*m%ppeA;EIqm=hh:geL!EWKED5I$ug'1%d1<bSh9meXrZ0S&__tNHt*u,(j/^(LIk@poT.;Qi5fb0U&B8$I?4:)=K2\h6bQZJa:e]s_pI-e=L"(Qru.#2Y0,BHRh.S'mYc_VbHA9ibE.4GkVp&]J6Tdo:oQ,6Hg9?DDg6imD212:pAk>!@2F3jB9n_QXVW&`pS+)@NAGi/XJ;/d\ZS4Q2n$ZnH\W+;&!r'sYJU&Poo?AOD7OHL'e,)B3Z^5t`g0Zn$s?=8jdPnFfD$:u;VolS^g1gE.AYpC609V5JdO9%T:;N`le%jP=>N?lRs786Pm'/TneC'cGH*NoT>ImB5RRS2:0FBme'YU*-0BFG0U1uB5dZq*bV[D!+4iK6`3(fO".>1OIu1jX!)a\(XhFbt8c>'B)FG<[K%gU5d6;P,ud\opf-]A6HSi?c^<2=\DJ;PW3@K6gNVf[o/0H=nN$q5iW!RccNY*%.sR%grJV@LFkp2!P54XP&0`['`+VJjUNq`A)!Z-VWqB!Eb1pW%"ss"FZ8-9\#^MD./A[WSSmOilJCrfHW;&,5-(@/IS#faJ!L8^@sM;/FOQpe#&#t-=obQ.2Xuo'Wp7XL4tm_)Hm:];Amk_oW0rn+eAq\_'Ja\d`m(FZg$lDmr!ck5r:>+;[p#$V*PKaeidX[@F%NTfKho.WdCa\6EOIhI\ULV<Y3)>m&Mk'Uk;F0>&;tW!HiOsL;j)JFdKXYckhf[;,e:!5WEG!)huTI'$:kRMXBiI,6UE.!';/bT2\j@==DTKWIXGrAt:i40@K!16b;B!U5)$`BIF`EBfSN%Lg`$W=CEHqd9!FFOrgrBLu>*l+t7]?:J.ZPPj%I[eS2'K]$,EC*Z0mk&Zs2HdT:^faO,*t4Vg#U<O7-Q86nC3<SL\QLpWZ#9$\)!\u\['_IcqZ1G6-DS17N@jBT!hfn;++boW7($HD,DD?CJ"]64@snG^4+*O`$:5sOcLS/"ARO[iDS0iok>7ZTK.Fu$33O@%nC[@hq'U&'CQ)W@\u15/@K/BV^GYc-XO(YXhg1i:C7i5j[JG`;+JXLpE7&j2#44Sj$Qrs+%'%uddaa8ocj-t)Q0j%fZURfO`'U<e0E*pGHL0E?6^_HKUW7V3]5bW!kth]BOHG`>VEFdoSa?)tj:)^4(f1+T:<X6W'ZK6^HpF`!uLml+q7$pN=:XblYILXGdB):%]RjssDJqt4+Ao3o15gb$EdrVo8+-=FO^\XLdh:MJo\HON#FT]UjV*)cNiG^%C0kkJ4$;!N%ASp`;Gb;3d4ja'LPC<`25,p$0GP9=9&5L.mUVZ~>endstream
+endobj
+136 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1574
+>>
+stream
+Gb!#\D/\/e&H88.EPT;57AbmHhRn8W;l9oP+Kj`7(pG[#7)rOX;C*d(q=ct6[VOKOg_Bn!#`0![GC6!/iuJGZp^m2/Vubc#iTc-tM."%#&dL/85JUfY&OMRIUDVU&8NgAcHp>eq89"eL(bFQLCh7Z<3XX<;A2#!8;3IRl)5Uc%TCJ!O1TLW^aEIS/Jh040)?tkJOccrt!*9/Ef2J'^mdI#oGlR%%h;i49rseQY<qCle4:6]thQ(mg9]qVO\!%[t@?_gh"M*?8#XP'D#Qm:ir5i@?*Z6,U3.W!21pgU>G^+qj0lBs#pUn54rX"'CW,+MDQr!Y3n[n=5r\EO[8V6$(G]`H+kDM^6&;$Li[3-HCBL2u\KcWSmV,;t,Nt$rmXhLj*(aA.]aIsY;(oe!\\64Ac1"]%iFKjdqI#`AEZdA/eUcJhbB40_@g-#]Jgb,d_K>ABC-0rQ9.@CA`%</!MXX^!\qDW@YY&9uI[K51Oh^G1[6En<,>;Pr2Z1b`iMNoeL\:A5F.N%&0;/mok/D*j033$!b/foT38.Ib:!,e-22A.FP<,lbWGmOk8<j<#oh*IrQ0]Z#(1JEj('7H3]8-%6l<]iC7CsDJ"W.Wb(=8d`9.P=g''3_J&UDXCCK%?6SGg]tFE2,]Tdl,M2W\"XG6@3n$-kYl#`KEHoaI\9%(f,)/M*5X9XjOdl:opVKH""fpmHqSEG(C.QN&gM_AIh`N".6?jU4rXA6IFeL)1?4)j&Wf[0"phh&NgTk<_I1pmdrrR$e+Q=Na2c0g<mNK0\0$MZ/\Zb0,+N6A%As+-o=V;=aIT8)9(9t<XrR=^GFG+c*au'VcY*BM+"m&OC?*:Ei"gjHeDF69Gu!l4u-ngOM?N-f6gH#DSgD]$%H0@O+T/(HBMCAK$84nHkgV:?t%D>jV>c%i4>Y"akYl53r;'@g22<(?X[<#"6=Lq;dD5k'AbFOn@i0;o0,e!%C`jVERTVnAD,7!p@6kmYnher`DN0pPD,o;SV.TH<fl]bGpqO7e\d_(IcrYObZBUk^+N.3Z<gq!n$6Dp>pl^.ZEmDH"QJ8D31n<iOik%_)h*N/P4lm=l&ET>Bgrig=I[U[E$J@AMrCm!(27\<k-b7W,7PE+Ng7eR.8/i_8'#BdnDA<_K,Nh\.er_9=P>_jN7KjL_hdAVDiF8D(k!#C;cn-IKr_2iUU$(O)YZ^1e8MYIj&>KgQ1[t!`YC3g@1eR)Oim\e$PN/9F;rgQdKR&]l>/_J]K[1-s/NK3]gili;:6QcW&OVfD7E;P0T*#9eO:TB4h?-15_!G@N6uK#YfF2HY4_3l&YGZPrrX#qZDusiRWa82dYc^YSVf3('qLrU5Koq<<b1ctWU+;#8iMQBLRPfoo<=G'l!aS/AGYU`DT4KBa*Dnu><aC"Cs?=FZ&^QFa=2D.;7H9T^/=p59,me'?Cs%m_s.D(mKs/#aXt"&VZ&&QK-QPKcOp"sFKK9+i0&g0ju^lY9OR"a3SWISDT10dN[d8O=XcFtm%tV+EV&Oo;'2@Dm:RrUiYo>AFeC_&;I3j.d_j62V@a<gq#)!jRT=fa14m?]5EIIbp&~>endstream
+endobj
+137 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1847
 >>
 stream
 Gb!ks=``%_&:Vs/kdNEcU?K#o:Q@//Fq\=oZW._/0TjBK&4n*Y7PWS'^YL^:'k.ODW-oeTPd.g7^;!\K5(3b1DdEI7c/A5*!'pms3<ZT'_s@HEZQgR),TOaIN^mi(<9*TK/;"X4n:8FSktrgtOm'SR4%V)_qI,P[>VJ_I%'OXb7"%sb!^VU6K[<LkZ@ZBopn<hUe,ZBHQ_Oj\Y-0H*1O/Tdr5JF;bW`l0.;@WNNsECc`Z#ZAnROPl4<%Wpk_JD_LmJ]s"CB[*cj[Rapsk/c=6L7M&1::?P599!_Xr@Oqf\_Q_AliUhSFsYPtd"^g">*j?OS<ga%]<l`(RPudEY[_O*8DR"IL&hoDF0#+TsG@dpqma2!h!.qgh/a8`/dU(da_1cs#6Eam)@F*40N^cLh\$)uSP[9XD)nr3"NmU6dma&;%]=V;kD0C(=6J)UXe>;Q7K'aCSZKg]1P5<PVLG,Lu`I*`ifOn$/7#W="%^X=g/C+rBp(A.8KI]PlJoUg9dDHfhE:ea-M(_Cg7@+ZpZr58N(2WdoJV:bB'[[>FR!.fSMU2ScCAg^&#fTXfju`Z9)]ARU6hNr23*,BB#V#,8;_PJ@2H(h=#4og?MB^)-Qa)Y[[Kg04#qKKV,=rU(ma]k>bL0M=#4PY<%%Tu+l'29<>OLULVM')br%3Yu&=>fd?0:5?F>Fb.Xo-4TY%2;c83SVf'SRu/(,CX@g((=T3n/gTSdQBfN7B8/(86G5"fP]?[K03aDk*S,=Wkq1te#Np0>8%#3opu/fIf$M*94@3NOLh>2'GYVjOE5UiOk>NVr>I<4=Q_G7A#qKGM&;'%H=#Dl=TZ*rXa!XaL*Z3b,Ar3?SlKfl;fZb*-9-Z;I%TasR3H83Y94d<*L@TRt9.=pfo3f^-n!\`DL#RgRSS&_Xc6N(.&*ulkMjO;GIdKmS1A6NP^Z"XZDp?28MdU,Z]T4i\mD]/l,Os#'NL(3%4?SV@e4Y8'+ToKo(Am8X3EpN+-s!^X,Zg]mjQ_)\E_h0WN_mI$Nna9ciSK80(0U`[TdoGe/c3n)+.clZR1lGd_:SY:ecf.EH?_WB_L$Y*#bp0m3"JJOT&0T^q%Dd^*1g7F3%%->Y^TlhIrUh"AFE7=L6-If`*DBKr;q=APO>S]>cV@j&>o=9a+,i^FdN#de_Q28fJOsZ5U#a-U5#AP/2=:BG(;7c7&PX,7>r?nNu#'4#36e+-#6a6BUUH+'X.aI98/q$#LfMS=mOiFA?-rYSbBNdiPA3-KW'RTQ7F";c"I<i[GkAUGJ#ni=rQr3S].4<I67aE'sSZZK:cY`8Y;!Y#*_fi,8JaKVD'5@B:VedZSeT7V8pkdrc:bg0_1Aoo-(Q%oC[cmU?q>BM"CogU;Q$M%o,,@S5g<TfY:#/U&R)T>K@')]Z,H098$:4HZY-M,J)W8P&t6iEVb-\G+7#,r%2[%Tj&^!'NL1cQL'X\`^T"$P3Nge(Z#[0NF.an<6(au75=Q6LFP:kqi=cukf<]Zdp4hj<2QdO_0tSYklmCld(//j:$k1-]<bP&[*O:cC^OPZ+j"$7c:;A(J+:p=8R%L(b3qqc;W+\6cMa;Ue,.(RLt9:'.!C73)=,_Y]OSG'qi51n8$e(7[b^<QpF`1[H,`!f_b.rg88?2)0=35shC=4a835Ji#4F\LSb!&Sp85bkGE2<mOfZYQ_js:klaCQpZKf7p\"TMt_c=rR>`B\G,>&B[(AEhB7:,OpBP:[i\AA5H%#m6DrH^Z:mG,B#\V42nI=#F6aV?tifs.8g<a__=cAUjVjHcquG&,^corH\q7H-cNVmSY'$P^*lkfjCu>]gHZb51:g%c=(n?kBm=!(VM>rNE"d~>endstream
 endobj
-131 0 obj
+138 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1917
 >>
 stream
 Gb!ks9lo&I&A@sBlqpJfL874pC(D=RQ9Atm>EP07FBfn1&X8CH.fa6_rUkR=W@u<;ZlMq`Lc(JH#f+/[m!HA6aMl?/n&p[Rm@<$<HK=lY:WVi_?(/O'dJV37-h."=N+5D]c>q.t71k4j_#UCoeQK4:1/%L>fW90USXpo+=Qf?E2o94:j)oZ['.iVkqghPV!%Tj?H(O?fU.?$H)kuZWKI51&lcG["5)_-a5LB<Qc!Qm0O-Y"eXqQ!Q>KfR#q<7\BBM-#)LIY"-aOopB'D3Qb^h8J<*_iir&MS;/as[O$o8qDe)4+*<@iJp!GWY_lrp[2GA2'L6lGp`[?o!3MEY&@KE*1s[Re?LCB`$0B3!%;/UTPW>"(tEO[AW(EYR\i1jLMt[1<8doLcmbin[V;Q+8S,[G^9EDFc:qjG4&bG3I-ehB(+;hCSiNr1$LQn<Umk9T(-&!>O%*Bl'=rMrV=NcpNW7%n[f5E08fZ;P+gq0,8X0;5o><H0;*tA^fr>jH(IG;Qk<`:'R<Bq+tK'lM\M#g@kLoATj14j,.:o8<g4;]m\ZcR+3)dWp#p"::K<FCF>FaEB67cNmRcL3@5^q.cXW*@S=L1m$_]B].\YEm/5i`^=qnM^e$>.b\o+Ur"%t0$-3d"PTeS/.&h[(`V9PH%N`au5WM5PK:8KK_7*Lo6bC1Wt@SO/agGMnC_:+c$`FJ3:B?N0;XJg1,ctm!(W8nRUA1YcU1"4e"!)Uk5`-7=h0T2Qf6UMe>%Xt;QJH>F_n8A#ID_,IX6Coj8_lAgQ4`4uC<89lDo5s<F76u3m9o.a<Hm`353*O@qL5&7a!]Xj&7nlHD!H]9SnJs.R2WJ7LRG<@79!]ct#&X,F5+U_:'JV2,'$C#R=u?V8Oug<e28EbI4.FEUA&[esJl-=+5?C/Q#:)e;B['Y^f@*r77p8F9;%M%>k*N.%i&%#q#_0\ja02J%kB(BI<Rc`^!4d#MDC"ED,<(Sb\:2]a8)llHr`bD,CK>T"[pJpiJQ#!?(/e5Ed"8<2UMe;!]Y3!J,jm?j+3L'G#a8<pfW.`m1daa#4L$`*oq@`]BiE5YN/VQYL($IB3V4ib-'AaN@V40$063fn.G#[\B6(OP!^?r:+:ujHOO8D6r%I'`pKpNqDin8NL/]^XhFYr:D$Y\lqB]]1n=C6BR11(Z#1j@Gh9+"L-lZ]MGQCnhmPZ^jKb-JFW:hVW%T8QoaS4QX'k"lNL;Re4`,'3J^:Uq2NboLs.NH#4&"GCM>3OHUr<d#BI@L_'lZ:-7N+q%P)2i'W`5oE6?)qn;%S$1I>r+I(8piKr9,WkG7cu$0j#o4jUa]kKISqG-JHHgGk3H;^iD<FsV*[<1KX:`<I*iS'Y`6.)s0Le0rP>o>6V_5uY'Aa1C?g4_BkpK@7H=j3In%(3rSU9;ntY'NV;BEsA7[7^C9;=W9eXQ5/)O"jbmLU7"]2,Ge"fTHO]d*+RF8#=Q7d#1OrkG(?&J%_dh$3]caiAOOULb"C)MK<=,4dis3YM`Y,(%N;.A/$:K"XtP0qEm*?CC$'Eh$X6H:fUBM>EU9;%]sL3/3[qt:MPCTYc0LHt36gM&P7G0Q'PN2fdX)J8TN.Nq;oqI7(S2nh7l+;L;00n<c%:s'&/$0Bfdh\*KJ^eI6a)XQ(an%]oW>IGktd"YgHq*)mapVJ<"l%RNo-0NdL(%h@LQ'e-U*A3f(s+R1GY,+Bt3'hM-F#tHS7nC=JPKbhi9a?h^VG";LRoH=1B_.QgPbru"])\#nJVhl]>0t;k)2aCJMk>+j-f*)bHu#KTiP&_N19hJ>0K0(J/i;#1<#%b8e3?l]D!a-RWbc+H/!;"1$A:T#g[N<?mHED*DgMmbeP:$+>c-EAZ@lgl4@`(U=p%hh*HXDcC*tpa^#%Nm9dQ#uW4rkgGsQAh3BI$Vi,lUO~>endstream
 endobj
-132 0 obj
+139 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2091
 >>
 stream
 Gb!kt>B:H:'RnB335\DF:0@5Lon>St&=Bg-9PgTD:`_O,Z7X^7)+bd.qs4,"BmiWaL+p!Yct!bNZ?0tFhfle/6m98hpH,R7SkSCrZ\Y?CVDF+@6'nH%k^7[h;NSo90%R;'k9i.\pBLfc@0I$jB"skCB*Wg+)"cOG6'Cm#1r["=fF%q/m3Y]YB-TAI[JnXBqC,0?e;9nR[Rug>kRl5(fpKc\Y:djoHN*'dl1rX^rBSh=f^dnhmP#&qh5uOUq0747q;hI2i\9ff*=2r:4/$'/+!;!)p@-V1X67P00m$?o..)`dVPM=rPRc`.)>8@LCAaCsN+$NbRS;'+gX4KtG^=STBpo7jmWc=PldNtIq-H2%c!W,FCVFWQN^@q[E?!Eq&=/'U58/^f&7qa^icMdH`4`[Ag^]5a;SotE0Uoj/?TMOX)t#i;_CR*>A\+O<=d]Z(([5^_+#o:mXlF(KL_JQi&e5-i*%,H=cqFAs3/tT.PbQ6E78^^)=Vm='g?L5uL]49P$_chHki-DFn(c*5=t4#N5uuBDF;`<Q%EY(*6;X'fMd>eNaOV]2a[3,bqF]>Hd&3@D3a+)"AeS=DRbF@A5)[XB;eKCeoCagZ#@0I2-:DQIU[_tGl]8DV#_4)1a^gfFQQi*[Kih5!NT&pSoX98jV4C%B<Mi!dCU;\4d)CrU@KgG5VR2)`j\fXcP^JiN"+u;TJKinUS]ukH7EoEm9nr#E7*)W0X'_i&*:qa`XEg"8A/<?P:I?VX)m'\TK$'$d.R=,jf52P<!et5cM*`EIEZKP1%8u'e#?MoN%\.pm03kCa!lm(*W.d96i_q'^&n'TZG&A9*rUp`3Ptl\NG=:s?IQi,hl;<Yib#)7H\0F&]&u5EuX[F"Sd=>0+[@5+jVY<Pk^DG[*Qkk&jE;L2/NaD"`Wc@!=;<M_%Nh?6-fsL$'7;:aXGpc?7^'W>QgTmfTPt(g8e#M+&EYpi"U-n=bXnk3dLam,dfp3Co^,Y58C7<8m_VRuND%")t4[4FAp@^YO!BqaNg!7=8$8"&9Sk2cp)^]6l'[Us2X#7$EE_Rn46I^gJJ[#7lB>Wd=;=$9Z.$?B!b:9!HJ0*WB&u]YDK/1nsO/q!ha>8A13m0a>5T$/;TiEmUd'Z+gK%V_/S&,b)]s\<'rJq&\@2u)`:mF@MUj(asgDar?nthPNlhdt\YtH?c1E+qaag#"V/$77?!Psf.ak#tuknQ2OQ%/EW7eM0E,ObP(eMF2*[c_\AP_-NC^i*r=]A'NTRHD]=)e2koZtX05Bu`he]pXA_$^MJj45M,U9+8OhQbK.si2Q,7#(#ZCp-/?Q6ohW5oO]j692QLBm<fn.8VGrk5u3MIJj$WhV$%n9;-.</]]UPs]qki687:)25`^1SJgla+[qt[j%&,G4iI6L>l3MrVJEq?WX0QQ-DQNE")MnJ%?bR_UN!pARCP[;m:3m!TjLJS07pqkA/b'Z-U`8sXfY31dFRDd*klRHVfjrignA@@[9::9OL)M:mj/d[cNdA>ZQm#S>1/<;bBacS0UHsm"-YoeHA=XpkWE-43oZ.7O(M<-q>6?G?2k==6_npcUAW<-EU26bHW[Rc$>e&BNs0B^:_Z$*J(an:o^pt80.la:_V=k!1Ft9fEieqotiO+@,<a'b9!.,^Le/:2V\V',uKejBr"30<K6)u<!/T7"gpZ;E5pr=tNSTK&_i,kagpV7b<]eE/#S=FioI(U.s.TY4"%ZO_)2,ldY`+aHY=g0Mk5WX5mNJ`</pm;Z:Tbq5Yq2ZT$U:>a/!*3(DGUPt!!9kT#rVQP'h&f/)41d_o=T,D?ljrhAB,q3'5%;cI"Y+,\H#FDlEHOJ[>R@GW)#E)[i$#RHI_/LbFq_hdjScXAQjjKl6AlgZ^O)$ZLSGgeh,JVmQ%+AFY=gn%XAkPmfBi[7;m@pK4:o3A2N(7emIYE0#3FQUk#5K.\];o5dnU#rnasJ>ZM#KucThbM=T`U?XBZ.o?as8###iNoFGY&U-G$<bJSAeC57_kRdDO+%d(?ZI#Z[8U5dqC0fsN5V<B,6@Y$/_l_>OUHIsTq^(1&SHjk4u*lGb?&_,nRXr]bHU$H!=Yl/Zb"BQhT~>endstream
 endobj
-133 0 obj
+140 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1879
 >>
 stream
 Gb!ks>BALf'Roe[3"MQ/bn+"j&sqa;3&osL(Lh>>):oCW[(n$:8m/8iq"Hpa<sV+-9fh]QVR=GW??XZfq`Z$Gi8UqQY#,PqH4$S5*dBkBkMQM=!7ORX9i##56@TR)3\IDNM8]A+INQ/2JdWR\02AORI6'E.]%'BMe*6[:M!)E:fBqT]k]iX>)8QD]jZiC2(ZNON>+XpR3m3Zfi"Y,7C^f@YS#c&nhVMPN)>sWcO"buJQ5dksJa7E1g;IMYSrTs[O)DdXrGLYOdjO#nE;I73L4T(Orq,.B/S9Yj"<jQPG$Xs+^uS$Y]5aS`np,C7rW%HEBP]f$9Lng:nBGo74WJJZL/,6AhMh$s8],r-+(/`#br':FCo0_*l&f<V[6919"5f\igjtAp#KNT]"*"1@ho"5mMsiufE_Fer#L-/qWVL)7omW<[?LfrfjU?7^M"2ScmPskAlZC0fB[ZK+=#+uG*eNR;H&S]jG7YN1GL1OgZ;0'>G<6WZZu3ETJj4:c5JtJOY<P,d\#l:iXT6Tl,YTe7TcmJ]jhOnj`<FIcQGVHg=QE`,68"o^kfP$jjBSXJa,&8:jFU#6,0$\1CBr-@[7RI==gW!4_3p1HPW9f+1SsUe<hOKNA.4;[kOa0IJ9JV=l_Y+Bbt<&t;_cbVJ_rK6CPRU7"X]G75r&e/ij:=%Acfkt6mJPf"icc_L$,.o#qq/crjgse!3?<m@7ZlL';e2FMl"K8(o=cLf9'qJ^2tCA$OQa['su>:RHO]Mc6UI>;Pp38Q-NuK^ksYJMigOO^TrrW1Yf!SI'[EZ$D,IKk$6.e;gI`.>&1G/Ck?WJq&q;C#GC->L>@NT9*<_Y@q9=MRg;6N9;0]WMF[3;nRYg=\$s/iVu`(aW;[8+5!GeZT$r7Ud6SR+"!^3N,KY2>QOHaDlVfikX'tHY8K(]g#2kt5Hm;.`WFF7&a>6Ou?jQie9677]EKmNb4Qoej^Ib$E\LmgF\W73(L%K0]6\BShJ\-Zu)C)4`P].BS%SRh/=d02'WAtRr,[Wj",pEuUT[nB<nA+eu\Ju[=4KENtjZD<09ND4!E#GeP'T%=]Kd+7(ctMd%5$n3N<6B95A\T>$*F5:c-'F`g2VM9UQn,Zf?CXaJhV90&bqbO:TC1#YDf0G7?mYHn!(b)MSr1'P7\&1:$WbeiBp^OK(Ca85%Oq6Y@[lfn%f>&87`?DdWnf5BM*WDUUl1HiB+#kSg@S9Sj^Ouo7[%/0Qlkh$/BK'W,"0+%L@3dFMM,!W7@9[`L7uO5C]Pa!YOIZ>mZ!Ji&uVu6ca+n=<\H73e][0!m5)olR3ZAgMm8KY<uRXV_dcA"Qb"%iYi63=/J6]k!8@b,]Hhd[@6eh&!rk,p$o$bG[B\b8IO*+o06+e#Tcq[Kgo#JCn0TR`<L."?W,ZVhC/-kfP^ekBQ!DYF??&Y?B/*WZ@/g0%Td$n8X(8YZ@"QjXJN?!MH)/\MAMHDRf2`?YmGq*k@XmNTgCW?'9tM%fG4!o,91Wcg`-,nTp#L3L2[8OF!$WbH8XB2a,H;uJ;cG!%p/Y;:9XW>=A4Oj\[^Jl.?P?02Kr",a`7g3,fDuJ/JYau5ggPP*5#\;K8[ID>Wm:X$e%TDQrbBf.Nd9duXt*rg?;td\MrlQbg##Id^@+5:e3d"l$g$LjhSuEG&0]3;GXXdm.)>pH-UJA?q'2Ge#feVL71uBJPQd\G#o$%f6gkdd:-kK/qgNt[HI)7^3;O76p_^sYUEtsbI>\@Pf=*oi]@Q.7(H4t>3[7G)>&pFBWmqYUiGNc-!)#d`5j$[\eU0j.W'97N=P,N@,t[T#V`%!LRGtUg7&<f6;Uc?/;XnFW^T-.-bZ:5Le;rb`A9d2eZH).dEj'\Gb+@4m</-UO!*#lSm/~>endstream
 endobj
-134 0 obj
+141 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2007
 >>
 stream
 Gb!l_968iG&BF8='RQmLOVp>N4jl\fZ/sIU4)o*4OD/cd8Ou0A&dgm-dC8Ro!U=+FcI?^.SOorg7=rHAJGnjf*)VMfjSia;dH`6p4GbJDBf`#f(\DBe7[*(&83n/TH5O\aR3,CQIkVj?+!VVa1ja5hc5lK*;:'5o#"^S+dhMDJ;*Q&[]9bq-J;%AteETh>)Pia';C@@=\CS6q6naDBO"TYUo%j,\PhoZ;*`%6\kpMq6@**cEH_W:YpU29K-5Y.Qq<Q-K`F7QZRh?-4G=',b0SC>=mc.qFQZ(doD!7]p;VDZWU7eP7>e4i4`3@O^G8D@bpDCb"``LWG^Dn>V0;af"S>L"^m\UNghYMW(-b^[`YVR+(h3_P-[n!.HUUW0r2[MjHfZsl@;2Ae]+C]PA'ZBrp!8m2tIRjeB<^LU(Z+T>6q(0$s?.G[<(Quq<W7;Ls7a@:$NMr,Fm%2brn[W:#h"+"je!)n;,P]RD?_4&-7B?t7%c[\#P(]T=#YUAg5O9c%'\b'jaVJtU4qHfPNb7"lDat(in_4Qr"$2&l,R%L&7@c#02()PWWa7dA3^<Bm98/moJgsX?/mV7J]6#lY1SIM*\/0F.Up[_2nr6;5I7ME1U2DO<88+?S/[Vsf8ROP6D=W56(u6`_=,:&BLP=<gr7jNEc=S<iP[&@qVPu#r<9]iN23VXQE$7[L\Ik^)`Y'V+l;C!a,e^33[STVc)-oS0>mM\HNSPie?-.UlF7t!iVU\"A4l@Up`p1'fOd>9dga^Kh\J3S_:8sJP@`M&h=Va?oopV<VJou(R9$/)1Dm5nNf606(A@(=3n]3e>k(7@c\A[q\Ro&9GIVoi]"PiApVoE`>?gj*6__qK9Z/Sj_Ieju=;39/IAZZMs_`D<P#5nE%7i8aLaK@WB9k+[dB7i2-DeArh'JCPb7o:KJk(T`hq,^C?R^*/f3'PMK4u^E'c4JZ^8Db&9+Prj7;,k`55YSj8jT=jV^*&Qgl41V3(:!uELe1TfggTf"&FLqfg?+[Gd\p'228($&*aLcirG,GH8cu4gQR\a=ONb+0OLGh5cpdpiS^+0E@-[u*4DNF(2bAJ72:/gA]d$CX!"CViI@N'_-d:%C2mcQ;/Rl-4"er:QB`S$SKZ>JNd\lk2d2&O=&CLs`Its,(=/rE0O"$7s#uG2^CNG0J^JgjZAW>n@BPk#!:jr=Zge>hA.g%/@7/W>o?bEgij\hfWZj!TtU`p/37aI&B]A%;tae6gUJI6b[D%erqi*0r$[Gi=;\hS'-fNF"+6A;q3Kam5_9(6krliO^Df3)$=0%;pJ^A_*GEZl]Poq]E@<O[f6TJ=M;QZ2$"fB`Rj2F.^U!SIlMfuj.f=HrucPq]a]R-WeWR[6JZ1\M]e]0oMJP-%VbW4BK:"W"14=HgC;>.Ue$<I7NV,<!;7\roqe.%9[FnDBtN?b-fG?a9_6ad4!D$IL^i*:mj*d(t+a;W_\BUl_-d)i9gYYm],dH5Vf=+E)LPX:=f@[9`jGR`h*b,]L6S.$I<?SQiA".H4)N0SU(K-%+l7@+(oo)RdHM=P_[9;EW^9!8#ft20?5UbKpXb[BHf<AZea?*_L#2?:u3`Knmcag8qq#[b(E$`R<1,eI12P)gT'[H0l5B>ILsYF,A2M<0_[gImI>PC%*1&7qqOAhP+uYmCL8Dd)+"[Tc9-MneSECY+Ju,qgI?,5.;A4Iq!c))"+5LFDtV<X*s->qotouk?Ug&QW#q2RoqC`_O<jUjR"Z4FRee=Tu/PiP9`j8R]`TAc:uNZ6Z&\OZlH5W%iH?t;-.S?AAG^+>IU]&4)"c-[Kq@@BVnI[`u@_NTh7no?*!KeK)\,&99/^OY8TI`WXe6MqaZF,0SSMV!.l.gnR7=2lp=?DU#s5o#Z3YW'I/+#IV5U$"qEmnRmfU'c>$F8]e?u-^mEc@9BctmA22hZ\'$QnmSB<^B5OHCT.nWi#84arDbl3#p(%OAlU)rAh:ZotEu82-s1TlSj5fH*39nJSI6.-*Ea1CJ~>endstream
 endobj
-135 0 obj
+142 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1886
 >>
 stream
 Gb!ks?#SIU'Re<2\8Utr=Oi0QgO!uS\&d,WC$]4U\i_YZD6oKqQ'C:>^OCs6Xk6)_,Xns=>DtrYc22q8\PtgX5(W[%(.9NKHMo1`+Je7\JtCShkrTeZO*pNXE7i&l[ab5R`;0C?5RDV<_.iW.BIu;"U-gS:96sIb&*"LI_(bBaGkRjSl5M#\#hJ_0OSU[W$gIkG+4a?PRclWV`T\+C?!goC:$M&iq:YOERXV-u/#.A_]JoJrUt;W6N3B,=Mj*ZgKmoD*M0K,44!JUi+2A=J'E%LeqCNnC&&">;MA+kuEgdsRC"I:%0fDf\Y<LBA+d?8l-I]5(Nm:*qe&PaSj4K83`!9ME^)h-j:P-ZG;&eluG1S%c<lqgN$J0/YLg_h'q\q99+8X&AH%Cg_7p_R9I0@&a!M:PL?ieLaUeTrF#8l9fP=FUN0rd5a6ocX.OK-T[Y.'r#JBs5\@F(A!Z&p=$$:]X"4Q!tW9L3&[_7MuMThck^3:Pm<'ISMYJsT9cVjW\OZ*Y;@S0k!=D_CM+NH9KD=BTDP-%24U8(6u[/Od@GpS7?/$%9+?>@Q]/\_u[X=]2rk6>b`H.%X%rBq38;i:?O<EdW3/rpo(HP`32CafS&lRN!^(>hsHKgA/]N+BVW9<_BTbdp8_;agLQfWsZ9L9hn16PcJ!37*96fbLZ)Tj>C![?1SCH>4o;)=\br4b1aG%Gho<]B2l,rN/R0&fITI*9UR#W%>NM?ELbIVXDl$IAisk/gmEaj/%QUjH`c8K68",$F?q^VMS3Ci<^6i6+2`EMmu^e?al>;4-48bi.cH]6]<:Q)9=e_X@rpCncet#\kY9@b<!]U#Q2/,7GaWTQ$EA0%a>@N::8SXQ8,V4B*>h#hJ>$U)_XuVFgZemeEnqeQ;<OBtD1mN0?m,E;2.NW$*Uf*5c+<'Zn`"cjIX[/n!\^:E,uPh\"7JPYFMg-]p-LJbi.hffHi%fQ]G0Kk#P&pi2NlFm>3Dd,\3aUrK<p0/0DmN6NSQ!rm66Hd@Fo)ioc&uki3F1ZgOF0KU$ZrZ5$t"t)Vn?EI\-q<BA,5lSBJHPeRF6lQPrT=E<,J[nUFCjAVm,?AVS1_[P/uq-U5JH_sh<dl(8??L]C7npBoPYBkg?<BdF^PBJTQr?B'T(Z`8`WVpX8hqpUV8H\fG)N&J4'km"rPRcIa,jqbfQLNi!)#&5s<;b/Su(_d.r=11.MYBdQFEc%d=Rad(PN#;S,N4:OQk"E"]E,=`ekpYqjM4ED`TY9Kj]?]<)ip9;bQYXmOA&7\IKn3*=;nAn1HihWai=J=kKO1>-%GO/2"'`V.>cO'Y/fXgVgiHMRmkt2c5N=W6Yr3%eJ_sL?TTDVTe$aiKjM[0A4=`hede@\/elI'G$?ZCC#DalK`fCa6j@:kY@/n2VpCmnXi&?Y$Pj/V_oGM88),8FDhdKp[3=re1cN>FO+EdIKET"p`pLf'd:1=j5]IRXNMCW);?tMr5cQ@pMgP[Wtkt).IXcV3Wl/".3EhkYG&o18^G8s[GoP"d^hF_4S.DM+_-KR!g[m$?S.V0(ekZ!C#K=`upBu*sG[:'DUd4L[ue(3GH"1]r:\n\Ut!RLaTQl:^7DZc]&7=2Xs_N.L#a&(fXZAkEmYbTKW1XYncM<8ps]p#.$(/4Z_UMUEc0/cOAc'"S;RWZr2*n+;ik!kuRQO-s%4R[0*pMJ)<"DgQ<-?E10*R)`@>"X"\EA%mm10p8"GG'"q*,N_r[N6CA@_-@_cpWlDcE3M$Z7m)EWK&&)T<g#i1iI?n?fQ/_6@o!?a_d+\fo+GdTdedGm3Q&I:j.)!D;'s&&P%X`/eQ-KI5e>GXJVQP9jkc8J\.2bHNY(Rklq:lXJ*GK$A;'=cLth+s,VnFd#T0<l0*'/e&(k~>endstream
 endobj
-136 0 obj
+143 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1787
 >>
 stream
 Gb!ksgN"3&&:N/3oNR,E>4%SJnrU]o.3u3X!BK7>oW[$i@,fu_]JE)*?_>e'J<5@fG*QR6&lI)O@J\jDF;'as=()&?-.0mB*M3NMKJ])p&:6-+cDa#gnB">?:5j66e['l8pKR#C20"3M6.6VTCY:V(G.cs@dYji#Qm@b$3_dAKB,h(PMj6OM=PHV<C*ermW=]8^BTsu'd4s%LhN3Jef<9oB3kHB%oY7<G+#J8ZRWl^1NpejcXbq+J39e2(fcO)TLWphOYKaL#o%L3(gq^7QT,*F3&.s;G'.PGFqY[4`nIm'/oG_PtB(,E^*W7$Gfs!Q0o\J9i8U!/ImrFR:??.^Uft$e7?q5W$m%?*noBhr=S#qfkCD<qB\ei4\-Zh,8hslhPncB:[-801i/]@?:q*%4e>7%\Le8isIpoLt[RA74]<ZJ50>*GpSQ1&to#-S8d_q5iUTKTP'#)JUG*hObn"De-G[DN9P&c&!+&+?6gfks:K%OIXG41a^Koe1X[Y-#[_GOD0hEno1Q3$PC@AZ@M.RMf!^Kq+u/W_1aGb!f#@h*GsQ=8$W.;[)n-9Ta(",D'U>."i0mrmb.TCuT2KW7n"&^;M5T,9(TgaF8A)BrRD`_&NCR8DT0WALO%GeP,Id.]8O'>h'#c(.DD0k=A=L:7Fh9IMH=s[@:2Ib*FnK0sjJe,@PK1.VXI_e-M*^[7L+RIMd:/WD)XP_Uu5OO+qV%/i`@-JiCc%aK3a1CNR-E9Ail'(@ZEK8L&r_5#pTQ:PD0^!ftNNDS)k7=U'.>)q5^]%ng%MjhS;'_4%V/F4VAl9"\*\4eDS'h`j:.jhQf<c;Kl;35\,1%\rjEUL4pE6(>c;FIE@3F(=W-cKJ<QAQB*83IlGp9Dbr<O228T)hT,I-`8HpUn.l2S@m[=,?aEnmuXnBo)X[&e.*2V=]+5q!"2XsQ.&VeaAfii\iQtM6cc%O2(I4OdK!!JLs-iJVO1No+A`tN\M1!6XNEk1n"D>&9=Ai,eiBCLWF7p8-,T^rd6L>_(Re<'XQXOSWi]hLP;SR@%Pi+9+JU!fO9$giK(RJ863*f+_=+=e>'$M+!E@ZA`J-^02_[KX'0fBtW)@5C%m\?rA^3[F`%hZU_n<:[2@!hE"`;>f-ERUUO/KB8q5u+^Ad)i?!j7F\%k?U7B+HKP,l09L`NIa$$>gcVS_oE*M([e>f5`c^VT_8U0K'lYf4I6_PCZl'p>aU5WHTd"S7uk>Xd4)6j'jK'oGO*^-^+_c+UuIT2`\8C;]GgA<K7:H%^6uPF9h:Z&]J*P>0Yu@Od8`-$Gj8T^*[KHrY(gp)e7%<':7+?:t*ta]K<V_l<g'P&&pi_bKKG6U-B\t[l52;*DG<qs5[d=l,L=M:"N+%'hSj^O5I;uU;lC4$r505K/Y1gfQHi-;KoMM0rXBPL='&f.>UH%Zj3=6O?D^a*,T9lf7Y;8)[LkU&^'UOqdT#9AA>W^ZIHK=Xd;+'I!U]rQJN>8&^lY%_i,$K@P'kO#4[=mNn?8P<U]TPs-e]Vp:&2E02mM.LdhL]QeKri6aUW[H-X;7Z_UDJ_2a%@k,QKCdpNlIgU,rd2%pA,8)jAE.>(+1-G-[1-dCFXekoNZ<*0m'1j5=61fuE?*!JgA\iXG.<Y*MV7a@"Gjs8iei5Nhj''h8TaE"D'B/e*pf]1)t.D1_[%Eq_7Wa7hI!kJ++n9>B?GRsM"Yk@JCIgiT#a8RdT7^s]Ca4roIO5:@mrB6+CD<n4d<+c%kX%LPE`Ua/pk3_&0^O5J;qI]XH?tHT+7L+DDq.d$_~>endstream
 endobj
-137 0 obj
+144 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1929
 >>
 stream
 Gb!ksgN"3&&:N/3oNR,'XnN;N:DdMo";qV-.@&nJea<EImEI`)_YX/"Sm<t3_.>]K\PeP^!f!8[9V6C;a!)23QMqsQ6nd`qifuru:%JNkY2RfV7"b;l8VUl%?*%P8=Iu=5^>8%8Ntj2O>!+l\p3([rfC59#L?#XXcbhrIl^Jp-\rPmZfa'K<NIT9O[YLC[[4KM.b:JPdd0l\lre)WIn`=:V(N5)lK:clWT'"AOo%nQ!CDsq!2)-%Dk(CjDK.5KNmI+mH3pbTEUXSWR%(uH3C")\U)'K49UP(bej>Sg<Nhl;$DO=k)rUJs+rjH6Od[SJdp"S>KD_aNsZKGAFA\+AuQFZbBLQamu^?Z[YMM"o-YLY)!b@KlnfhG_`D-1QMRpCd%20&>#=Ic]jL@*`4,l"SF-97T(!lGKVF6+8?Cq=aA_CQ<6ct(_b$hFgV+8E5!`hV)KfFDZaR,&6m1`Xj1ps,cY4iF:)H=U14TjE;n[n9K-K$V%o`kbA#fJe>h&;<YBI&@QSAlpMj.IQKiYP[AO_7NX/V4qe2OJ*(lMM)<ER?o[%:FSgZCl*dB6knY\1;e!@CpIeM7@k5?"^rig1Fq+l/F]knK<g*Z1qk?Jd';Q1W^oRc(RFi`a7*9lTtJJ7,^^gRK8,;dJHG!OM%XNZB^7Ph$^jTsOee^$h560:,*A13E=\C%8]r5(RAs-f&Mh:/GV3O<KGRf+=T[W?</ObA#`<STi)CGX`olX<!9HL`CdW9#b;.M5kSRJ;*[q,^fS<(k&?)UXd;CdRlGm,)='BNT4dCp^6=:$Bq&OtR5K?OBE+l@R`rnb(lIn_Pco7#k@DY!!%K/f_T'(S2OaQJoB[k?F%_unH1WV$u\59*=Pb;t1aRgplAXeICF_2PXm<%_Jc.CHk-,Bi+1:'K7Hi\b(:I`%Vla+FnMpZM;)pJT95DO[L'qS)X\=3(CNFd;-0H!,7&k*70nI[>#7Q5U\g?2Y*/&2k/bd/!?O+?=oiXAd8iu%JXC/B=Z$X'G!oT9Lb2+jXWA,F[+DGHr*5gR1UinNj1GkYJ3+PtplpM3u`>@YZ!>:4+]%;q@l5`^[CYol@je^5%C^[5mUqQf5o^NDhK]WtD!qJ`RVGAku\?Mc".+]nt<`7cdg0XF`;PU8G:/+t5o.t&[C(h\d^\S*6l*CgJro8`WV2.B5"67u>NF6$%rBE@<Ji_*81J.uf&?mc9$V1`#>MD@f1P&A`b9c(-B%I0SN(Y+WE:jBC"9ZNpE4+h,qlqZhHXt-2<8qJg'EJ)]#/(/a:T*s*ED+EZM6R0ILLu9k8i.OBnBY@@_%6#cD4"=6N+8jMiJ<M1:g$d+0a6t)1]^8q\K&<a0<;<#*4h,U,*XZpdnP&P=IEf*Y9T0m)[9PQJE:ujG8qU';p?Wr;eIInsUYa2a'W1#FMt-EH-m%eGYV#`U2$<-gVs%*".13_e+cEd1V.Df-mRGi6'Hp\<ojk&%,RND$#=HEX_`]`lLaqhE'MUEa&Eqsg[b)kF9E?d8`47G).S&Bu8%qT>8q=:*a.NG[;Y3L`Y6:RQRW2.I^uU6>DLtY>7mrh?Zu0XHDdDMXKXek633;Du),$Z&4KmUtHaI;88'>O'WiSOQRnu9n\,S`\>3KBb(hn?Z5t5%\rGNNuLitZ+p;qNK\('\_WUl+VmM&oi".C-VF[)iSpiZOG;IQrMp$?_IH[YST;(,\ED)`Ga\BodE"W4pZEW:L;BJ9GG!X1Vls"V%[CHO`b8UK`'Z[8=>AQIdl\@2pCeFrKAa\<)s=fsHbJs(5J<O<*Pl.c(6[;K1g;k^CKkZ'.T=/p'G!X7e'2aM]3#.GX41eTUKie5?NJgfUl/p:r`^/_uJRDQ@lmP#\KM=S/SB=HlLc,*?P2;R?GqfXtN"D7+&OCP0KCZmB@<a6,j'3GNrR#(_pUpD%V6TR:(#7eH0,6~>endstream
 endobj
-138 0 obj
+145 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1832
 >>
 stream
 Gb!ks>uM\$'Rf.GgkS)'M-9Q$+3d0n(l'7lZ"#GNa\X%s>&,YA>raDe0)bH+dX#boKX@.=_b:F?#[,Td+6O\NH0!u>ZbM]okVT0#QQCE9`@6)+'2gri;1.Gf'D_S<o9_"o7g7IfHTgY%"r!NTB1L^i4gVQbFLF9%+R&Z!KRI1Aj7_t$%(r6K%`&?fM]_cENNb4:QKPfmQ82B,-Ua<=.8=H=b@sZ5<u5MET.,4bnM>7W_=k,%3h:56`-aD$8!g-K)>UGm3S<?`%!Fm2YM4[IptNVdQY,FM#W@>JjV2iB1WX8/LeA9G`\@[=317LUhgHJ&*R*P@4WKt$VX^!INZug>gp#K"GmDMV*Z^d.nbYidk$0uLa3>sQ[7Tqu<p_hSWpePd*4PA\mc8W4hiJhmj*0J;_s"]H)!>oZ)rOh^Fd%5pE9lnK,J=K,($Uu[<&2]i$2s1@]l3E=!8\6qn6W<]#=s=%p3Uc0$)11u'7:!+Gr9n9SnG;Q-aMr7#q-r)qWW;aLdsBOX--@`de.j(3gnA,F6Ab?],P3P-46S8`Ji]Z65/+XEkrPo1*/WWKSrM<b@>>d67?,sgWCM;SApW@HmL`@O]*Iq2(O@^XQ$fcCL/@#cm%LlbDJ`XQ<Z%8[U.e!M(bl^=UXa+nNX6Yn00S0Bo9u?W7psO"k.:CQ&/aZ<Z=;:Op\0;@9I44CEn,I$RK[HhM+r;`\9JLR4-gC&?mG=CMbD*:r_0/a'PXJ:\-=X7;\9Tk/88kX7T#Mi_RK]VQ!)hbFGct0ri^t+BQ9eMp*G]C^JR3XBKuq&_*9>O-M*oKc4",=;Y79p$rmORF_1];!7$MG.b]<ql^a:k6//s@cX8&@35WleEr`$>VTgNoo(]!bXUE,/<m@cC.Q)3_RGs6<u#@ZZD%e4EqO*6%:IiE!raEM"CN8<PF"I"?AHh,5u5Pm)@ni0#mee4;9!KbH(;53"4nfUFep,4&R-SR[C4"e;^R^qW$*PE_hZ:s@-#`0T2pibDrZUqP$i.sGc\ZX$=,)U-JF[2gUSc4<$5^3?O0]!I5fTTirbQS78^=+RiEq[PMu"G3f#F9YA]L;]"T0'ZO%(QUVY2]J;1@#7@@?rfc:`o.IMV!g,,E1+\iDOkH%N(O\j=[aG8"Il(7FQ/2cNU.7dd7<4-&!>UdB@]!4W'MEOEYQ5,]&rQ:c?3eO`C9GU:T#edMJ.9XJOUP2#e?Jn/SR\eq[J`QmB<EeTY)\P'_Vled1TFL4Y>'69Mrl_#L_VWU--O@S-0;FR%]uoQ%lVc.O03+ja@f5g\Mo^)a.AENL<V^-)_3.\GePq9I@k#.jcbF05%MlFS[T@!f]qNI2.bsPeEF@`$"='>?.rUj8\GEa'(W:>bAKho,&DQn9N7L^YOeA(]d:R&%KXm!/$%f06"-j]&-+\93O0LS3K.jIZ%m*S/ef!4Eb-^CS$:M?<]"5`ahWfm#p0=8qb5&J!gJDtUIRVgReq:TNF!72gco6UU-./Tc.ZHpc\9f@j<cne,9:DQ0Xh.UD?KPk8Zt@DeUnlZ4HQNecH_)1Vs"E#>deYt.4hplY/]qY\Gbpfb*W#J(dQBt,O,tI3Z8?<3Ge7`srf4KGmiK-/lsliWCIUlB+f>!n"37S)7Ssj&'Q9p]HOtF)2eTY_q,3OQ%fOECg6PJcr2(1Vb0$brmQN7-..]J57=n"k+shroeU5;YX,kL[N<QIR<[]E0f4:@#1htX?=0o6\CV%.s`u!4p`FsF)T1eI%X^c)B+i"Ik[o'0iNo=JSA^$h[\fbPOY[-*#l2HD2i#-2<>*ionnA`D+,Lk]Ln#>XCi=i7\c[TaEjE[<-;!I0s_:ZFW~>endstream
 endobj
-139 0 obj
+146 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1636
 >>
 stream
 Gb!Sk?$"^h'Rf_Z\5+^$?q"7I+SnP58]fV>J23\Fotq\"p;TECg;OR%^1VXU!=(`05Gk!i'?dJ"5PL[hY64@c("hu]"jsB0?G6^o@$JnbLqJPL1E'dO5'\mK7QAFcI</<GrD&eZJeK+0R_Li8fVZZqlQmKC0+9onNaW`G'0jGl$A5QmSA69"`/bdY@TY7]'a-_L<E1HAQUL$80o[QUo5R6<57Cm0I\Q0BAM9#**V65qHV)_sQk%-hi;D,56Hj)aNes*kfHGNS-Uequ-MZ2da]h_t*28f9'IUWjTqLY4P4nL%)\]PB)LnR?)4Z\5dqmrkm(MhHZbn64ESq"LZo&BHc>0%JG5N^bjMeVKSGMs/Fj=<WDm,"7o(m*UUJA,&o),YOhNJbCRNqB*_E')ars!iX9n<[3%cQ'q]Kq'fh9'U=4ks(l+Jnm]0$>2;b*cSd@OLF7ptEoA7@X'<R^*J1#lSXuMS1]=dNn`KIZ05&!\jk0%<#%(5egJR3Dd-q\`>&"n/J'7?Ia-XlM!N%HeE@[6,?QJmk_jo?KQTIi>!f0$bBZVV_#:lZnBZ0fjo3dd?+-TQF36N3]SeQ(QhY4Y7YZl[CE4$2/05]W2ao9gCOn.e>/.K$"9b^"g"j7dAF4t9iNE8(q`aD<HkL?nt,.1k!JgR`]T0)e$(WTGH#5sqhVN,RY]9?=ec[-9)WSD=DYV$>@^N5YKj"%)Z2WZON'B[s7@"Z!\^>S.h+[UjAVCjN^iIZQ"!Q1L(9i:cJu;'>hhdY1_DHH$*uI*%@!.ddo]oIHVkc"X,35umndep9ktEo>)"B9Af]J[C0g=_YYZ_tTLDnX"c,g'E[7IE=oc-c<m!\'W:Co!"M2n7(&Zu2_Z:W_4Fmbg=Q//"L-tl_SDR=titk"`ZVC:naN+,V)0%X7!2mOI"Pka?.=5_ri2\CK(DMLB>t]/jkj>b/o_)+%Y.7:qqSVZ0S#0=A)dF8`?G7:Pqn4f^39X'Z#h.PnJX#)m.XBE$S_`iL1=Y/]l'l3fk2l]Vfr`X1+J=gBm:=<9`\MrkC0BZFR9Yt[cI_hCXidaXnsT*D\E:-0`W=<k_<YRDNuU,qAAf3-%G43fOT/Z\M7J0l"S/r7Mgnr+U50g$P;%rec]0XTVoIj91IPW&!0PH;F!7u=_=PJ"BHA:>l6HW5J!'sNrtea9b*uUP&[]l=HrV-?bOa+Mp.KbUL_!,E_9[_b]Jl/aO?HkOY)Zn,P$=;l7F=t!),cltS4auOL'`nQ=_d'N_O&H_R@%:,V>I$7J@)U_qIRL.50`o7al8fLF=k"/^aY*nb5qcO(MhB#gT^b1>cAH=MQc<X<]7J_1+QDX%_/V'B'h9b'b"j;8!F?[>Esn=lC0MgSCItG9*'Y=YToP7Ei]'_k9MoVKoJE%!m=JU_;T^#AY_S[Y\s/pdKO`uo=\!]^sG3\jH,'#R*7nss0)Y+2B4[@r0O>9o/M/Q]oZ8f43p0-b&IS#<@4&*Hoj0i-=U-.HB3'aZ&0au2?$ds:0NOf]iBe-'Y>77bcJjD_U+`UY9pd6=G[ioZ;&/E@tp9i?kT)RjX+E*mY"]ZN,-dP->Le:M1k;nP1YPL:&sNQ&pUU%bhW]<SP;^B-VCTbV#B-un^MYj6$Kple&`]4>lTN~>endstream
 endobj
-140 0 obj
+147 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1792
 >>
 stream
 Gb!ksbAQ'(']&X:m]L<_dX4]&=,pbo0&g'#=VO<i`J>L*POK:s.7JaDF,,uJ40k=U7^ImS]uDjL?g!r+jcGIW@p\2Sk]K:+'8IQoU'3Qkj\tf3/u')LXM>kR=N==I4NXjX3#YYM'eDmZ]K5<&Nqhhj$G2Lfk7-5i^c?$Ig*=9-T&U:U&fbjOqghDX!%0Q@30*CW7?M>Z1SX2n.8=G6f@,Q4rd"2!nn3hD;"TW`mN)&B[MAZ9/+,$fdH1&eb8Ik!)to:o,I[!%2&_M5#2V`F%;GMO&]"]:TT"KLjpros4V?+0^Ms_;]XXC/:&h`5CjLOH?+(j$hjdK;j":Rf@l_!4477@,D4aT"H#Xgg#&BMf[ZNq_*;829b738N*.=2Gps'\I9mgtU'j]kn?m\</oh(r\b9dt3.WX?$H&K]FZf*>!b^NOm@Fc@)L0\g>Ws-kqFBp?+QC[hNY!lYq>U4'X,b1$iCD(nZWn*u(VMZZGU6`Pk]TVeTCs:%$ehWRqdp+L4_!P'!e1+g/cUACu?/f\,f(s1/D&_ZnY+187=;ng/Q>DUZ_,5QhQKc8n0i:FHG&fbkTb/-Y(5\p"8At3nT4-UL>OrAA"9p&F?j1rJfd&h7farNM\K36\g#E[;A9e3Uk/#)EcImpG(K]"0FER2q4Z+-l1PLo,P8Vim\23oZIFA=48<%qsKhB<HPn^29YPuVm`1gIHr_Xtc"l':TMf%.-3uYul%1UI[=KA5\'!'_/c]l%CC5]68?-9Z8(g+sRo;7f$F]!##Ad3gbH:BEq<kN2YM--Q&a!PtIfZ&<O')>FgDW\OM3OK'o&mUBtNRB=,RsD#Cj4,T89]cYQodS#%!rcU)WNfg<q%Tgu=4:b-Et_FfKl5$g<H:m7!WJEK%8W3L3)XJ"jUddQS\`gS-.4%6jmmk8<!DicJGN>W`X#SVI6_X,\\q!Cp`7ZkcY9(_H*f:EDaP&o)JIH;G^G*S!B6%ZX1n%O:[7nd'$qFnGc1trAlo'2e6g,,VeL:4Q3TJ=#We>$7Q7)ti<fBtI1#<4IX429mV/H]<Qi,te6?S1Ad26b5f'Q:eL?!mpZV(=c@?Ue>#p!WFk16?h&.R+CcU*QI@t@An"ZB:e]#3jGMlt(bneli7`P6"5"0eQfc/]\<PiS,h7fhFN+AYJ=9Xl'[]ZYXY+#dU\kQRX!cG!V(3/bA]o,U!c;c1K$G.l$F"1,n'7E=^+%HCBPdD%VW.<[Ej9K'2TDXjdT'Lf#VHp9VQ6!^Q\PThGm/;DbX1K^*YYE(<n@kDu+7"%b*M5cDS,mI#\BI>]YPS#UfJmI?VMu`ahIL]Lp]*qe9<kQd\^H4"noH?T,6AXo<U9[$JI<_Y("H326#5;p.iorq<#9&>6OL_!e`:CK14_MK?Eo2XBbP_o<-pu(6$Z=+=\4UDYeplYU@o3I%aAdUKHG_FT&UlcPoGH20m$3K1bCWQN1j=/[St'+``C]8?>AuDPDi%?3C0Z">ZFKJ1\$UDOVDfQK2/?"?ihR0Gfb%Z#0gDk+.$!Ti$6%4@OV"mN]WhB"lCq%_pCH!UeYu7S`qZNdhQR9s.ait_t8e1);jY*V2AVXS3/#c8*/tFh&E/\a@(%VSB3'<.XKhmnSkJn_efkVNB`*FH-ING<s='E@'JH/UO$-:I0ufCN9\X]5:6Z+R`-+_buLi)Wg4MT5g(]40BB`+Re"`N=1F&tiBsAC)iCrZp<P.<@SIu",2^tQJaLC-VHf?@n#M+]WK`YtTL);[R!%ElId^Yas6^6b3<(Y*-=bX7Srsc-[9GWJT$YToahEtd~>endstream
 endobj
-141 0 obj
+148 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2027
 >>
 stream
 Gb!Sk?#SIU'Re<2\8UsG=4O35eqYDCS>'5o\;>iHkk`(c[*;#`?&>lQrq[XuZKugZckIK-ZpA2iiVanf3VOQujPqVl^XIeueV%76";HMGR8OTC0hpNQBQE*rQ\<6nlW>WL-PH=RK)tYLJd"ouB.&]+^mGVF?=W4g;*R_efEK0a5JUnO"]=/:JO.Z$:I==oYUl^d"Fd;7at'2&7$hOr)IHiWN[OJqp<EEsB:A`cP@qo,Nd3bZ]jBL*\/C8RUWZ`6CC:$E[q"D,9^ISJ6%=DAnCb^o5$bqCM3()p:dI\!2\.q)*')Hb]]$lK4M)O37=U)32EngBN83IXq<<-E39;Cl]YKRek!?YdmGl<Ks'?[l$&X@8hlaP[ZXr]ERDL;SXVmH$]oA<?%t34rH%@ts9O??Zq`*NO$MY='!u>hq_6KuP6%Et2q/\1:3O'HgWSeLGe@SOM+_Nks^VeBM"N%YT*t/?^"9:jhE.A%;;:6EUUAosDOKa_::_;:CFp7E^<%Tt5n;N\bVe\I0Q0'B(.]j(2F[\pNqoRC`c.N?5>J!;T1fYjd3N&BIRe2L#99Zg6o8;f?akK%c,ni;NbCO&eEkOJ0a!/m*)pL4K)`.(^1-+B#W]2MK+ip@U\nr@]f*dW-9P.[cY"Qkm8knSiFB^aa-*QSR>8<uUV6IHbGM@jhmhd#=-WUMp8b,[R,r+S?=K\lo.I<0hPE;2'2`XoJ-H-\VA]dS=@C&e@^f@1OPIU?h\Jh\7-qWW*5+-/u[C@&u[P@,k"6s._O0pBU>gTnT`J1Y1ESEQc=$$3^4HRj,q#AZM1_%*R<jqu%TW1f*cuW07[s'+8S1&CtfNV.gjD,Si%)3OL-7)=R;4WWoCJ%aK^Enl&i!>05:i8Xl+XFc$j48=n%ffA(lIl(iH3rioY=`U3.JSL[k50<lL?bZt?Z1LcAUo)"1NQ0WQE$T^K2<]P'M-Oe_7DIJ#?MWuQ3Ph_2$B:&9a*1q^*XL\JE&s@pfsq7;5sf@PBCRh,g3f:fTjhTXCNjGBZR)MUa;?)\]nJPoRqg!?V83*$5#RnHEg;C2XZMe<N7Zk<On4cQ$("*RV$AE0*4_RdD0cJ^VjjK\2%'eImf"p(tqIcQ3?_DK#PF>;hn08:`E>H%i!`#gDPECjJoRP]B@l_,?9H:gsN/\$,f]1^_c5G,iC0BiZ^cJgoUc5M+`$LMu]=N)EqdO^gREJ.i(-h=DL`D&AR<qRU];:7tm'9;>bitqpg9k4"HeYV,GP")E_8Q8R"58_DaVjgP(Z30;C/8FFb3H1m+@)rbFSe%q<6DPP]%+D*0Cp.9'>.HF*"#`rJU7a\B6cC;H\hq+DY,NpGIYMoqNg,qXCFREjb"WZ@pEHAP.qKb506:n]i2?#hEjNS1<8=Vl:<M\[Qm$=)=QT.Fh@Pc@0A_3Sr3\[(VPFL!!ncTF,-UG+aUB#<L':2qfIE!p9TROXlgiJ&+W_+f,u14.g;IN!D_T`=`G2m\Xh3p-t5&!C?OK(kCfg@);GQ,sQ%lIs6p+l+iiUU)t9^i=ZZk=]F:q^+mu@q2%/bQqft.$+I#aJTdg(n0`Yj_^q$-Yg#)jjXF/M`)K!B<j`t<M#\Z&#qNs_SZ\>*oEfkg'Sfm;_9geGoLgkD;AJdctsL`dl;0]6>sZ-Yb;W>\]F55dCl"JcUo>Pir]E)pg9f&"2F:F\tFe7Nd\Ne4AKHD>gsgZF*2]92Pjso'V8"J?LM[LgkA+c_;>(\X0^\R'B&:Gq_G_._2Z[DK1V=a-H0WpB/H-Y^&uXhe[e"pRb*s=Z?[I-!F41;Po\)N.[:?VfeqP>6O+-Zjhe.9]o_0DXt`ud;66RIaO-Z.UOT[`l.jNo5)!O57\ObWY;[/66\C0Ygp$4D/dbX:c^Zu]8Rt<2>P5aXTY:2Pl8CHM\^CqZ\dpiTAAtDLJ9of0[PLXo9X1k.Y5s`Ib\;9+pSKqb>gHF4dCHQ$dMff(3sflPf.4N"2"JrK@\.KgJo`_MZ`5Xer=H0e.0=NmeNY>R_s!4!mG[1bJ56(IhbeZ9~>endstream
 endobj
+149 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1319
+>>
+stream
+Gau`R?$G9d&:N_CbZj<i<@mqJdl3RX::e]i9=td^dQFJ:%,1Q1[06m:^*C`HL;:7^3B[g!fGT#mpM0,$Kn=q!C;,l5i-c$#Ese-tS,r;=#Ou^dM['_'T8c!mA#N]D8pl+&L(I_q!s5cPK/P[<WFHRJRDa5<bkEiQNWUZIX63B)U_giMg=H!9N-ri#?q@97<)r#h^a6e`1kKC\G8nM?rV>Sjp*7L_+b$=jm\P8?LBQI_M>LEicYhXd(;Ln*oMS5YCV)jK;2?pq)W8pI(>$V50mGkri!5:Val34-V*j%JN351SMn[!q$l=gKp[QJa:9Gp@HlB<Z;aMM.9;d7-[;U]s^/0]h_&.13%dkJOWj-n9=MRB3oPc/i]3auImK#+LA-VaH5$>\W<n&Y6aaod-UgbjbP#^3-.Y#=]61l?/g?S^:O'%s+[QXdcM:I_Wn3Mjf,ZQ<M.8j"%=^AfDWhN*ShEK9lq,3I!Xp5XZZ0!oFiW>^I>!Z)(l9mmpObS7EL%"iU[lbWD[A])7*<VG3]mWJi&9UHJg&X]F9;0/scq0RF(LP[UP/6r0@07cQ;Cg.iBisY^ASN%jJ$>7DelAJ5Y>8d;,#[QoJ/JKG?K9Pr%8n9p@W9aLA1fdhFiGS^OLRJ4g,1iS2o8sk,i:McOh*;N<a.A:Wkqn?[1ljBcC+Al<n6>8`+oMed:<hR)QoLb"3[`T1[MMNV`d_VB-4$Y*o"Be$F&WL^nP2F(:i)g;?<pJT)4u[BpEKA;6!*`X=LAj<O/fpbOX!AU>s(2/"]j^jUN3JosTc0'8_n,<aL='pj/LSK`<3:WHOBpEk0$+[9ANlk(n,YZ"9ZLG+p6J97C7CW:ujK+fh[']F$\`#`0ptTgbF2K%Kf.A;\]D[Y$n)N@^D7B2Y!4!`f$Y^,YOVW^.6,Wh?F-mT>&QGZr4""na2YJ5$e:G+mR)]#LbXcum[\(!>soE%l&->%i(=6L+\C7gKM>!X2UL02u!DM^`/[f"O<N])tPY4FuWrr;HITCT#+)-Z`fYB^^b?\]"@AV\<+iH?SG3iZ8L,NJ3>EgW[:;QG0>#Ri+u%!X0g/*V>V2QEP]-c,S_k\(a@W:CA&JK+jmfU$bY6@<rS_ig[Q@O0C@%(";uq%ai+/^G_FlR^FFY[[gY#NHM[`NjM44IT8P!U2![9d5o7i0pD&Y+H\XXiYcBI?bI&.od_<;NI>Rbid%)9=dh41qhl-CPY&S\`Neg_PIMY'T3LWdk?0mF0D86N1rK=Od<(rABsfiU&WeQKk`Jj_LZ.I2\L;_HrpQ!#rO-q>dsj@=peT&#)>C)ebr?.2!it#OX8~>endstream
+endobj
 xref
-0 142
+0 150
 0000000000 65535 f 
 0000000061 00000 n 
 0000000133 00000 n 
@@ -966,129 +1019,137 @@ xref
 0000003466 00000 n 
 0000003598 00000 n 
 0000003729 00000 n 
-0000003861 00000 n 
-0000003992 00000 n 
-0000004125 00000 n 
-0000004257 00000 n 
-0000004390 00000 n 
-0000004522 00000 n 
-0000004655 00000 n 
-0000004786 00000 n 
-0000005190 00000 n 
-0000005301 00000 n 
-0000005534 00000 n 
-0000005775 00000 n 
-0000006010 00000 n 
-0000006253 00000 n 
-0000006488 00000 n 
-0000006731 00000 n 
-0000006964 00000 n 
-0000007205 00000 n 
-0000007471 00000 n 
-0000007713 00000 n 
-0000007948 00000 n 
-0000008183 00000 n 
-0000008418 00000 n 
-0000008653 00000 n 
-0000008898 00000 n 
-0000009131 00000 n 
-0000009366 00000 n 
-0000009608 00000 n 
-0000009850 00000 n 
-0000010092 00000 n 
-0000010337 00000 n 
-0000010577 00000 n 
-0000010817 00000 n 
-0000011057 00000 n 
-0000011290 00000 n 
-0000011528 00000 n 
-0000011761 00000 n 
-0000011996 00000 n 
-0000012231 00000 n 
-0000012466 00000 n 
-0000012699 00000 n 
-0000012944 00000 n 
-0000013179 00000 n 
-0000013421 00000 n 
-0000013661 00000 n 
-0000013901 00000 n 
-0000014139 00000 n 
-0000014379 00000 n 
-0000014619 00000 n 
-0000014859 00000 n 
-0000015089 00000 n 
-0000015329 00000 n 
-0000015574 00000 n 
-0000015816 00000 n 
-0000016051 00000 n 
-0000016294 00000 n 
-0000016530 00000 n 
-0000016766 00000 n 
-0000017002 00000 n 
-0000017254 00000 n 
-0000017488 00000 n 
-0000017721 00000 n 
-0000017954 00000 n 
-0000018187 00000 n 
-0000018421 00000 n 
-0000018655 00000 n 
-0000018907 00000 n 
-0000019142 00000 n 
-0000019379 00000 n 
-0000019616 00000 n 
-0000019855 00000 n 
-0000020093 00000 n 
-0000020324 00000 n 
-0000020555 00000 n 
-0000020786 00000 n 
-0000021031 00000 n 
-0000021274 00000 n 
-0000021519 00000 n 
-0000021764 00000 n 
-0000022007 00000 n 
-0000022249 00000 n 
-0000022491 00000 n 
-0000022742 00000 n 
-0000022832 00000 n 
-0000023156 00000 n 
-0000023234 00000 n 
-0000023334 00000 n 
-0000023451 00000 n 
-0000023570 00000 n 
-0000023695 00000 n 
-0000023826 00000 n 
-0000023944 00000 n 
-0000024063 00000 n 
-0000024181 00000 n 
-0000024294 00000 n 
-0000024408 00000 n 
-0000024528 00000 n 
-0000024652 00000 n 
-0000024766 00000 n 
-0000024924 00000 n 
-0000026439 00000 n 
-0000028107 00000 n 
-0000030047 00000 n 
-0000032057 00000 n 
-0000034241 00000 n 
-0000036213 00000 n 
-0000038313 00000 n 
-0000040292 00000 n 
-0000042172 00000 n 
-0000044194 00000 n 
-0000046119 00000 n 
-0000047848 00000 n 
-0000049733 00000 n 
+0000003862 00000 n 
+0000003994 00000 n 
+0000004127 00000 n 
+0000004259 00000 n 
+0000004392 00000 n 
+0000004524 00000 n 
+0000004657 00000 n 
+0000004788 00000 n 
+0000004921 00000 n 
+0000005053 00000 n 
+0000005471 00000 n 
+0000005582 00000 n 
+0000005815 00000 n 
+0000006056 00000 n 
+0000006291 00000 n 
+0000006534 00000 n 
+0000006769 00000 n 
+0000007012 00000 n 
+0000007245 00000 n 
+0000007486 00000 n 
+0000007752 00000 n 
+0000007994 00000 n 
+0000008229 00000 n 
+0000008464 00000 n 
+0000008699 00000 n 
+0000008934 00000 n 
+0000009179 00000 n 
+0000009412 00000 n 
+0000009647 00000 n 
+0000009889 00000 n 
+0000010131 00000 n 
+0000010373 00000 n 
+0000010618 00000 n 
+0000010858 00000 n 
+0000011098 00000 n 
+0000011338 00000 n 
+0000011571 00000 n 
+0000011809 00000 n 
+0000012042 00000 n 
+0000012277 00000 n 
+0000012512 00000 n 
+0000012747 00000 n 
+0000012980 00000 n 
+0000013225 00000 n 
+0000013460 00000 n 
+0000013702 00000 n 
+0000013942 00000 n 
+0000014182 00000 n 
+0000014420 00000 n 
+0000014660 00000 n 
+0000014900 00000 n 
+0000015140 00000 n 
+0000015370 00000 n 
+0000015610 00000 n 
+0000015855 00000 n 
+0000016097 00000 n 
+0000016332 00000 n 
+0000016575 00000 n 
+0000016811 00000 n 
+0000017047 00000 n 
+0000017283 00000 n 
+0000017535 00000 n 
+0000017769 00000 n 
+0000018002 00000 n 
+0000018235 00000 n 
+0000018468 00000 n 
+0000018702 00000 n 
+0000018936 00000 n 
+0000019188 00000 n 
+0000019423 00000 n 
+0000019660 00000 n 
+0000019897 00000 n 
+0000020137 00000 n 
+0000020377 00000 n 
+0000020608 00000 n 
+0000020839 00000 n 
+0000021070 00000 n 
+0000021315 00000 n 
+0000021558 00000 n 
+0000021803 00000 n 
+0000022048 00000 n 
+0000022291 00000 n 
+0000022533 00000 n 
+0000022775 00000 n 
+0000023026 00000 n 
+0000023270 00000 n 
+0000023503 00000 n 
+0000023747 00000 n 
+0000023982 00000 n 
+0000024072 00000 n 
+0000024396 00000 n 
+0000024474 00000 n 
+0000024574 00000 n 
+0000024691 00000 n 
+0000024810 00000 n 
+0000024935 00000 n 
+0000025066 00000 n 
+0000025184 00000 n 
+0000025303 00000 n 
+0000025421 00000 n 
+0000025534 00000 n 
+0000025649 00000 n 
+0000025769 00000 n 
+0000025893 00000 n 
+0000026021 00000 n 
+0000026134 00000 n 
+0000026301 00000 n 
+0000027913 00000 n 
+0000029580 00000 n 
+0000031520 00000 n 
+0000033530 00000 n 
+0000035714 00000 n 
+0000037686 00000 n 
+0000039786 00000 n 
+0000041765 00000 n 
+0000043645 00000 n 
+0000045667 00000 n 
+0000047592 00000 n 
+0000049321 00000 n 
+0000051206 00000 n 
+0000053326 00000 n 
 trailer
 <<
 /ID 
 [<f821803af4e19f44c7f084f89ed0ca33><f821803af4e19f44c7f084f89ed0ca33>]
 % ReportLab generated PDF document -- digest (opensource)
 
-/Info 112 0 R
-/Root 111 0 R
-/Size 142
+/Info 118 0 R
+/Root 117 0 R
+/Size 150
 >>
 startxref
-51853
+54738
 %%EOF

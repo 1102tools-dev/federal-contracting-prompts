@@ -1,6 +1,6 @@
 # Maintaining the prompt library
 
-`catalog/prompts.json` is the content source. Each prompt has a stable ID, task category, source IDs, wording, and `in_pdf` flag. The 54 core prompts appear in all formats; the two Acquisition.gov examples have `in_pdf: false` by design.
+`catalog/prompts.json` is the content source. Each prompt has a stable ID, task category, source IDs, wording, and `in_pdf` flag. All 56 prompts currently appear in the README, website, and PDF. Set `in_pdf: false` only to keep a prompt out of the print guide.
 
 ```sh
 python -m pip install -r requirements-build.txt

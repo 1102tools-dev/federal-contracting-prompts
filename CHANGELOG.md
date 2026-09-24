@@ -1,5 +1,6 @@
 # September 2026
 
+- Add the two Acquisition.gov FAR Overhaul prompts to the print guide. The guide now covers all 56 prompts and nine MCP sources, with a three-column source grid on the cover.
 - Publish an MCP-only guide and a light-theme searchable website from one structured prompt catalog.
 - Retain 54 core research topics. Keep two additional Acquisition.gov prompts online, outside the print guide.
 - Remove skill-launch instructions, retired setup-guide links, historical tool counts, and blanket live-test claims.

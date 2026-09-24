@@ -30,7 +30,7 @@ def readme():
     'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions]('+MR+'#install)','',
     '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
-    'The print guide contains 54 prompts for the original eight MCP sources. The online library also includes two Acquisition.gov examples for FAR Overhaul research. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
+    'The print guide and the online library contain the same 56 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
     lines+=['## Available in Claude and ChatGPT','','Select MCPs are published in the Claude and ChatGPT directories. Open a listing to install and connect it; no user API key or local Python setup is required.','','| MCP | Claude | ChatGPT |','|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
@@ -75,15 +75,15 @@ def build_pdf(dest):
     'cover':ParagraphStyle('Cover',fontName='Times-Roman',fontSize=39,leading=42,textColor=NAVY,spaceAfter=20),
     'eyebrow':ParagraphStyle('Eyebrow',fontName='Helvetica',fontSize=9,leading=14,textColor=GREEN,spaceAfter=20),
     }
-    story=[Spacer(1,15),Paragraph('COPY · PASTE · ADAPT',styles['eyebrow']),Paragraph('1102tools<br/>MCP Prompt <font color="#008766">Guide</font>',styles['cover']),Paragraph('Federal contracting research, one useful question at a time.',ParagraphStyle('Subtitle',parent=styles['body'],fontSize=17,leading=23,spaceAfter=14)),Paragraph('Prompts for opportunities, competitors, teaming, awards, labor rates, wages, travel, and regulations. Install and connect the required MCPs in your AI client before using a prompt. Then replace the bracketed details and check the returned sources.',styles['body']),Spacer(1,25)]
+    story=[Spacer(1,15),Paragraph('COPY · PASTE · ADAPT',styles['eyebrow']),Paragraph('1102tools<br/>MCP Prompt <font color="#008766">Guide</font>',styles['cover']),Paragraph('Federal contracting research, one useful question at a time.',ParagraphStyle('Subtitle',parent=styles['body'],fontSize=17,leading=23,spaceAfter=14)),Paragraph('Prompts for opportunities, competitors, teaming, awards, labor rates, wages, travel, regulations, and FAR Overhaul deviations. Install and connect the required MCPs in your AI client before using a prompt. Then replace the bracketed details and check the returned sources.',styles['body']),Spacer(1,25)]
     grid=[]
-    for i in range(0,8,2):
+    for i in range(0,9,3):
         row=[]
-        for s in DATA['servers'][i:i+2]:row.append([Paragraph(ESC(s['name']),styles['title']),Paragraph(ESC(s['description']),styles['small'])])
+        for s in DATA['servers'][i:i+3]:row.append([Paragraph(ESC(s['name']),styles['title']),Paragraph(ESC(s['description']),styles['small'])])
         grid.append(row)
-    table=Table(grid,colWidths=[254,254]);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.5,LINE),('LEFTPADDING',(0,0),(-1,-1),14),('RIGHTPADDING',(0,0),(-1,-1),14),('TOPPADDING',(0,0),(-1,-1),13),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story += [table,Spacer(1,35),Paragraph(DATA['edition'].upper()+'  ·  54 PROMPTS  ·  8 MCP SOURCES',styles['eyebrow']),Paragraph(f'<link href="{PR}" color="#008766">Federal contracting prompts</link>  /  <link href="{MR}" color="#008766">MCP servers and setup</link>',styles['small']),PageBreak()]
+    table=Table(grid,colWidths=[170,169,169]);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.5,LINE),('LEFTPADDING',(0,0),(-1,-1),14),('RIGHTPADDING',(0,0),(-1,-1),14),('TOPPADDING',(0,0),(-1,-1),13),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story += [table,Spacer(1,35),Paragraph(DATA['edition'].upper()+'  ·  56 PROMPTS  ·  9 MCP SOURCES',styles['eyebrow']),Paragraph(f'<link href="{PR}" color="#008766">Federal contracting prompts</link>  /  <link href="{MR}" color="#008766">MCP servers and setup</link>',styles['small']),PageBreak()]
     story += [Paragraph('Start with the work',ParagraphStyle('Start',parent=styles['section'],spaceBefore=0)),Paragraph('<b>A prompt does not install an MCP.</b> Install and connect every required MCP in your AI client before running a prompt. If two are listed, both are required.',styles['body']),Paragraph('1. Check the <b>Required MCPs</b> line. Each source name links to its setup instructions.<br/>2. Configure any API keys outside chat and confirm your client can see the tools.<br/>3. Replace the brackets, run the prompt, and check the sources and dates.',styles['body']),Paragraph('Ask for the exact source, data period, and retrieval date. Keep missing records, incomplete pages, and uncertain matches visible.',styles['body']),Paragraph('<link href="https://1102tools.com/#mcps" color="#008766">Setup and available Claude and ChatGPT installs: 1102tools.com/#mcps</link>',styles['small']),Spacer(1,6),Paragraph('Find a prompt',ParagraphStyle('IndexTitle',parent=styles['section'],spaceBefore=0))]
-    toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC',fontName='Helvetica',fontSize=10,leading=16,textColor=NAVY,leftIndent=0,firstLineIndent=0,rightIndent=20,spaceBefore=2)];story+=[toc,Spacer(1,16),Paragraph('September 2026 edition. Prompt wording and source mappings have been reviewed. Provider data and tool availability can change; this is not a claim that every request was re-run live.',styles['small']),PageBreak()]
+    toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC',fontName='Helvetica',fontSize=10,leading=17,textColor=NAVY,leftIndent=0,firstLineIndent=0,rightIndent=20,spaceBefore=0)];story+=[toc,Spacer(1,16),Paragraph('September 2026 edition. Prompt wording and source mappings have been reviewed. Provider data and tool availability can change; this is not a claim that every request was re-run live.',styles['small']),PageBreak()]
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id'] and p['in_pdf']]
         if not ps:continue
@@ -108,8 +108,7 @@ def website(out,pdf,pages):
             chips=''.join(f'<span class="source-chip">{ESC(SERVERS[x]["name"])}</span>' for x in p['mcps'])
             required=''.join(f'<a class="source-chip" href="#mcp-{x}" aria-label="{ESC(SERVERS[x]["name"])} MCP setup">{ESC(SERVERS[x]["name"])}</a>' for x in p['mcps'])
             cards.append(f'<details class="prompt-card" id="{p["id"]}" data-task="{sec["id"]}" data-sources="{" ".join(p["mcps"])}"><summary><span class="prompt-name">{ESC(p["title"])}</span><span class="chips">{chips}</span></summary><div class="prompt-body"><div class="prompt-requirements"><div class="requirements-heading"><span class="requirements-label">Required MCPs</span><span class="required-links">{required}</span></div><p>Install and connect {"both MCPs" if len(p["mcps"]) == 2 else "this MCP"} in your AI client before running this prompt. Select a source above for setup.</p></div><p class="prompt-text">{ESC(p["text"])}</p><div class="copy-row"><button class="copy-button" type="button" aria-label="Copy prompt: {ESC(p["title"],quote=True)}">Copy prompt</button><span class="prompt-code">{p["id"].upper()}</span></div></div></details>')
-        note='<p class="online-note">Additional online examples; not live-tested as part of this guide refresh.</p>' if sec['id'].startswith('far-overhaul') else ''
-        groups.append(f'<section class="prompt-group" id="{sec["id"]}"><div class="group-heading"><span>{n:02}</span><h3>{ESC(sec["title"])}</h3></div>{note}<div class="prompt-grid">'+''.join(cards)+'</div></section>')
+        groups.append(f'<section class="prompt-group" id="{sec["id"]}"><div class="group-heading"><span>{n:02}</span><h3>{ESC(sec["title"])}</h3></div><div class="prompt-grid">'+''.join(cards)+'</div></section>')
     cards=[]
     for i,source_id in enumerate(SOURCE_ORDER,1):
         s=SERVERS[source_id]
@@ -155,7 +154,7 @@ def website(out,pdf,pages):
         '- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.',
         '- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.',
         '- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and Claude and ChatGPT directory links.',
-        '- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 54 core prompts for eight sources; excludes the two online-only Acquisition.gov examples.',
+        '- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): all 56 prompts for the nine sources, organized by task.',
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.','',
         '## Available in the Claude and ChatGPT directories','',
@@ -166,7 +165,7 @@ def website(out,pdf,pages):
         'A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.',
         'Some prompts combine two sources; both MCPs are required. Use published Claude or ChatGPT directory listings where available, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.',
         'These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.',
-        'The online Acquisition.gov examples were not live-tested during this guide refresh. The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.','',
+        'The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.','',
         '## MCP sources','']
     for server in DATA['servers']:
         llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'.')
@@ -187,7 +186,7 @@ def build(out):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
     ids=[p['id'] for p in DATA['prompts']];assert len(ids)==len(set(ids))==56
-    assert sum(p['in_pdf'] for p in DATA['prompts'])==54
+    assert sum(p['in_pdf'] for p in DATA['prompts'])==56
     for p in DATA['prompts']:assert p['mcps'] and all(x in SERVERS for x in p['mcps'])
     with tempfile.TemporaryDirectory() as tmp:
         tmp=Path(tmp);pages=build(tmp)
@@ -198,5 +197,5 @@ def main():
         else:
             for p in files:
                 dest=ROOT/p.relative_to(tmp);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
-        print(f'{"Verified" if args.check else "Built"} 56 web/repository prompts, 54 PDF prompts, {pages} PDF pages; {len(files)} generated files.')
+        print(f'{"Verified" if args.check else "Built"} 56 web/repository prompts, 56 PDF prompts, {pages} PDF pages; {len(files)} generated files.')
 if __name__=='__main__':main()

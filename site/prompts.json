@@ -165,7 +165,7 @@
     {
       "id": "far-overhaul-and-agency-deviations",
       "title": "FAR Overhaul and deviations",
-      "intro": "Additional online examples for Acquisition.gov. Kept outside the eight-source print guide."
+      "intro": "Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates."
     }
   ],
   "prompts": [
@@ -724,7 +724,7 @@
       "mcps": [
         "acq"
       ],
-      "in_pdf": false
+      "in_pdf": true
     },
     {
       "id": "p56",
@@ -735,7 +735,7 @@
         "ecfr",
         "acq"
       ],
-      "in_pdf": false
+      "in_pdf": true
     }
   ],
   "website_updated": "2026-09-24"

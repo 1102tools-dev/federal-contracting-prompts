@@ -12,7 +12,7 @@ Practical questions for federal opportunities, competitor research, teaming, pri
 2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.
 3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.
 
-The print guide contains 54 prompts for the original eight MCP sources. The online library also includes two Acquisition.gov examples for FAR Overhaul research. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
+The print guide and the online library contain the same 56 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
 
 ## Available in Claude and ChatGPT
 
@@ -810,7 +810,7 @@ all comments or a measure of consensus.
 <a id="far-overhaul-and-agency-deviations"></a>
 ## FAR Overhaul and deviations
 
-Additional online examples for Acquisition.gov. Kept outside the eight-source print guide.
+Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
 These two examples have not been live-tested as part of this guide refresh.
 
