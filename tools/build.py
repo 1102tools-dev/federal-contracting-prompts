@@ -136,7 +136,7 @@ def website(out,pdf,pages):
         directory=''
         if s.get('directories'):
             directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label}<span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
-        badges='<span class="badge badge-free">FREE</span>'+''.join(f'<span class="badge badge-listed">IN {label.upper()}</span>' for label,_ in listed(s))+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
+        badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">MIT OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'
         access=ESC(s.get('card_access',s['access']))
         if s.get('hosted_edition'):
