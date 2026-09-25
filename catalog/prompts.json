@@ -9,7 +9,13 @@
       "slug": "sam-gov-mcp",
       "description": "Opportunities, entity registrations, exclusions, and contract-award records.",
       "access": "User API key required",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp",
+      "proof": {
+        "tools": 20,
+        "tests": 1155,
+        "audit_rounds": 10,
+        "version": "1.0.13"
+      }
     },
     {
       "id": "usa",
@@ -21,6 +27,12 @@
       "directories": {
         "claude": "https://claude.ai/directory/usaspending-by-1102tools",
         "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799"
+      },
+      "proof": {
+        "tools": 55,
+        "tests": 2174,
+        "audit_rounds": 10,
+        "version": "1.0.9"
       }
     },
     {
@@ -33,6 +45,12 @@
       "directories": {
         "claude": "https://claude.ai/directory/gsa-calc-by-1102tools",
         "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1"
+      },
+      "proof": {
+        "tools": 8,
+        "tests": 379,
+        "audit_rounds": 6,
+        "version": "1.0.9"
       }
     },
     {
@@ -41,7 +59,13 @@
       "slug": "bls-oews-mcp",
       "description": "Occupational wages by geography and data year.",
       "access": "Optional key; limited keyless access",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp",
+      "proof": {
+        "tools": 8,
+        "tests": 258,
+        "audit_rounds": 5,
+        "version": "1.0.10"
+      }
     },
     {
       "id": "travel",
@@ -49,7 +73,13 @@
       "slug": "gsa-perdiem-mcp",
       "description": "Lodging and meals-and-incidental-expense rates by locality.",
       "access": "Personal key recommended; shared fallback",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp",
+      "proof": {
+        "tools": 7,
+        "tests": 449,
+        "audit_rounds": 7,
+        "version": "1.0.10"
+      }
     },
     {
       "id": "ecfr",
@@ -61,6 +91,12 @@
       "directories": {
         "claude": "https://claude.ai/directory/ecfr-by-1102tools",
         "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34"
+      },
+      "proof": {
+        "tools": 13,
+        "tests": 320,
+        "audit_rounds": 6,
+        "version": "1.0.10"
       }
     },
     {
@@ -73,6 +109,12 @@
       "directories": {
         "claude": "https://claude.ai/directory/federal-register-by-1102tools",
         "chatgpt": null
+      },
+      "proof": {
+        "tools": 8,
+        "tests": 243,
+        "audit_rounds": 6,
+        "version": "1.0.9"
       }
     },
     {
@@ -81,7 +123,13 @@
       "slug": "regulations-gov-mcp",
       "description": "Rulemaking dockets, documents, and public comments.",
       "access": "Personal key recommended; shared fallback",
-      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp"
+      "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp",
+      "proof": {
+        "tools": 9,
+        "tests": 212,
+        "audit_rounds": 5,
+        "version": "1.0.9"
+      }
     },
     {
       "id": "acq",
@@ -93,6 +141,12 @@
       "directories": {
         "claude": null,
         "chatgpt": null
+      },
+      "proof": {
+        "tools": 5,
+        "tests": 239,
+        "audit_rounds": null,
+        "version": "1.0.8"
       }
     }
   ],
@@ -738,5 +792,6 @@
       "in_pdf": true
     }
   ],
-  "website_updated": "2026-09-24"
+  "website_updated": "2026-09-24",
+  "proof_as_of": "2026-09-24"
 }

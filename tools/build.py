@@ -23,6 +23,24 @@ SOURCE_ORDER=('usa','calc','ecfr','fr','acq','sam','bls','travel','regs')
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
+COMPARE=json.loads((ROOT/'catalog/compare.json').read_text())
+MONTHS=('January','February','March','April','May','June','July','August','September','October','November','December')
+def month_year(iso):y,m,_=iso.split('-');return MONTHS[int(m)-1]+' '+y
+def number_word(n):return ('Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten')[n] if n<=10 else str(n)
+def rounds_label(s):return f'{s["proof"]["audit_rounds"]} audit rounds' if s['proof']['audit_rounds'] else 'Independent review'
+def proof_list(s):
+    pr=s['proof'];rounds=f'<li><strong>{pr["audit_rounds"]}</strong> audit rounds</li>' if pr['audit_rounds'] else '<li><strong>Independent</strong> review</li>'
+    return f'<ul class="card-proof"><li><strong>{pr["tools"]}</strong> tools</li><li><strong>{pr["tests"]:,}</strong> tests</li>{rounds}</ul>'
+def stats():
+    servers=DATA['servers']
+    return {'servers':len(servers),'tools':sum(s['proof']['tools'] for s in servers),'tests':sum(s['proof']['tests'] for s in servers),
+        'max_rounds':max(s['proof']['audit_rounds'] or 0 for s in servers),
+        'directory':{label:[s['name'] for s in servers if s.get('directories',{}).get(key)] for key,label in DIRECTORIES}}
+def hero_proof():
+    st=stats();listed_in=[label for label,found in st['directory'].items() if found]
+    return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
+        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>regression tests</span></li></ul>'
+        '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
 def readme():
@@ -115,7 +133,8 @@ def website(out,pdf,pages):
         directory=''
         if s.get('directories'):
             directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label} ↗</a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
-        cards.append(f'<article class="server-card" id="mcp-{s["id"]}"><span>SOURCE {i:02}</span><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p><small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
+        badges='<span class="badge badge-free">FREE</span>'+''.join(f'<span class="badge badge-listed">IN {label.upper()}</span>' for label,_ in listed(s))+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
+        cards.append(f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>{proof_list(s)}<small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
         {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
@@ -138,11 +157,17 @@ def website(out,pdf,pages):
             'installUrl':[url for _,url in listed(server)] if len(listed(server))>1 else listed(server)[0][1],
             'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'}})
 
-    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'EXAMPLE':ESC(next(p['text'] for p in DATA['prompts'] if p['id']=='p03')),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in DATA['servers']),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages)}
+    st=stats()
+    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'EXAMPLE':ESC(next(p['text'] for p in DATA['prompts'] if p['id']=='p03')),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in DATA['servers']),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'HERO_PROOF':hero_proof(),
+        'TOTAL_TESTS':f"{st['tests']:,}",'MAX_ROUNDS':number_word(st['max_rounds']).lower(),'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
+        'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
+        'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
+        'PROOF_MONTH':month_year(DATA['proof_as_of']).replace('September','Sep')}
     template=(ROOT/'templates/index.html').read_text()
     for k,v in replacements.items():template=template.replace('{{'+k+'}}',v)
     assert '{{' not in template
     (out/'index.html').write_text(template)
+    compare_page(out,replacements['CSS_VERSION'])
     for file in ['styles.css','app.js']:shutil.copy2(ROOT/'templates'/file,out/file)
     (out/'prompts.json').write_text(json.dumps(DATA,indent=2)+'\n')
     (out/'.well-known').mkdir(exist_ok=True);shutil.copy2(ROOT/'templates/mcp-registry-auth',out/'.well-known/mcp-registry-auth')
@@ -150,7 +175,7 @@ def website(out,pdf,pages):
     (out/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Cache-Control: public, max-age=0, must-revalidate\n/downloads/*\n  Content-Disposition: inline\n')
     (out/'_redirects').write_text('/tools /#mcps 302\n/tools.html /#mcps 302\n/setup /#mcps 302\n/setup.html /#mcps 302\n/examples /#prompts 302\n/examples.html /#prompts 302\n/about / 302\n/about.html / 302\n/install /#mcps 302\n/downloads/1102tools-mcp-prompt-guide.pdf /downloads/1102tools-prompt-guide.pdf 302\n/downloads/1102tools-agent-setup-guide.pdf /#guide 302\n/downloads/1102tools-universal-setup-guide.pdf /#mcps 302\n/.well-known/agent-skills/* /retired-content 302\n')
     (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://1102tools.com/sitemap.xml\n')
-    (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://1102tools.com/</loc><lastmod>'+DATA['website_updated']+'</lastmod></url></urlset>')
+    (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://1102tools.com/</loc><lastmod>'+DATA['website_updated']+'</lastmod></url><url><loc>https://1102tools.com/compare</loc><lastmod>'+COMPARE['researched']+'</lastmod></url></urlset>')
     llms=['# 1102tools','', '> Free, independent, open-source MCP servers and practical prompts for federal contracting research.','',
         '## Start here','',
         '- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.',
@@ -168,15 +193,41 @@ def website(out,pdf,pages):
         'Some prompts combine two sources; both MCPs are required. Use published Claude or ChatGPT directory listings where available, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.',
         'These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.',
         'The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.','',
+        '## Why 1102tools','',
+        f"- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory charge $39 to $499 a month or require an account.",
+        f"- Tested: {st['tests']:,} regression tests across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} audit rounds per server against the live government APIs.",
+        f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
+        "- Unique: the only MCP server found for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
+        "- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.",'',
         '## MCP sources','']
     for server in DATA['servers']:
-        llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'.')
+        llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools, '+f"{server['proof']['tests']:,}"+' regression tests, '+rounds_label(server).lower()+'.')
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
     llms+=['','## Browse by task','']
     for section in DATA['sections']:llms.append('- ['+section['title']+'](https://1102tools.com/#'+section['id']+'): '+section['intro'])
     llms+=['','Website metadata updated '+DATA['website_updated']+'. Prompt edition: '+DATA['edition']+'.','']
     (out/'llms.txt').write_text('\n'.join(llms))
     (out/'404.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page unavailable | 1102tools</title><link rel="stylesheet" href="/styles.css"></head><body><main class="wrap" style="padding-block:100px"><a class="brand" href="/">1102<span>tools</span></a><h1 style="margin-top:60px;font-size:48px">This page is no longer available.</h1><p>Find the current MCP servers, prompts, and printable guide on the homepage.</p><a class="button primary" href="/">Open 1102tools</a></main></body></html>')
+
+def compare_page(out,css_version):
+    st=stats();me=('<tr class="me"><th scope="row">1102tools</th><td><strong>$0</strong>, MIT-licensed</td><td>No. Directory installs need no account or API key.</td><td>Yes</td>'
+        f'<td>Source research across {st["servers"]} federal data sources</td></tr>')
+    platforms=''.join(f'<tr><th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{ESC(x["price"])}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{ESC(x["focus"])}</td></tr>' for x in COMPARE['platforms'])
+    rows=[]
+    for row in COMPARE['sources']:
+        s=SERVERS[row['id']];pr=s['proof']
+        listed_in=', '.join(label for label,_ in listed(s))
+        ours=f'<strong>{pr["tools"]} tools</strong><span>{pr["tests"]:,} tests · {ESC(rounds_label(s).lower())}</span><span>{"In "+listed_in if listed_in else "Local install"}</span>'
+        alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
+        rows.append(f'<tr><th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
+    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. other federal contracting MCPs","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms and other MCP servers.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
+    y,m,d=COMPARE['researched'].split('-')
+    values={'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'RESEARCHED':f'{MONTHS[int(m)-1]} {int(d)}, {y}','HERO_PROOF':hero_proof(),
+        'PLATFORM_ROWS':me+platforms,'SOURCE_ROWS':''.join(rows),'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
+    page=(ROOT/'templates/compare.html').read_text()
+    for k,v in values.items():page=page.replace('{{'+k+'}}',v)
+    assert '{{' not in page
+    (out/'compare.html').write_text(page)
 
 def build(out):
     out.mkdir(parents=True,exist_ok=True)

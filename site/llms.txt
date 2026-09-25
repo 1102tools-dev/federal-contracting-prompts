@@ -37,21 +37,29 @@ Some prompts combine two sources; both MCPs are required. Use published Claude o
 These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.
 The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.
 
+## Why 1102tools
+
+- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory charge $39 to $499 a month or require an account.
+- Tested: 5,429 regression tests across 9 servers (133 tools), with up to 10 audit rounds per server against the live government APIs.
+- Listed: 4 in the Claude directory; 3 in the ChatGPT directory.
+- Unique: the only MCP server found for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
+- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.
+
 ## MCP sources
 
-- [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Opportunities, entity registrations, exclusions, and contract-award records. Access: User API key required.
-- [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key.
+- [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Opportunities, entity registrations, exclusions, and contract-award records. Access: User API key required. Free and open source; 20 tools, 1,155 regression tests, 10 audit rounds.
+- [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key. Free and open source; 55 tools, 2,174 regression tests, 10 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/usaspending-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
-- [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key.
+- [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key. Free and open source; 8 tools, 379 regression tests, 6 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/gsa-calc-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
-- [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year. Access: Optional key; limited keyless access.
-- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key recommended; shared fallback.
-- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key.
+- [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year. Access: Optional key; limited keyless access. Free and open source; 8 tools, 258 regression tests, 5 audit rounds.
+- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key recommended; shared fallback. Free and open source; 7 tools, 449 regression tests, 7 audit rounds.
+- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools, 320 regression tests, 6 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
-- [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key.
+- [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key. Free and open source; 8 tools, 243 regression tests, 6 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools)
-- [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Personal key recommended; shared fallback.
-- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key.
+- [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Personal key recommended; shared fallback. Free and open source; 9 tools, 212 regression tests, 5 audit rounds.
+- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key. Free and open source; 5 tools, 239 regression tests, independent review.
 
 ## Browse by task
 
