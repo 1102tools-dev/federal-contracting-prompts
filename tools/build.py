@@ -40,7 +40,7 @@ def stats():
 def hero_proof():
     st=stats();listed_in=[label for label,found in st['directory'].items() if found]
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
-        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>regression tests</span></li><li><strong>0</strong><span>API keys for directory installs</span></li></ul>'
+        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>regression tests</span></li><li><strong>0</strong><span>API keys needed</span></li></ul>'
         '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
