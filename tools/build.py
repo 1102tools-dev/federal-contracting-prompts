@@ -132,7 +132,7 @@ def website(out,pdf,pages):
         s=SERVERS[source_id]
         directory=''
         if s.get('directories'):
-            directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label} ↗</a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
+            directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label}<span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
         badges='<span class="badge badge-free">FREE</span>'+''.join(f'<span class="badge badge-listed">IN {label.upper()}</span>' for label,_ in listed(s))+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
         cards.append(f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>{proof_list(s)}<small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
