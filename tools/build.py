@@ -54,7 +54,7 @@ def readme():
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
     lines+=['## Available in Claude and ChatGPT','','All '+number_word(len(SOURCE_ORDER)).lower()+' MCPs install and run locally today; the **Local** column links to each setup guide. '+f'{claude_count} are also published in the Claude directory and {chatgpt_count.lower()} in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to the directories.','','| MCP | Claude | ChatGPT | Local |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
-        local=f"[Install]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(' (free key)' if server['id']=='sam' else '')
+        local=f"[Install]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(' (free key)' if server['id'] in ('sam','bls','travel','regs') else '')
         lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]})" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+f' | {local} |')
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
