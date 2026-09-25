@@ -8,8 +8,19 @@
       "name": "SAM.gov",
       "slug": "sam-gov-mcp",
       "description": "Opportunities, entity registrations, exclusions, and contract-award records.",
-      "access": "User API key required",
+      "access": "Free SAM.gov key for the full local edition; keyless hosted edition coming soon",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp",
+      "directories": {
+        "claude": null,
+        "chatgpt": null
+      },
+      "hosted_edition": {
+        "status": "coming soon",
+        "tools": 17,
+        "summary": "opportunity and award-notice search, fiscal-year archives, entity lookups, SBA certifications with 8(a) exit dates, exclusion checks, and assistance listings",
+        "source": "SAM.gov public data files"
+      },
+      "full_edition_adds": "reps and certs, integrity records, live registration status, contract award records, the federal hierarchy, and subawards",
       "proof": {
         "tools": 20,
         "tests": 1155,

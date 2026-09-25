@@ -47,7 +47,8 @@ The collection is not a claim that every prompt has been run against live APIs. 
 
 ## MCP sources
 
-- [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Opportunities, entity registrations, exclusions, and contract-award records. Access: User API key required. Free and open source; 20 tools, 1,155 regression tests, 10 audit rounds.
+- [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Opportunities, entity registrations, exclusions, and contract-award records. Access: Free SAM.gov key for the full local edition; keyless hosted edition coming soon. Free and open source; 20 tools, 1,155 regression tests, 10 audit rounds.
+  Coming soon: a hosted, keyless edition in the Claude and ChatGPT directories with 17 tools for opportunity and award-notice search, fiscal-year archives, entity lookups, SBA certifications with 8(a) exit dates, exclusion checks, and assistance listings, built from SAM.gov public data files. The full local edition (20 tools) adds reps and certs, integrity records, live registration status, contract award records, the federal hierarchy, and subawards.
 - [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key. Free and open source; 55 tools, 2,174 regression tests, 10 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/usaspending-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
 - [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key. Free and open source; 8 tools, 379 regression tests, 6 audit rounds.

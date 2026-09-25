@@ -134,7 +134,13 @@ def website(out,pdf,pages):
         if s.get('directories'):
             directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label}<span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
         badges='<span class="badge badge-free">FREE</span>'+''.join(f'<span class="badge badge-listed">IN {label.upper()}</span>' for label,_ in listed(s))+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
-        cards.append(f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>{proof_list(s)}<small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
+        head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'
+        if s.get('hosted_edition'):
+            he=s['hosted_edition']
+            cards.append(head+f'<div class="edition"><p class="edition-label">HOSTED · NO KEY · {ESC(he["status"].upper())}</p><p class="edition-copy"><strong>{he["tools"]} tools</strong> for {ESC(he["summary"])}.</p>{directory}</div>'
+                f'<div class="edition"><p class="edition-label">FULL · LOCAL · FREE SAM.GOV KEY</p>{proof_list(s)}<p class="edition-copy">Adds {ESC(s["full_edition_adds"])}.</p><a href="{s["url"]}">Setup &amp; source code ↗</a></div></article>')
+        else:
+            cards.append(head+f'{proof_list(s)}<small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
         {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
@@ -203,6 +209,8 @@ def website(out,pdf,pages):
     for server in DATA['servers']:
         llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools, '+f"{server['proof']['tests']:,}"+' regression tests, '+rounds_label(server).lower()+'.')
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
+        if server.get('hosted_edition'):
+            he=server['hosted_edition'];llms.append(f"  Coming soon: a hosted, keyless edition in the Claude and ChatGPT directories with {he['tools']} tools for {he['summary']}, built from {he['source']}. The full local edition ({server['proof']['tools']} tools) adds {server['full_edition_adds']}.")
     llms+=['','## Browse by task','']
     for section in DATA['sections']:llms.append('- ['+section['title']+'](https://1102tools.com/#'+section['id']+'): '+section['intro'])
     llms+=['','Website metadata updated '+DATA['website_updated']+'. Prompt edition: '+DATA['edition']+'.','']
