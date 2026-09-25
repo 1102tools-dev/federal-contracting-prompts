@@ -30,6 +30,11 @@ All nine MCPs install and run locally today; the **Local** column links to each 
 | Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp#installation) |
 | Regulations.gov | Coming soon | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp#installation) (free key) |
 
+**Directory install or local install?**
+
+- **Claude and ChatGPT:** Install from the directory listing. No API key and no setup. The MCP runs on Cloudflare at its own 1102tools.com address, such as `usaspending.1102tools.com`, and your AI app connects to it over the internet.
+- **Local:** The MCP runs on your own computer and works with any MCP-compatible app. Requests go straight from your computer to the government source, and nothing passes through 1102tools.com. SAM.gov, BLS OEWS, GSA Per Diem and Regulations.gov need a free API key from the agency. Each setup guide shows how to get one.
+
 A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
 
 ## Browse by task

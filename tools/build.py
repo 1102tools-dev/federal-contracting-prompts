@@ -56,6 +56,7 @@ def readme():
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
         local=f"[Install]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(' (free key)' if server['id'] in ('sam','bls','travel','regs') else '')
         lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]})" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+f' | {local} |')
+    lines+=['','**Directory install or local install?**', '', '- **Claude and ChatGPT:** Install from the directory listing. No API key and no setup. The MCP runs on Cloudflare at its own 1102tools.com address, such as `usaspending.1102tools.com`, and your AI app connects to it over the internet.', '- **Local:** The MCP runs on your own computer and works with any MCP-compatible app. Requests go straight from your computer to the government source, and nothing passes through 1102tools.com. SAM.gov, BLS OEWS, GSA Per Diem and Regulations.gov need a free API key from the agency. Each setup guide shows how to get one.']
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
