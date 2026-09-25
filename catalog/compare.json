@@ -253,24 +253,24 @@
   ],
   "sources": [
     {
-      "id": "usa",
-      "others": "20+",
-      "alt": "cyanheads/usaspending-mcp-server",
-      "alt_url": "https://github.com/cyanheads/usaspending-mcp-server",
-      "alt_detail": "18 tools, free, hosted or local",
-      "edge": "Three times the tools, 2,174 tests, and listings in both the Claude and ChatGPT directories.",
-      "alt_directories": {
-        "claude": false,
-        "chatgpt": false
-      }
-    },
-    {
       "id": "sam",
       "others": "15+",
       "alt": "cliwant/mcp-sam-gov",
       "alt_url": "https://github.com/cliwant/mcp-sam-gov",
       "alt_detail": "About 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional",
       "edge": "20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check. A keyless hosted edition with 17 tools is coming to the Claude and ChatGPT directories.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "usa",
+      "others": "20+",
+      "alt": "cyanheads/usaspending-mcp-server",
+      "alt_url": "https://github.com/cyanheads/usaspending-mcp-server",
+      "alt_detail": "18 tools, free, hosted or local",
+      "edge": "Three times the tools, 2,174 tests, and listings in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -325,6 +325,14 @@
       }
     },
     {
+      "id": "acq",
+      "others": "None found",
+      "alt": "",
+      "alt_url": "",
+      "alt_detail": "No other MCP server for Acquisition.gov RFO model text or agency deviations",
+      "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations."
+    },
+    {
       "id": "fr",
       "others": "15+",
       "alt": "cyanheads/federal-regulations-mcp-server",
@@ -347,14 +355,6 @@
         "claude": false,
         "chatgpt": false
       }
-    },
-    {
-      "id": "acq",
-      "others": "None found",
-      "alt": "",
-      "alt_url": "",
-      "alt_detail": "No other MCP server for Acquisition.gov RFO model text or agency deviations",
-      "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations."
     }
   ],
   "fit": [

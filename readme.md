@@ -20,14 +20,14 @@ Select MCPs are published in the Claude and ChatGPT directories. Open a listing 
 
 | MCP | Claude | ChatGPT |
 |---|---|---|
+| SAM.gov | Coming soon | Coming soon |
 | USAspending | [Install](https://claude.ai/directory/usaspending-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
 | GSA CALC+ | [Install](https://claude.ai/directory/gsa-calc-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) |
-| eCFR | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) |
-| Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon |
-| Acquisition.gov | Coming soon | Coming soon |
-| SAM.gov | Coming soon | Coming soon |
 | BLS OEWS | Coming soon | Coming soon |
 | GSA Per Diem | Coming soon | Coming soon |
+| eCFR | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) |
+| Acquisition.gov | Coming soon | Coming soon |
+| Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon |
 | Regulations.gov | Coming soon | Coming soon |
 
 A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
@@ -61,9 +61,9 @@ A prompt does not install an MCP. Connect every source listed under **Required M
 | [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year. | Optional key; limited keyless access |
 | [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp) | Lodging and meals-and-incidental-expense rates by locality. | Personal key recommended; shared fallback |
 | [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) | Codified regulatory text, dates, and version comparisons. | No user API key |
+| [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp) | FAR Overhaul model text, posted agency deviations, and guidance. | No user API key |
 | [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp) | Published rules, notices, comment periods, and FAR cases. | No user API key |
 | [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp) | Rulemaking dockets, documents, and public comments. | Personal key recommended; shared fallback |
-| [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp) | FAR Overhaul model text, posted agency deviations, and guidance. | No user API key |
 
 The individual server READMEs contain installation instructions, configuration examples, access requirements, and testing records. A prompt does not install an MCP.
 

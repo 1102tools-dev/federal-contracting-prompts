@@ -19,7 +19,8 @@ PR='https://github.com/1102tools-dev/federal-contracting-prompts'
 MR='https://github.com/1102tools-dev/federal-contracting-mcps'
 ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
-SOURCE_ORDER=('usa','calc','ecfr','fr','acq','sam','bls','travel','regs')
+SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','acq','fr','regs')
+SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','acq','fr','regs')))
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
@@ -39,7 +40,7 @@ def stats():
 def hero_proof():
     st=stats();listed_in=[label for label,found in st['directory'].items() if found]
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
-        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>regression tests</span></li></ul>'
+        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>regression tests</span></li><li><strong>0</strong><span>API keys for directory installs</span></li></ul>'
         '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
@@ -58,7 +59,7 @@ def readme():
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
         lines.append(f"| [{sec['title']}](#{sec['id']}) | {len(ps)} |")
     lines+=['','## MCPs and setup','','| Source | What it provides | Access |','|---|---|---|']
-    for s in DATA['servers']:lines.append(f"| [{s['name']}]({s['url']}) | {s['description']} | {s['access']} |")
+    for s in (SERVERS[x] for x in SOURCE_ORDER):lines.append(f"| [{s['name']}]({s['url']}) | {s['description']} | {s['access']} |")
     lines+=['','The individual server READMEs contain installation instructions, configuration examples, access requirements, and testing records. A prompt does not install an MCP.','']
     for sec in DATA['sections']:
         lines += [f'<a id="{sec["id"]}"></a>',f"## {sec['title']}",'',sec['intro'],'']
@@ -128,8 +129,10 @@ def website(out,pdf,pages):
             cards.append(f'<details class="prompt-card" id="{p["id"]}" data-task="{sec["id"]}" data-sources="{" ".join(p["mcps"])}"><summary><span class="prompt-name">{ESC(p["title"])}</span><span class="chips">{chips}</span></summary><div class="prompt-body"><div class="prompt-requirements"><div class="requirements-heading"><span class="requirements-label">Required MCPs</span><span class="required-links">{required}</span></div><p>Install and connect {"both MCPs" if len(p["mcps"]) == 2 else "this MCP"} in your AI client before running this prompt. Select a source above for setup.</p></div><p class="prompt-text">{ESC(p["text"])}</p><div class="copy-row"><button class="copy-button" type="button" aria-label="Copy prompt: {ESC(p["title"],quote=True)}">Copy prompt</button><span class="prompt-code">{p["id"].upper()}</span></div></div></details>')
         groups.append(f'<section class="prompt-group" id="{sec["id"]}"><div class="group-heading"><span>{n:02}</span><h3>{ESC(sec["title"])}</h3></div><div class="prompt-grid">'+''.join(cards)+'</div></section>')
     cards=[]
+    group_of={x:(g,xs[0]==x) for g,xs in SOURCE_GROUPS for x in xs}
     for i,source_id in enumerate(SOURCE_ORDER,1):
         s=SERVERS[source_id]
+        if group_of[source_id][1]:cards.append(f'<h3 class="grid-group">{ESC(group_of[source_id][0])}</h3>')
         directory=''
         if s.get('directories'):
             directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label}<span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
@@ -145,7 +148,7 @@ def website(out,pdf,pages):
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
-        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
+        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Directory installs need no account or API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
 
     published=[SERVERS[x] for x in SOURCE_ORDER if listed(SERVERS[x])]
     by_directory=[(label,[server['name'] for server in published if server['directories'][key]]) for key,label in DIRECTORIES]
@@ -166,7 +169,7 @@ def website(out,pdf,pages):
             'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'}})
 
     st=stats()
-    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'EXAMPLE':ESC(next(p['text'] for p in DATA['prompts'] if p['id']=='p03')),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in DATA['servers']),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'HERO_PROOF':hero_proof(),
+    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'EXAMPLE':ESC(next(p['text'] for p in DATA['prompts'] if p['id']=='p03')),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'HERO_PROOF':hero_proof(),
         'TOTAL_TESTS':f"{st['tests']:,}",'MAX_ROUNDS':number_word(st['max_rounds']).lower(),'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
         'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
@@ -204,13 +207,16 @@ def website(out,pdf,pages):
         '## Why 1102tools','',
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory require an account, and their paid plans run from $78 a month to $6,000 a year.",
         f"- Tested: {st['tests']:,} regression tests across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} audit rounds per server against the live government APIs.",
+        "- No keys: directory installs need no account or API key. Hosted editions of SAM.gov, BLS OEWS, GSA Per Diem, and Regulations.gov that need no user API key are coming soon to both directories.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only MCP server found for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.",'',
         '## MCP sources','']
-    for server in DATA['servers']:
+    for server in (SERVERS[x] for x in SOURCE_ORDER):
         llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools, '+f"{server['proof']['tests']:,}"+' regression tests, '+rounds_label(server).lower()+'.')
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
+        pending=[label for key,label in DIRECTORIES if key in server.get('directories',{}) and not server['directories'][key]]
+        if pending and not server.get('hosted_edition'):llms.append('  Coming soon to the '+series(pending)+(' directories' if len(pending)>1 else ' directory')+', with no user API key.')
         if server.get('hosted_edition'):
             he=server['hosted_edition'];llms.append(f"  Coming soon: a hosted, keyless edition in the Claude and ChatGPT directories with {he['tools']} tools for {he['summary']}, built from {he['source']}. The full local edition ({server['proof']['tools']} tools) adds {server['full_edition_adds']}.")
     llms+=['','## Browse by task','']
