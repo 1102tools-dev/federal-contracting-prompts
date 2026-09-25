@@ -1,23 +1,361 @@
 {
   "researched": "2026-09-24",
-  "method": "Researched September 24, 2026 in the Claude connector directory, the official MCP Registry, GitHub, Smithery, PulseMCP, and Glama. Prices come from each vendor's public pricing page. The ChatGPT app directory could not be searched automatically. Competitor tool counts come from their public listings; competitor software and tests were not run.",
+  "method": "Researched September 24, 2026. Claude directory status comes from Anthropic's public directory data; ChatGPT directory status comes from searching the public ChatGPT app directory. Prices are quoted from each vendor's public pricing page on that date; tiers change, so check the linked source before buying. Other MCP servers were found through the official MCP Registry, GitHub, Smithery, PulseMCP, and Glama. 1102tools test counts come from pytest --collect-only and include live-gated tests. Competitor tool counts come from their public listings; competitor software and tests were not run.",
   "platforms": [
-    {"name": "GovTribe", "url": "https://govtribe.com", "price": "Paid plans (pricing not published) plus MCP credits", "account": "Yes", "open_source": "No", "focus": "Federal and SLED capture and market intelligence"},
-    {"name": "Tango", "url": "https://makegov.com", "price": "Pricing not published; some data tier-gated", "account": "Yes", "open_source": "No", "focus": "Unified procurement data API"},
-    {"name": "Mindy", "url": "https://getmindy.ai/pricing", "price": "Free tier with 100 one-time credits; $149 or $499 a month", "account": "Yes", "open_source": "No", "focus": "AI business-development analyst"},
-    {"name": "CLEATUS", "url": "https://www.cleat.ai/pricing", "price": "7-day trial, then $39 to $78 a month (billed annually)", "account": "Yes", "open_source": "No", "focus": "Capture platform and workflows"},
-    {"name": "ProposalApp", "url": "https://proposalapp.net/pricing", "price": "7-day trial, then $49 to $199 a month (billed annually)", "account": "Yes", "open_source": "No", "focus": "Proposal drafting and pipeline"}
+    {
+      "name": "GovTribe",
+      "url": "https://govtribe.com",
+      "price_url": "https://govtribe.com/plans",
+      "price": "7-day trial; $1,500 to $6,000 a year, plus usage-based AI and MCP credits",
+      "tiers": [
+        {
+          "name": "Launch",
+          "price": "$1,500/yr (federal) · $1,900/yr with state and local"
+        },
+        {
+          "name": "Growth",
+          "price": "$5,000/yr · $6,000/yr with state and local"
+        },
+        {
+          "name": "Scale",
+          "price": "Custom"
+        },
+        {
+          "name": "MCP credits",
+          "price": "9¢ each, or packs from $239 for 3,500"
+        }
+      ],
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": true
+      },
+      "focus": "Federal and SLED capture and market intelligence"
+    },
+    {
+      "name": "Tango",
+      "url": "https://makegov.com",
+      "price_url": "https://tango.dev/subscriptions/pricing/",
+      "price": "Free tier (100 requests a day); paid $100 to $500 a month",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "100 requests/day, no premium data"
+        },
+        {
+          "name": "Small",
+          "price": "$100/mo or $1,000/yr"
+        },
+        {
+          "name": "Medium",
+          "price": "$250/mo or $2,500/yr"
+        },
+        {
+          "name": "Large",
+          "price": "$500/mo or $5,000/yr"
+        },
+        {
+          "name": "Enterprise",
+          "price": "Contact sales"
+        }
+      ],
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": true
+      },
+      "focus": "Unified procurement data API"
+    },
+    {
+      "name": "CLEATUS",
+      "url": "https://www.cleat.ai",
+      "price_url": "https://www.cleat.ai/pricing",
+      "price": "7-day trial; ChatGPT and Claude access from $78 per user a month (annual)",
+      "tiers": [
+        {
+          "name": "DATA",
+          "price": "$39/user/mo annual · no ChatGPT or Claude access"
+        },
+        {
+          "name": "DATA + AI",
+          "price": "$78/user/mo annual · $130 monthly"
+        },
+        {
+          "name": "Automations, GovCloud",
+          "price": "Contact sales; API and MCP access"
+        }
+      ],
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": true
+      },
+      "focus": "Capture platform and workflows"
+    },
+    {
+      "name": "Govly",
+      "url": "https://www.govly.com",
+      "price_url": "https://www.govly.com/pricing",
+      "price": "Free plan (30-day lookback); paid plans quoted",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": true
+      },
+      "focus": "Contract vehicle and SLED opportunity search"
+    },
+    {
+      "name": "BidPrime",
+      "url": "https://www.bidprime.com",
+      "price": "Not published",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": true
+      },
+      "focus": "Federal, state, and local bid leads"
+    },
+    {
+      "name": "Mindy",
+      "url": "https://getmindy.ai",
+      "price_url": "https://getmindy.ai/pricing",
+      "price": "Free tier with 100 one-time MCP credits; paid $149 to $499 a month",
+      "tiers": [
+        {
+          "name": "Pro",
+          "price": "$149/mo or $1,490/yr"
+        },
+        {
+          "name": "Teams",
+          "price": "$499/mo"
+        },
+        {
+          "name": "Credit-only",
+          "price": "$99 to $999/mo"
+        }
+      ],
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": false
+      },
+      "focus": "AI business-development analyst"
+    },
+    {
+      "name": "ProposalApp",
+      "url": "https://proposalapp.net",
+      "price_url": "https://proposalapp.net/pricing",
+      "price": "Free tier (3 proposals); Claude access requires Pro at $199 a month (annual)",
+      "tiers": [
+        {
+          "name": "Starter",
+          "price": "$49/mo annual · $199 monthly"
+        },
+        {
+          "name": "Pro",
+          "price": "$199/mo annual · $399 monthly · includes Claude MCP"
+        },
+        {
+          "name": "Enterprise",
+          "price": "Quoted"
+        }
+      ],
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": false
+      },
+      "focus": "Proposal drafting and pipeline"
+    },
+    {
+      "name": "PrimeRFP SCOUT",
+      "url": "https://primerfp.com/mcp",
+      "price_url": "https://primerfp.com/pricing",
+      "price": "MCP plans $29 to $495 a month",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": false,
+        "chatgpt": true
+      },
+      "focus": "Opportunity and award research"
+    },
+    {
+      "name": "Sweetspot",
+      "url": "https://www.sweetspot.so",
+      "price": "Not published (demo only)",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": false,
+        "chatgpt": true
+      },
+      "focus": "Federal, grants, and SLED opportunity search"
+    },
+    {
+      "name": "HigherGov",
+      "url": "https://www.highergov.com/gov-mcp/",
+      "price_url": "https://www.highergov.com/pricing/",
+      "price": "$500 to $2,500 a year; Enterprise custom",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": false,
+        "chatgpt": false
+      },
+      "focus": "Federal, SLED, and grants intelligence"
+    },
+    {
+      "name": "G2X",
+      "url": "https://govconmcp.ai",
+      "price_url": "https://g2x.com/pricing",
+      "price": "Free community tier; Starter $25 a month; Professional custom",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": false,
+        "chatgpt": false
+      },
+      "focus": "GovCon market intelligence"
+    },
+    {
+      "name": "Fed-Spend",
+      "url": "https://fed-spend.com",
+      "price_url": "https://fed-spend.com/pricing",
+      "price": "MCP from $49 a month; up to $999 a month",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": false,
+        "chatgpt": false
+      },
+      "focus": "Spending and award analytics"
+    },
+    {
+      "name": "GovSpend",
+      "url": "https://govspend.com/blog/mcp-for-government-contracting/",
+      "price": "Not published",
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": false,
+        "chatgpt": false
+      },
+      "focus": "Federal and SLED purchasing data"
+    }
   ],
   "sources": [
-    {"id": "usa", "others": "20+", "alt": "cyanheads/usaspending-mcp-server", "alt_url": "https://github.com/cyanheads/usaspending-mcp-server", "alt_detail": "18 tools, free, publicly hosted; not in the Claude directory", "edge": "Three times the tools, 2,174 tests, and listings in both the Claude and ChatGPT directories."},
-    {"id": "sam", "others": "15+", "alt": "cliwant/mcp-sam-gov", "alt_url": "https://github.com/cliwant/mcp-sam-gov", "alt_detail": "About 10 SAM.gov tools inside a 153-tool local package; works without a key", "edge": "20 SAM.gov tools, including reps and certs, integrity records, and a one-call vendor responsibility check."},
-    {"id": "calc", "others": "2 partial", "alt": "pipeworx-io/mcp-gsa-calc", "alt_url": "https://registry.modelcontextprotocol.io/v0/servers?search=gsa-calc", "alt_detail": "3 tools on a hosted gateway; 50 free calls a day, then paid", "edge": "The only dedicated GSA CALC+ MCP in the Claude and ChatGPT directories, with 8 IGCE and price-analysis tools."},
-    {"id": "bls", "others": "Several general BLS servers", "alt": "cyanheads/bls-labor-mcp-server", "alt_url": "https://github.com/cyanheads/bls-labor-mcp-server", "alt_detail": "General BLS data, 7 tools; OEWS series catalog is opt-in", "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 258 regression tests."},
-    {"id": "travel", "others": "3", "alt": "pipeworx-io/mcp-gsa-perdiem", "alt_url": "https://registry.modelcontextprotocol.io/v0/servers?search=perdiem", "alt_detail": "2 tools on a hosted gateway; freemium", "edge": "7 per diem tools and 449 regression tests."},
-    {"id": "ecfr", "others": "10+", "alt": "cyanheads/federal-regulations-mcp-server", "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server", "alt_detail": "7 tools shared across eCFR, Federal Register, and Regulations.gov; free, publicly hosted", "edge": "13 eCFR tools focused on FAR, DFARS, and agency supplements, in both the Claude and ChatGPT directories."},
-    {"id": "fr", "others": "15+", "alt": "cyanheads/federal-regulations-mcp-server", "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server", "alt_detail": "Shared regulations server (see eCFR)", "edge": "FAR case history tracing, open comment periods, and a Claude directory listing."},
-    {"id": "regs", "others": "5", "alt": "cyanheads/federal-regulations-mcp-server", "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server", "alt_detail": "Shared regulations server; Regulations.gov part needs a key", "edge": "9 docket and comment tools and 212 regression tests."},
-    {"id": "acq", "others": "None found", "alt": "", "alt_url": "", "alt_detail": "No other MCP server for Acquisition.gov RFO model text or agency deviations", "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations."}
+    {
+      "id": "usa",
+      "others": "20+",
+      "alt": "cyanheads/usaspending-mcp-server",
+      "alt_url": "https://github.com/cyanheads/usaspending-mcp-server",
+      "alt_detail": "18 tools, free, hosted or local",
+      "edge": "Three times the tools, 2,174 tests, and listings in both the Claude and ChatGPT directories.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "sam",
+      "others": "15+",
+      "alt": "cliwant/mcp-sam-gov",
+      "alt_url": "https://github.com/cliwant/mcp-sam-gov",
+      "alt_detail": "About 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional",
+      "edge": "20 tools, including reps and certs, integrity records, and a one-call vendor responsibility check.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "calc",
+      "others": "2 (1 dedicated, 1 partial)",
+      "alt": "pipeworx-io/mcp-gsa-calc",
+      "alt_url": "https://github.com/pipeworx-io/mcp-gsa-calc",
+      "alt_detail": "3 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally",
+      "edge": "The only GSA CALC+ MCP in the Claude and ChatGPT directories, with 8 IGCE and price-analysis tools.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "bls",
+      "others": "Several general BLS servers",
+      "alt": "cyanheads/bls-labor-mcp-server",
+      "alt_url": "https://github.com/cyanheads/bls-labor-mcp-server",
+      "alt_detail": "General BLS data, 4 to 7 tools; free, hosted or local",
+      "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 258 regression tests.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "travel",
+      "others": "3",
+      "alt": "pipeworx-io/mcp-gsa-perdiem",
+      "alt_url": "https://github.com/pipeworx-io/mcp-gsa-perdiem",
+      "alt_detail": "2 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally",
+      "edge": "7 per diem tools and 449 regression tests.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "ecfr",
+      "others": "10+",
+      "alt": "cyanheads/federal-regulations-mcp-server",
+      "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server",
+      "alt_detail": "7 tools shared across eCFR, Federal Register, and Regulations.gov; free, hosted or local",
+      "edge": "13 eCFR tools focused on FAR, DFARS, and agency supplements, in both the Claude and ChatGPT directories.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "fr",
+      "others": "15+",
+      "alt": "cyanheads/federal-regulations-mcp-server",
+      "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server",
+      "alt_detail": "Shared regulations server (see eCFR)",
+      "edge": "FAR case history tracing, open comment periods, and a Claude directory listing.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "regs",
+      "others": "5",
+      "alt": "cyanheads/federal-regulations-mcp-server",
+      "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server",
+      "alt_detail": "Shared regulations server; Regulations.gov part needs a key",
+      "edge": "9 docket and comment tools and 212 regression tests.",
+      "alt_directories": {
+        "claude": false,
+        "chatgpt": false
+      }
+    },
+    {
+      "id": "acq",
+      "others": "None found",
+      "alt": "",
+      "alt_url": "",
+      "alt_detail": "No other MCP server for Acquisition.gov RFO model text or agency deviations",
+      "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations."
+    }
   ],
   "fit": [
     "Proposal drafting, CRM, pipeline management, or bid scoring: the paid platforms above do this; 1102tools does not.",

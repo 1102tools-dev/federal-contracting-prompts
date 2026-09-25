@@ -30,7 +30,7 @@ for link in page.links:
  else:assert link.startswith(('#','/')),link
 compare=json.loads((ROOT/'catalog/compare.json').read_text())
 compare_page=Page();compare_page.feed((ROOT/'site/compare.html').read_text())
-compare_urls={x['url'] for x in compare['platforms']}|{x['alt_url'] for x in compare['sources'] if x['alt_url']}
+compare_urls={x['url'] for x in compare['platforms']}|{x['price_url'] for x in compare['platforms'] if x.get('price_url')}|{x['alt_url'] for x in compare['sources'] if x['alt_url']}
 for link in compare_page.links:
  if link.startswith('https://'):assert link in compare_urls or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
  else:assert link.startswith(('/','#')),link

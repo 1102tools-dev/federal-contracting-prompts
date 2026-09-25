@@ -194,7 +194,7 @@ def website(out,pdf,pages):
         'These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.',
         'The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.','',
         '## Why 1102tools','',
-        f"- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory charge $39 to $499 a month or require an account.",
+        f"- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory require an account, and their paid plans run from $78 a month to $6,000 a year.",
         f"- Tested: {st['tests']:,} regression tests across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} audit rounds per server against the live government APIs.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only MCP server found for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
@@ -209,21 +209,37 @@ def website(out,pdf,pages):
     (out/'llms.txt').write_text('\n'.join(llms))
     (out/'404.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page unavailable | 1102tools</title><link rel="stylesheet" href="/styles.css"></head><body><main class="wrap" style="padding-block:100px"><a class="brand" href="/">1102<span>tools</span></a><h1 style="margin-top:60px;font-size:48px">This page is no longer available.</h1><p>Find the current MCP servers, prompts, and printable guide on the homepage.</p><a class="button primary" href="/">Open 1102tools</a></main></body></html>')
 
+def dir_chips(dirs):
+    chips=[]
+    for key,label in DIRECTORIES:
+        v=dirs.get(key)
+        if v is True:chips.append(f'<span class="dir yes">✓ {label} directory</span>')
+        elif v is False:chips.append(f'<span class="dir no">✗ Not in {label} directory</span>')
+    return '<span class="dirs">'+''.join(chips)+'</span>' if chips else ''
+def price_cell(x):
+    tiers=''.join(f'<li><strong>{ESC(tier["name"])}</strong> {ESC(tier["price"])}</li>' for tier in x.get('tiers',[]))
+    return ESC(x['price'])+(f'<ul class="tiers">{tiers}</ul>' if tiers else '')+(f'<a class="src" href="{ESC(x["price_url"])}">Pricing source ↗</a>' if x.get('price_url') else '')
 def compare_page(out,css_version):
-    st=stats();me=('<tr class="me"><th scope="row">1102tools</th><td><strong>$0</strong>, MIT-licensed</td><td>No. Directory installs need no account or API key.</td><td>Yes</td>'
-        f'<td>Source research across {st["servers"]} federal data sources</td></tr>')
-    platforms=''.join(f'<tr><th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{ESC(x["price"])}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{ESC(x["focus"])}</td></tr>' for x in COMPARE['platforms'])
+    st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
+    me=('<tr class="me"><th scope="row">1102tools</th><td><strong>$0</strong>, MIT-licensed</td><td>No. Directory installs need no account or API key.</td><td>Yes</td>'
+        f'<td>{dir_chips(mine)}</td><td>Source research across {st["servers"]} federal data sources</td></tr>')
+    platforms=''.join(f'<tr><th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for x in COMPARE['platforms'])
     rows=[]
     for row in COMPARE['sources']:
         s=SERVERS[row['id']];pr=s['proof']
         listed_in=', '.join(label for label,_ in listed(s))
-        ours=f'<strong>{pr["tools"]} tools</strong><span>{pr["tests"]:,} tests · {ESC(rounds_label(s).lower())}</span><span>{"In "+listed_in if listed_in else "Local install"}</span>'
-        alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
+        where=dir_chips({key:bool(s.get('directories',{}).get(key)) for key,_ in DIRECTORIES}) if listed_in else '<span>Local install</span>'
+        ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">{pr["tests"]:,} tests</a> · {ESC(rounds_label(s).lower())}</span>{where}'
+        alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>{dir_chips(row.get("alt_directories",{}))}' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
         rows.append(f'<tr><th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
+    alts=[r for r in COMPARE['sources'] if r['alt']]
+    missing=[label for key,label in DIRECTORIES if alts and all(r.get('alt_directories',{}).get(key) is False for r in alts)]
+    callout=(f'<p class="callout"><strong>None of the strongest alternatives below is listed in the {series(missing,"or")} {"directory" if len(missing)==1 else "directories"}.</strong> '
+        +'1102tools has '+' and '.join(f"{len(found)} {'server' if len(found)==1 else 'servers'} in the {label} directory" for label,found in st['directory'].items() if found)+'.</p>') if missing else ''
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. other federal contracting MCPs","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms and other MCP servers.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
     y,m,d=COMPARE['researched'].split('-')
     values={'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'RESEARCHED':f'{MONTHS[int(m)-1]} {int(d)}, {y}','HERO_PROOF':hero_proof(),
-        'PLATFORM_ROWS':me+platforms,'SOURCE_ROWS':''.join(rows),'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
+        'PLATFORM_ROWS':me+platforms,'SOURCE_ROWS':''.join(rows),'SOURCE_CALLOUT':callout,'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
     page=(ROOT/'templates/compare.html').read_text()
     for k,v in values.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page

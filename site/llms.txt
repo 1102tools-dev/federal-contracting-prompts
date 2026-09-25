@@ -39,7 +39,7 @@ The collection is not a claim that every prompt has been run against live APIs. 
 
 ## Why 1102tools
 
-- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory charge $39 to $499 a month or require an account.
+- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory require an account, and their paid plans run from $78 a month to $6,000 a year.
 - Tested: 5,429 regression tests across 9 servers (133 tools), with up to 10 audit rounds per server against the live government APIs.
 - Listed: 4 in the Claude directory; 3 in the ChatGPT directory.
 - Unique: the only MCP server found for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
