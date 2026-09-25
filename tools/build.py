@@ -51,9 +51,11 @@ def readme():
     '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
     'The print guide and the online library contain the same 56 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
-    lines+=['## Available in Claude and ChatGPT','','Select MCPs are published in the Claude and ChatGPT directories. Open a listing to install and connect it; no user API key or local Python setup is required.','','| MCP | Claude | ChatGPT |','|---|---|---|']
+    claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
+    lines+=['## Available in Claude and ChatGPT','','All '+number_word(len(SOURCE_ORDER)).lower()+' MCPs install and run locally today; the **Local** column links to each setup guide. '+f'{claude_count} are also published in the Claude directory and {chatgpt_count.lower()} in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to the directories.','','| MCP | Claude | ChatGPT | Local |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
-        lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]})" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+' |')
+        local=f"[Install]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(' (free key)' if server['id']=='sam' else '')
+        lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]})" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+f' | {local} |')
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
