@@ -26,7 +26,8 @@
         "tests": 1155,
         "audit_rounds": 10,
         "version": "1.0.13"
-      }
+      },
+      "card_access": "No user API key"
     },
     {
       "id": "usa",
@@ -71,6 +72,11 @@
       "description": "Occupational wages by geography and data year.",
       "access": "Optional key; limited keyless access",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp",
+      "directories": {
+        "claude": null,
+        "chatgpt": null
+      },
+      "card_access": "No user API key",
       "proof": {
         "tools": 8,
         "tests": 258,
@@ -85,6 +91,11 @@
       "description": "Lodging and meals-and-incidental-expense rates by locality.",
       "access": "Personal key recommended; shared fallback",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp",
+      "directories": {
+        "claude": null,
+        "chatgpt": null
+      },
+      "card_access": "No user API key",
       "proof": {
         "tools": 7,
         "tests": 449,
@@ -135,6 +146,11 @@
       "description": "Rulemaking dockets, documents, and public comments.",
       "access": "Personal key recommended; shared fallback",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp",
+      "directories": {
+        "claude": null,
+        "chatgpt": null
+      },
+      "card_access": "No user API key",
       "proof": {
         "tools": 9,
         "tests": 212,

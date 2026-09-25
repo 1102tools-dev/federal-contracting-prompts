@@ -26,6 +26,9 @@ Select MCPs are published in the Claude and ChatGPT directories. Open a listing 
 | Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon |
 | Acquisition.gov | Coming soon | Coming soon |
 | SAM.gov | Coming soon | Coming soon |
+| BLS OEWS | Coming soon | Coming soon |
+| GSA Per Diem | Coming soon | Coming soon |
+| Regulations.gov | Coming soon | Coming soon |
 
 A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
 

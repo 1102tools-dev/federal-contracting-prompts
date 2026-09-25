@@ -12,7 +12,7 @@ class Page(HTMLParser):
   a=dict(a)
   if a.get('id'):self.ids.append(a['id'])
   if t=='a':self.links.append(a.get('href',''))
-  if t=='details':self.current=a.get('id');self.prompts[self.current]=''
+  if t=='details' and 'prompt-card' in (a.get('class') or ''):self.current=a.get('id');self.prompts[self.current]=''
   if t=='p' and a.get('class')=='prompt-text':self.in_text=True
  def handle_endtag(self,t):
   if t=='p':self.in_text=False
