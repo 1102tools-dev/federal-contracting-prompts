@@ -96,6 +96,18 @@
       "focus": "Capture platform and workflows"
     },
     {
+      "name": "GETWAB Federal Procurement AI",
+      "url": "https://www.getwab.com/",
+      "price": "Free monthly research allowance in ChatGPT; expanded-access price not published",
+      "account": "For expanded access (initial allowance: not verified)",
+      "open_source": "Not stated",
+      "directories": {
+        "claude": false,
+        "chatgpt": true
+      },
+      "focus": "Federal opportunity, award, vendor, exclusion, and capture research"
+    },
+    {
       "name": "Govly",
       "url": "https://www.govly.com",
       "price_url": "https://www.govly.com/pricing",
@@ -111,7 +123,7 @@
     {
       "name": "BidPrime",
       "url": "https://www.bidprime.com",
-      "price": "Not published",
+      "price": "Public price not verified; check the vendor",
       "account": "Yes",
       "open_source": "No",
       "directories": {
@@ -151,7 +163,7 @@
       "name": "ProposalApp",
       "url": "https://proposalapp.net",
       "price_url": "https://proposalapp.net/pricing",
-      "price": "Free tier (3 proposals); Claude access requires Pro at $199 a month (annual)",
+      "price": "Free tier (3 proposals); Pro lists Claude MCP access at $199 a month (annual). Vendor pages conflict on whether the free plan includes the connector",
       "tiers": [
         {
           "name": "Starter",
@@ -159,7 +171,7 @@
         },
         {
           "name": "Pro",
-          "price": "$199/mo annual · $399 monthly · includes Claude MCP"
+          "price": "$199/mo annual · $399 monthly · lists Claude MCP"
         },
         {
           "name": "Enterprise",
@@ -190,14 +202,15 @@
     {
       "name": "Sweetspot",
       "url": "https://www.sweetspot.so",
-      "price": "Not published (demo only)",
+      "price": "Demo or quote; no plan amounts on the pricing page",
       "account": "Yes",
       "open_source": "No",
       "directories": {
         "claude": false,
         "chatgpt": true
       },
-      "focus": "Federal, grants, and SLED opportunity search"
+      "focus": "Federal, grants, and SLED opportunity search",
+      "price_url": "https://www.sweetspot.so/pricing/"
     },
     {
       "name": "HigherGov",
@@ -216,7 +229,7 @@
       "name": "G2X",
       "url": "https://govconmcp.ai",
       "price_url": "https://g2x.com/pricing",
-      "price": "Free community tier; Starter $25 a month; Professional custom",
+      "price": "Free Community Edition; Starter $25 a month. GovCon MCP is listed under the custom-priced Professional plan",
       "account": "Yes",
       "open_source": "No",
       "directories": {
@@ -229,7 +242,7 @@
       "name": "Fed-Spend",
       "url": "https://fed-spend.com",
       "price_url": "https://fed-spend.com/pricing",
-      "price": "MCP from $49 a month; up to $999 a month",
+      "price": "Free Forever plan (10 searches a month, no MCP); MCP starts at Researcher, $49 a month, up to $999 a month",
       "account": "Yes",
       "open_source": "No",
       "directories": {
@@ -241,7 +254,7 @@
     {
       "name": "GovSpend",
       "url": "https://govspend.com/blog/mcp-for-government-contracting/",
-      "price": "Not published",
+      "price": "Public MCP price not verified; check the vendor",
       "account": "Yes",
       "open_source": "No",
       "directories": {
@@ -258,7 +271,7 @@
       "alt": "cliwant/mcp-sam-gov",
       "alt_url": "https://github.com/cliwant/mcp-sam-gov",
       "alt_detail": "About 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional",
-      "edge": "20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check. A keyless hosted edition with 17 tools is coming to the Claude and ChatGPT directories.",
+      "edge": "20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check. A keyless hosted edition with 17 planned tools is planned for the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false

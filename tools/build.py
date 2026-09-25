@@ -40,7 +40,7 @@ def stats():
 def hero_proof():
     st=stats();listed_in=[label for label,found in st['directory'].items() if found]
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
-        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>regression tests</span></li><li><strong>0</strong><span>API keys needed</span></li></ul>'
+        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>collected tests</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
         '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
@@ -148,7 +148,7 @@ def website(out,pdf,pages):
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
-        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Directory installs need no account or API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
+        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
 
     published=[SERVERS[x] for x in SOURCE_ORDER if listed(SERVERS[x])]
     by_directory=[(label,[server['name'] for server in published if server['directories'][key]]) for key,label in DIRECTORIES]
@@ -205,11 +205,11 @@ def website(out,pdf,pages):
         'These are research prompts, not automated monitoring or procurement determinations. Preserve distinctions between wages, labor ceilings, and prices paid; cumulative awards and period obligations; codified regulations, model text, and agency deviations. Keep missing data and uncertain matches visible.',
         'The collection is not a claim that every prompt has been run against live APIs. No affiliation with or endorsement by a federal agency is claimed.','',
         '## Why 1102tools','',
-        f"- Free: every server is MIT-licensed and costs nothing; directory installs need no account or API key. Commercial GovCon platforms in the Claude directory require an account, and their paid plans run from $78 a month to $6,000 a year.",
-        f"- Tested: {st['tests']:,} regression tests across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} audit rounds per server against the live government APIs.",
-        "- No keys: directory installs need no account or API key. Hosted editions of SAM.gov, BLS OEWS, GSA Per Diem, and Regulations.gov that need no user API key are coming soon to both directories.",
+        f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
+        f"- Tested: {st['tests']:,} collected regression tests, including live-API tests, across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} audit rounds per server against the live government APIs.",
+        "- No user keys when hosted: directory installs need no 1102tools account or user API key. Hosted editions of SAM.gov, BLS OEWS, GSA Per Diem, and Regulations.gov are planned for both directories; local installs of some sources use free API keys.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
-        "- Unique: the only MCP server found for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
+        "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.",'',
         '## MCP sources','']
     for server in (SERVERS[x] for x in SOURCE_ORDER):
@@ -237,7 +237,7 @@ def price_cell(x):
     return ESC(x['price'])+(f'<ul class="tiers">{tiers}</ul>' if tiers else '')+(f'<a class="src" href="{ESC(x["price_url"])}">Pricing source ↗</a>' if x.get('price_url') else '')
 def compare_page(out,css_version):
     st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
-    me=('<tr class="me"><th scope="row">1102tools</th><td><strong>$0</strong>, MIT-licensed</td><td>No. Directory installs need no account or API key.</td><td>Yes</td>'
+    me=('<tr class="me"><th scope="row">1102tools</th><td><strong>$0</strong>, MIT-licensed</td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
         f'<td>{dir_chips(mine)}</td><td>Source research across {st["servers"]} federal data sources</td></tr>')
     platforms=''.join(f'<tr><th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for x in COMPARE['platforms'])
     rows=[]
@@ -250,7 +250,7 @@ def compare_page(out,css_version):
         rows.append(f'<tr><th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
     alts=[r for r in COMPARE['sources'] if r['alt']]
     missing=[label for key,label in DIRECTORIES if alts and all(r.get('alt_directories',{}).get(key) is False for r in alts)]
-    callout=(f'<p class="callout"><strong>None of the strongest alternatives below is listed in the {series(missing,"or")} {"directory" if len(missing)==1 else "directories"}.</strong> '
+    callout=(f'<p class="callout"><strong>No directory listing was found for the strongest alternatives below in the {series(missing,"or")} {"directory" if len(missing)==1 else "directories"}</strong> (searches on September 24, 2026). '
         +'1102tools has '+' and '.join(f"{len(found)} {'server' if len(found)==1 else 'servers'} in the {label} directory" for label,found in st['directory'].items() if found)+'.</p>') if missing else ''
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. other federal contracting MCPs","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms and other MCP servers.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
     y,m,d=COMPARE['researched'].split('-')

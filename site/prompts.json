@@ -98,9 +98,9 @@
       "card_access": "No user API key",
       "proof": {
         "tools": 7,
-        "tests": 449,
+        "tests": 454,
         "audit_rounds": 7,
-        "version": "1.0.10"
+        "version": "1.0.11"
       }
     },
     {
@@ -153,9 +153,9 @@
       "card_access": "No user API key",
       "proof": {
         "tools": 9,
-        "tests": 212,
+        "tests": 217,
         "audit_rounds": 5,
-        "version": "1.0.9"
+        "version": "1.0.10"
       }
     },
     {
