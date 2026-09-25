@@ -31,7 +31,7 @@
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp",
       "directories": {
-        "claude": null,
+        "claude": "https://claude.ai/directory/gsa-calc-by-1102tools",
         "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1"
       }
     },

@@ -18,6 +18,7 @@ Select 1102tools MCPs are approved and published in the Claude and ChatGPT direc
 ### Claude directory
 
 - [USAspending by 1102tools — install in Claude](https://claude.ai/directory/usaspending-by-1102tools)
+- [GSA CALC+ by 1102tools — install in Claude](https://claude.ai/directory/gsa-calc-by-1102tools)
 - [eCFR by 1102tools — install in Claude](https://claude.ai/directory/ecfr-by-1102tools)
 - [Federal Register by 1102tools — install in Claude](https://claude.ai/directory/federal-register-by-1102tools)
 
@@ -42,7 +43,7 @@ The collection is not a claim that every prompt has been run against live APIs. 
 - [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key.
   Install: [Claude directory](https://claude.ai/directory/usaspending-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
 - [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key.
-  Install: [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
+  Install: [Claude directory](https://claude.ai/directory/gsa-calc-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year. Access: Optional key; limited keyless access.
 - [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key recommended; shared fallback.
 - [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key.
