@@ -27,7 +27,7 @@ def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
 def readme():
     lines=['# Federal contracting MCP prompts','',f"**{DATA['edition']} · Copy, paste, adapt.**",'',
-    'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
+    'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions]('+MR+'#install)','',
     '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
     'The print guide and the online library contain the same 56 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
@@ -117,8 +117,8 @@ def website(out,pdf,pages):
             directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label} ↗</a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
         cards.append(f'<article class="server-card" id="mcp-{s["id"]}"><span>SOURCE {i:02}</span><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p><small>{ESC(s["access"])}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
-        {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
-        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Federal contracting MCPs and prompts","description":"56 prompts for nine MCP sources. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
+        {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
+        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
 
     published=[SERVERS[x] for x in SOURCE_ORDER if listed(SERVERS[x])]
     by_directory=[(label,[server['name'] for server in published if server['directories'][key]]) for key,label in DIRECTORIES]
@@ -130,8 +130,10 @@ def website(out,pdf,pages):
             '@id':'https://1102tools.com/#mcp-'+server['id'],
             'name':server['name']+' by 1102tools',
             'url':'https://1102tools.com/#mcp-'+server['id'],
-            'description':server['description']+' Available as a published MCP in the '+series([label for label,_ in listed(server)])+(' directories' if len(listed(server))>1 else ' directory')+'. Install and connect it before using prompts that require this source.',
+            'description':server['description']+' Free and open source. Available as a published MCP in the '+series([label for label,_ in listed(server)])+(' directories' if len(listed(server))>1 else ' directory')+'. Install and connect it before using prompts that require this source.',
             'applicationCategory':'BusinessApplication',
+            'isAccessibleForFree':True,
+            'offers':{'@type':'Offer','price':'0','priceCurrency':'USD'},
             'softwareRequirements':series([label for label,_ in listed(server)]+['another compatible MCP client'],'or'),
             'installUrl':[url for _,url in listed(server)] if len(listed(server))>1 else listed(server)[0][1],
             'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'}})
@@ -149,7 +151,7 @@ def website(out,pdf,pages):
     (out/'_redirects').write_text('/tools /#mcps 302\n/tools.html /#mcps 302\n/setup /#mcps 302\n/setup.html /#mcps 302\n/examples /#prompts 302\n/examples.html /#prompts 302\n/about / 302\n/about.html / 302\n/install /#mcps 302\n/downloads/1102tools-mcp-prompt-guide.pdf /downloads/1102tools-prompt-guide.pdf 302\n/downloads/1102tools-agent-setup-guide.pdf /#guide 302\n/downloads/1102tools-universal-setup-guide.pdf /#mcps 302\n/.well-known/agent-skills/* /retired-content 302\n')
     (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://1102tools.com/sitemap.xml\n')
     (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://1102tools.com/</loc><lastmod>'+DATA['website_updated']+'</lastmod></url></urlset>')
-    llms=['# 1102tools','', '> Independent, open-source MCP servers and practical prompts for federal contracting research.','',
+    llms=['# 1102tools','', '> Free, independent, open-source MCP servers and practical prompts for federal contracting research.','',
         '## Start here','',
         '- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.',
         '- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.',

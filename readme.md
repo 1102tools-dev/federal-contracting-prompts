@@ -2,7 +2,7 @@
 
 **September 2026 · Copy, paste, adapt.**
 
-Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations. Choose the work, install and connect the required MCPs, and replace the bracketed details.
+Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.
 
 [Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions](https://github.com/1102tools-dev/federal-contracting-mcps#install)
 

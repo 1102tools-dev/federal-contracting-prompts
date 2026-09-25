@@ -1,6 +1,6 @@
 # 1102tools
 
-> Independent, open-source MCP servers and practical prompts for federal contracting research.
+> Free, independent, open-source MCP servers and practical prompts for federal contracting research.
 
 ## Start here
 
