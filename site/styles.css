@@ -37,3 +37,5 @@ nav a[aria-current="page"]{color:var(--green);font-weight:600}
 .server-card>p{flex:none;margin-bottom:18px}.server-card>small{margin-bottom:16px}.server-card .directory-links{margin-top:auto}
 .proof-stats{grid-template-columns:repeat(5,auto)}.proof-stats li{padding:0 18px}.proof-stats span{white-space:nowrap}.proof-stats li:last-child span{white-space:normal;max-width:120px}
 @media(max-width:680px){.proof-stats{grid-template-columns:1fr 1fr}.proof-stats li:nth-child(5){padding-left:0;border-left:0}}
+/* Prompt list: first three task groups, then a show-all button. */
+.show-all{width:100%;display:flex;justify-content:center;margin:4px 0 0;padding:14px;border:1px solid #b7d7c4;border-radius:6px;background:#e4f2e9;color:#116847;font:600 13px var(--mono)}.show-all:hover{background:#d4e8db}#prompt-groups.collapsed .prompt-group:nth-child(n+4){display:none}
