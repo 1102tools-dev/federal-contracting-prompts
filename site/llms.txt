@@ -85,4 +85,4 @@ The collection is not a claim that every prompt has been run against live APIs. 
 - [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
 - [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
-Website metadata updated 2026-09-24. Prompt edition: September 2026.
+Website metadata updated 2026-09-26. Prompt edition: September 2026.

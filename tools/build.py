@@ -258,7 +258,7 @@ def compare_page(out,css_version):
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. other federal contracting MCPs","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms and other MCP servers.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
     y,m,d=COMPARE['researched'].split('-')
     values={'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'RESEARCHED':f'{MONTHS[int(m)-1]} {int(d)}, {y}','HERO_PROOF':hero_proof(),
-        'PLATFORM_ROWS':me+platforms,'SOURCE_ROWS':''.join(rows),'SOURCE_CALLOUT':callout,'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
+        'PLATFORM_ROWS':me+platforms,'SOURCE_ROWS':''.join(rows),'SOURCE_CALLOUT':callout,'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' if isinstance(x,str) else f'<li>{ESC(x["before"])}<a href="{ESC(x["url"])}">{ESC(x["link"])}</a>{ESC(x["after"])}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
     page=(ROOT/'templates/compare.html').read_text()
     for k,v in values.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page

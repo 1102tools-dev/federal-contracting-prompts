@@ -373,6 +373,11 @@
   "fit": [
     "Proposal drafting, CRM, pipeline management, or bid scoring: the paid platforms above do this; 1102tools does not.",
     "State and local opportunities: 1102tools covers federal sources only.",
-    "One install for dozens of sources: broad local packages such as cliwant/mcp-sam-gov cover more sources, with fewer tools per source."
+    {
+      "before": "One hosted MCP for cross-source research: ",
+      "link": "Tango by MakeGov",
+      "url": "https://tango.makegov.com/",
+      "after": " covers contracts and opportunities alongside agency forecasts, bid protests, and grants that 1102tools does not currently cover. It requires a Tango account."
+    }
   ]
 }
