@@ -14,5 +14,10 @@ showAll.addEventListener('click',()=>{expanded=true;layout();});layout();
 search.addEventListener('input',filter);task.addEventListener('change',filter);source.addEventListener('change',filter);
 document.getElementById('reset').addEventListener('click',()=>{search.value='';task.value='';source.value='';filter();search.focus();});
 for(const button of document.querySelectorAll('.copy-button'))button.addEventListener('click',async()=>{const text=button.closest('.prompt-card').querySelector('.prompt-text').textContent;try{await navigator.clipboard.writeText(text);button.textContent='Copied';setTimeout(()=>{button.textContent='Copy prompt';},2000);}catch{button.textContent='Select text to copy';const range=document.createRange();range.selectNodeContents(button.closest('.prompt-card').querySelector('.prompt-text'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);}});
-function openHash(){const id=location.hash.slice(1);const target=document.getElementById(id);if(target?.classList.contains('prompt-card')){expanded=true;search.value='';task.value='';source.value='';filter();target.open=true;target.scrollIntoView();}}
+function openHash(){const id=location.hash.slice(1);const target=document.getElementById(id);if(target?.classList.contains('server-card')&&getComputedStyle(target).display==='none'){expandMcps();target.scrollIntoView();}if(target?.classList.contains('prompt-card')){expanded=true;search.value='';task.value='';source.value='';filter();target.open=true;target.scrollIntoView();}}
+const serverGrid=document.getElementById('server-grid');
+const showAllMcps=document.getElementById('show-all-mcps');
+showAllMcps.textContent='Show all '+serverGrid.querySelectorAll('.server-card').length+' MCPs ↓';
+function expandMcps(){serverGrid.classList.remove('collapsed');showAllMcps.hidden=true;}
+serverGrid.classList.add('collapsed');showAllMcps.hidden=false;showAllMcps.addEventListener('click',expandMcps);
 window.addEventListener('hashchange',openHash);openHash();
