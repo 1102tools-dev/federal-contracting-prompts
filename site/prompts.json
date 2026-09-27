@@ -69,7 +69,7 @@
       "id": "bls",
       "name": "BLS OEWS",
       "slug": "bls-oews-mcp",
-      "description": "Occupational wages by geography and data year.",
+      "description": "Occupational wages by geography and data year from the Bureau of Labor Statistics.",
       "access": "Optional key; limited keyless access",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp",
       "directories": {
