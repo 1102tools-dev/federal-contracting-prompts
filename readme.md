@@ -60,7 +60,7 @@ A prompt does not install an MCP. Connect every source listed under **Required M
 
 | Source | What it provides | Access |
 |---|---|---|
-| [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Opportunities, entity registrations, exclusions, and contract-award records. | Free SAM.gov key for the full local edition; keyless hosted edition coming soon |
+| [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Contract opportunities, award notices, and justifications. | Free SAM.gov key for the full local edition; keyless hosted edition coming soon |
 | [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) | Awards, obligations, recipients, agencies, and reported subawards. | No user API key |
 | [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) | Awarded labor-category ceiling rates and comparison data. | No user API key |
 | [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year. | Optional key; limited keyless access |

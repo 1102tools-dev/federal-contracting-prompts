@@ -145,8 +145,9 @@ def website(out,pdf,pages):
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
-                f'<p><strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p></details>')
-            cards.append(head+proof_list(s,tools=he['tools'])+f'<small>{access}</small>{full}{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
+                f'<p><strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>'
+                f'<ul class="card-proof"><li><strong>{s["proof"]["tests"]:,}</strong> tests</li><li><strong>{s["proof"]["audit_rounds"]}</strong> audit rounds</li></ul></details>')
+            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
         else:
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
