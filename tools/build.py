@@ -177,7 +177,7 @@ def website(out,pdf,pages):
         'TOTAL_TESTS':f"{st['tests']:,}",'MAX_ROUNDS':number_word(st['max_rounds']).lower(),'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
         'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
-        'PROOF_MONTH':month_year(DATA['proof_as_of']).replace('September','Sep')}
+        'PROOF_MONTH':(lambda m,y:m[:3]+' '+y)(*month_year(DATA['proof_as_of']).split())}
     template=(ROOT/'templates/index.html').read_text()
     for k,v in replacements.items():template=template.replace('{{'+k+'}}',v)
     assert '{{' not in template
