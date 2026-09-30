@@ -319,7 +319,7 @@
       "alt": "pipeworx-io/mcp-gsa-perdiem",
       "alt_url": "https://github.com/pipeworx-io/mcp-gsa-perdiem",
       "alt_detail": "2 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally",
-      "edge": "7 per diem tools and 449 regression tests.",
+      "edge": "7 per diem tools, 454 regression tests, and a Claude directory listing.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -363,7 +363,7 @@
       "alt": "cyanheads/federal-regulations-mcp-server",
       "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server",
       "alt_detail": "Shared regulations server; Regulations.gov part needs a key",
-      "edge": "9 docket and comment tools and 212 regression tests.",
+      "edge": "9 docket and comment tools, 217 regression tests, and a Claude directory listing.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false

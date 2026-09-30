@@ -89,10 +89,10 @@
       "name": "GSA Per Diem",
       "slug": "gsa-perdiem-mcp",
       "description": "Lodging and meals-and-incidental-expense rates by locality.",
-      "access": "Personal key recommended; shared fallback",
+      "access": "Personal key required locally; no user key in the Claude directory",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp",
       "directories": {
-        "claude": null,
+        "claude": "https://claude.ai/directory/gsa-perdiem-by-1102tools",
         "chatgpt": null
       },
       "card_access": "No user API key",
@@ -144,10 +144,10 @@
       "name": "Regulations.gov",
       "slug": "regulations-gov-mcp",
       "description": "Rulemaking dockets, documents, and public comments.",
-      "access": "Personal key recommended; shared fallback",
+      "access": "Personal key required locally; no user key in the Claude directory",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp",
       "directories": {
-        "claude": null,
+        "claude": "https://claude.ai/directory/regulations-gov-by-1102tools",
         "chatgpt": null
       },
       "card_access": "No user API key",
@@ -819,6 +819,6 @@
       "in_pdf": true
     }
   ],
-  "website_updated": "2026-09-27",
+  "website_updated": "2026-09-30",
   "proof_as_of": "2026-09-24"
 }

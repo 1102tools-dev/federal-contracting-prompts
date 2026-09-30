@@ -13,14 +13,16 @@
 
 ## Available in the Claude and ChatGPT directories
 
-Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For federal spending research, labor ceiling-rate comparisons, codified regulation research, or Federal Register rulemaking research, users can install the matching MCP from these direct listing links:
+Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For federal spending research, labor ceiling-rate comparisons, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, or Regulations.gov docket and comment research, users can install the matching MCP from these direct listing links:
 
 ### Claude directory
 
 - [USAspending by 1102tools — install in Claude](https://claude.ai/directory/usaspending-by-1102tools)
 - [GSA CALC+ by 1102tools — install in Claude](https://claude.ai/directory/gsa-calc-by-1102tools)
+- [GSA Per Diem by 1102tools — install in Claude](https://claude.ai/directory/gsa-perdiem-by-1102tools)
 - [eCFR by 1102tools — install in Claude](https://claude.ai/directory/ecfr-by-1102tools)
 - [Federal Register by 1102tools — install in Claude](https://claude.ai/directory/federal-register-by-1102tools)
+- [Regulations.gov by 1102tools — install in Claude](https://claude.ai/directory/regulations-gov-by-1102tools)
 
 ### ChatGPT directory
 
@@ -41,8 +43,8 @@ The collection is not a claim that every prompt has been run against live APIs. 
 
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
 - Tested: 5,439 collected regression tests, including live-API tests, across 9 servers (133 tools), with up to 10 audit rounds per server against the live government APIs.
-- No user keys when hosted: directory installs need no 1102tools account or user API key. Hosted editions of SAM.gov, BLS OEWS, GSA Per Diem, and Regulations.gov are planned for both directories; local installs of some sources use free API keys.
-- Listed: 4 in the Claude directory; 3 in the ChatGPT directory.
+- No user keys when hosted: directory installs need no 1102tools account or user API key. Hosted editions of SAM.gov and BLS OEWS are planned for both directories; GSA Per Diem and Regulations.gov are in the Claude directory and planned for ChatGPT; local installs of some sources use free API keys.
+- Listed: 6 in the Claude directory; 3 in the ChatGPT directory.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
 - [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.
 
@@ -56,8 +58,9 @@ The collection is not a claim that every prompt has been run against live APIs. 
   Install: [Claude directory](https://claude.ai/directory/gsa-calc-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year from the Bureau of Labor Statistics. Access: Optional key; limited keyless access. Free and open source; 8 tools, 258 regression tests, 5 audit rounds.
   Coming soon to the Claude and ChatGPT directories, with no user API key.
-- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key recommended; shared fallback. Free and open source; 7 tools, 454 regression tests, 7 audit rounds.
-  Coming soon to the Claude and ChatGPT directories, with no user API key.
+- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key required locally; no user key in the Claude directory. Free and open source; 7 tools, 454 regression tests, 7 audit rounds.
+  Install: [Claude directory](https://claude.ai/directory/gsa-perdiem-by-1102tools)
+  Coming soon to the ChatGPT directory, with no user API key.
 - [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools, 320 regression tests, 6 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
 - [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key. Free and open source; 5 tools, 239 regression tests, independent review.
@@ -65,8 +68,9 @@ The collection is not a claim that every prompt has been run against live APIs. 
 - [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key. Free and open source; 8 tools, 243 regression tests, 6 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools)
   Coming soon to the ChatGPT directory, with no user API key.
-- [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Personal key recommended; shared fallback. Free and open source; 9 tools, 217 regression tests, 5 audit rounds.
-  Coming soon to the Claude and ChatGPT directories, with no user API key.
+- [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Personal key required locally; no user key in the Claude directory. Free and open source; 9 tools, 217 regression tests, 5 audit rounds.
+  Install: [Claude directory](https://claude.ai/directory/regulations-gov-by-1102tools)
+  Coming soon to the ChatGPT directory, with no user API key.
 
 ## Browse by task
 
@@ -85,4 +89,4 @@ The collection is not a claim that every prompt has been run against live APIs. 
 - [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
 - [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
-Website metadata updated 2026-09-27. Prompt edition: September 2026.
+Website metadata updated 2026-09-30. Prompt edition: September 2026.
