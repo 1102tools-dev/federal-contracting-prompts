@@ -58,7 +58,7 @@ The collection is not a claim that every prompt has been run against live APIs. 
   Install: [Claude directory](https://claude.ai/directory/gsa-calc-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year from the Bureau of Labor Statistics. Access: Optional key; limited keyless access. Free and open source; 8 tools, 258 regression tests, 5 audit rounds.
   Coming soon to the Claude and ChatGPT directories, with no user API key.
-- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Personal key required locally; no user key in the Claude directory. Free and open source; 7 tools, 454 regression tests, 7 audit rounds.
+- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Key needed locally for city lookups only; no user key in the Claude directory. Free and open source; 7 tools, 454 regression tests, 7 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/gsa-perdiem-by-1102tools)
   Coming soon to the ChatGPT directory, with no user API key.
 - [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools, 320 regression tests, 6 audit rounds.
