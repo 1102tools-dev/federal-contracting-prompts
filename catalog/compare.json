@@ -31,7 +31,8 @@
         "claude": true,
         "chatgpt": true
       },
-      "focus": "Federal and SLED capture and market intelligence"
+      "focus": "Federal and SLED capture and market intelligence",
+      "pricing": "Paid"
     },
     {
       "name": "Tango",
@@ -66,7 +67,8 @@
         "claude": true,
         "chatgpt": true
       },
-      "focus": "Unified procurement data API"
+      "focus": "Unified procurement data API",
+      "pricing": "Free tier with paid"
     },
     {
       "name": "CLEATUS",
@@ -93,7 +95,8 @@
         "claude": true,
         "chatgpt": true
       },
-      "focus": "Capture platform and workflows"
+      "focus": "Capture platform and workflows",
+      "pricing": "Paid"
     },
     {
       "name": "GETWAB Federal Procurement AI",
@@ -105,7 +108,8 @@
         "claude": false,
         "chatgpt": true
       },
-      "focus": "Federal opportunity, award, vendor, exclusion, and capture research"
+      "focus": "Federal opportunity, award, vendor, exclusion, and capture research",
+      "pricing": "Free tier with paid"
     },
     {
       "name": "Govly",
@@ -118,7 +122,8 @@
         "claude": true,
         "chatgpt": true
       },
-      "focus": "Contract vehicle and SLED opportunity search"
+      "focus": "Contract vehicle and SLED opportunity search",
+      "pricing": "Free tier with paid"
     },
     {
       "name": "BidPrime",
@@ -130,7 +135,8 @@
         "claude": true,
         "chatgpt": true
       },
-      "focus": "Federal, state, and local bid leads"
+      "focus": "Federal, state, and local bid leads",
+      "pricing": "Paid"
     },
     {
       "name": "Mindy",
@@ -157,7 +163,8 @@
         "claude": true,
         "chatgpt": false
       },
-      "focus": "AI business-development analyst"
+      "focus": "AI business-development analyst",
+      "pricing": "Free tier with paid"
     },
     {
       "name": "ProposalApp",
@@ -184,7 +191,8 @@
         "claude": true,
         "chatgpt": false
       },
-      "focus": "Proposal drafting and pipeline"
+      "focus": "Proposal drafting and pipeline",
+      "pricing": "Free tier with paid"
     },
     {
       "name": "PrimeRFP SCOUT",
@@ -197,7 +205,8 @@
         "claude": false,
         "chatgpt": true
       },
-      "focus": "Opportunity and award research"
+      "focus": "Opportunity and award research",
+      "pricing": "Paid"
     },
     {
       "name": "Sweetspot",
@@ -210,7 +219,8 @@
         "chatgpt": true
       },
       "focus": "Federal, grants, and SLED opportunity search",
-      "price_url": "https://www.sweetspot.so/pricing/"
+      "price_url": "https://www.sweetspot.so/pricing/",
+      "pricing": "Paid"
     },
     {
       "name": "HigherGov",
@@ -223,7 +233,8 @@
         "claude": false,
         "chatgpt": false
       },
-      "focus": "Federal, SLED, and grants intelligence"
+      "focus": "Federal, SLED, and grants intelligence",
+      "pricing": "Paid"
     },
     {
       "name": "G2X",
@@ -236,7 +247,8 @@
         "claude": false,
         "chatgpt": false
       },
-      "focus": "GovCon market intelligence"
+      "focus": "GovCon market intelligence",
+      "pricing": "Free tier with paid"
     },
     {
       "name": "Fed-Spend",
@@ -249,7 +261,8 @@
         "claude": false,
         "chatgpt": false
       },
-      "focus": "Spending and award analytics"
+      "focus": "Spending and award analytics",
+      "pricing": "Free tier with paid"
     },
     {
       "name": "GovSpend",
@@ -261,7 +274,8 @@
         "claude": false,
         "chatgpt": false
       },
-      "focus": "Federal and SLED purchasing data"
+      "focus": "Federal and SLED purchasing data",
+      "pricing": "Paid"
     }
   ],
   "sources": [

@@ -238,12 +238,14 @@ def dir_chips(dirs):
     return '<span class="dirs">'+''.join(chips)+'</span>' if chips else ''
 def price_cell(x):
     tiers=''.join(f'<li><strong>{ESC(tier["name"])}</strong> {ESC(tier["price"])}</li>' for tier in x.get('tiers',[]))
-    return ESC(x['price'])+(f'<ul class="tiers">{tiers}</ul>' if tiers else '')+(f'<a class="src" href="{ESC(x["price_url"])}">Pricing source ↗</a>' if x.get('price_url') else '')
+    details=ESC(x['price'])+(f'<ul class="tiers">{tiers}</ul>' if tiers else '')+(f'<a class="src" href="{ESC(x["price_url"])}">Pricing source ↗</a>' if x.get('price_url') else '')
+    return f'<strong>{ESC(x["pricing"])}</strong><details class="price-details"><summary>Pricing details</summary>{details}</details>'
 def compare_page(out,css_version):
     st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
-    me=('<tr class="me"><th scope="row">1102tools</th><td><strong>$0</strong>, MIT-licensed</td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
+    me=('<tr class="me"><th scope="row">1102tools</th><td><strong>Free</strong><details class="price-details"><summary>Pricing details</summary>$0. MIT-licensed open source.</details></td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
         f'<td>{dir_chips(mine)}</td><td>Source research across {st["servers"]} federal data sources</td></tr>')
-    platforms=''.join(f'<tr><th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for x in COMPARE['platforms'])
+    cut=next(i for i,x in enumerate(COMPARE['platforms']) if x['name']=='CLEATUS')
+    platforms=''.join(('<tr class="more">' if i>cut else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(COMPARE['platforms']))
     rows=[]
     for row in COMPARE['sources']:
         s=SERVERS[row['id']];pr=s['proof']
@@ -259,7 +261,7 @@ def compare_page(out,css_version):
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. other federal contracting MCPs","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms and other MCP servers.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
     y,m,d=COMPARE['researched'].split('-')
     values={'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'RESEARCHED':f'{MONTHS[int(m)-1]} {int(d)}, {y}','HERO_PROOF':hero_proof(),
-        'PLATFORM_ROWS':me+platforms,'SOURCE_ROWS':''.join(rows),'SOURCE_CALLOUT':callout,'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' if isinstance(x,str) else f'<li>{ESC(x["before"])}<a href="{ESC(x["url"])}">{ESC(x["link"])}</a>{ESC(x["after"])}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
+        'PLATFORM_ROWS':me+platforms,'COMPANY_COUNT':str(len(COMPARE['platforms'])+1),'SOURCE_ROWS':''.join(rows),'SOURCE_CALLOUT':callout,'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' if isinstance(x,str) else f'<li>{ESC(x["before"])}<a href="{ESC(x["url"])}">{ESC(x["link"])}</a>{ESC(x["after"])}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
     page=(ROOT/'templates/compare.html').read_text()
     for k,v in values.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page
