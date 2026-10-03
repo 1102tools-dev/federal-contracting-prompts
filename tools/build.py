@@ -244,7 +244,7 @@ def compare_page(out,css_version):
     st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
     me=('<tr class="me"><th scope="row">1102tools</th><td><strong>Free</strong><details class="price-details"><summary>Pricing details</summary>$0. MIT-licensed open source.</details></td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
         f'<td>{dir_chips(mine)}</td><td>Source research across {st["servers"]} federal data sources</td></tr>')
-    cut=next(i for i,x in enumerate(COMPARE['platforms']) if x['name']=='CLEATUS')
+    cut=next(i for i,x in enumerate(COMPARE['platforms']) if x['name']=='GovTribe')
     platforms=''.join(('<tr class="more">' if i>cut else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(COMPARE['platforms']))
     rows=[]
     source_cut=next(i for i,r in enumerate(COMPARE['sources']) if r['id']=='calc')

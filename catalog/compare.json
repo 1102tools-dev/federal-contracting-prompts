@@ -3,38 +3,6 @@
   "method": "Researched September 24, 2026. Claude directory status comes from Anthropic's public directory data; ChatGPT directory status comes from searching the public ChatGPT app directory. Prices are quoted from each vendor's public pricing page on that date; tiers change, so check the linked source before buying. Other MCP servers were found through the official MCP Registry, GitHub, Smithery, PulseMCP, and Glama. 1102tools test counts come from pytest --collect-only and include live-gated tests. Competitor tool counts come from their public listings; competitor software and tests were not run.",
   "platforms": [
     {
-      "name": "GovTribe",
-      "url": "https://govtribe.com",
-      "price_url": "https://govtribe.com/plans",
-      "price": "7-day trial; $1,500 to $6,000 a year, plus usage-based AI and MCP credits",
-      "tiers": [
-        {
-          "name": "Launch",
-          "price": "$1,500/yr (federal) · $1,900/yr with state and local"
-        },
-        {
-          "name": "Growth",
-          "price": "$5,000/yr · $6,000/yr with state and local"
-        },
-        {
-          "name": "Scale",
-          "price": "Custom"
-        },
-        {
-          "name": "MCP credits",
-          "price": "9¢ each, or packs from $239 for 3,500"
-        }
-      ],
-      "account": "Yes",
-      "open_source": "No",
-      "directories": {
-        "claude": true,
-        "chatgpt": true
-      },
-      "focus": "Federal and SLED capture and market intelligence",
-      "pricing": "Paid"
-    },
-    {
       "name": "Tango",
       "url": "https://makegov.com",
       "price_url": "https://tango.dev/subscriptions/pricing/",
@@ -69,6 +37,38 @@
       },
       "focus": "Unified procurement data API",
       "pricing": "Free tier with paid"
+    },
+    {
+      "name": "GovTribe",
+      "url": "https://govtribe.com",
+      "price_url": "https://govtribe.com/plans",
+      "price": "7-day trial; $1,500 to $6,000 a year, plus usage-based AI and MCP credits",
+      "tiers": [
+        {
+          "name": "Launch",
+          "price": "$1,500/yr (federal) · $1,900/yr with state and local"
+        },
+        {
+          "name": "Growth",
+          "price": "$5,000/yr · $6,000/yr with state and local"
+        },
+        {
+          "name": "Scale",
+          "price": "Custom"
+        },
+        {
+          "name": "MCP credits",
+          "price": "9¢ each, or packs from $239 for 3,500"
+        }
+      ],
+      "account": "Yes",
+      "open_source": "No",
+      "directories": {
+        "claude": true,
+        "chatgpt": true
+      },
+      "focus": "Federal and SLED capture and market intelligence",
+      "pricing": "Paid"
     },
     {
       "name": "CLEATUS",
