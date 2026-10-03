@@ -251,7 +251,7 @@ def compare_page(out,css_version):
     for i,row in enumerate(COMPARE['sources']):
         s=SERVERS[row['id']];pr=s['proof']
         listed_in=', '.join(label for label,_ in listed(s))
-        where=dir_chips({key:bool(s.get('directories',{}).get(key)) for key,_ in DIRECTORIES}) if listed_in else '<span>Local install</span>'
+        where=dir_chips({key:bool(s.get('directories',{}).get(key)) for key,_ in DIRECTORIES}) if listed_in or row['id'] in ('sam','bls') else '<span>Local install</span>'
         ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">{pr["tests"]:,} tests</a> · {ESC(rounds_label(s).lower())}</span>{where}'
         alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>{dir_chips(row.get("alt_directories",{}))}' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
         rows.append(('<tr class="more">' if i>source_cut else '<tr>')+f'<th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
