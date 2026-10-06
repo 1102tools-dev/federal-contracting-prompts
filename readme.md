@@ -16,24 +16,24 @@ The print guide and the online library contain the same 56 prompts for all nine 
 
 ## Available in Claude and ChatGPT
 
-All nine MCPs install and run locally today; the **Local** column links to each setup guide. Six are also published in the Claude directory and three in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to the directories.
+All nine MCPs install and run locally today; the **Local** column links to each setup guide. Nine are also published in the Claude directory and three in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to ChatGPT.
 
 | MCP | Claude | ChatGPT | Local |
 |---|---|---|---|
-| SAM.gov | Coming soon | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (free key) |
+| SAM.gov | [Install](https://claude.ai/directory/sam-gov-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (free key) |
 | USAspending | [Install](https://claude.ai/directory/usaspending-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp#installation) |
 | GSA CALC+ | [Install](https://claude.ai/directory/gsa-calc-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp#installation) |
-| BLS OEWS | Coming soon | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) (free key) |
+| BLS OEWS | [Install](https://claude.ai/directory/bls-oews-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) |
 | GSA Per Diem | [Install](https://claude.ai/directory/gsa-perdiem-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp#installation) (free key) |
 | eCFR | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp#installation) |
-| Acquisition.gov | Coming soon | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) |
+| Acquisition.gov | [Install](https://claude.ai/directory/acquisition-gov-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) |
 | Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp#installation) |
 | Regulations.gov | [Install](https://claude.ai/directory/regulations-gov-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp#installation) (free key) |
 
 **Directory install or local install?**
 
 - **Claude and ChatGPT:** Install from the directory listing. No API key and no setup. The MCP runs on Cloudflare at its own 1102tools.com address, such as `usaspending.1102tools.com`, and your AI app connects to it over the internet. The hosted servers don't store your queries, results, or conversations, and request logging is turned off, so no one at 1102tools sees what you look up. The server code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.
-- **Local:** The MCP runs on your own computer and works with any MCP-compatible app. Requests go straight from your computer to the government source, and nothing passes through 1102tools.com. SAM.gov, BLS OEWS, GSA Per Diem and Regulations.gov need a free API key from the agency. Each setup guide shows how to get one.
+- **Local:** The MCP runs on your own computer and works with any MCP-compatible app. Requests go straight from your computer to the government source, and nothing passes through 1102tools.com. SAM.gov, GSA Per Diem and Regulations.gov need a free API key from the agency. Each setup guide shows how to get one.
 
 A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
 
@@ -60,10 +60,10 @@ A prompt does not install an MCP. Connect every source listed under **Required M
 
 | Source | What it provides | Access |
 |---|---|---|
-| [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Contract opportunities, award notices, and justifications. | Free SAM.gov key for the full local edition; keyless hosted edition coming soon |
+| [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Contract opportunities, award notices, and justifications. | Free SAM.gov key for the full local edition; no user key in the Claude directory edition |
 | [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) | Awards, obligations, recipients, agencies, and reported subawards. | No user API key |
 | [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) | Awarded labor-category ceiling rates and comparison data. | No user API key |
-| [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year from the Bureau of Labor Statistics. | Optional key; limited keyless access |
+| [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year from the Bureau of Labor Statistics. | No user API key |
 | [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp) | Lodging and meals-and-incidental-expense rates by locality. | Key needed locally for city lookups only; no user key in the Claude directory |
 | [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) | Codified regulatory text, dates, and version comparisons. | No user API key |
 | [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp) | FAR Overhaul model text, posted agency deviations, and guidance. | No user API key |

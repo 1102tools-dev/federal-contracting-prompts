@@ -285,7 +285,7 @@
       "alt": "cliwant/mcp-sam-gov",
       "alt_url": "https://github.com/cliwant/mcp-sam-gov",
       "alt_detail": "About 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional",
-      "edge": "20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check. A keyless hosted edition with 4 tools for contract opportunities is planned for the Claude and ChatGPT directories.",
+      "edge": "20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check, plus a keyless 4-tool edition for contract opportunities in the Claude directory.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -321,7 +321,7 @@
       "alt": "cyanheads/bls-labor-mcp-server",
       "alt_url": "https://github.com/cyanheads/bls-labor-mcp-server",
       "alt_detail": "General BLS data, 4 to 7 tools; free, hosted or local",
-      "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 258 regression tests.",
+      "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 258 regression tests and a Claude directory listing.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -357,7 +357,7 @@
       "alt": "",
       "alt_url": "",
       "alt_detail": "No other MCP server for Acquisition.gov RFO model text or agency deviations",
-      "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations."
+      "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations, now listed in the Claude directory."
     },
     {
       "id": "fr",

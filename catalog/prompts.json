@@ -8,14 +8,14 @@
       "name": "SAM.gov",
       "slug": "sam-gov-mcp",
       "description": "Contract opportunities, award notices, and justifications.",
-      "access": "Free SAM.gov key for the full local edition; keyless hosted edition coming soon",
+      "access": "Free SAM.gov key for the full local edition; no user key in the Claude directory edition",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp",
       "directories": {
-        "claude": null,
+        "claude": "https://claude.ai/directory/sam-gov-by-1102tools",
         "chatgpt": null
       },
       "hosted_edition": {
-        "status": "coming soon",
+        "status": "listed",
         "tools": 4,
         "summary": "searching and reading contract opportunities, award notices, and justifications, with counts by agency, NAICS, set-aside, and notice type",
         "source": "SAM.gov's daily public contract opportunities file"
@@ -70,10 +70,10 @@
       "name": "BLS OEWS",
       "slug": "bls-oews-mcp",
       "description": "Occupational wages by geography and data year from the Bureau of Labor Statistics.",
-      "access": "Optional key; limited keyless access",
+      "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp",
       "directories": {
-        "claude": null,
+        "claude": "https://claude.ai/directory/bls-oews-by-1102tools",
         "chatgpt": null
       },
       "card_access": "No user API key",
@@ -166,7 +166,7 @@
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp",
       "directories": {
-        "claude": null,
+        "claude": "https://claude.ai/directory/acquisition-gov-by-1102tools",
         "chatgpt": null
       },
       "proof": {
@@ -819,6 +819,6 @@
       "in_pdf": true
     }
   ],
-  "website_updated": "2026-09-30",
+  "website_updated": "2026-10-06",
   "proof_as_of": "2026-10-01"
 }

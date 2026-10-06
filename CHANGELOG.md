@@ -1,3 +1,7 @@
+# October 2026
+
+- List Acquisition.gov, SAM.gov (hosted 4-tool edition) and BLS OEWS as published in the Claude directory (approved October 6, 2026), bringing the Claude directory to all nine servers. BLS OEWS access now reads "No user API key", matching the bundled-data release.
+
 # September 2026
 
 - List GSA Per Diem and Regulations.gov as published in the Claude directory (approved September 30, 2026), bringing the Claude directory to six servers.
