@@ -20,7 +20,7 @@ All nine MCPs install and run locally today; the **Local** column links to each 
 
 | MCP | Claude | ChatGPT | Local |
 |---|---|---|---|
-| SAM.gov | [Install](https://claude.ai/directory/sam-gov-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (free key) |
+| SAM.gov | [Install](https://claude.ai/directory/sam-gov-by-1102tools) (4-tool edition) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (free key, full 20-tool edition) |
 | USAspending | [Install](https://claude.ai/directory/usaspending-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp#installation) |
 | GSA CALC+ | [Install](https://claude.ai/directory/gsa-calc-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp#installation) |
 | BLS OEWS | [Install](https://claude.ai/directory/bls-oews-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) |

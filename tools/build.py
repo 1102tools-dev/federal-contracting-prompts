@@ -54,8 +54,9 @@ def readme():
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
     lines+=['## Available in Claude and ChatGPT','','All '+number_word(len(SOURCE_ORDER)).lower()+' MCPs install and run locally today; the **Local** column links to each setup guide. '+f'{claude_count} are also published in the Claude directory and {chatgpt_count.lower()} in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to ChatGPT.','','| MCP | Claude | ChatGPT | Local |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
-        local=f"[Install]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(' (free key)' if server['id'] in ('sam','travel','regs') else '')
-        lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]})" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+f' | {local} |')
+        local=f"[Install]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(' (free key'+(f", full {server['proof']['tools']}-tool edition" if server.get('hosted_edition') else '')+')' if server['id'] in ('sam','travel','regs') else '')
+        edition=f" ({server['hosted_edition']['tools']}-tool edition)" if server.get('hosted_edition') else ''
+        lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]}){edition}" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+f' | {local} |')
     lines+=['','**Directory install or local install?**', '', '- **Claude and ChatGPT:** Install from the directory listing. No API key and no setup. The MCP runs on Cloudflare at its own 1102tools.com address, such as `usaspending.1102tools.com`, and your AI app connects to it over the internet. The hosted servers don\'t store your queries, results, or conversations, and request logging is turned off, so no one at 1102tools sees what you look up. The server code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.', '- **Local:** The MCP runs on your own computer and works with any MCP-compatible app. Requests go straight from your computer to the government source, and nothing passes through 1102tools.com. SAM.gov, GSA Per Diem and Regulations.gov need a free API key from the agency. Each setup guide shows how to get one.']
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
@@ -201,7 +202,7 @@ def website(out,pdf,pages):
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.','',
         '## Available in the Claude and ChatGPT directories','',
         'Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, FAR Overhaul model text and agency deviation research, Federal Register rulemaking research, or Regulations.gov docket and comment research, users can install the matching MCP from these direct listing links:','',
-        *[line for key,label in DIRECTORIES for line in ['### '+label+' directory','',*['- ['+server['name']+' by 1102tools — install in '+label+']('+server['directories'][key]+')' for server in published if server['directories'][key]],'']],
+        *[line for key,label in DIRECTORIES for line in ['### '+label+' directory','',*['- ['+server['name']+' by 1102tools — install in '+label+']('+server['directories'][key]+')'+(f" (hosted {server['hosted_edition']['tools']}-tool edition; the full {server['proof']['tools']}-tool edition is a local install)" if server.get('hosted_edition') else '') for server in published if server['directories'][key]],'']],
         'The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
         '## Prerequisites and scope','',
         'A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.',
@@ -217,6 +218,12 @@ def website(out,pdf,pages):
         "- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.",'',
         '## MCP sources','']
     for server in (SERVERS[x] for x in SOURCE_ORDER):
+        if server.get('hosted_edition'):
+            he=server['hosted_edition'];pending=[label for key,label in DIRECTORIES if not server['directories'][key]]
+            llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source, in two editions.')
+            llms.append(f"  Directory edition (hosted, no key): {he['tools']} tools for {he['summary']}, built from {he['source']}. Install: "+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server))+('. Coming soon to the '+series(pending)+(' directories.' if len(pending)>1 else ' directory.') if pending else '.'))
+            llms.append(f"  Full local edition (free SAM.gov key): {server['proof']['tools']} tools, {server['proof']['tests']:,} regression tests, {rounds_label(server).lower()}. Adds {server['full_edition_adds']}. It is not in the directories; install it locally.")
+            continue
         llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools, '+f"{server['proof']['tests']:,}"+' regression tests, '+rounds_label(server).lower()+'.')
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
         pending=[label for key,label in DIRECTORIES if key in server.get('directories',{}) and not server['directories'][key]]
@@ -253,6 +260,10 @@ def compare_page(out,css_version):
         listed_in=', '.join(label for label,_ in listed(s))
         where=dir_chips({key:bool(s.get('directories',{}).get(key)) for key,_ in DIRECTORIES}) if listed_in or row['id'] in ('sam','bls') else '<span>Local install</span>'
         ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">{pr["tests"]:,} tests</a> · {ESC(rounds_label(s).lower())}</span>{where}'
+        if s.get('hosted_edition'):
+            he=s['hosted_edition']
+            ours=(f'<strong>{he["tools"]} tools in the directories</strong><span>Hosted edition, no key: contract opportunities, award notices, and justifications</span>{where}'
+                f'<strong>{pr["tools"]} tools installed locally</strong><span>Full edition with a free SAM.gov key · <a href="{s["url"]}">{pr["tests"]:,} tests</a> · {ESC(rounds_label(s).lower())}</span>')
         alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>{dir_chips(row.get("alt_directories",{}))}' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
         rows.append(('<tr class="more">' if i>source_cut else '<tr>')+f'<th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
     alts=[r for r in COMPARE['sources'] if r['alt']]
