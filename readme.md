@@ -139,7 +139,7 @@ competed, obligations, current value, potential value with all options, and outl
 (money actually paid out) where reported, naming the field behind each number, plus
 performance dates. Then show CALC+ ceiling rates for the matching labor categories
 separately. Don't turn a total award amount into an hourly rate without a documented
-staffing and period-of-performance basis.
+staffing and period of performance basis.
 ```
 
 **Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) + [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
