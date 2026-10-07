@@ -133,12 +133,13 @@ the company's bid/no-bid decision from public data alone.
 ### What did the government actually pay?
 
 ```text
-Find comparable federal contract awards for [REQUIREMENT] under NAICS [NAICS] in
-USAspending. Distinguish obligations, current award value, and potential ceiling
-wherever the source provides them; identify the field used for each amount. Show
-performance dates and scope differences. Compare relevant CALC+ labor-category
-ceiling rates separately. Do not convert a total award amount into an hourly price
-without a documented staffing and performance-period basis.
+Find comparable federal contracts for [REQUIREMENT] under NAICS [NAICS] in
+USAspending, skipping ones with a different scope. For each, show how it was
+competed, obligations, current value, potential value with all options, and outlays
+(money actually paid out) where reported, naming the field behind each number, plus
+performance dates. Then show CALC+ ceiling rates for the matching labor categories
+separately. Don't turn a total award amount into an hourly rate without a documented
+staffing and period-of-performance basis.
 ```
 
 **Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) + [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp)
