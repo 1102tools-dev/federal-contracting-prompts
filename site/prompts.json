@@ -1,6 +1,6 @@
 {
-  "edition": "September 2026",
-  "date": "2026-09-11",
+  "edition": "October 2026",
+  "date": "2026-10-07",
   "title": "1102tools MCP Prompt Guide",
   "servers": [
     {
@@ -307,6 +307,16 @@
     },
     {
       "id": "p06",
+      "title": "What federal IT work is coming that isn't out for bid yet?",
+      "category": "catching-opportunities",
+      "text": "Using the SAM.gov tool, show me federal IT work that's coming but not out for bid yet:\n- NAICS starting with 5415 (all computer and IT services)\n- Only Sources Sought and Presolicitation notices\n- Still open for responses\n\nFirst, count them by agency so I can see who's planning the most IT buying.\nThen list the most interesting ones in a table with response due date, title, agency, set-aside (if any), and sam.gov link.\nPick the 5 biggest or most strategic opportunities and say in one line each why a company should respond now.",
+      "mcps": [
+        "sam"
+      ],
+      "in_pdf": true
+    },
+    {
+      "id": "p07",
       "title": "Open solicitations, deadline first",
       "category": "catching-opportunities",
       "text": "Search SAM.gov for solicitations and combined synopses under NAICS [NAICS] with a response deadline between today and [N] days out. Give me title, agency, deadline, and set-aside type, and drop anything whose deadline has already passed even if SAM still marks it active. The search filters 1 notice type per call, so expect 2 searches merged, not 1.",
@@ -316,7 +326,7 @@
       "in_pdf": true
     },
     {
-      "id": "p07",
+      "id": "p08",
       "title": "Sources sought and RFIs",
       "category": "catching-opportunities",
       "text": "Find sources sought notices under NAICS [NAICS] from the last 60 days, then separately search notice titles for RFI. Identify the returned notice types and flag response deadlines within two weeks. If I supply PSC [PSC], run a separate PSC search, merge the results, and deduplicate by notice ID. Identify limits or missing pages instead of treating a partial search as complete.",
@@ -326,7 +336,7 @@
       "in_pdf": true
     },
     {
-      "id": "p08",
+      "id": "p09",
       "title": "Read one opportunity properly",
       "category": "catching-opportunities",
       "text": "Retrieve opportunity [NOTICE ID] from SAM.gov, including the full description when available. Summarize the requirement, response deadline, evaluation approach if stated, and any explicit incumbent references. Cite the notice and distinguish stated requirements from your interpretation. Identify attachments or amendments the MCP did not retrieve.",
@@ -336,7 +346,7 @@
       "in_pdf": true
     },
     {
-      "id": "p09",
+      "id": "p10",
       "title": "Fresh award notices",
       "category": "catching-opportunities",
       "text": "Find contract award notices under NAICS [NAICS] posted to SAM.gov in the last [N] days. Show the winner, reported amount, award date, posting date, notice ID, and source link where available. Keep missing amounts or dates marked as missing. If few results appear, report the search coverage and offer a wider window; do not infer that no awards occurred or assume every award posts immediately.",
@@ -346,7 +356,7 @@
       "in_pdf": true
     },
     {
-      "id": "p10",
+      "id": "p11",
       "title": "One agency's postings",
       "category": "catching-opportunities",
       "text": "Search opportunities under NAICS [NAICS] from the last 90 days with the result limit set high, then filter for [AGENCY] yourself from the agency path field in the results. The agency filter only screens what was fetched, so if the total count is much larger than what came back, page through before concluding anything.",
@@ -356,7 +366,7 @@
       "in_pdf": true
     },
     {
-      "id": "p11",
+      "id": "p12",
       "title": "Find the right recipient record",
       "category": "competitor-intelligence",
       "text": "Search USAspending recipients for [COMPANY] and list every match with its lifetime award total and whether it is the parent rollup or a subsidiary record. The same company appears several times and the totals differ by a lot, so name the record you pick and use it in everything that follows. If the search returns only near-misses, try the other recipient search tool before deciding the company is not in the data.",
@@ -366,7 +376,7 @@
       "in_pdf": true
     },
     {
-      "id": "p12",
+      "id": "p13",
       "title": "Their last 12 months",
       "category": "competitor-intelligence",
       "text": "Pull [COMPANY]'s federal contract awards with activity in the last 12 months: award ID, agency, amount, NAICS, and period of performance end date. Sort by amount. Add \"in NAICS [NAICS] only\" if I want one code.",
@@ -376,7 +386,7 @@
       "in_pdf": true
     },
     {
-      "id": "p13",
+      "id": "p14",
       "title": "Where their money comes from",
       "category": "competitor-intelligence",
       "text": "Retrieve [COMPANY]'s federal contract awards for the last two years from USAspending using the selected recipient record. Summarize obligations by awarding agency, with agency share and the underlying award count. Use compatible source filters and paginate as needed. If only a sample is retrieved, state its size and selection method and label the shares as sample shares, not the company's complete revenue concentration.",
@@ -386,7 +396,7 @@
       "in_pdf": true
     },
     {
-      "id": "p14",
+      "id": "p15",
       "title": "Who they sub to",
       "category": "competitor-intelligence",
       "text": "Retrieve [COMPANY]'s ten largest prime awards from USAspending using a confirmed recipient identity. For each, search the reported subawards and list the prime award, subaward recipient, amount, and date. Keep similarly named firms and joint ventures separate unless identifiers establish the relationship. Empty subaward results mean no matching reports were returned; they do not establish that the prime self-performed everything.",
@@ -396,7 +406,7 @@
       "in_pdf": true
     },
     {
-      "id": "p15",
+      "id": "p16",
       "title": "An agency's expiring contracts",
       "category": "recompete-radar",
       "text": "Find [AGENCY]'s contract awards under NAICS [NAICS] above $[FLOOR] with recorded performance end dates in the next nine months. Use USAspending's available filters and paginate through the results; if end dates require local filtering, explain the coverage. Flag implausible dates, possible follow-on awards, and option-period uncertainty. Present the results as potential recompete leads, not confirmed future solicitations.",
@@ -406,7 +416,7 @@
       "in_pdf": true
     },
     {
-      "id": "p16",
+      "id": "p17",
       "title": "When a company's contracts end",
       "category": "recompete-radar",
       "text": "List [COMPANY]'s USAspending contract awards with recorded performance end dates between today and [N] months from now. Sort the selected results by end date and report the recipient identity, award ID, agency, amount field, and end date. If the tool cannot filter directly by end date, paginate and filter the retrieved records. State incomplete coverage and distinguish award end dates from confirmed recompete plans.",
@@ -416,7 +426,7 @@
       "in_pdf": true
     },
     {
-      "id": "p17",
+      "id": "p18",
       "title": "Exclusion check",
       "category": "vetting-and-teaming",
       "text": "Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell me whether any are currently active and what they are for.",
@@ -426,7 +436,7 @@
       "in_pdf": true
     },
     {
-      "id": "p18",
+      "id": "p19",
       "title": "Untangle multiple registrations",
       "category": "vetting-and-teaming",
       "text": "Search SAM.gov for [COMPANY]. List each matching entity's legal name, UEI, CAGE code, address, and registration status before choosing a record. Group related-looking records for review, but do not infer headquarters or corporate ownership from a shared address alone. Identify which UEI best matches the company I mean and explain any unresolved ambiguity.",
@@ -436,7 +446,7 @@
       "in_pdf": true
     },
     {
-      "id": "p19",
+      "id": "p20",
       "title": "Registration status at a glance",
       "category": "vetting-and-teaming",
       "text": "Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does it expire, what is its primary NAICS, and what socioeconomic categories does it hold? If more than 1 active registration exists, say how many and name the UEI you picked before answering.",
@@ -446,7 +456,7 @@
       "in_pdf": true
     },
     {
-      "id": "p20",
+      "id": "p21",
       "title": "SBA certification dates",
       "category": "vetting-and-teaming",
       "text": "Retrieve [COMPANY]'s SBA certification fields from its SAM.gov entity record. Report each listed program, status, entry date, and exit date using the source's own labels. Distinguish a documented date from an inferred current status. An empty certification list or a historical set-aside award does not by itself prove present eligibility, graduation, or ineligibility.",
@@ -456,7 +466,7 @@
       "in_pdf": true
     },
     {
-      "id": "p21",
+      "id": "p22",
       "title": "Registration, exclusion, and integrity evidence",
       "category": "vetting-and-teaming",
       "text": "For [UEI], retrieve the current SAM.gov registration status and exclusions, then request the separately available entity integrity information. Report the source, retrieval date, entity match, and any access restrictions or missing records. Present the evidence and unresolved gaps without making a responsibility determination.",
@@ -466,7 +476,7 @@
       "in_pdf": true
     },
     {
-      "id": "p22",
+      "id": "p23",
       "title": "How far back they go",
       "category": "vetting-and-teaming",
       "text": "Research [COMPANY]'s historical contract awards in SAM.gov for [START FY] through [END FY], in manageable fiscal-year ranges supported by the server. Use a confirmed entity identifier where the tool permits it. Show the earliest returned award, counts by period, and query coverage. Separate unsupported date ranges, empty responses, and sparse reporting; do not treat the earliest returned record as the company's first-ever federal award.",
@@ -476,7 +486,7 @@
       "in_pdf": true
     },
     {
-      "id": "p23",
+      "id": "p24",
       "title": "Build a teaming shortlist",
       "category": "vetting-and-teaming",
       "text": "Build a teaming shortlist from active SAM.gov registrants in [STATE] with NAICS [NAICS] anywhere on their records and [SOCIOECONOMIC STATUS]. Use the server's appropriate business-type or SBA-certification filter. Report the total count and returned page size, paginate within the agreed scope, and deduplicate by UEI. Show each firm's name, UEI, relevant NAICS, registration expiration, and returned certification status and dates. Flag missing evidence and explain search coverage.",
@@ -486,7 +496,7 @@
       "in_pdf": true
     },
     {
-      "id": "p24",
+      "id": "p25",
       "title": "Who an agency pays under your code",
       "category": "market-and-agency-intel",
       "text": "Show [AGENCY]'s USAspending contract obligations under NAICS [NAICS] for the most recently completed fiscal year. State the exact fiscal-year dates, show the available sub-agency breakdown, and list the top ten recipients. Distinguish a single returned category from complete organizational detail and identify any source or filter limitations.",
@@ -496,7 +506,7 @@
       "in_pdf": true
     },
     {
-      "id": "p25",
+      "id": "p26",
       "title": "Where the work is, by state",
       "category": "market-and-agency-intel",
       "text": "Show federal contract obligations under NAICS [NAICS] by place-of-performance state for the most recently completed fiscal year. State the exact period and geography basis, sort the states by amount, and separate unknown locations. Do not describe recipient headquarters spending as the location where work is performed.",
@@ -506,7 +516,7 @@
       "in_pdf": true
     },
     {
-      "id": "p26",
+      "id": "p27",
       "title": "An agency's set-aside share",
       "category": "market-and-agency-intel",
       "text": "Estimate the share of [AGENCY]'s contract obligations under NAICS [NAICS] associated with small-business set-aside codes over the last two years. Use matching periods and award filters for numerator and denominator, list the codes included, and show the calculation. Keep unknown classifications separate where the source allows. Explain that set-aside coding is not the same measure as all awards to small businesses.",
@@ -516,7 +526,7 @@
       "in_pdf": true
     },
     {
-      "id": "p27",
+      "id": "p28",
       "title": "The five-year trend",
       "category": "market-and-agency-intel",
       "text": "Show [AGENCY]'s USAspending contract obligations under NAICS [NAICS] for the last five completed fiscal years. Give the exact fiscal years, amounts, year-over-year changes, and a short explanation of the trend. Keep any current partial fiscal year separate. Treat past obligations as market context rather than a forecast of future opportunities.",
@@ -526,7 +536,7 @@
       "in_pdf": true
     },
     {
-      "id": "p28",
+      "id": "p29",
       "title": "The big vehicles",
       "category": "market-and-agency-intel",
       "text": "Identify large IDVs under NAICS [NAICS] in USAspending, stating the amount field and period used for ranking. For the vehicle I select, retrieve its detail and linked child awards. Use additional searches only when their relationship to the vehicle can be supported. Report missing links or incomplete coverage; do not conclude that an active vehicle has no orders solely from an empty response.",
@@ -536,7 +546,7 @@
       "in_pdf": true
     },
     {
-      "id": "p29",
+      "id": "p30",
       "title": "Find your NAICS",
       "category": "speaking-the-governments-codes",
       "text": "What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and the closest alternates so I do not file under the wrong one.",
@@ -546,7 +556,7 @@
       "in_pdf": true
     },
     {
-      "id": "p30",
+      "id": "p31",
       "title": "Retrieve the size standard",
       "category": "speaking-the-governments-codes",
       "text": "Use the eCFR MCP to retrieve the currently available size-standard table in 13 CFR 121.201 for NAICS [CODE]. Return the matching industry, dollar or employee threshold, and relevant exceptions or footnotes, with the source date and citation. If the table, row, or notes cannot be retrieved completely, state that limitation and do not supply a threshold from memory.",
@@ -556,7 +566,7 @@
       "in_pdf": true
     },
     {
-      "id": "p31",
+      "id": "p32",
       "title": "Find your PSC",
       "category": "speaking-the-governments-codes",
       "text": "What PSC codes cover [PLAIN-ENGLISH SERVICE]? Give me the codes and official names so I can search with them.",
@@ -566,7 +576,7 @@
       "in_pdf": true
     },
     {
-      "id": "p32",
+      "id": "p33",
       "title": "Decode a PSC",
       "category": "speaking-the-governments-codes",
       "text": "Use the available PSC reference tools to retrieve PSC [CODE], its official description, and related categories. Report active or retired status only if the returned reference explicitly provides it. If status or a detailed definition is unavailable, identify that gap instead of inferring it from a missing search result.",
@@ -576,7 +586,7 @@
       "in_pdf": true
     },
     {
-      "id": "p33",
+      "id": "p34",
       "title": "Codes to opportunities, one chain",
       "category": "speaking-the-governments-codes",
       "text": "Find the PSC code for [PLAIN-ENGLISH SERVICE], then search SAM.gov opportunities under that exact code with a response deadline still open. Codes first, opportunities second, one chain.",
@@ -587,7 +597,7 @@
       "in_pdf": true
     },
     {
-      "id": "p34",
+      "id": "p35",
       "title": "Find the right labor category title",
       "category": "gsa-calc",
       "text": "I do not know GSA's exact labor category title for [ROLE]. Show me the closest matching titles with how many rate records each carries, so I search the right string.",
@@ -597,7 +607,7 @@
       "in_pdf": true
     },
     {
-      "id": "p35",
+      "id": "p36",
       "title": "The rate distribution",
       "category": "gsa-calc",
       "text": "Show CALC+ ceiling-rate distributions for labor-category titles matching [LABOR CATEGORY]. Identify the exact titles, filters, record count, and available percentile or summary statistics. Compare relevant education and experience groups using supported filters. Explain whether results combine multiple titles, and do not present calculated precision beyond what the source supports.",
@@ -607,7 +617,7 @@
       "in_pdf": true
     },
     {
-      "id": "p36",
+      "id": "p37",
       "title": "A company's rate card",
       "category": "gsa-calc",
       "text": "Pull [COMPANY]'s GSA rate card and every row whose labor category contains [KEYWORD]. Ask for the total category count and page through until you have every row; the card reports which rows came back and whether more remain. There is no server-side vendor-plus-keyword search, so the keyword screen happens on the rows you fetched.",
@@ -617,7 +627,7 @@
       "in_pdf": true
     },
     {
-      "id": "p37",
+      "id": "p38",
       "title": "Where does this rate sit?",
       "category": "gsa-calc",
       "text": "Position $[RATE]/hr for [LABOR CATEGORY] against relevant awarded CALC+ ceiling-rate distributions. Show the comparison set, percentile band, geography, education and experience differences, and data limitations. Do not call the rate defensible, reasonable, fair, or acceptable; leave that determination to the authorized official.",
@@ -627,7 +637,7 @@
       "in_pdf": true
     },
     {
-      "id": "p38",
+      "id": "p39",
       "title": "What the labor earns",
       "category": "bls-oews",
       "text": "Use BLS OEWS to find median and 75th-percentile annual wages for [OCCUPATION] in [METRO AREA]. Confirm the available data year, SOC code, and geographic match first. Report missing, suppressed, or unavailable figures explicitly, along with the source period; do not silently substitute a different year or location.",
@@ -637,7 +647,7 @@
       "in_pdf": true
     },
     {
-      "id": "p39",
+      "id": "p40",
       "title": "Metro versus metro",
       "category": "bls-oews",
       "text": "Compare wages for [OCCUPATION] across [METRO 1] and [METRO 2], then pull the national median separately as the baseline. I am deciding where a position can realistically be staffed.",
@@ -647,7 +657,7 @@
       "in_pdf": true
     },
     {
-      "id": "p40",
+      "id": "p41",
       "title": "Raw wage, your burden math",
       "category": "bls-oews",
       "text": "Give me the raw BLS wage for [OCCUPATION] in [METRO], median and 10th and 90th percentile, current data year, with no loaded-rate estimate attached. The burden math is mine.",
@@ -657,7 +667,7 @@
       "in_pdf": true
     },
     {
-      "id": "p41",
+      "id": "p42",
       "title": "Market floor against awarded ceiling",
       "category": "bls-oews",
       "text": "Compare the BLS OEWS wage for [OCCUPATION] in [METRO] with CALC+ ceiling rates for a closely matched labor category. Keep raw wages and fully burdened ceiling rates distinct. If showing a burdened-wage scenario, use [BURDEN MULTIPLIER] or ask me to supply it, and show the formula. Explain occupation, experience, geography, and pricing-basis differences.",
@@ -668,7 +678,7 @@
       "in_pdf": true
     },
     {
-      "id": "p42",
+      "id": "p43",
       "title": "The whole staffing picture",
       "category": "bls-oews",
       "text": "Compare median wages for [OCCUPATION 1], [OCCUPATION 2], and [OCCUPATION 3] side by side in [METRO]. I am pricing a mixed labor category task order and want the whole staffing picture in one table, not separate lookups.",
@@ -678,7 +688,7 @@
       "in_pdf": true
     },
     {
-      "id": "p43",
+      "id": "p44",
       "title": "Lodging and M&IE",
       "category": "gsa-per-diem",
       "text": "Retrieve GSA lodging and M&IE rates for [CITY, STATE] in [FISCAL YEAR]. Show seasonal lodging changes, the matched locality, and the rate period. Identify an unmatched or fallback locality clearly before using the rates in an estimate.",
@@ -688,7 +698,7 @@
       "in_pdf": true
     },
     {
-      "id": "p44",
+      "id": "p45",
       "title": "Price a trip",
       "category": "gsa-per-diem",
       "text": "Estimate per-traveler lodging and M&IE for [N] nights in [CITY, STATE] during [MONTH, YEAR]. Use the matching fiscal-year rates, identify the locality, show the daily components, and apply the tool's first/last-day M&IE treatment explicitly. State the assumed travel days and exclude airfare and other expenses unless separately supplied. Ask for a date if it is missing instead of silently pricing another season.",
@@ -698,7 +708,7 @@
       "in_pdf": true
     },
     {
-      "id": "p45",
+      "id": "p46",
       "title": "The ZIP fallback",
       "category": "gsa-per-diem",
       "text": "Look up GSA per diem for ZIP [ZIP] in [FISCAL YEAR]. Report the locality actually returned, lodging seasonality, and M&IE. If the ZIP lookup also falls back or fails to match, keep that uncertainty visible rather than treating the location as confirmed.",
@@ -708,7 +718,7 @@
       "in_pdf": true
     },
     {
-      "id": "p46",
+      "id": "p47",
       "title": "The FAR as it reads today",
       "category": "ecfr",
       "text": "Retrieve FAR [CITATION] using the eCFR MCP's latest available Title 48 date. Quote the relevant text and provide the citation and source date. Inspect its version history and compare relevant revisions before calling a change substantive; distinguish publication, amendment, effective, and retrieval dates when the source supplies them.",
@@ -718,7 +728,7 @@
       "in_pdf": true
     },
     {
-      "id": "p47",
+      "id": "p48",
       "title": "What changed in a FAR part",
       "category": "ecfr",
       "text": "Find sections in FAR Part [PART] with eCFR version changes in the last year, then compare before and after section by section for the changes relevant to [TOPIC]. State the dates used and distinguish substantive wording changes from editorial or structural changes. Identify incomplete comparisons rather than claiming the entire part was reviewed.",
@@ -728,7 +738,7 @@
       "in_pdf": true
     },
     {
-      "id": "p48",
+      "id": "p49",
       "title": "Chase a FAR definition",
       "category": "ecfr",
       "text": "Find the FAR definition of [TERM] using the eCFR MCP. Retrieve the relevant section or complete matching definition, including numbered subparagraphs and exceptions. Give the citation and source date. If a large section such as FAR 2.101 is truncated, identify the missing portion and do not present a partial definition as complete.",
@@ -738,7 +748,7 @@
       "in_pdf": true
     },
     {
-      "id": "p49",
+      "id": "p50",
       "title": "What's moving on a topic",
       "category": "federal-register",
       "text": "Search Federal Register documents on [TOPIC] from the last 6 months across all document types, ordered by relevance; the live items are often notices and RFIs, not just proposed rules. For anything with an open comment period, give me the deadline.",
@@ -748,7 +758,7 @@
       "in_pdf": true
     },
     {
-      "id": "p50",
+      "id": "p51",
       "title": "Which agencies are moving",
       "category": "federal-register",
       "text": "Count Federal Register documents on [TOPIC] by agency for the last twelve months using the available facet tools. State the date range, search terms, document types, and returned counts. Use the result to choose which agencies to examine next; a count alone does not indicate the significance of a policy change.",
@@ -758,7 +768,7 @@
       "in_pdf": true
     },
     {
-      "id": "p51",
+      "id": "p52",
       "title": "Track a FAR case",
       "category": "federal-register",
       "text": "Trace FAR Case [NUMBER] through Federal Register documents in date order. Separate documents directly addressing the case from Unified Agenda entries or other notices that merely mention it. Show proposed, final, withdrawn, and effective-date information only where supported, with source links and any gaps in the retrieved history.",
@@ -768,7 +778,7 @@
       "in_pdf": true
     },
     {
-      "id": "p52",
+      "id": "p53",
       "title": "Open for comment right now",
       "category": "regulationsgov",
       "text": "What is open for comment right now on [TOPIC]? Use the Federal Register's open comment periods with a term filter for this one; the Regulations.gov version filters by agency only. Give me the docket ID, or the document number when a notice carries no docket, and the closing date.",
@@ -778,7 +788,7 @@
       "in_pdf": true
     },
     {
-      "id": "p53",
+      "id": "p54",
       "title": "The real FAR and DFARS pipeline",
       "category": "regulationsgov",
       "text": "Find FAR and DFARS proposed rules with open comment periods using the Regulations.gov MCP's available agency and document filters. Check the relevant FAR and DARS agency codes, then distinguish actual proposed rule changes from routine information-collection notices. Return the docket or document ID, title, closing date, source link, and any filter or coverage limitations.",
@@ -788,7 +798,7 @@
       "in_pdf": true
     },
     {
-      "id": "p54",
+      "id": "p55",
       "title": "Who's lobbying a docket",
       "category": "regulationsgov",
       "text": "For docket [DOCKET ID], search Regulations.gov comments for organizational submitters, including terms such as association, chamber, coalition, or institute. Retrieve details and attachment references for the relevant matches. Summarize each identified organization's position with citations, distinguish names from verified affiliations, and explain the selection method. Do not treat this keyword sample as all comments or a measure of consensus.",
@@ -798,7 +808,7 @@
       "in_pdf": true
     },
     {
-      "id": "p55",
+      "id": "p56",
       "title": "Find the model text and the agency's posted deviation",
       "category": "far-overhaul-and-agency-deviations",
       "text": "Use the Acquisition.gov MCP to retrieve the FAR Overhaul model text for FAR Part [PART] and find posted deviations for [AGENCY] and that part. Retrieve the relevant indexed deviation documents. Report source links, retrieval dates, and any stated effective dates or applicability language, with PDF page references. Keep the model text separate from the agency's documented action, and clearly identify missing or conflicting evidence. Do not decide which rule governs my procurement.",
@@ -808,7 +818,7 @@
       "in_pdf": true
     },
     {
-      "id": "p56",
+      "id": "p57",
       "title": "Compare codified text, model text, and an agency deviation",
       "category": "far-overhaul-and-agency-deviations",
       "text": "Compare the current codified text for FAR [CITATION] using eCFR with the relevant FAR Overhaul model part and [AGENCY]'s posted deviation using Acquisition.gov. Show the three sources separately, cite exact sections or PDF pages, and explain the differences. Include retrieval dates and document-stated dates. Do not treat model text as agency adoption or infer applicability from a filename.",
@@ -819,6 +829,6 @@
       "in_pdf": true
     }
   ],
-  "website_updated": "2026-10-06",
+  "website_updated": "2026-10-07",
   "proof_as_of": "2026-10-01"
 }

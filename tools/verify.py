@@ -24,7 +24,7 @@ compare=json.loads((ROOT/'catalog/compare.json').read_text())
 APPROVED={'https://github.com/1102tools-dev','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/'}
 page=Page();page.feed((ROOT/'site/index.html').read_text())
 assert len(page.ids)==len(set(page.ids)),'duplicate HTML IDs'
-assert len(page.prompts)==56
+assert len(page.prompts)==57
 for p in data['prompts']:assert page.prompts[p['id']]==p['text'],p['id']
 for link in page.links:
  if link.startswith('#'):assert link[1:] in page.ids,link
@@ -40,7 +40,7 @@ for link in compare_page.links:
 assert {x['id'] for x in compare['sources']}=={s['id'] for s in data['servers']},'compare page must cover every source'
 readme=(ROOT/'readme.md').read_text()
 blocks=re.findall(r'```text\n(.*?)```',readme,re.S)
-assert len(blocks)==56
+assert len(blocks)==57
 normalize=lambda s:re.sub(r'\s+','',s)
 for p,b in zip(data['prompts'],blocks):assert normalize(p['text'])==normalize(b),p['id']
 pdf=PdfReader(ROOT/'docs/1102tools-mcp-prompt-guide.pdf')
@@ -57,4 +57,4 @@ for forbidden in ['universal-setup','agent-setup','federal-contracting-agents','
  assert forbidden.lower() not in (text+'\n'+readme+'\n'+''.join(page.texts)).lower(),forbidden
 assert data==json.loads((ROOT/'site/prompts.json').read_text())
 assert (ROOT/'docs/1102tools-mcp-prompt-guide.pdf').read_bytes()==(ROOT/'site/downloads/1102tools-prompt-guide.pdf').read_bytes()
-print('PASS: 56 README/web prompts; 56 complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')
+print('PASS: 57 README/web prompts; 57 complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')

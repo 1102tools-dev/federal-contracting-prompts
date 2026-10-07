@@ -4,10 +4,10 @@
 
 ## Start here
 
-- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.
+- [Prompt library](https://1102tools.com/#prompts): 57 prompts organized into 14 task groups.
 - [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.
 - [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and Claude and ChatGPT directory links.
-- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): all 56 prompts for the nine sources, organized by task.
+- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): all 57 prompts for the nine sources, organized by task.
 - [Prompt source repository](https://github.com/1102tools-dev/federal-contracting-prompts): canonical catalog and generated website/PDF.
 - [MCP source repository](https://github.com/1102tools-dev/federal-contracting-mcps): server implementations, installation, and testing records.
 
@@ -95,4 +95,4 @@ The collection is not a claim that every prompt has been run against live APIs. 
 - [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
 - [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
-Website metadata updated 2026-10-06. Prompt edition: September 2026.
+Website metadata updated 2026-10-07. Prompt edition: October 2026.

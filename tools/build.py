@@ -49,7 +49,7 @@ def readme():
     'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions]('+MR+'#install)','',
     '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
-    'The print guide and the online library contain the same 56 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
+    'The print guide and the online library contain the same 57 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
     lines+=['## Available in Claude and ChatGPT','','All '+number_word(len(SOURCE_ORDER)).lower()+' MCPs install and run locally today; the **Local** column links to each setup guide. '+f'{claude_count} are also published in the Claude directory and {chatgpt_count.lower()} in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to ChatGPT.','','| MCP | Claude | ChatGPT | Local |','|---|---|---|---|']
@@ -70,7 +70,7 @@ def readme():
         if sec['id']=='far-overhaul-and-agency-deviations':lines+=['These two examples have not been live-tested as part of this guide refresh.','']
         for p in DATA['prompts']:
             if p['category']!=sec['id']:continue
-            lines += [f'<a id="{p["id"]}"></a>',f"### {p['title']}",'','```text',textwrap.fill(p['text'],width=84,break_long_words=False,break_on_hyphens=False),'```','',f"**Required MCPs:** {linklabel(p)}",'']
+            lines += [f'<a id="{p["id"]}"></a>',f"### {p['title']}",'','```text','\n'.join(textwrap.fill(line,width=84,break_long_words=False,break_on_hyphens=False) for line in p['text'].split('\n')),'```','',f"**Required MCPs:** {linklabel(p)}",'']
     lines+=['## Maintaining this library','','Edit `catalog/prompts.json`, then run `python tools/build.py`. The README, PDF, and website are generated from that one file. `python tools/build.py --check` verifies that generated copies match. See [maintenance notes](MAINTAINING.md).','','MIT licensed. Built by James Jenrette. Independently developed and not affiliated with or endorsed by any federal agency.','']
     return '\n'.join(lines)
 class Doc(BaseDocTemplate):
@@ -104,16 +104,16 @@ def build_pdf(dest):
         row=[]
         for s in DATA['servers'][i:i+3]:row.append([Paragraph(ESC(s['name']),styles['title']),Paragraph(ESC(s['description']),styles['small'])])
         grid.append(row)
-    table=Table(grid,colWidths=[170,169,169]);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.5,LINE),('LEFTPADDING',(0,0),(-1,-1),14),('RIGHTPADDING',(0,0),(-1,-1),14),('TOPPADDING',(0,0),(-1,-1),13),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story += [table,Spacer(1,35),Paragraph(DATA['edition'].upper()+'  ·  56 PROMPTS  ·  9 MCP SOURCES',styles['eyebrow']),Paragraph(f'<link href="{PR}" color="#008766">Federal contracting prompts</link>  /  <link href="{MR}" color="#008766">MCP servers and setup</link>',styles['small']),PageBreak()]
+    table=Table(grid,colWidths=[170,169,169]);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.5,LINE),('LEFTPADDING',(0,0),(-1,-1),14),('RIGHTPADDING',(0,0),(-1,-1),14),('TOPPADDING',(0,0),(-1,-1),13),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story += [table,Spacer(1,35),Paragraph(DATA['edition'].upper()+'  ·  57 PROMPTS  ·  9 MCP SOURCES',styles['eyebrow']),Paragraph(f'<link href="{PR}" color="#008766">Federal contracting prompts</link>  /  <link href="{MR}" color="#008766">MCP servers and setup</link>',styles['small']),PageBreak()]
     story += [Paragraph('Start with the work',ParagraphStyle('Start',parent=styles['section'],spaceBefore=0)),Paragraph('<b>A prompt does not install an MCP.</b> Install and connect every required MCP in your AI client before running a prompt. If two are listed, both are required.',styles['body']),Paragraph('1. Check the <b>Required MCPs</b> line. Each source name links to its setup instructions.<br/>2. Configure any API keys outside chat and confirm your client can see the tools.<br/>3. Replace the brackets, run the prompt, and check the sources and dates.',styles['body']),Paragraph('Ask for the exact source, data period, and retrieval date. Keep missing records, incomplete pages, and uncertain matches visible.',styles['body']),Paragraph('<link href="https://1102tools.com/#mcps" color="#008766">Setup and available Claude and ChatGPT installs: 1102tools.com/#mcps</link>',styles['small']),Spacer(1,6),Paragraph('Find a prompt',ParagraphStyle('IndexTitle',parent=styles['section'],spaceBefore=0))]
-    toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC',fontName='Helvetica',fontSize=10,leading=17,textColor=NAVY,leftIndent=0,firstLineIndent=0,rightIndent=20,spaceBefore=0)];story+=[toc,Spacer(1,16),Paragraph('September 2026 edition. Prompt wording and source mappings have been reviewed. Provider data and tool availability can change; this is not a claim that every request was re-run live.',styles['small']),PageBreak()]
+    toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC',fontName='Helvetica',fontSize=10,leading=17,textColor=NAVY,leftIndent=0,firstLineIndent=0,rightIndent=20,spaceBefore=0)];story+=[toc,Spacer(1,16),Paragraph(DATA['edition']+' edition. Prompt wording and source mappings have been reviewed. Provider data and tool availability can change; this is not a claim that every request was re-run live.',styles['small']),PageBreak()]
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id'] and p['in_pdf']]
         if not ps:continue
         heading=Paragraph(ESC(sec['title']),styles['section']);heading.key=sec['id'];section_start=[heading,Paragraph(ESC(sec['intro']),styles['intro'])]
         for prompt_index,p in enumerate(ps):
             label=' + '.join(f'<link href="{SERVERS[x]["url"]}" color="#008766">{ESC(SERVERS[x]["name"])}</link>' for x in p['mcps'])
-            block=[Paragraph(ESC(p['title']),styles['title']),Paragraph(ESC(p['text']),styles['prompt']),Paragraph('<b>Required MCPs:</b> '+label,styles['label'])]
+            block=[Paragraph(ESC(p['title']),styles['title']),Paragraph(ESC(p['text']).replace('\n','<br/>'),styles['prompt']),Paragraph('<b>Required MCPs:</b> '+label,styles['label'])]
             t=Table([[block]],colWidths=[508]);t.setStyle(TableStyle([('LINEBEFORE',(0,0),(0,0),1.3,LINE),('LEFTPADDING',(0,0),(-1,-1),12),('RIGHTPADDING',(0,0),(-1,-1),4),('TOPPADDING',(0,0),(-1,-1),2),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story += [KeepTogether((section_start if prompt_index==0 else [])+[t,Spacer(1,11)])]
     doc=Doc(str(dest),pagesize=(612,792),leftMargin=52,rightMargin=52,topMargin=55,bottomMargin=59,title=DATA['title'],author='James Jenrette / 1102tools',subject=DATA['edition']+' MCP prompt guide',allowSplitting=1)
     doc.addPageTemplates(PageTemplate(id='all',frames=[Frame(52,59,508,678,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=page))
@@ -153,7 +153,7 @@ def website(out,pdf,pages):
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
-        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"56 prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
+        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"57 prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
 
     published=[SERVERS[x] for x in SOURCE_ORDER if listed(SERVERS[x])]
     by_directory=[(label,[server['name'] for server in published if server['directories'][key]]) for key,label in DIRECTORIES]
@@ -174,7 +174,7 @@ def website(out,pdf,pages):
             'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'}})
 
     st=stats()
-    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'EXAMPLE':ESC(next(p['text'] for p in DATA['prompts'] if p['id']=='p05')),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'HERO_PROOF':hero_proof(),
+    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'HERO_PROOF':hero_proof(),
         'TOTAL_TESTS':f"{st['tests']:,}",'MAX_ROUNDS':number_word(st['max_rounds']).lower(),'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
         'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
@@ -194,10 +194,10 @@ def website(out,pdf,pages):
     (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://1102tools.com/</loc><lastmod>'+DATA['website_updated']+'</lastmod></url><url><loc>https://1102tools.com/compare</loc><lastmod>'+COMPARE['researched']+'</lastmod></url></urlset>')
     llms=['# 1102tools','', '> Free, independent, open-source MCP servers and practical prompts for federal contracting research.','',
         '## Start here','',
-        '- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.',
+        '- [Prompt library](https://1102tools.com/#prompts): 57 prompts organized into 14 task groups.',
         '- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.',
         '- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and Claude and ChatGPT directory links.',
-        '- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): all 56 prompts for the nine sources, organized by task.',
+        '- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): all 57 prompts for the nine sources, organized by task.',
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.','',
         '## Available in the Claude and ChatGPT directories','',
@@ -288,8 +288,8 @@ def build(out):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
-    ids=[p['id'] for p in DATA['prompts']];assert len(ids)==len(set(ids))==56
-    assert sum(p['in_pdf'] for p in DATA['prompts'])==56
+    ids=[p['id'] for p in DATA['prompts']];assert len(ids)==len(set(ids))==57
+    assert sum(p['in_pdf'] for p in DATA['prompts'])==57
     for p in DATA['prompts']:assert p['mcps'] and all(x in SERVERS for x in p['mcps'])
     with tempfile.TemporaryDirectory() as tmp:
         tmp=Path(tmp);pages=build(tmp)
@@ -300,5 +300,5 @@ def main():
         else:
             for p in files:
                 dest=ROOT/p.relative_to(tmp);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
-        print(f'{"Verified" if args.check else "Built"} 56 web/repository prompts, 56 PDF prompts, {pages} PDF pages; {len(files)} generated files.')
+        print(f'{"Verified" if args.check else "Built"} 57 web/repository prompts, 57 PDF prompts, {pages} PDF pages; {len(files)} generated files.')
 if __name__=='__main__':main()
