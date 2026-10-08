@@ -167,7 +167,7 @@
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/acquisition-gov-by-1102tools",
-        "chatgpt": null
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333"
       },
       "proof": {
         "tools": 5,

@@ -16,7 +16,7 @@ The print guide and the online library contain the same 57 prompts for all nine 
 
 ## Available in Claude and ChatGPT
 
-All nine MCPs install and run locally today; the **Local** column links to each setup guide. Nine are also published in the Claude directory and three in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to ChatGPT.
+All nine MCPs install and run locally today; the **Local** column links to each setup guide. Nine are also published in the Claude directory and four in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to ChatGPT.
 
 | MCP | Claude | ChatGPT | Local |
 |---|---|---|---|
@@ -26,7 +26,7 @@ All nine MCPs install and run locally today; the **Local** column links to each 
 | BLS OEWS | [Install](https://claude.ai/directory/bls-oews-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) |
 | GSA Per Diem | [Install](https://claude.ai/directory/gsa-perdiem-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp#installation) (free key) |
 | eCFR | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp#installation) |
-| Acquisition.gov | [Install](https://claude.ai/directory/acquisition-gov-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) |
+| Acquisition.gov | [Install](https://claude.ai/directory/acquisition-gov-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) |
 | Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp#installation) |
 | Regulations.gov | [Install](https://claude.ai/directory/regulations-gov-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp#installation) (free key) |
 
