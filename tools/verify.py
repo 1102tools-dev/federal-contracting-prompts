@@ -21,7 +21,7 @@ class Page(HTMLParser):
   self.texts.append(s)
   if self.in_text and self.current:self.prompts[self.current]+=s
 compare=json.loads((ROOT/'catalog/compare.json').read_text())
-APPROVED={'https://github.com/1102tools-dev','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/'}
+APPROVED={'https://github.com/1102tools-dev','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/'}
 page=Page();page.feed((ROOT/'site/index.html').read_text())
 assert len(page.ids)==len(set(page.ids)),'duplicate HTML IDs'
 assert len(page.prompts)==57
