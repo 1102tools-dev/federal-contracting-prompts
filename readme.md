@@ -9,31 +9,41 @@ Practical questions for federal opportunities, competitor research, teaming, pri
 ## Start here
 
 1. Choose a prompt and check its **Required MCPs** line.
-2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.
+2. Run the required MCPs on your computer from their setup guides, or connect them in one click from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.
 3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.
 
 The print guide and the online library contain the same 57 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
 
-## Available in Claude and ChatGPT
+<a id="available-in-claude-and-chatgpt"></a>
+## Run on your computer or in one click
 
-All nine MCPs install and run locally today; the **Local** column links to each setup guide. Nine are also published in the Claude directory and four in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to ChatGPT.
+All nine MCPs run on your computer, and that is the setup we recommend for daily work. Nine are also in the Claude directory and four in ChatGPT for one-click installs with no user API key. The rest are coming soon to ChatGPT.
 
-| MCP | Claude | ChatGPT | Local |
+| MCP | On your computer (recommended) | Claude | ChatGPT |
 |---|---|---|---|
-| SAM.gov | [Install](https://claude.ai/directory/sam-gov-by-1102tools) (4-tool edition) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (free key, full 20-tool edition) |
-| USAspending | [Install](https://claude.ai/directory/usaspending-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp#installation) |
-| GSA CALC+ | [Install](https://claude.ai/directory/gsa-calc-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp#installation) |
-| BLS OEWS | [Install](https://claude.ai/directory/bls-oews-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) |
-| GSA Per Diem | [Install](https://claude.ai/directory/gsa-perdiem-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp#installation) (free key) |
-| eCFR | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp#installation) |
-| Acquisition.gov | [Install](https://claude.ai/directory/acquisition-gov-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333) | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) |
-| Federal Register | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp#installation) |
-| Regulations.gov | [Install](https://claude.ai/directory/regulations-gov-by-1102tools) | Coming soon | [Install](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp#installation) (free key) |
+| SAM.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (full 20-tool edition, free key) | [Install](https://claude.ai/directory/sam-gov-by-1102tools) (4-tool edition, no key) | Coming soon |
+| USAspending | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp#installation) | [Install](https://claude.ai/directory/usaspending-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
+| GSA CALC+ | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp#installation) | [Install](https://claude.ai/directory/gsa-calc-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) |
+| BLS OEWS | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) | [Install](https://claude.ai/directory/bls-oews-by-1102tools) | Coming soon |
+| GSA Per Diem | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp#installation) (free key) | [Install](https://claude.ai/directory/gsa-perdiem-by-1102tools) | Coming soon |
+| eCFR | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp#installation) | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) |
+| Acquisition.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) | [Install](https://claude.ai/directory/acquisition-gov-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333) |
+| Federal Register | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp#installation) | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon |
+| Regulations.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp#installation) (free key) | [Install](https://claude.ai/directory/regulations-gov-by-1102tools) | Coming soon |
 
-**Directory install or local install?**
+| | On your computer (recommended) | One click in Claude or ChatGPT |
+|---|---|---|
+| **Setup** | About 5 minutes: install uv, then add a few lines to your app's settings | One click from the directory. Nothing to install |
+| **Works in** | Claude and ChatGPT desktop apps, Claude Code, Codex, Cursor, and other MCP apps on a desktop or laptop | Claude and ChatGPT on the web, desktop, and phone |
+| **Request budget** | Yours alone | Shared with everyone using that server |
+| **API keys** | Your own free key for GSA Per Diem and Regulations.gov: 1,000 requests an hour, yours alone. Six servers need no key | None needed. The server's keys are shared by all users |
+| **Relies on** | Your computer and the agency's site | Cloudflare and that 1102tools server being up |
+| **Your lookups** | Go straight from your computer to the agency | Pass through Cloudflare. 1102tools doesn't store or log them |
+| **SAM.gov** | Full edition, 20 tools: adds entity registrations, exclusions, and SBA certifications. Needs a free SAM.gov key, which has a daily limit | 4 tools for opportunities, award notices, and justifications. No key and no daily limit |
 
-- **Claude and ChatGPT:** Install from the directory listing. No API key and no setup. The MCP runs on Cloudflare at its own 1102tools.com address, such as `usaspending.1102tools.com`, and your AI app connects to it over the internet. The hosted servers don't store your queries, results, or conversations, and request logging is turned off, so no one at 1102tools sees what you look up. The server code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.
-- **Local:** The MCP runs on your own computer and works with any MCP-compatible app. Requests go straight from your computer to the government source, and nothing passes through 1102tools.com. SAM.gov, GSA Per Diem and Regulations.gov need a free API key from the agency. Each setup guide shows how to get one.
+**Use one click if** you're on your phone, your work computer won't let you install software, or you want SAM.gov opportunity search without a key.
+
+[Set up on your computer](https://github.com/1102tools-dev/federal-contracting-mcps#set-up-on-your-computer). Hosted servers don't store your queries, results, or conversations, and request logging is turned off. Their code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.
 
 A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
 

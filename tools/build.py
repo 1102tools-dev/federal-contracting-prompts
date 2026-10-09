@@ -22,6 +22,14 @@ GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.He
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','acq','fr','regs')
 SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','acq','fr','regs')))
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
+LOCAL_VS_HOSTED=(
+    ('Setup',"About 5 minutes: install uv, then add a few lines to your app's settings",'One click from the directory. Nothing to install'),
+    ('Works in','Claude and ChatGPT desktop apps, Claude Code, Codex, Cursor, and other MCP apps on a desktop or laptop','Claude and ChatGPT on the web, desktop, and phone'),
+    ('Request budget','Yours alone','Shared with everyone using that server'),
+    ('API keys','Your own free key for GSA Per Diem and Regulations.gov: 1,000 requests an hour, yours alone. Six servers need no key',"None needed. The server's keys are shared by all users"),
+    ('Relies on',"Your computer and the agency's site",'Cloudflare and that 1102tools server being up'),
+    ('Your lookups','Go straight from your computer to the agency',"Pass through Cloudflare. 1102tools doesn't store or log them"),
+    ('SAM.gov','Full edition, 20 tools: adds entity registrations, exclusions, and SBA certifications. Needs a free SAM.gov key, which has a daily limit','4 tools for opportunities, award notices, and justifications. No key and no daily limit'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
 COMPARE=json.loads((ROOT/'catalog/compare.json').read_text())
@@ -48,16 +56,18 @@ def readme():
     lines=['# Federal contracting MCP prompts','',f"**{DATA['edition']} · Copy, paste, adapt.**",'',
     'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions]('+MR+'#install)','',
-    '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Use the Claude and ChatGPT directory links below where available, or follow the individual server READMEs for your MCP client. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
+    '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Run the required MCPs on your computer from their setup guides, or connect them in one click from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
     'The print guide and the online library contain the same 57 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
-    lines+=['## Available in Claude and ChatGPT','','All '+number_word(len(SOURCE_ORDER)).lower()+' MCPs install and run locally today; the **Local** column links to each setup guide. '+f'{claude_count} are also published in the Claude directory and {chatgpt_count.lower()} in ChatGPT, where installs need no user API key or local Python setup. The rest are coming soon to ChatGPT.','','| MCP | Claude | ChatGPT | Local |','|---|---|---|---|']
+    lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Run on your computer or in one click','','All '+number_word(len(SOURCE_ORDER)).lower()+' MCPs run on your computer, and that is the setup we recommend for daily work. '+f'{claude_count} are also in the Claude directory and {chatgpt_count.lower()} in ChatGPT for one-click installs with no user API key. The rest are coming soon to ChatGPT.','','| MCP | On your computer (recommended) | Claude | ChatGPT |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
-        local=f"[Install]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(' (free key'+(f", full {server['proof']['tools']}-tool edition" if server.get('hosted_edition') else '')+')' if server['id'] in ('sam','travel','regs') else '')
-        edition=f" ({server['hosted_edition']['tools']}-tool edition)" if server.get('hosted_edition') else ''
-        lines.append(f"| {server['name']} | "+' | '.join(f"[Install]({server['directories'][key]}){edition}" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+f' | {local} |')
-    lines+=['','**Directory install or local install?**', '', '- **Claude and ChatGPT:** Install from the directory listing. No API key and no setup. The MCP runs on Cloudflare at its own 1102tools.com address, such as `usaspending.1102tools.com`, and your AI app connects to it over the internet. The hosted servers don\'t store your queries, results, or conversations, and request logging is turned off, so no one at 1102tools sees what you look up. The server code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.', '- **Local:** The MCP runs on your own computer and works with any MCP-compatible app. Requests go straight from your computer to the government source, and nothing passes through 1102tools.com. SAM.gov, GSA Per Diem and Regulations.gov need a free API key from the agency. Each setup guide shows how to get one.']
+        local=f"[Setup guide]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(f" (full {server['proof']['tools']}-tool edition, free key)" if server.get('hosted_edition') else ' (free key)' if server['id'] in ('travel','regs') else '')
+        edition=f" ({server['hosted_edition']['tools']}-tool edition, no key)" if server.get('hosted_edition') else ''
+        lines.append(f"| {server['name']} | {local} | "+' | '.join(f"[Install]({server['directories'][key]}){edition}" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+' |')
+    lines+=['','| | On your computer (recommended) | One click in Claude or ChatGPT |','|---|---|---|',*[f'| **{label}** | {mine} | {hosted} |' for label,mine,hosted in LOCAL_VS_HOSTED],'',
+        "**Use one click if** you're on your phone, your work computer won't let you install software, or you want SAM.gov opportunity search without a key.",'',
+        f'[Set up on your computer]({MR}#set-up-on-your-computer). Hosted servers don\'t store your queries, results, or conversations, and request logging is turned off. Their code and Cloudflare setup are public in [federal-contracting-mcps]({MR}/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.']
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
@@ -139,7 +149,10 @@ def website(out,pdf,pages):
         if group_of[source_id][1]:cards.append(f'<h3 class="grid-group">{ESC(group_of[source_id][0])}</h3>')
         directory=''
         if s.get('directories'):
-            directory='<div class="directory-links">'+''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label}<span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)+'</div>'
+            local_href=s['url']+('#install' if s['id']=='acq' else '#installation')
+            local_link=f'<a class="directory-link" href="{local_href}">{"Full edition on your computer" if s.get("hosted_edition") else "Run on your computer"}<span aria-hidden="true">→</span></a>'
+            one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label}<span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
+            directory='<div class="directory-links">'+(one_click+local_link if s.get('hosted_edition') else local_link+one_click)+'</div>'
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'
         access=ESC(s.get('card_access',s['access']))
@@ -148,9 +161,9 @@ def website(out,pdf,pages):
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
                 f'<p><strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>'
                 f'<ul class="card-proof"><li><strong>{s["proof"]["tests"]:,}</strong> tests</li><li><strong>{s["proof"]["audit_rounds"]}</strong> audit rounds</li></ul></details>')
-            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
+            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Source code ↗</a></article>')
         else:
-            cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Setup &amp; source code ↗</a></article>')
+            cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
         {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":"57 prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":"Required MCPs: "+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}

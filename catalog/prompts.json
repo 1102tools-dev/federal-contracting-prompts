@@ -95,7 +95,7 @@
         "claude": "https://claude.ai/directory/gsa-perdiem-by-1102tools",
         "chatgpt": null
       },
-      "card_access": "No user API key",
+      "card_access": "Free key on your computer for city lookups. No key with one click",
       "proof": {
         "tools": 7,
         "tests": 544,
@@ -150,7 +150,7 @@
         "claude": "https://claude.ai/directory/regulations-gov-by-1102tools",
         "chatgpt": null
       },
-      "card_access": "No user API key",
+      "card_access": "Free key on your computer. No key with one click",
       "proof": {
         "tools": 9,
         "tests": 241,
