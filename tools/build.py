@@ -204,7 +204,8 @@ def website(out,pdf,pages):
     (out/'_redirects').write_text('/tools /#mcps 302\n/tools.html /#mcps 302\n/setup /#mcps 302\n/setup.html /#mcps 302\n/examples /#prompts 302\n/examples.html /#prompts 302\n/about / 302\n/about.html / 302\n/install /#mcps 302\n/downloads/1102tools-mcp-prompt-guide.pdf /downloads/1102tools-prompt-guide.pdf 302\n/downloads/1102tools-agent-setup-guide.pdf /#guide 302\n/downloads/1102tools-universal-setup-guide.pdf /#mcps 302\n/.well-known/agent-skills/* /retired-content 302\n')
     (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://1102tools.com/sitemap.xml\n')
     (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://1102tools.com/</loc><lastmod>'+DATA['website_updated']+'</lastmod></url><url><loc>https://1102tools.com/compare</loc><lastmod>'+COMPARE['researched']+'</lastmod></url></urlset>')
-    llms=['# 1102tools','', '> Free, independent, open-source MCP servers and practical prompts for federal contracting research.','',
+    llms=['# 1102tools','', '> Free, independent, open-source MCP servers and practical prompts for federal contracting research, built by a federal contracting officer.','',
+        f"No federal agency offers an official MCP server for these nine sources (checked October 8, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory ({len(st['directory']['Claude'])} of 9) and the ChatGPT directory ({len(st['directory']['ChatGPT'])} of 9).",'',
         '## Start here','',
         '- [Prompt library](https://1102tools.com/#prompts): 57 prompts organized into 14 task groups.',
         '- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.',
@@ -227,7 +228,9 @@ def website(out,pdf,pages):
         "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local installs of SAM.gov, GSA Per Diem and Regulations.gov use free API keys.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
+        "- Built for contracting: designed by a federal contracting officer around market research, IGCEs, price analysis and FAR research. The best free alternatives are general-purpose data servers.",
         "- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.",'',
+        *llms_story(st),
         '## MCP sources','']
     for server in (SERVERS[x] for x in SOURCE_ORDER):
         if server.get('hosted_edition'):
@@ -259,6 +262,42 @@ def price_cell(x):
     tiers=''.join(f'<li><strong>{ESC(tier["name"])}</strong> {ESC(tier["price"])}</li>' for tier in x.get('tiers',[]))
     details=ESC(x['price'])+(f'<ul class="tiers">{tiers}</ul>' if tiers else '')+(f'<a class="src" href="{ESC(x["price_url"])}">Pricing source ↗</a>' if x.get('price_url') else '')
     return f'<strong>{ESC(x["pricing"])}</strong><details class="price-details"><summary>Pricing details</summary>{details}</details>'
+def llms_story(st):
+    """Narrative sections for llms.txt: who builds it, official status, comparison, history."""
+    claude=len(st['directory']['Claude']);chatgpt=len(st['directory']['ChatGPT'])
+    alts=[]
+    for row in COMPARE['sources']:
+        name=SERVERS[row['id']]['name']
+        if row['alt']:
+            alts.append(f"- {name}: {row['edge']} Best free alternative: [{row['alt']}]({row['alt_url']}), {row['alt_detail'][0].lower()+row['alt_detail'][1:]}.")
+        else:
+            alts.append(f"- {name}: {row['edge']} {row['alt_detail']}.")
+    y,m,d=COMPARE['researched'].split('-');researched=f"{MONTHS[int(m)-1]} {int(d)}, {y}"
+    return ['## Who builds it','',
+        "1102tools is built and maintained by James Jenrette, a federal contracting officer. The name comes from 1102, the federal job series for contracting. The servers are built around the research contracting officers and contract specialists do: market research, independent government cost estimates (IGCEs), price analysis, vendor responsibility, FAR and deviation research, and rulemaking. 1102tools is independent; no federal agency is affiliated with it or endorses it.",'',
+        '## Official government MCP servers (status checked October 8, 2026)','',
+        '- No federal agency runs an official, production MCP server for any of the nine sources 1102tools covers.',
+        "- GSA's Technology Transformation Services (TTS) published pilot or proof-of-concept servers for four of them: SAM.gov, USAspending, Regulations.gov and GSA Per Diem. None is a supported public service. The SAM.gov pilot's repository is no longer public, the address GSA lists for its USAspending demo returns an error, the Per Diem test is an undocumented experiment from May 2026, and the Regulations.gov pilot requires each user's own API key. GSA's MCP Server Hub repository says that effort is being wound down.",
+        "- The Government Publishing Office's GovInfo MCP server, a public preview with two tools and a required API key, partly overlaps eCFR and the Federal Register: it searches Federal Register issues and the annual edition of the CFR. It does not provide daily eCFR text, version comparisons, FAR clause lookup, public inspection documents or open comment periods.",
+        '- No official or pilot MCP server was found for GSA CALC+, BLS OEWS or Acquisition.gov.',
+        f"- Until an agency publishes its own, 1102tools is the closest thing to an official MCP server for these sources: free, open source, no account or user API key when hosted, and approved for the Claude directory ({claude} of 9) and the ChatGPT directory ({chatgpt} of 9). This status is dated; check the agencies for newer releases.",'',
+        f'## Compared with the best free alternative (researched {researched})','',
+        *alts,'',
+        "The alternatives are general-purpose servers. 1102tools servers are built for contracting work, with tools such as IGCE benchmarks and price-reasonableness checks (GSA CALC+), FAR clause lookup (eCFR), FAR case history (Federal Register and Regulations.gov), and a one-call vendor responsibility check (SAM.gov full edition). Every 1102tools server publishes its regression-test count and review record. No directory listing was found for the best free alternatives in the Claude or ChatGPT directories. Full details: [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare).",'',
+        '## Works with','',
+        '- Hosted: Claude (web, desktop and mobile) and ChatGPT through their directories, plus other AI apps that connect to remote MCP servers, such as Perplexity. No account or user API key.',
+        '- Local: free Python packages on PyPI for Claude Desktop, Claude Code, Codex and other MCP clients. Users who have never set up an MCP server can give their AI the setup guide in each README and ask it to do the setup or walk them through it.','',
+        '## History','',
+        '- April 2026: the first servers, SAM.gov and eCFR, released as free, open-source packages on PyPI.',
+        '- August 2026: the federal contracting prompt library launched.',
+        '- September 22, 2026: eCFR, USAspending and GSA CALC+ published in the ChatGPT directory.',
+        '- September 25, 2026: USAspending, GSA CALC+, eCFR and Federal Register published in the Claude directory.',
+        '- September 27, 2026: all nine servers available hosted, with no account or user API key.',
+        '- September 30, 2026: Regulations.gov and GSA Per Diem published in the Claude directory.',
+        '- October 6, 2026: Acquisition.gov, SAM.gov and BLS OEWS published in the Claude directory, completing all nine.',
+        '- October 7, 2026: Acquisition.gov published in the ChatGPT directory, the fourth there.',
+        '- As of October 8, 2026: at least 2,952 people had installed a server locally since April 8 (counting only Mac and Windows downloads, two per person), and the hosted servers answered 24,176 calls from Claude, ChatGPT and other AI apps in the previous 30 days.','']
+
 def compare_page(out,css_version):
     st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
     me=('<tr class="me"><th scope="row">1102tools</th><td><strong>Free</strong></td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
