@@ -27,7 +27,7 @@ LOCAL_VS_HOSTED=(
     ('Works in','Claude or ChatGPT desktop apps and other AI apps, on a desktop or laptop','Claude or ChatGPT on web, desktop, and phone'),
     ('Setup','Ask your AI to set it up or walk you through it, using the setup guide. Free keys for 3 servers','One click. No keys'),
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
-    ('Relies on','The government service','Cloudflare and 1102tools being up'),
+    ('Relies on','The government service','The government service and Cloudflare'),
     ('SAM.gov','Full edition: 20 tools, free key','4 tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
