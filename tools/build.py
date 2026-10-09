@@ -23,13 +23,11 @@ SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','acq','fr','regs')
 SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','acq','fr','regs')))
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 LOCAL_VS_HOSTED=(
-    ('Setup',"About 5 minutes: install uv, then add a few lines to your app's settings",'One click from the directory. Nothing to install'),
-    ('Works in','Claude and ChatGPT desktop apps, Claude Code, Codex, Cursor, and other MCP apps on a desktop or laptop','Claude and ChatGPT on the web, desktop, and phone'),
-    ('Request budget','Yours alone','Shared with everyone using that server'),
-    ('API keys','Your own free key for GSA Per Diem and Regulations.gov: 1,000 requests an hour, yours alone. Six servers need no key',"None needed. The server's keys are shared by all users"),
-    ('Relies on',"Your computer and the agency's site",'Cloudflare and that 1102tools server being up'),
-    ('Your lookups','Go straight from your computer to the agency',"Pass through Cloudflare. 1102tools doesn't store or log them"),
-    ('SAM.gov','Full edition, 20 tools: adds entity registrations, exclusions, and SBA certifications. Needs a free SAM.gov key, which has a daily limit','4 tools for opportunities, award notices, and justifications. No key and no daily limit'))
+    ('Works in','Claude or ChatGPT desktop apps, and other AI apps','Claude or ChatGPT on web, desktop, and phone'),
+    ('Setup','Ask your AI to set it up or walk you through it, using the setup guide. Free keys for 3 servers','One click. No keys'),
+    ('Rate limits','Your own','Pooled across all users. Your lookups stay private'),
+    ('Relies on','Your computer','Cloudflare and 1102tools being up'),
+    ('SAM.gov','Full edition: 20 tools, free key','4 tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
 COMPARE=json.loads((ROOT/'catalog/compare.json').read_text())
@@ -56,18 +54,18 @@ def readme():
     lines=['# Federal contracting MCP prompts','',f"**{DATA['edition']} · Copy, paste, adapt.**",'',
     'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [MCP setup instructions]('+MR+'#install)','',
-    '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Run the required MCPs on your computer from their setup guides, or connect them in one click from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
+    '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Set up the required MCPs locally from their setup guides, or install the hosted versions from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
     'The print guide and the online library contain the same 57 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
-    lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Run on your computer or in one click','','All '+number_word(len(SOURCE_ORDER)).lower()+' MCPs run on your computer, and that is the setup we recommend for daily work. '+f'{claude_count} are also in the Claude directory and {chatgpt_count.lower()} in ChatGPT for one-click installs with no user API key. The rest are coming soon to ChatGPT.','','| MCP | On your computer (recommended) | Claude | ChatGPT |','|---|---|---|---|']
+    lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Local or hosted','',f'Every MCP works in Claude or ChatGPT two ways. **Local** runs it on your computer, inside the Claude or ChatGPT desktop app or another AI app. **Hosted** runs it on Cloudflare, so it works anywhere you use Claude or ChatGPT. Local is the better setup for daily work, and you don\'t have to set it up by hand: give your AI the [local setup guide]({MR}#local-setup) and ask it to set it up or walk you through it.','',f'All nine are in the Claude directory and {chatgpt_count.lower()} in ChatGPT as hosted installs. The rest are coming soon to ChatGPT.','','| MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
         local=f"[Setup guide]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(f" (full {server['proof']['tools']}-tool edition, free key)" if server.get('hosted_edition') else ' (free key)' if server['id'] in ('travel','regs') else '')
         edition=f" ({server['hosted_edition']['tools']}-tool edition, no key)" if server.get('hosted_edition') else ''
         lines.append(f"| {server['name']} | {local} | "+' | '.join(f"[Install]({server['directories'][key]}){edition}" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+' |')
-    lines+=['','| | On your computer (recommended) | One click in Claude or ChatGPT |','|---|---|---|',*[f'| **{label}** | {mine} | {hosted} |' for label,mine,hosted in LOCAL_VS_HOSTED],'',
-        "**Use one click if** you're on your phone, your work computer won't let you install software, or you want SAM.gov opportunity search without a key.",'',
-        f'[Set up on your computer]({MR}#set-up-on-your-computer). Hosted servers don\'t store your queries, results, or conversations, and request logging is turned off. Their code and Cloudflare setup are public in [federal-contracting-mcps]({MR}/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.']
+    lines+=['','| | Local | Hosted |','|---|---|---|',*[f'| **{label}** | {mine} | {hosted} |' for label,mine,hosted in LOCAL_VS_HOSTED],'',
+        "**Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity search without a key.",'',
+        f'Hosted servers don\'t store your queries, results, or conversations, and request logging is turned off. Their code and Cloudflare setup are public in [federal-contracting-mcps]({MR}/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.']
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
@@ -150,8 +148,8 @@ def website(out,pdf,pages):
         directory=''
         if s.get('directories'):
             local_href=s['url']+('#install' if s['id']=='acq' else '#installation')
-            local_link=f'<a class="directory-link" href="{local_href}">{"Full edition on your computer" if s.get("hosted_edition") else "Run on your computer"}<span aria-hidden="true">→</span></a>'
-            one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}">Install in {label}<span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
+            local_link=f'<a class="directory-link" href="{local_href}"><b>Local setup</b><em>{"full edition, desktop" if s.get("hosted_edition") else "desktop only"}</em><span aria-hidden="true">→</span></a>'
+            one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
             directory='<div class="directory-links">'+(one_click+local_link if s.get('hosted_edition') else local_link+one_click)+'</div>'
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'

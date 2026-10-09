@@ -48,23 +48,25 @@ nav a[aria-current="page"]{color:var(--green);font-weight:600}
 .server-grid.collapsed h3:nth-of-type(n+3),.server-grid.collapsed h3:nth-of-type(3)~*{display:none}#show-all-mcps{margin-top:16px}
 .compare-table.collapsed tr.more{display:none}.price-details{margin-top:6px;font-size:12px;color:var(--muted)}.price-details summary{cursor:pointer;color:var(--green);font:600 11px var(--mono)}.price-details[open] summary{margin-bottom:6px}
 #platform-table{table-layout:fixed;min-width:880px}#platform-table th:nth-child(1){width:15%}#platform-table th:nth-child(2){width:20%}#platform-table th:nth-child(3){width:17%}#platform-table th:nth-child(4){width:9%}#platform-table th:nth-child(5){width:17%}#platform-table th:nth-child(6){width:22%}#platform-table th,#platform-table td{overflow-wrap:anywhere}.price-details summary{white-space:nowrap}#platform-table tbody th,#platform-table tbody th a{white-space:normal}
-.runways{background:#e6efe9;border-bottom:1px solid #d2e0d7;padding:88px 0}
-.runways-head{max-width:780px;margin-bottom:40px}
-.runways-head h2{font-size:40px;line-height:1.15;letter-spacing:-.04em;font-weight:500;margin-bottom:18px}
-.runways-head p:not(.eyebrow){color:var(--muted);font-size:17px;margin:0}
-.runways-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(9,auto);column-gap:20px}
-.runway{grid-row:1/-1;display:grid;grid-template-rows:subgrid;background:#fff;border:1px solid #cfdcd3;border-radius:8px;padding:28px 28px 30px}
-.runway-local{border:2px solid var(--green);box-shadow:0 14px 34px rgba(0,82,60,.12)}
-.runway-top{padding-bottom:18px}
-.runway-top .badge{margin-bottom:16px}
-.runway-top h3{font-size:25px;font-weight:500;letter-spacing:-.03em;margin:0 0 6px}
+.runways{background:#e6efe9;border-bottom:1px solid #d2e0d7;padding:64px 0}
+.runways-head{max-width:760px;margin-bottom:28px}
+.runways-head h2{font-size:36px;line-height:1.15;letter-spacing:-.04em;font-weight:500;margin-bottom:14px}
+.runways-head p:not(.eyebrow){color:var(--muted);font-size:16px;margin:0}
+.runways-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(7,auto);column-gap:18px}
+.runway{grid-row:1/-1;display:grid;grid-template-rows:subgrid;background:#fff;border:1px solid #cfdcd3;border-radius:8px;padding:20px 24px}
+.runway-local{border:2px solid var(--green)}
+.runway-top{display:flex;align-items:baseline;gap:12px;padding-bottom:10px}
+.runway-top h3{font-size:24px;font-weight:500;letter-spacing:-.03em;margin:0}
 .runway-top p{font-size:14px;color:var(--muted);margin:0}
-.runway-row{display:grid;grid-template-columns:128px 1fr;gap:16px;border-top:1px solid var(--line);padding:12px 0}
-.runway-row span{font:10px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:4px}
-.runway-row p{margin:0;font-size:14px;line-height:1.55}
-.runway-local .runway-row p{color:var(--text)}
-.runway .button{justify-self:start;align-self:end;margin-top:22px}
-.runways-note{margin:26px 0 0;font-size:15px;color:var(--muted);max-width:780px}
+.runway-row{display:grid;grid-template-columns:104px 1fr;gap:14px;border-top:1px solid var(--line);padding:8px 0}
+.runway-row span{font:10px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.runway-row p{margin:0;font-size:14px;line-height:1.5}
+.runway-link{justify-self:start;align-self:end;margin-top:12px;font-size:14px;font-weight:600;color:var(--green);text-decoration:none}
+.runway-link:hover{text-decoration:underline}
+.runways-note{margin:18px 0 0;font-size:15px;color:var(--muted)}
 .runways-note strong{color:var(--text)}
-@media(max-width:950px){.runways-grid{grid-template-columns:1fr;grid-template-rows:none;row-gap:16px}.runway{grid-row:auto;display:block}.runway .button{margin-top:18px}}
-@media(max-width:680px){.runways{padding:60px 0}.runways-head h2{font-size:33px}.runway{padding:22px}.runway-row{grid-template-columns:1fr;gap:2px}.runway-row span{padding-top:0}}
+.server-card .directory-link b{font-weight:600}
+.server-card .directory-link em{font-style:normal;font-weight:400;font-size:12px;color:var(--muted);margin:0 auto 0 8px}
+.runway-row p a{color:var(--green);font-weight:600}
+@media(max-width:950px){.runways-grid{grid-template-columns:1fr;grid-template-rows:none;row-gap:14px}.runway{grid-row:auto;display:block}}
+@media(max-width:680px){.runways{padding:48px 0}.runways-head h2{font-size:30px}.runway{padding:18px}.runway-top{flex-wrap:wrap;gap:4px 12px}.runway-row{grid-template-columns:92px 1fr;gap:10px}}

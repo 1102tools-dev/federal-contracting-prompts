@@ -9,17 +9,19 @@ Practical questions for federal opportunities, competitor research, teaming, pri
 ## Start here
 
 1. Choose a prompt and check its **Required MCPs** line.
-2. Run the required MCPs on your computer from their setup guides, or connect them in one click from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.
+2. Set up the required MCPs locally from their setup guides, or install the hosted versions from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.
 3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.
 
 The print guide and the online library contain the same 57 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
 
 <a id="available-in-claude-and-chatgpt"></a>
-## Run on your computer or in one click
+## Local or hosted
 
-All nine MCPs run on your computer, and that is the setup we recommend for daily work. Nine are also in the Claude directory and four in ChatGPT for one-click installs with no user API key. The rest are coming soon to ChatGPT.
+Every MCP works in Claude or ChatGPT two ways. **Local** runs it on your computer, inside the Claude or ChatGPT desktop app or another AI app. **Hosted** runs it on Cloudflare, so it works anywhere you use Claude or ChatGPT. Local is the better setup for daily work, and you don't have to set it up by hand: give your AI the [local setup guide](https://github.com/1102tools-dev/federal-contracting-mcps#local-setup) and ask it to set it up or walk you through it.
 
-| MCP | On your computer (recommended) | Claude | ChatGPT |
+All nine are in the Claude directory and four in ChatGPT as hosted installs. The rest are coming soon to ChatGPT.
+
+| MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |
 |---|---|---|---|
 | SAM.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (full 20-tool edition, free key) | [Install](https://claude.ai/directory/sam-gov-by-1102tools) (4-tool edition, no key) | Coming soon |
 | USAspending | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp#installation) | [Install](https://claude.ai/directory/usaspending-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
@@ -31,19 +33,17 @@ All nine MCPs run on your computer, and that is the setup we recommend for daily
 | Federal Register | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp#installation) | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon |
 | Regulations.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp#installation) (free key) | [Install](https://claude.ai/directory/regulations-gov-by-1102tools) | Coming soon |
 
-| | On your computer (recommended) | One click in Claude or ChatGPT |
+| | Local | Hosted |
 |---|---|---|
-| **Setup** | About 5 minutes: install uv, then add a few lines to your app's settings | One click from the directory. Nothing to install |
-| **Works in** | Claude and ChatGPT desktop apps, Claude Code, Codex, Cursor, and other MCP apps on a desktop or laptop | Claude and ChatGPT on the web, desktop, and phone |
-| **Request budget** | Yours alone | Shared with everyone using that server |
-| **API keys** | Your own free key for GSA Per Diem and Regulations.gov: 1,000 requests an hour, yours alone. Six servers need no key | None needed. The server's keys are shared by all users |
-| **Relies on** | Your computer and the agency's site | Cloudflare and that 1102tools server being up |
-| **Your lookups** | Go straight from your computer to the agency | Pass through Cloudflare. 1102tools doesn't store or log them |
-| **SAM.gov** | Full edition, 20 tools: adds entity registrations, exclusions, and SBA certifications. Needs a free SAM.gov key, which has a daily limit | 4 tools for opportunities, award notices, and justifications. No key and no daily limit |
+| **Works in** | Claude or ChatGPT desktop apps, and other AI apps | Claude or ChatGPT on web, desktop, and phone |
+| **Setup** | Ask your AI to set it up or walk you through it, using the setup guide. Free keys for 3 servers | One click. No keys |
+| **Rate limits** | Your own | Pooled across all users. Your lookups stay private |
+| **Relies on** | Your computer | Cloudflare and 1102tools being up |
+| **SAM.gov** | Full edition: 20 tools, free key | 4 tools, no key |
 
-**Use one click if** you're on your phone, your work computer won't let you install software, or you want SAM.gov opportunity search without a key.
+**Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity search without a key.
 
-[Set up on your computer](https://github.com/1102tools-dev/federal-contracting-mcps#set-up-on-your-computer). Hosted servers don't store your queries, results, or conversations, and request logging is turned off. Their code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.
+Hosted servers don't store your queries, results, or conversations, and request logging is turned off. Their code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.
 
 A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.
 
