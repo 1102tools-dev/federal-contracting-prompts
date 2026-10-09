@@ -23,10 +23,11 @@ SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','acq','fr','regs')
 SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','acq','fr','regs')))
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 LOCAL_VS_HOSTED=(
-    ('Works in','Claude or ChatGPT desktop apps, and other AI apps','Claude or ChatGPT on web, desktop, and phone'),
+    ('Why use it','Your own full rate limits, so you skip any congestion on hosted. It relies only on the government service','Convenience. One click, no keys, and it works in Claude or ChatGPT anywhere'),
+    ('Works in','Claude or ChatGPT desktop apps and other AI apps, on a desktop or laptop','Claude or ChatGPT on web, desktop, and phone'),
     ('Setup','Ask your AI to set it up or walk you through it, using the setup guide. Free keys for 3 servers','One click. No keys'),
-    ('Rate limits','Your own','Pooled across all users. Your lookups stay private'),
-    ('Relies on','Your computer','Cloudflare and 1102tools being up'),
+    ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
+    ('Relies on','The government service','Cloudflare and 1102tools being up'),
     ('SAM.gov','Full edition: 20 tools, free key','4 tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
