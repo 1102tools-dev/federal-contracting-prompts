@@ -296,6 +296,7 @@ def llms_story(st):
         '- September 30, 2026: Regulations.gov and GSA Per Diem published in the Claude directory.',
         '- October 6, 2026: Acquisition.gov, SAM.gov and BLS OEWS published in the Claude directory, completing all nine.',
         '- October 7, 2026: Acquisition.gov published in the ChatGPT directory, the fourth there.',
+        '- October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.',
         '- As of October 8, 2026: at least 2,952 people had installed a server locally since April 8 (counting only Mac and Windows downloads, two per person), and the hosted servers answered 24,176 calls from Claude, ChatGPT and other AI apps in the previous 30 days.','']
 
 def compare_page(out,css_version):

@@ -5,6 +5,7 @@
 - Show SAM.gov as two editions wherever it is listed: the 4-tool hosted edition in the directories and the 20-tool full edition installed locally. Update test counts to the collected totals (BLS OEWS 276, GSA Per Diem 544, Regulations.gov 241; 5,571 overall).
 - List Acquisition.gov, SAM.gov (hosted 4-tool edition) and BLS OEWS as published in the Claude directory (approved October 6, 2026), bringing the Claude directory to all nine servers. BLS OEWS access now reads "No user API key", matching the bundled-data release.
 - List Acquisition.gov as published in the ChatGPT directory (approved October 7, 2026), bringing ChatGPT to four servers.
+- List GSA Per Diem and BLS OEWS as published in the ChatGPT directory (approved October 9, 2026), bringing ChatGPT to six servers.
 
 # September 2026
 

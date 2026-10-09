@@ -74,7 +74,7 @@
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/bls-oews-by-1102tools",
-        "chatgpt": null
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e"
       },
       "card_access": "No user API key",
       "proof": {
@@ -93,7 +93,7 @@
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/gsa-perdiem-by-1102tools",
-        "chatgpt": null
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9"
       },
       "card_access": "Local: free key for city lookups. Hosted: no key",
       "proof": {
