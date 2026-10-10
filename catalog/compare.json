@@ -1,6 +1,6 @@
 {
   "researched": "2026-09-24",
-  "method": "Researched September 24, 2026. Claude directory status comes from Anthropic's public directory data; ChatGPT directory status comes from searching the public ChatGPT app directory. Prices are quoted from each vendor's public pricing page on that date; tiers change, so check the linked source before buying. Other MCP servers were found through the official MCP Registry, GitHub, Smithery, PulseMCP, and Glama. 1102tools test counts were refreshed October 10, 2026, from pytest --collect-only and include live-gated tests; collected totals are not a claim that every live test passed in this release. Competitor tool counts come from their public listings; competitor software and tests were not run.",
+  "method": "Researched September 24, 2026. Claude directory status comes from Anthropic's public directory data; ChatGPT directory status comes from searching the public ChatGPT app directory. Prices are quoted from each vendor's public pricing page on that date; tiers change, so check the linked source before buying. Other MCP servers were found through the official MCP Registry, GitHub, Smithery, PulseMCP, and Glama. 1102tools test counts were refreshed October 10, 2026, from independently measured round 3 pytest --collect-only and include live-gated tests; collected totals are not a claim that every live test passed in this release. Competitor tool counts come from their public listings; competitor software and tests were not run.",
   "platforms": [
     {
       "name": "Tango",
@@ -297,7 +297,7 @@
       "alt": "cyanheads/usaspending-mcp-server",
       "alt_url": "https://github.com/cyanheads/usaspending-mcp-server",
       "alt_detail": "18 tools, free, hosted or local",
-      "edge": "Three times the tools, 2,303 collected tests, and listings in both the Claude and ChatGPT directories.",
+      "edge": "Three times the tools, 2,306 collected tests, and listings in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -333,7 +333,7 @@
       "alt": "pipeworx-io/mcp-gsa-perdiem",
       "alt_url": "https://github.com/pipeworx-io/mcp-gsa-perdiem",
       "alt_detail": "2 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally",
-      "edge": "7 per diem tools and 576 collected regression tests, in both the Claude and ChatGPT directories.",
+      "edge": "7 per diem tools and 583 collected regression tests, in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -377,7 +377,7 @@
       "alt": "cyanheads/federal-regulations-mcp-server",
       "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server",
       "alt_detail": "Shared regulations server; Regulations.gov part needs a key",
-      "edge": "9 docket and comment tools, 286 collected regression tests, and a Claude directory listing.",
+      "edge": "9 docket and comment tools, 298 collected regression tests, and a Claude directory listing.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
