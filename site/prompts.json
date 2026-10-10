@@ -24,9 +24,9 @@
       "full_edition_adds": "entity registrations, SBA certifications, exclusions, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards",
       "proof": {
         "tools": 20,
-        "tests": 1155,
-        "audit_rounds": 12,
-        "version": "1.0.13"
+        "tests": 1158,
+        "audit_rounds": 13,
+        "version": "1.0.14"
       },
       "card_access": "No user API key"
     },
@@ -43,9 +43,9 @@
       },
       "proof": {
         "tools": 55,
-        "tests": 2306,
-        "audit_rounds": 15,
-        "version": "1.0.17"
+        "tests": 2312,
+        "audit_rounds": 16,
+        "version": "1.0.20"
       }
     },
     {
@@ -61,9 +61,9 @@
       },
       "proof": {
         "tools": 8,
-        "tests": 435,
-        "audit_rounds": 9,
-        "version": "1.0.15"
+        "tests": 438,
+        "audit_rounds": 10,
+        "version": "1.0.16"
       }
     },
     {
@@ -81,7 +81,7 @@
       "proof": {
         "tools": 8,
         "tests": 298,
-        "audit_rounds": 11,
+        "audit_rounds": 12,
         "version": "1.1.4"
       }
     },
@@ -100,7 +100,7 @@
       "proof": {
         "tools": 7,
         "tests": 583,
-        "audit_rounds": 12,
+        "audit_rounds": 13,
         "version": "1.2.4"
       }
     },
@@ -117,9 +117,9 @@
       },
       "proof": {
         "tools": 13,
-        "tests": 451,
-        "audit_rounds": 10,
-        "version": "1.1.5"
+        "tests": 456,
+        "audit_rounds": 11,
+        "version": "1.1.6"
       }
     },
     {
@@ -136,7 +136,7 @@
       "proof": {
         "tools": 8,
         "tests": 286,
-        "audit_rounds": 11,
+        "audit_rounds": 12,
         "version": "1.0.14"
       }
     },
@@ -155,7 +155,7 @@
       "proof": {
         "tools": 9,
         "tests": 298,
-        "audit_rounds": 10,
+        "audit_rounds": 11,
         "version": "2.0.6"
       }
     },
@@ -834,6 +834,6 @@
   "proof_as_of": "2026-10-10",
   "release_validation": {
     "date": "2026-10-10",
-    "summary": "October 10 round 3 completed new ordinary and power-user audits across all eight goal servers and fixed ten confirmed findings (seven P2 and three P3), bringing cumulative fixed findings to 53 (zero P0, two P1, 33 P2 and 18 P3). Final published verification passed all eight mixed public version/source identities, 112 reviewed tool definitions, 45 physical-origin checks across the five Dell routes, and 16 official PyPI wheel/source hash and size checks. Regulations.gov 2.0.6 passed fresh official installed CLI recovery checks with MCP 2.3 (179 passed, 119 skipped, 298 collected), all 115 public content cases, and 12 independent public peer checks. Initial 2.0.5 metadata, routing and package checks remain dated evidence; the corrective 2.0.6 results establish the later recovery acceptance. New coverage includes SAM 110 content comparisons plus status, USAspending 130 questions on each CLI/public surface, eCFR 80 CLI and 75 public calls, BLS 58 CLI and 58 public calls, Federal Register 54 calls, CALC 132 installed registered-tool/public cases and Per Diem 101 cases. CALC actual stdio checks are separate from its registered-tool cases; source percentiles retain documented approximation differences. SAM mirror 1.0.3 leaves Python 1.0.13 unchanged; Per Diem refreshed ZIP/place data is verified. Independent collection measured 6,067 product tests and 5,812 in the eight-server goal after corrective regressions; collected counts and optional skips are not passes. Targeted retries after timeouts, source variability, SAM keyed API limitations, Regulations source quotas and BLS flat-file footnote HTTP 403 remain explicit in the dated record. Acquisition stays unchanged on its separate track. This website update records completed fixes and verification; website and documentation publication are separate closure steps. The round found seven new P2 issues, so a later zero-new-P0/P1/P2 round is still required to meet the stopping condition."
+    "summary": "October 10 round 4 completed new ordinary and power-user content audits across all eight goal servers and confirmed nine findings (zero P0, zero P1, five P2 and four P3). The initial source corrections are merged; USAspending 1.0.19 is published and its 150 ordinary CLI/public content comparisons are accepted, but a newly confirmed P3 hides current-FY2027 source availability guidance in fresh CLI. USAspending 1.0.20 publishes the narrow correction; CALC 1.0.16 final acceptance passed; eCFR 1.1.6 final acceptance passed. USAspending 1.0.20 is published from source 2a93b7b7, with all 150 actual installed CLI and 150 public questions passing and matching captured primary source outputs. Its six-step installed catalog-guided workflow also passed. Final mixed eight-public-server identities and 112 tool definitions, 45 direct physical-origin checks across five Dell routes, and 16 official PyPI artifact hashes/sizes pass; an independent peer passed 104 assertions. SAM Python 1.0.14 is published and independently verified; its native mirror remains 1.0.3. The Regulations.gov documentation badge correction is verified on GitHub, with package 2.0.6 unchanged. The immutable USAspending 1.0.18 release attempt stopped at an offline timing test and skipped publication/deployment; 1.0.19 carries the unchanged reviewed content runtime after separate test-only integration repairs. Version cards show the published Round 4 versions; package publication and full content acceptance remain distinct. After the three narrow 1.0.20 regressions, independently measured collection for canonical package source 2a93b7b7 is 6,084 product tests and 5,829 in the eight-server goal; the 255 Acquisition.gov tests are excluded from the goal. Collected cases and optional skips are not passes. New BLS coverage is 66 actual installed CLI and 66 public questions, with 418 wage/benchmark objects and 31 fresh primary cells. Federal Register has 63 valid CLI/public questions and primary comparisons, with one excluded caller mistake and one volatile metadata difference. Per Diem has 121 actual public and CLI questions, 119 numeric source comparisons and 26 ZIP membership comparisons; local missing-key responses and hosted credential metadata are explicit. Its frozen SDK suite passed 316 and skipped 267, while fresh MCP 2.3 passed 300, skipped 267 and failed 16 legacy invalid-input guidance checks; those failures are not counted as passed or as new ordinary content findings. USAspending's candidate completes 150 actual CLI questions and six catalog-guided steps across 55 tools; the separate FY2027 source HTTP 400 remains an availability limitation. The actual fresh published USAspending 1.0.19 suite with MCP 2.3 measured 1,075 passed, 855 failed and 379 skipped out of 2,309 collected; frozen CI passed 1,930 and skipped 379. The fresh failures concern validation/error expectation wrapping and are not counted as passes. Provenance clarification establishes that the earlier 1,930/379 full candidate suite used frozen MCP 2.0 only; fresh candidate MCP 2.3 executed 150 content questions and six guided steps, not that full suite. Retained logs remain explicit. Source-capture indexing is reconciled and all 150 published CLI/public source comparisons pass. The availability-guidance P3 correction is published in 1.0.20; independent verification passed six installed CLI and six public original/followup calls, including the actual FY2027 source range and omission recovery to source FY2026, without hardcoded-year guidance. The actual fresh published 1.0.20 suite with MCP 2.3 measured 1,078 passed, 855 failed and 379 skipped out of 2,312 collected. The 855 validation/error-expectation failures remain explicit, separate from its passing ordinary content lane. CALC 1.0.16 final acceptance has 152 installed registered-tool and 152 public questions, 1,742 behavior checks, 3,738 source/data checks and 18 separate actual stdio calls; its fresh suite passed 317 and skipped 121 out of 438 collected. The campaign made 209 attempts: 152 initial calls with 51 source-budget blocks, followed by 57 retry attempts with 51 successes and six additional budget blocks; all 152 are not claimed to have passed on their first attempt. Dynamic source percentile comparisons retain 244 differences with maximum $2.551834 per hour; bounded suggestion-tail differences remain disclosed. eCFR 1.1.6 final acceptance passed 80 actual CLI and 76 public questions, with 192 checks against retained fresh primary captures including expected absence responses; its fresh suite passed 338 and skipped 118 out of 456 collected. SAM has 114 native public content comparisons, a conditional 304 confirmation of the retained official CSV rather than a fresh full transfer, and keyed local data workflows that remain unexecuted without a key. Regulations.gov has 139 successful public calls after excluding two wrong-identifier calls; direct keyed local/source parity is unavailable, and unverified controlling dates remain qualified. BLS flat-file footnote HTTP 403, source variability, quotas, credentials and targeted recovery are retained limitations. The previous rounds' 53 fixed findings and all nine Round 4 fixes have passed their ordinary content acceptance, bringing cumulative fixed findings to 62 (zero P0, two P1, 38 P2 and 22 P3). All scoped release, content and final destination gates passed. This source change prepares website and documentation publication; it does not claim that the new site copy is already deployed. Production data readiness passes without a reload: Per Diem retains 43,665 place rows and its verified unchanged data identities, SAM reuses the conditionally validated CSV, and BLS retains the same May 2025 source data. A later zero-new-P0/P1/P2 round is still required; Round 5 has not been performed. Acquisition.gov, the 57 prompts, directory links and printable guide assets are unchanged."
   }
 }
