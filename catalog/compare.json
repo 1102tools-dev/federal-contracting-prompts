@@ -321,7 +321,7 @@
       "alt": "cyanheads/bls-labor-mcp-server",
       "alt_url": "https://github.com/cyanheads/bls-labor-mcp-server",
       "alt_detail": "General BLS data, 4 to 7 tools; free, hosted or local",
-      "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 291 regression tests, in both the Claude and ChatGPT directories.",
+      "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 295 collected regression tests, in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -333,7 +333,7 @@
       "alt": "pipeworx-io/mcp-gsa-perdiem",
       "alt_url": "https://github.com/pipeworx-io/mcp-gsa-perdiem",
       "alt_detail": "2 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally",
-      "edge": "7 per diem tools and 564 regression tests, in both the Claude and ChatGPT directories.",
+      "edge": "7 per diem tools and 576 collected regression tests, in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -377,7 +377,7 @@
       "alt": "cyanheads/federal-regulations-mcp-server",
       "alt_url": "https://github.com/cyanheads/federal-regulations-mcp-server",
       "alt_detail": "Shared regulations server; Regulations.gov part needs a key",
-      "edge": "9 docket and comment tools, 279 regression tests, and a Claude directory listing.",
+      "edge": "9 docket and comment tools, 286 collected regression tests, and a Claude directory listing.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false

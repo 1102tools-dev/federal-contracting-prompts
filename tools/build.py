@@ -23,11 +23,11 @@ SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','acq','fr','regs')
 SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','acq','fr','regs')))
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 LOCAL_VS_HOSTED=(
-    ('Why use it','Your own full rate limits, so you skip any congestion on hosted. It relies only on the government service','Convenience. One click, no keys, and it works in Claude or ChatGPT anywhere'),
+    ('Why use it','Your own full rate limits, so you skip any congestion on hosted. It uses government-source data, including bundled snapshots','Convenience. One click, no keys, and it works in Claude or ChatGPT anywhere'),
     ('Works in','Claude or ChatGPT desktop apps and other AI apps, on a desktop or laptop','Claude or ChatGPT on web, desktop, and phone'),
-    ('Setup','Ask your AI to set it up or walk you through it, using the setup guide. Free keys for 3 servers','One click. No keys'),
+    ('Setup','Ask your AI to set it up or walk you through it, using the setup guide. Free keys for SAM.gov and Regulations.gov; Per Diem city-only/API and unbundled-year lookups also require a key','One click. No keys'),
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
-    ('Relies on','The government service','The government service and Cloudflare'),
+    ('Relies on','Government-source data, including bundled snapshots','Government-source data, bundled snapshots, and Cloudflare'),
     ('SAM.gov','Full edition: 20 tools, free key','4 tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
@@ -38,7 +38,7 @@ def number_word(n):return ('Zero','One','Two','Three','Four','Five','Six','Seven
 def rounds_label(s):return f'{s["proof"]["audit_rounds"]} audit rounds' if s['proof']['audit_rounds'] else 'Independent review'
 def proof_list(s,tools=None):
     pr=s['proof'];rounds=f'<li><strong>{pr["audit_rounds"]}</strong> audit rounds</li>' if pr['audit_rounds'] else '<li><strong>Independent</strong> review</li>'
-    return f'<p class="support-note">Package v{ESC(pr["version"])}</p><ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li><li><strong>{pr["tests"]:,}</strong> tests</li>{rounds}</ul>'
+    return f'<p class="support-note">Package v{ESC(pr["version"])}</p><ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li><li><strong>{pr["tests"]:,}</strong> collected tests</li>{rounds}</ul>'
 def stats():
     servers=DATA['servers']
     return {'servers':len(servers),'tools':sum(s['proof']['tools'] for s in servers),'tests':sum(s['proof']['tests'] for s in servers),
@@ -61,12 +61,12 @@ def readme():
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
     lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Local or hosted','',f'Every MCP works in Claude or ChatGPT two ways. **Local** runs it on your computer, inside the Claude or ChatGPT desktop app or another AI app. **Hosted** runs it on Cloudflare, so it works anywhere you use Claude or ChatGPT. Local is the better setup for daily work, and you don\'t have to set it up by hand: give your AI the [local setup guide]({MR}#local-setup) and ask it to set it up or walk you through it.','',f'All nine are in the Claude directory and {chatgpt_count.lower()} in ChatGPT as hosted installs. The rest are coming soon to ChatGPT.','','| MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
-        local=f"[Setup guide]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(f" (full {server['proof']['tools']}-tool edition, free key)" if server.get('hosted_edition') else ' (free key)' if server['id'] in ('travel','regs') else '')
+        local=f"[Setup guide]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(f" (full {server['proof']['tools']}-tool edition, free key)" if server.get('hosted_edition') else ' (key for city-only/API lookups or unbundled years)' if server['id']=='travel' else ' (free key)' if server['id']=='regs' else '')
         edition=f" ({server['hosted_edition']['tools']}-tool edition, no key)" if server.get('hosted_edition') else ''
         lines.append(f"| {server['name']} | {local} | "+' | '.join(f"[Install]({server['directories'][key]}){edition}" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+' |')
     lines+=['','| | Local | Hosted |','|---|---|---|',*[f'| **{label}** | {mine} | {hosted} |' for label,mine,hosted in LOCAL_VS_HOSTED],'',
         "**Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity search without a key.",'',
-        f'Hosted servers don\'t store your queries, results, or conversations, and request logging is turned off. Their code and Cloudflare setup are public in [federal-contracting-mcps]({MR}/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.']
+        f'Hosted services temporarily cache some public government responses. Some responses are cached in bounded memory; no conversations or query/result logs are retained. Their code and Cloudflare setup are public in [federal-contracting-mcps]({MR}/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.']
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
         ps=[p for p in DATA['prompts'] if p['category']==sec['id']]
@@ -159,7 +159,7 @@ def website(out,pdf,pages):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
                 f'<p>Package v{ESC(s["proof"]["version"])}. <strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>'
-                f'<ul class="card-proof"><li><strong>{s["proof"]["tests"]:,}</strong> tests</li><li><strong>{s["proof"]["audit_rounds"]}</strong> audit rounds</li></ul></details>')
+                f'<ul class="card-proof"><li><strong>{s["proof"]["tests"]:,}</strong> collected tests</li><li><strong>{s["proof"]["audit_rounds"]}</strong> audit rounds</li></ul></details>')
             cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Source code ↗</a></article>')
         else:
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Source code ↗</a></article>')
@@ -227,7 +227,7 @@ def website(out,pdf,pages):
         '## Why 1102tools','',
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
         f"- Tested: {st['tests']:,} collected regression tests, including live-API tests, across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} documented audit rounds per server. Collected totals include optional live tests; dated records distinguish offline regressions, live source checks, and source-file comparisons.",
-        "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local installs of SAM.gov, GSA Per Diem and Regulations.gov use free API keys.",
+        "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Per Diem requires a key only for city-only/API requests or unbundled years.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.",
@@ -239,9 +239,9 @@ def website(out,pdf,pages):
             he=server['hosted_edition'];pending=[label for key,label in DIRECTORIES if not server['directories'][key]]
             llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source, in two editions.')
             llms.append(f"  Directory edition (hosted, no key): {he['tools']} tools for {he['summary']}, built from {he['source']}. Install: "+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server))+('. Coming soon to the '+series(pending)+(' directories.' if len(pending)>1 else ' directory.') if pending else '.'))
-            llms.append(f"  Full local edition (free SAM.gov key): {server['proof']['tools']} tools, {server['proof']['tests']:,} regression tests, {rounds_label(server).lower()}. Adds {server['full_edition_adds']}. It is not in the directories; install it locally.")
+            llms.append(f"  Full local edition (free SAM.gov key): {server['proof']['tools']} tools, {server['proof']['tests']:,} collected regression tests, {rounds_label(server).lower()}. Adds {server['full_edition_adds']}. It is not in the directories; install it locally.")
             continue
-        llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools, '+f"{server['proof']['tests']:,}"+' regression tests, '+rounds_label(server).lower()+'.')
+        llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools, '+f"{server['proof']['tests']:,}"+' collected regression tests, '+rounds_label(server).lower()+'.')
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
         pending=[label for key,label in DIRECTORIES if key in server.get('directories',{}) and not server['directories'][key]]
         if pending and not server.get('hosted_edition'):llms.append('  Coming soon to the '+series(pending)+(' directories' if len(pending)>1 else ' directory')+', with no user API key.')
@@ -270,7 +270,7 @@ FRESHNESS={
     'usa':'Live from USAspending.gov. Repeat answers may be reused for up to 24 hours.',
     'calc':'Live from GSA CALC+. Repeat answers may be reused for up to 12 hours.',
     'bls':'The latest published OEWS release (May 2025).',
-    'travel':'1102tools\' copy of GSA\'s published per diem files for fiscal years 2021 onward; city lookups go live to GSA.',
+    'travel':'1102tools\' copy of GSA\'s published per diem files for fiscal years 2021 onward; bundled city+county lookups run locally, with API lookup for city-only requests and unbundled years.',
     'ecfr':'Live from eCFR, including today\'s text. Answers for past dates may be reused for up to 24 hours.',
     'acq':'A copy of Acquisition.gov\'s FAR Overhaul text and agency deviations, refreshed daily.',
     'fr':'Live from the Federal Register. Searches may be reused for up to an hour.',
@@ -304,7 +304,7 @@ def llms_help():
         'Hosted addresses for AI apps that connect by URL:','',
         *[f"- {SERVERS[sid]['name']}: https://{HOSTS[sid]}.1102tools.com/mcp" for sid in SOURCE_ORDER],'',
         '## Privacy','',
-        '- Searches and results are not logged or saved, and nobody at 1102tools reads them. There are no accounts, cookies or user profiles, and nothing is sold or shared.',
+        '- Conversations and query/result logs are not retained. Some public government responses are cached temporarily to reduce repeated source requests. There are no accounts, cookies or user profiles, and nothing is sold or shared.',
         '- 1102tools does not log or keep IP addresses.',
         '- The only record is a 7-day service record for each call: the tool name, which AI app sent it, whether it worked and how long it took. It contains no search terms, results, IP address or location.',
         '- SAM.gov, BLS OEWS and Acquisition.gov answer from 1102tools\' own copy of the public data, so searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. The cache holds the public answer, not who asked.',
@@ -318,7 +318,7 @@ def llms_help():
         '## Common questions','',
         '- Is it free? Yes. Every server is free and MIT-licensed. Hosted use needs no account and no API key.',
         '- Is it official? No. 1102tools is independent and built by a federal contracting officer; no agency is affiliated with it or endorses it. No agency offers an official MCP server for these sources (see the status section above).',
-        '- Do I need an API key? Not for hosted use. Local installs of SAM.gov (full edition), GSA Per Diem (city lookups) and Regulations.gov use free keys from those agencies; the other six need none.',
+        '- Do I need an API key? Not for hosted use. Local SAM.gov (full edition) and Regulations.gov require free agency keys. GSA Per Diem requires a key for city-only API requests and unbundled-year lookups; bundled city-plus-county, ZIP, state and M&IE lookups need none. The other six require none.',
         '- How current is the data?',
         *[f"  - {SERVERS[sid]['name']}: {FRESHNESS[sid]}" for sid in SOURCE_ORDER],
         '- Can competitors or the government see what I research? No. Searches are not logged or saved, and on hosted servers government sites see requests from 1102tools, not from you. SAM.gov, BLS OEWS and Acquisition.gov searches never leave 1102tools\' own copy of the data.',
@@ -379,11 +379,11 @@ def compare_page(out,css_version):
         s=SERVERS[row['id']];pr=s['proof']
         listed_in=', '.join(label for label,_ in listed(s))
         where=dir_chips({key:bool(s.get('directories',{}).get(key)) for key,_ in DIRECTORIES}) if listed_in or row['id'] in ('sam','bls') else '<span>Local install</span>'
-        ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">{pr["tests"]:,} tests</a> · {ESC(rounds_label(s).lower())}</span>{where}'
+        ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">{pr["tests"]:,} collected tests</a> · {ESC(rounds_label(s).lower())}</span>{where}'
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             ours=(f'<strong>{he["tools"]} tools in the directories</strong><span>Hosted edition, no key: contract opportunities, award notices, and justifications</span>{where}'
-                f'<strong>{pr["tools"]} tools installed locally</strong><span>Full edition with a free SAM.gov key · <a href="{s["url"]}">{pr["tests"]:,} tests</a> · {ESC(rounds_label(s).lower())}</span>')
+                f'<strong>{pr["tools"]} tools installed locally</strong><span>Full edition with a free SAM.gov key · <a href="{s["url"]}">{pr["tests"]:,} collected tests</a> · {ESC(rounds_label(s).lower())}</span>')
         alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>{dir_chips(row.get("alt_directories",{}))}' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
         rows.append(('<tr class="more">' if i>source_cut else '<tr>')+f'<th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
     alts=[r for r in COMPARE['sources'] if r['alt']]
