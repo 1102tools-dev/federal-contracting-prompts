@@ -18,13 +18,14 @@
         "status": "listed",
         "tools": 4,
         "summary": "searching and reading contract opportunities, award notices, and justifications, with counts by agency, NAICS, set-aside, and notice type",
-        "source": "SAM.gov's daily public contract opportunities file"
+        "source": "SAM.gov's daily public contract opportunities file",
+        "version": "1.0.2"
       },
       "full_edition_adds": "entity registrations, SBA certifications, exclusions, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards",
       "proof": {
         "tools": 20,
         "tests": 1155,
-        "audit_rounds": 10,
+        "audit_rounds": 11,
         "version": "1.0.13"
       },
       "card_access": "No user API key"
@@ -42,9 +43,9 @@
       },
       "proof": {
         "tools": 55,
-        "tests": 2297,
-        "audit_rounds": 13,
-        "version": "1.0.15"
+        "tests": 2303,
+        "audit_rounds": 14,
+        "version": "1.0.16"
       }
     },
     {
@@ -61,7 +62,7 @@
       "proof": {
         "tools": 8,
         "tests": 433,
-        "audit_rounds": 7,
+        "audit_rounds": 8,
         "version": "1.0.14"
       }
     },
@@ -79,9 +80,9 @@
       "card_access": "No user API key",
       "proof": {
         "tools": 8,
-        "tests": 295,
-        "audit_rounds": 9,
-        "version": "1.1.3"
+        "tests": 298,
+        "audit_rounds": 10,
+        "version": "1.1.4"
       }
     },
     {
@@ -99,7 +100,7 @@
       "proof": {
         "tools": 7,
         "tests": 576,
-        "audit_rounds": 10,
+        "audit_rounds": 11,
         "version": "1.2.3"
       }
     },
@@ -116,9 +117,9 @@
       },
       "proof": {
         "tools": 13,
-        "tests": 441,
-        "audit_rounds": 8,
-        "version": "1.1.2"
+        "tests": 449,
+        "audit_rounds": 9,
+        "version": "1.1.4"
       }
     },
     {
@@ -135,7 +136,7 @@
       "proof": {
         "tools": 8,
         "tests": 286,
-        "audit_rounds": 9,
+        "audit_rounds": 10,
         "version": "1.0.14"
       }
     },
@@ -154,7 +155,7 @@
       "proof": {
         "tools": 9,
         "tests": 286,
-        "audit_rounds": 8,
+        "audit_rounds": 9,
         "version": "2.0.4"
       }
     },
@@ -833,6 +834,6 @@
   "proof_as_of": "2026-10-10",
   "release_validation": {
     "date": "2026-10-10",
-    "summary": "October 10 checks distinguish fresh published-package installs, real content questions, and production verification for the eight-server release round. All five configured Dell origins are verified separately. SAM.gov's daily-file mirror was refreshed against its official CSV. Live SAM.gov keyed API checks require a credential; Regulations.gov direct DEMO_KEY checks hit its quota. Collected test totals include optional live-source cases, and skips are not passes. Acquisition.gov's snapshot refresh is tracked separately. See the dated release record for final versions, deployment evidence and source limitations."
+    "summary": "October 10 round 2 covered realistic content questions across all eight goal servers: SAM87, USAspending127, eCFR70, BLS46, Federal Register49 valid calls, Regulations62, CALC123 and Per Diem59. All seven confirmed findings are fixed and verified in the actual published packages and public services. All five configured origins passed version, release-source and physical-backend checks. SAM mirror1.0.2 leaves Python1.0.13 unchanged. The 6,041 collected product tests include optional live cases; skips are not passes. SAM keyed API checks and Regulations direct-source checks retain credential/quota limits. Acquisition remains on its separate completed snapshot6 track, with source fetch limitations in the dated release record."
   }
 }
