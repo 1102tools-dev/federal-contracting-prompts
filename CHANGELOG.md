@@ -1,5 +1,7 @@
 # October 2026
 
+- Record the second comprehensive eight-server content round: seven new findings (five P2 and two P3), with corrections for fiscal-year new-award counts, recipient followups, eCFR definitions/history/correction scope, BLS unpublished wage explanations and SAM prior-year active-notice coverage. Update measured collection to 6,041 product tests, of which 5,786 belong to the eight-server goal; keep optional source checks and collected tests distinct from passed checks. Acquisition.gov remains on its separate track.
+
 - Complete the eight-server content-fix release round with accurate published versions and test collection totals; retain Acquisition.gov as a separately maintained source. Clarify temporary public-response caching and keyless bundled Per Diem city-plus-county workflows. Tool descriptions update within existing identities through continuous review, without manual directory republication.
 
 - Refresh the October 10 testing record to 6,024 collected Python regressions, including opt-in live tests; update package versions, documented audit rounds, and comparison-page counts. Publish dated checks covering local PyPI startup and tool discovery, Cloudflare hosted content gates, all five Dell origins, and the SAM.gov daily-file reload. Keep the Regulations.gov source-quota limitation explicit.

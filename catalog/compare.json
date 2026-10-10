@@ -297,7 +297,7 @@
       "alt": "cyanheads/usaspending-mcp-server",
       "alt_url": "https://github.com/cyanheads/usaspending-mcp-server",
       "alt_detail": "18 tools, free, hosted or local",
-      "edge": "Three times the tools, 2,297 collected tests, and listings in both the Claude and ChatGPT directories.",
+      "edge": "Three times the tools, 2,303 collected tests, and listings in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
@@ -321,7 +321,7 @@
       "alt": "cyanheads/bls-labor-mcp-server",
       "alt_url": "https://github.com/cyanheads/bls-labor-mcp-server",
       "alt_detail": "General BLS data, 4 to 7 tools; free, hosted or local",
-      "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 295 collected regression tests, in both the Claude and ChatGPT directories.",
+      "edge": "Built for the OEWS wage research behind IGCEs and price analysis, with 298 collected regression tests, in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
