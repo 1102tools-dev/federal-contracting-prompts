@@ -834,6 +834,6 @@
   "proof_as_of": "2026-10-10",
   "release_validation": {
     "date": "2026-10-10",
-    "summary": "We audit all eight supported servers using realistic questions and authoritative sources. Improvements are released and checked against the published packages and live services; see the release records for versions, findings and test results."
+    "summary": "All eight servers are audited using realistic questions and authoritative sources. Updates are verified against published packages and live services; release records detail versions, findings and test results."
   }
 }
