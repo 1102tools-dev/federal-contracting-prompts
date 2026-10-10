@@ -116,9 +116,9 @@
       },
       "proof": {
         "tools": 13,
-        "tests": 320,
-        "audit_rounds": 6,
-        "version": "1.0.10"
+        "tests": 428,
+        "audit_rounds": 8,
+        "version": "1.1.0"
       }
     },
     {
@@ -171,9 +171,9 @@
       },
       "proof": {
         "tools": 5,
-        "tests": 239,
+        "tests": 240,
         "audit_rounds": null,
-        "version": "1.0.8"
+        "version": "1.0.9"
       }
     }
   ],
@@ -829,6 +829,6 @@
       "in_pdf": true
     }
   ],
-  "website_updated": "2026-10-09",
+  "website_updated": "2026-10-10",
   "proof_as_of": "2026-10-01"
 }

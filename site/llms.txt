@@ -66,7 +66,7 @@ No affiliation with or endorsement by a federal agency is claimed.
 ## Why 1102tools
 
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
-- Tested: 5,571 collected regression tests, including live-API tests, across 9 servers (133 tools), with up to 10 audit rounds per server against the live government APIs.
+- Tested: 5,680 collected regression tests, including live-API tests, across 9 servers (133 tools), with up to 10 audit rounds per server against the live government APIs.
 - No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local installs of SAM.gov, GSA Per Diem and Regulations.gov use free API keys.
 - Listed: 9 in the Claude directory; 6 in the ChatGPT directory.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
@@ -195,9 +195,9 @@ Hosted addresses for AI apps that connect by URL:
   Install: [Claude directory](https://claude.ai/directory/bls-oews-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e)
 - [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Local: free key for city lookups. Hosted: no key. Free and open source; 7 tools, 544 regression tests, 7 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/gsa-perdiem-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9)
-- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools, 320 regression tests, 6 audit rounds.
+- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools, 428 regression tests, 8 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
-- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key. Free and open source; 5 tools, 239 regression tests, independent review.
+- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key. Free and open source; 5 tools, 240 regression tests, independent review.
   Install: [Claude directory](https://claude.ai/directory/acquisition-gov-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333)
 - [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key. Free and open source; 8 tools, 243 regression tests, 6 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools)
@@ -223,4 +223,4 @@ Hosted addresses for AI apps that connect by URL:
 - [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
 - [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
-Website metadata updated 2026-10-09. Prompt edition: October 2026.
+Website metadata updated 2026-10-10. Prompt edition: October 2026.
