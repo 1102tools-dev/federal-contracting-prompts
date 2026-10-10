@@ -43,9 +43,9 @@
       },
       "proof": {
         "tools": 55,
-        "tests": 2318,
+        "tests": 2322,
         "audit_rounds": 18,
-        "version": "1.0.22"
+        "version": "1.0.23"
       }
     },
     {
@@ -99,9 +99,9 @@
       "card_access": "Local: key for city-only/API lookups or unbundled years. Hosted: no key",
       "proof": {
         "tools": 7,
-        "tests": 583,
+        "tests": 588,
         "audit_rounds": 15,
-        "version": "1.2.4"
+        "version": "1.2.5"
       }
     },
     {
@@ -135,9 +135,9 @@
       },
       "proof": {
         "tools": 8,
-        "tests": 289,
+        "tests": 295,
         "audit_rounds": 14,
-        "version": "1.0.15"
+        "version": "1.0.16"
       }
     },
     {
