@@ -142,7 +142,7 @@ Hosted addresses for AI apps that connect by URL:
 
 - Hosted: up to 120 requests a minute from one connection address, and 600 a minute from Claude's and ChatGPT's own servers, which carry all of their users.
 - The government sources set their own limits. On hosted servers these are pooled across all users; each user's lookups stay private.
-- For heavy or automated use, install the local version with your own free API key, which gives your own limits in full.
+- For heavy or automated use, install the local version and configure a free agency key where its setup requires one. Requests use your own source limits.
 
 ## Common questions
 

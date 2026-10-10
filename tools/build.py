@@ -314,7 +314,7 @@ def llms_help():
         '## Limits','',
         '- Hosted: up to 120 requests a minute from one connection address, and 600 a minute from Claude\'s and ChatGPT\'s own servers, which carry all of their users.',
         '- The government sources set their own limits. On hosted servers these are pooled across all users; each user\'s lookups stay private.',
-        '- For heavy or automated use, install the local version with your own free API key, which gives your own limits in full.','',
+        '- For heavy or automated use, install the local version and configure a free agency key where its setup requires one. Requests use your own source limits.','',
         '## Common questions','',
         '- Is it free? Yes. Every server is free and MIT-licensed. Hosted use needs no account and no API key.',
         '- Is it official? No. 1102tools is independent and built by a federal contracting officer; no agency is affiliated with it or endorses it. No agency offers an official MCP server for these sources (see the status section above).',
