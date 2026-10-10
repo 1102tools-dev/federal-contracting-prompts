@@ -42,9 +42,9 @@
       },
       "proof": {
         "tools": 55,
-        "tests": 2174,
-        "audit_rounds": 10,
-        "version": "1.0.9"
+        "tests": 2259,
+        "audit_rounds": 12,
+        "version": "1.0.13"
       }
     },
     {
@@ -60,9 +60,9 @@
       },
       "proof": {
         "tools": 8,
-        "tests": 379,
-        "audit_rounds": 6,
-        "version": "1.0.9"
+        "tests": 414,
+        "audit_rounds": 7,
+        "version": "1.0.12"
       }
     },
     {
@@ -79,9 +79,9 @@
       "card_access": "No user API key",
       "proof": {
         "tools": 8,
-        "tests": 276,
-        "audit_rounds": 5,
-        "version": "1.0.10"
+        "tests": 291,
+        "audit_rounds": 9,
+        "version": "1.1.1"
       }
     },
     {
@@ -98,9 +98,9 @@
       "card_access": "Local: free key for city lookups. Hosted: no key",
       "proof": {
         "tools": 7,
-        "tests": 544,
-        "audit_rounds": 7,
-        "version": "1.0.11"
+        "tests": 564,
+        "audit_rounds": 9,
+        "version": "1.2.1"
       }
     },
     {
@@ -134,9 +134,9 @@
       },
       "proof": {
         "tools": 8,
-        "tests": 243,
-        "audit_rounds": 6,
-        "version": "1.0.9"
+        "tests": 282,
+        "audit_rounds": 8,
+        "version": "1.0.13"
       }
     },
     {
@@ -153,9 +153,9 @@
       "card_access": "Local: free key. Hosted: no key",
       "proof": {
         "tools": 9,
-        "tests": 241,
-        "audit_rounds": 5,
-        "version": "1.0.10"
+        "tests": 279,
+        "audit_rounds": 8,
+        "version": "2.0.3"
       }
     },
     {
@@ -830,5 +830,9 @@
     }
   ],
   "website_updated": "2026-10-10",
-  "proof_as_of": "2026-10-01"
+  "proof_as_of": "2026-10-10",
+  "release_validation": {
+    "date": "2026-10-10",
+    "summary": "October 10 release checks cover local startup and tool discovery from the six newly published PyPI packages, Cloudflare hosted endpoints and content regressions, and all five Dell origins: USAspending, Federal Register, Regulations.gov, GSA CALC+, and eCFR. SAM.gov's hosted daily-file mirror was also reloaded and checked against the source CSV. Regulations.gov source checks used saved API responses; live DEMO_KEY checks hit its quota. Collected test totals include optional live tests."
+  }
 }

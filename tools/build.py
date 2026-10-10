@@ -38,7 +38,7 @@ def number_word(n):return ('Zero','One','Two','Three','Four','Five','Six','Seven
 def rounds_label(s):return f'{s["proof"]["audit_rounds"]} audit rounds' if s['proof']['audit_rounds'] else 'Independent review'
 def proof_list(s,tools=None):
     pr=s['proof'];rounds=f'<li><strong>{pr["audit_rounds"]}</strong> audit rounds</li>' if pr['audit_rounds'] else '<li><strong>Independent</strong> review</li>'
-    return f'<ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li><li><strong>{pr["tests"]:,}</strong> tests</li>{rounds}</ul>'
+    return f'<p class="support-note">Package v{ESC(pr["version"])}</p><ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li><li><strong>{pr["tests"]:,}</strong> tests</li>{rounds}</ul>'
 def stats():
     servers=DATA['servers']
     return {'servers':len(servers),'tools':sum(s['proof']['tools'] for s in servers),'tests':sum(s['proof']['tests'] for s in servers),
@@ -158,7 +158,7 @@ def website(out,pdf,pages):
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
-                f'<p><strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>'
+                f'<p>Package v{ESC(s["proof"]["version"])}. <strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>'
                 f'<ul class="card-proof"><li><strong>{s["proof"]["tests"]:,}</strong> tests</li><li><strong>{s["proof"]["audit_rounds"]}</strong> audit rounds</li></ul></details>')
             cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Source code ↗</a></article>')
         else:
@@ -190,6 +190,7 @@ def website(out,pdf,pages):
         'TOTAL_TESTS':f"{st['tests']:,}",'MAX_ROUNDS':number_word(st['max_rounds']).lower(),'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
         'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
+        'RELEASE_VALIDATION':ESC(DATA.get('release_validation',{}).get('summary','')),
         'PROOF_MONTH':(lambda m,y:m[:3]+' '+y)(*month_year(DATA['proof_as_of']).split())}
     template=(ROOT/'templates/index.html').read_text()
     for k,v in replacements.items():template=template.replace('{{'+k+'}}',v)
@@ -225,14 +226,14 @@ def website(out,pdf,pages):
         'No affiliation with or endorsement by a federal agency is claimed.','',
         '## Why 1102tools','',
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
-        f"- Tested: {st['tests']:,} collected regression tests, including live-API tests, across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} audit rounds per server against the live government APIs.",
+        f"- Tested: {st['tests']:,} collected regression tests, including live-API tests, across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} documented audit rounds per server. Collected totals include optional live tests; dated records distinguish offline regressions, live source checks, and source-file comparisons.",
         "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local installs of SAM.gov, GSA Per Diem and Regulations.gov use free API keys.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.",
         "- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.",'',
         *llms_story(st),
-        '## MCP sources','']
+        '## Release validation','',DATA.get('release_validation',{}).get('summary',''),'','## MCP sources','']
     for server in (SERVERS[x] for x in SOURCE_ORDER):
         if server.get('hosted_edition'):
             he=server['hosted_edition'];pending=[label for key,label in DIRECTORIES if not server['directories'][key]]
