@@ -19,13 +19,13 @@
         "tools": 4,
         "summary": "searching and reading contract opportunities, award notices, and justifications, with counts by agency, NAICS, set-aside, and notice type",
         "source": "SAM.gov's daily public contract opportunities file",
-        "version": "1.0.2"
+        "version": "1.0.3"
       },
       "full_edition_adds": "entity registrations, SBA certifications, exclusions, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards",
       "proof": {
         "tools": 20,
         "tests": 1155,
-        "audit_rounds": 11,
+        "audit_rounds": 12,
         "version": "1.0.13"
       },
       "card_access": "No user API key"
@@ -43,9 +43,9 @@
       },
       "proof": {
         "tools": 55,
-        "tests": 2303,
-        "audit_rounds": 14,
-        "version": "1.0.16"
+        "tests": 2306,
+        "audit_rounds": 15,
+        "version": "1.0.17"
       }
     },
     {
@@ -61,9 +61,9 @@
       },
       "proof": {
         "tools": 8,
-        "tests": 433,
-        "audit_rounds": 8,
-        "version": "1.0.14"
+        "tests": 435,
+        "audit_rounds": 9,
+        "version": "1.0.15"
       }
     },
     {
@@ -81,7 +81,7 @@
       "proof": {
         "tools": 8,
         "tests": 298,
-        "audit_rounds": 10,
+        "audit_rounds": 11,
         "version": "1.1.4"
       }
     },
@@ -99,9 +99,9 @@
       "card_access": "Local: key for city-only/API lookups or unbundled years. Hosted: no key",
       "proof": {
         "tools": 7,
-        "tests": 576,
-        "audit_rounds": 11,
-        "version": "1.2.3"
+        "tests": 583,
+        "audit_rounds": 12,
+        "version": "1.2.4"
       }
     },
     {
@@ -117,9 +117,9 @@
       },
       "proof": {
         "tools": 13,
-        "tests": 449,
-        "audit_rounds": 9,
-        "version": "1.1.4"
+        "tests": 451,
+        "audit_rounds": 10,
+        "version": "1.1.5"
       }
     },
     {
@@ -136,7 +136,7 @@
       "proof": {
         "tools": 8,
         "tests": 286,
-        "audit_rounds": 10,
+        "audit_rounds": 11,
         "version": "1.0.14"
       }
     },
@@ -154,9 +154,9 @@
       "card_access": "Local: free key. Hosted: no key",
       "proof": {
         "tools": 9,
-        "tests": 286,
-        "audit_rounds": 9,
-        "version": "2.0.4"
+        "tests": 298,
+        "audit_rounds": 10,
+        "version": "2.0.6"
       }
     },
     {
@@ -834,6 +834,6 @@
   "proof_as_of": "2026-10-10",
   "release_validation": {
     "date": "2026-10-10",
-    "summary": "October 10 round 2 covered realistic content questions across all eight goal servers: SAM87, USAspending127, eCFR70, BLS46, Federal Register49 valid calls, Regulations62, CALC123 and Per Diem59. All seven confirmed findings are fixed and verified in the actual published packages and public services. All five configured origins passed version, release-source and physical-backend checks. SAM mirror1.0.2 leaves Python1.0.13 unchanged. The 6,041 collected product tests include optional live cases; skips are not passes. SAM keyed API checks and Regulations direct-source checks retain credential/quota limits. Acquisition remains on its separate completed snapshot6 track, with source fetch limitations in the dated release record."
+    "summary": "October 10 round 3 completed new ordinary and power-user audits across all eight goal servers and fixed ten confirmed findings (seven P2 and three P3), bringing cumulative fixed findings to 53 (zero P0, two P1, 33 P2 and 18 P3). Final published verification passed all eight mixed public version/source identities, 112 reviewed tool definitions, 45 physical-origin checks across the five Dell routes, and 16 official PyPI wheel/source hash and size checks. Regulations.gov 2.0.6 passed fresh official installed CLI recovery checks with MCP 2.3 (179 passed, 119 skipped, 298 collected), all 115 public content cases, and 12 independent public peer checks. Initial 2.0.5 metadata, routing and package checks remain dated evidence; the corrective 2.0.6 results establish the later recovery acceptance. New coverage includes SAM 110 content comparisons plus status, USAspending 130 questions on each CLI/public surface, eCFR 80 CLI and 75 public calls, BLS 58 CLI and 58 public calls, Federal Register 54 calls, CALC 132 installed registered-tool/public cases and Per Diem 101 cases. CALC actual stdio checks are separate from its registered-tool cases; source percentiles retain documented approximation differences. SAM mirror 1.0.3 leaves Python 1.0.13 unchanged; Per Diem refreshed ZIP/place data is verified. Independent collection measured 6,067 product tests and 5,812 in the eight-server goal after corrective regressions; collected counts and optional skips are not passes. Targeted retries after timeouts, source variability, SAM keyed API limitations, Regulations source quotas and BLS flat-file footnote HTTP 403 remain explicit in the dated record. Acquisition stays unchanged on its separate track. This website update records completed fixes and verification; website and documentation publication are separate closure steps. The round found seven new P2 issues, so a later zero-new-P0/P1/P2 round is still required to meet the stopping condition."
   }
 }
