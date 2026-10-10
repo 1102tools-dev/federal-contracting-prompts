@@ -297,7 +297,7 @@
       "alt": "cyanheads/usaspending-mcp-server",
       "alt_url": "https://github.com/cyanheads/usaspending-mcp-server",
       "alt_detail": "18 tools, free, hosted or local",
-      "edge": "Three times the tools, 2,259 tests, and listings in both the Claude and ChatGPT directories.",
+      "edge": "Three times the tools, 2,297 collected tests, and listings in both the Claude and ChatGPT directories.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
