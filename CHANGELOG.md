@@ -1,6 +1,8 @@
 # October 2026
 
-- Refresh the October 10 testing record to 5,912 collected Python regressions, including opt-in live tests; update package versions, documented audit rounds, and comparison-page counts. Publish dated checks covering local PyPI startup and tool discovery, Cloudflare hosted content gates, all five Dell origins, and the SAM.gov daily-file reload. Keep the Regulations.gov source-quota limitation explicit.
+- Complete the eight-server content-fix release round with accurate published versions and test collection totals; retain Acquisition.gov as a separately maintained source. Clarify temporary public-response caching and keyless bundled Per Diem city-plus-county workflows. Tool descriptions update within existing identities through continuous review, without manual directory republication.
+
+- Refresh the October 10 testing record to 6,024 collected Python regressions, including opt-in live tests; update package versions, documented audit rounds, and comparison-page counts. Publish dated checks covering local PyPI startup and tool discovery, Cloudflare hosted content gates, all five Dell origins, and the SAM.gov daily-file reload. Keep the Regulations.gov source-quota limitation explicit.
 
 - Add "What federal IT work is coming that isn't out for bid yet?" (SAM.gov) as P06, the first Find opportunities prompt, and renumber the rest to P57. The library and print guide now hold 57 prompts, and the guide edition is October 2026. Remove the "Try a question" card so the homepage hero shows only the headline and the demo video.
 - Feature "What did the government actually pay?" as the homepage example in place of "Vet a teammate". The prompt now skips awards with a different scope and asks how each was competed, the potential value with all options, and outlays (money actually paid out) where reported.

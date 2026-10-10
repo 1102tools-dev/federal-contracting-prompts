@@ -66,8 +66,8 @@ No affiliation with or endorsement by a federal agency is claimed.
 ## Why 1102tools
 
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
-- Tested: 5,912 collected regression tests, including live-API tests, across 9 servers (133 tools), with up to 12 documented audit rounds per server. Collected totals include optional live tests; dated records distinguish offline regressions, live source checks, and source-file comparisons.
-- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local installs of SAM.gov, GSA Per Diem and Regulations.gov use free API keys.
+- Tested: 6,024 collected regression tests, including live-API tests, across 9 servers (133 tools), with up to 13 documented audit rounds per server. Collected totals include optional live tests; dated records distinguish offline regressions, live source checks, and source-file comparisons.
+- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Per Diem requires a key only for city-only/API requests or unbundled years.
 - Listed: 9 in the Claude directory; 6 in the ChatGPT directory.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
 - Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.
@@ -88,14 +88,14 @@ No affiliation with or endorsement by a federal agency is claimed.
 ## Compared with the best free alternative (researched September 24, 2026)
 
 - SAM.gov: 20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check, plus a keyless 4-tool edition for contract opportunities in the Claude directory. Best free alternative: [cliwant/mcp-sam-gov](https://github.com/cliwant/mcp-sam-gov), about 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional.
-- USAspending: Three times the tools, 2,259 tests, and listings in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/usaspending-mcp-server](https://github.com/cyanheads/usaspending-mcp-server), 18 tools, free, hosted or local.
+- USAspending: Three times the tools, 2,297 collected tests, and listings in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/usaspending-mcp-server](https://github.com/cyanheads/usaspending-mcp-server), 18 tools, free, hosted or local.
 - GSA CALC+: The only GSA CALC+ MCP in the Claude and ChatGPT directories, with 8 IGCE and price-analysis tools. Best free alternative: [pipeworx-io/mcp-gsa-calc](https://github.com/pipeworx-io/mcp-gsa-calc), 3 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally.
-- BLS OEWS: Built for the OEWS wage research behind IGCEs and price analysis, with 291 regression tests, in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/bls-labor-mcp-server](https://github.com/cyanheads/bls-labor-mcp-server), general BLS data, 4 to 7 tools; free, hosted or local.
-- GSA Per Diem: 7 per diem tools and 564 regression tests, in both the Claude and ChatGPT directories. Best free alternative: [pipeworx-io/mcp-gsa-perdiem](https://github.com/pipeworx-io/mcp-gsa-perdiem), 2 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally.
+- BLS OEWS: Built for the OEWS wage research behind IGCEs and price analysis, with 295 collected regression tests, in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/bls-labor-mcp-server](https://github.com/cyanheads/bls-labor-mcp-server), general BLS data, 4 to 7 tools; free, hosted or local.
+- GSA Per Diem: 7 per diem tools and 576 collected regression tests, in both the Claude and ChatGPT directories. Best free alternative: [pipeworx-io/mcp-gsa-perdiem](https://github.com/pipeworx-io/mcp-gsa-perdiem), 2 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally.
 - eCFR: 13 eCFR tools focused on FAR, DFARS, and agency supplements, in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), 7 tools shared across eCFR, Federal Register, and Regulations.gov; free, hosted or local.
 - Acquisition.gov: The only known MCP server for FAR Overhaul model parts and agency class deviations, in both the Claude and ChatGPT directories. No other MCP server for Acquisition.gov RFO model text or agency deviations.
 - Federal Register: FAR case history tracing, open comment periods, and a Claude directory listing. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server (see eCFR).
-- Regulations.gov: 9 docket and comment tools, 279 regression tests, and a Claude directory listing. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server; Regulations.gov part needs a key.
+- Regulations.gov: 9 docket and comment tools, 286 collected regression tests, and a Claude directory listing. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server; Regulations.gov part needs a key.
 
 The alternatives are general-purpose servers. 1102tools servers are built for contracting work, with tools such as IGCE benchmarks and price-reasonableness checks (GSA CALC+), FAR clause lookup (eCFR), FAR case history (Federal Register and Regulations.gov), and a one-call vendor responsibility check (SAM.gov full edition). Every 1102tools server publishes its regression-test count and review record. No directory listing was found for the best free alternatives in the Claude or ChatGPT directories. Full details: [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare).
 
@@ -109,11 +109,11 @@ The alternatives are general-purpose servers. 1102tools servers are built for co
 
 | | Local | Hosted |
 |---|---|---|
-| Why use it | Your own full rate limits, so you skip any congestion on hosted. It relies only on the government service | Convenience. One click, no keys, and it works in Claude or ChatGPT anywhere |
+| Why use it | Your own full rate limits, so you skip any congestion on hosted. It uses government-source data, including bundled snapshots | Convenience. One click, no keys, and it works in Claude or ChatGPT anywhere |
 | Works in | Claude or ChatGPT desktop apps and other AI apps, on a desktop or laptop | Claude or ChatGPT on web, desktop, and phone |
-| Setup | Ask your AI to set it up or walk you through it, using the setup guide. Free keys for 3 servers | One click. No keys |
+| Setup | Ask your AI to set it up or walk you through it, using the setup guide. Free keys for SAM.gov and Regulations.gov; Per Diem city-only/API and unbundled-year lookups also require a key | One click. No keys |
 | Rate limits | Your own, in full | Pooled across all users. Your lookups stay private |
-| Relies on | The government service | The government service and Cloudflare |
+| Relies on | Government-source data, including bundled snapshots | Government-source data, bundled snapshots, and Cloudflare |
 | SAM.gov | Full edition: 20 tools, free key | 4 tools, no key |
 
 Hosted addresses for AI apps that connect by URL:
@@ -130,7 +130,7 @@ Hosted addresses for AI apps that connect by URL:
 
 ## Privacy
 
-- Searches and results are not logged or saved, and nobody at 1102tools reads them. There are no accounts, cookies or user profiles, and nothing is sold or shared.
+- Conversations and query/result logs are not retained. Some public government responses are cached temporarily to reduce repeated source requests. There are no accounts, cookies or user profiles, and nothing is sold or shared.
 - 1102tools does not log or keep IP addresses.
 - The only record is a 7-day service record for each call: the tool name, which AI app sent it, whether it worked and how long it took. It contains no search terms, results, IP address or location.
 - SAM.gov, BLS OEWS and Acquisition.gov answer from 1102tools' own copy of the public data, so searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. The cache holds the public answer, not who asked.
@@ -142,19 +142,19 @@ Hosted addresses for AI apps that connect by URL:
 
 - Hosted: up to 120 requests a minute from one connection address, and 600 a minute from Claude's and ChatGPT's own servers, which carry all of their users.
 - The government sources set their own limits. On hosted servers these are pooled across all users; each user's lookups stay private.
-- For heavy or automated use, install the local version with your own free API key, which gives your own limits in full.
+- For heavy or automated use, install the local version and configure a free agency key where its setup requires one. Requests use your own source limits.
 
 ## Common questions
 
 - Is it free? Yes. Every server is free and MIT-licensed. Hosted use needs no account and no API key.
 - Is it official? No. 1102tools is independent and built by a federal contracting officer; no agency is affiliated with it or endorses it. No agency offers an official MCP server for these sources (see the status section above).
-- Do I need an API key? Not for hosted use. Local installs of SAM.gov (full edition), GSA Per Diem (city lookups) and Regulations.gov use free keys from those agencies; the other six need none.
+- Do I need an API key? Not for hosted use. Local SAM.gov (full edition) and Regulations.gov require free agency keys. GSA Per Diem requires a key for city-only API requests and unbundled-year lookups; bundled city-plus-county, ZIP, state and M&IE lookups need none. The other six require none.
 - How current is the data?
   - SAM.gov: Hosted: a copy of SAM.gov's public contract opportunities file, refreshed daily (up to a day behind). Local full edition: live SAM.gov APIs.
   - USAspending: Live from USAspending.gov. Repeat answers may be reused for up to 24 hours.
   - GSA CALC+: Live from GSA CALC+. Repeat answers may be reused for up to 12 hours.
   - BLS OEWS: The latest published OEWS release (May 2025).
-  - GSA Per Diem: 1102tools' copy of GSA's published per diem files for fiscal years 2021 onward; city lookups go live to GSA.
+  - GSA Per Diem: 1102tools' copy of GSA's published per diem files for fiscal years 2021 onward; bundled city+county lookups run locally, with API lookup for city-only requests and unbundled years.
   - eCFR: Live from eCFR, including today's text. Answers for past dates may be reused for up to 24 hours.
   - Acquisition.gov: A copy of Acquisition.gov's FAR Overhaul text and agency deviations, refreshed daily.
   - Federal Register: Live from the Federal Register. Searches may be reused for up to an hour.
@@ -184,29 +184,29 @@ Hosted addresses for AI apps that connect by URL:
 
 ## Release validation
 
-October 10 release checks cover local startup and tool discovery from the six newly published PyPI packages, Cloudflare hosted endpoints and content regressions, and all five Dell origins: USAspending, Federal Register, Regulations.gov, GSA CALC+, and eCFR. SAM.gov's hosted daily-file mirror was also reloaded and checked against the source CSV. Regulations.gov source checks used saved API responses; live DEMO_KEY checks hit its quota. Collected test totals include optional live tests.
+October 10 checks distinguish fresh published-package installs, real content questions, and production verification for the eight-server release round. All five configured Dell origins are verified separately. SAM.gov's daily-file mirror was refreshed against its official CSV. Live SAM.gov keyed API checks require a credential; Regulations.gov direct DEMO_KEY checks hit its quota. Collected test totals include optional live-source cases, and skips are not passes. Acquisition.gov's snapshot refresh is tracked separately. See the dated release record for final versions, deployment evidence and source limitations.
 
 ## MCP sources
 
 - [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Contract opportunities, award notices, and justifications. Access: Local full edition: free SAM.gov key. Hosted: no key. Free and open source, in two editions.
   Directory edition (hosted, no key): 4 tools for searching and reading contract opportunities, award notices, and justifications, with counts by agency, NAICS, set-aside, and notice type, built from SAM.gov's daily public contract opportunities file. Install: [Claude directory](https://claude.ai/directory/sam-gov-by-1102tools). Coming soon to the ChatGPT directory.
-  Full local edition (free SAM.gov key): 20 tools, 1,155 regression tests, 10 audit rounds. Adds entity registrations, SBA certifications, exclusions, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards. It is not in the directories; install it locally.
-- [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key. Free and open source; 55 tools, 2,259 regression tests, 12 audit rounds.
+  Full local edition (free SAM.gov key): 20 tools, 1,155 collected regression tests, 10 audit rounds. Adds entity registrations, SBA certifications, exclusions, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards. It is not in the directories; install it locally.
+- [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Awards, obligations, recipients, agencies, and reported subawards. Access: No user API key. Free and open source; 55 tools, 2,297 collected regression tests, 13 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/usaspending-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
-- [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key. Free and open source; 8 tools, 414 regression tests, 7 audit rounds.
+- [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key. Free and open source; 8 tools, 433 collected regression tests, 7 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/gsa-calc-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
-- [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year from the Bureau of Labor Statistics. Access: No user API key. Free and open source; 8 tools, 291 regression tests, 9 audit rounds.
+- [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year from the Bureau of Labor Statistics. Access: No user API key. Free and open source; 8 tools, 295 collected regression tests, 9 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/bls-oews-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e)
-- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Local: free key for city lookups. Hosted: no key. Free and open source; 7 tools, 564 regression tests, 9 audit rounds.
+- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Local: city-only/API lookups and unbundled years need a key; bundled city+county lookups do not. Hosted: no key. Free and open source; 7 tools, 576 collected regression tests, 10 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/gsa-perdiem-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9)
-- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools, 428 regression tests, 8 audit rounds.
+- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools, 441 collected regression tests, 8 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
-- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key. Free and open source; 5 tools, 240 regression tests, independent review.
+- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key. Free and open source; 5 tools, 255 collected regression tests, independent review.
   Install: [Claude directory](https://claude.ai/directory/acquisition-gov-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333)
-- [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key. Free and open source; 8 tools, 282 regression tests, 8 audit rounds.
+- [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key. Free and open source; 8 tools, 286 collected regression tests, 9 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools)
   Coming soon to the ChatGPT directory, with no user API key.
-- [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Local: free key. Hosted: no key. Free and open source; 9 tools, 279 regression tests, 8 audit rounds.
+- [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Local: free key. Hosted: no key. Free and open source; 9 tools, 286 collected regression tests, 8 audit rounds.
   Install: [Claude directory](https://claude.ai/directory/regulations-gov-by-1102tools)
   Coming soon to the ChatGPT directory, with no user API key.
 

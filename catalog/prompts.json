@@ -42,9 +42,9 @@
       },
       "proof": {
         "tools": 55,
-        "tests": 2259,
-        "audit_rounds": 12,
-        "version": "1.0.13"
+        "tests": 2297,
+        "audit_rounds": 13,
+        "version": "1.0.15"
       }
     },
     {
@@ -60,9 +60,9 @@
       },
       "proof": {
         "tools": 8,
-        "tests": 414,
+        "tests": 433,
         "audit_rounds": 7,
-        "version": "1.0.12"
+        "version": "1.0.14"
       }
     },
     {
@@ -79,9 +79,9 @@
       "card_access": "No user API key",
       "proof": {
         "tools": 8,
-        "tests": 291,
+        "tests": 295,
         "audit_rounds": 9,
-        "version": "1.1.1"
+        "version": "1.1.3"
       }
     },
     {
@@ -89,18 +89,18 @@
       "name": "GSA Per Diem",
       "slug": "gsa-perdiem-mcp",
       "description": "Lodging and meals-and-incidental-expense rates by locality.",
-      "access": "Local: free key for city lookups. Hosted: no key",
+      "access": "Local: city-only/API lookups and unbundled years need a key; bundled city+county lookups do not. Hosted: no key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/gsa-perdiem-by-1102tools",
         "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9"
       },
-      "card_access": "Local: free key for city lookups. Hosted: no key",
+      "card_access": "Local: key for city-only/API lookups or unbundled years. Hosted: no key",
       "proof": {
         "tools": 7,
-        "tests": 564,
-        "audit_rounds": 9,
-        "version": "1.2.1"
+        "tests": 576,
+        "audit_rounds": 10,
+        "version": "1.2.3"
       }
     },
     {
@@ -116,9 +116,9 @@
       },
       "proof": {
         "tools": 13,
-        "tests": 428,
+        "tests": 441,
         "audit_rounds": 8,
-        "version": "1.1.0"
+        "version": "1.1.2"
       }
     },
     {
@@ -134,9 +134,9 @@
       },
       "proof": {
         "tools": 8,
-        "tests": 282,
-        "audit_rounds": 8,
-        "version": "1.0.13"
+        "tests": 286,
+        "audit_rounds": 9,
+        "version": "1.0.14"
       }
     },
     {
@@ -153,9 +153,9 @@
       "card_access": "Local: free key. Hosted: no key",
       "proof": {
         "tools": 9,
-        "tests": 279,
+        "tests": 286,
         "audit_rounds": 8,
-        "version": "2.0.3"
+        "version": "2.0.4"
       }
     },
     {
@@ -171,9 +171,9 @@
       },
       "proof": {
         "tools": 5,
-        "tests": 240,
+        "tests": 255,
         "audit_rounds": null,
-        "version": "1.0.9"
+        "version": "1.0.10"
       }
     }
   ],
@@ -833,6 +833,6 @@
   "proof_as_of": "2026-10-10",
   "release_validation": {
     "date": "2026-10-10",
-    "summary": "October 10 release checks cover local startup and tool discovery from the six newly published PyPI packages, Cloudflare hosted endpoints and content regressions, and all five Dell origins: USAspending, Federal Register, Regulations.gov, GSA CALC+, and eCFR. SAM.gov's hosted daily-file mirror was also reloaded and checked against the source CSV. Regulations.gov source checks used saved API responses; live DEMO_KEY checks hit its quota. Collected test totals include optional live tests."
+    "summary": "October 10 checks distinguish fresh published-package installs, real content questions, and production verification for the eight-server release round. All five configured Dell origins are verified separately. SAM.gov's daily-file mirror was refreshed against its official CSV. Live SAM.gov keyed API checks require a credential; Regulations.gov direct DEMO_KEY checks hit its quota. Collected test totals include optional live-source cases, and skips are not passes. Acquisition.gov's snapshot refresh is tracked separately. See the dated release record for final versions, deployment evidence and source limitations."
   }
 }
