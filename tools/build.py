@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Generate printable PDF and website from catalog/prompts.json.
+"""Generate README, printable PDF, and website from catalog/prompts.json.
 
 Run: python tools/build.py
 Validate without overwriting: python tools/build.py --check
-Regenerate README only when requested: python tools/build.py --include-readme
 Requires reportlab. Generated products must not be hand-edited.
 """
 from pathlib import Path
@@ -51,7 +50,9 @@ def hero_proof():
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
         f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
         '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
-def source_ids(p):return p['mcps'] or p.get('record_sources',[])
+def source_ids(p):return p['mcps']
+def edition_requirement(p):return 'SAM.gov entity checks need the Local full SAM.gov edition.' if p.get('requires_local_full_sam') else ''
+def requirement_text(p):return 'Required MCPs: '+names(p)+'. '+edition_requirement(p)
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in source_ids(p))
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in source_ids(p))
 def readme():
@@ -59,7 +60,7 @@ def readme():
     'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf) · [Local setup guide]('+MR+'#local-setup)','',
     '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Set up the required MCPs locally from their setup guides, or install the hosted versions from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
-    'The print guide and the online library contain the same 57 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
+    f'The print guide and the online library contain the same {PROMPT_COUNT} prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
     lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Local or hosted','',f'Every MCP works in Claude or ChatGPT two ways. **Local** runs it on your computer, inside the Claude or ChatGPT desktop app or another AI app. **Hosted** runs it on Cloudflare, so it works anywhere you use Claude or ChatGPT. Local is the better setup for daily work, and you don\'t have to set it up by hand: give your AI the [local setup guide]({MR}#local-setup) and ask it to set it up or walk you through it.','',f'All nine are in the Claude directory and {chatgpt_count.lower()} in ChatGPT as hosted installs. The rest are coming soon to ChatGPT.','','| MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |','|---|---|---|---|']
@@ -79,10 +80,9 @@ def readme():
     lines+=['','The individual server READMEs contain installation instructions, configuration examples, access requirements, and testing records. A prompt does not install an MCP.','']
     for sec in DATA['sections']:
         lines += [f'<a id="{sec["id"]}"></a>',f"## {sec['title']}",'',sec['intro'],'']
-        if sec['id']=='far-overhaul-and-agency-deviations':lines+=['These two examples have not been live-tested as part of this guide refresh.','']
         for p in DATA['prompts']:
             if p['category']!=sec['id']:continue
-            lines += [f'<a id="{p["id"]}"></a>',f"### {p['title']}",'','```text','\n'.join(textwrap.fill(line,width=84,break_long_words=False,break_on_hyphens=False) for line in p['text'].split('\n')),'```','',f"**Required MCPs:** {linklabel(p)}",'']
+            lines += [f'<a id="{p["id"]}"></a>',f"### {p['title']}",'','```text','\n'.join(textwrap.fill(line,width=84,break_long_words=False,break_on_hyphens=False) for line in p['text'].split('\n')),'```','',f"**Required MCPs:** {linklabel(p)}",*( ['','**Edition:** '+edition_requirement(p)] if edition_requirement(p) else []),'']
     lines+=['## Maintaining this library','','Edit `catalog/prompts.json`, then run `python tools/build.py`. The README, PDF, and website are generated from that one file. `python tools/build.py --check` verifies that generated copies match. See [maintenance notes](MAINTAINING.md).','','MIT licensed. Built by James Jenrette. Independently developed and not affiliated with or endorsed by any federal agency.','']
     return '\n'.join(lines)
 class Doc(BaseDocTemplate):
@@ -126,7 +126,7 @@ def build_pdf(dest):
         for prompt_index,p in enumerate(ps):
             label=' + '.join(f'<link href="{SERVERS[x]["url"]}" color="#008766">{ESC(SERVERS[x]["name"])}</link>' for x in source_ids(p))
             label_heading='Required MCPs'
-            if p.get('requires_supplied_records'):label='Official SAM.gov/SBA records supplied by you';label_heading='Required records'
+            if edition_requirement(p):label+=' · '+edition_requirement(p)
             block=[Paragraph(ESC(p['title']),styles['title']),Paragraph(ESC(p['text']).replace('\n','<br/>'),styles['prompt']),Paragraph('<b>'+label_heading+':</b> '+label,styles['label'])]
             t=Table([[block]],colWidths=[508]);t.setStyle(TableStyle([('LINEBEFORE',(0,0),(0,0),1.3,LINE),('LEFTPADDING',(0,0),(-1,-1),12),('RIGHTPADDING',(0,0),(-1,-1),4),('TOPPADDING',(0,0),(-1,-1),2),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story += [KeepTogether((section_start if prompt_index==0 else [])+[t,Spacer(1,11)])]
     doc=Doc(str(dest),pagesize=(612,792),leftMargin=52,rightMargin=52,topMargin=55,bottomMargin=59,title=DATA['title'],author='James Jenrette / 1102tools',subject=DATA['edition']+' MCP prompt guide',allowSplitting=1)
@@ -142,11 +142,10 @@ def website(out,pdf,pages):
         cards=[]
         for p in DATA['prompts']:
             if p['category']!=sec['id']:continue
-            requirements_label='Required records' if p.get('requires_supplied_records') else 'Required MCPs'
+            requirements_label='Required MCPs'
             chips=''.join(f'<span class="source-chip">{ESC(SERVERS[x]["name"])}</span>' for x in source_ids(p))
             required=''.join(f'<a class="source-chip" href="#mcp-{x}" aria-label="{ESC(SERVERS[x]["name"])} MCP setup">{ESC(SERVERS[x]["name"])}</a>' for x in source_ids(p))
-            if p.get('requires_supplied_records'):required='<span class="source-chip">Official SAM.gov/SBA records</span>'
-            input_note='Supply the official records described below. Hosted SAM.gov cannot retrieve registration, exclusion or certification records.' if p.get('requires_supplied_records') else f'Install and connect {"both MCPs" if len(p["mcps"]) == 2 else "this MCP"} in your AI client before running this prompt. Select a source above for setup.'
+            input_note=(edition_requirement(p)+' ' if edition_requirement(p) else '')+f'Install and connect {"both MCPs" if len(p["mcps"]) == 2 else "this MCP"} in your AI client before running this prompt. Select a source above for setup.'
             cards.append(f'<details class="prompt-card" id="{p["id"]}" data-task="{sec["id"]}" data-sources="{" ".join(source_ids(p))}"><summary><span class="prompt-name">{ESC(p["title"])}</span><span class="chips">{chips}</span></summary><div class="prompt-body"><div class="prompt-requirements"><div class="requirements-heading"><span class="requirements-label">{requirements_label}</span><span class="required-links">{required}</span></div><p>{input_note}</p></div><p class="prompt-text">{ESC(p["text"])}</p><div class="copy-row"><button class="copy-button" type="button" aria-label="Copy prompt: {ESC(p["title"],quote=True)}">Copy prompt</button><span class="prompt-code">{p["id"].upper()}</span></div></div></details>')
         groups.append(f'<section class="prompt-group" id="{sec["id"]}"><div class="group-heading"><span>{n:02}</span><h3>{ESC(sec["title"])}</h3></div><div class="prompt-grid">'+''.join(cards)+'</div></section>')
     cards=[]
@@ -172,7 +171,7 @@ def website(out,pdf,pages):
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
-        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":f"{PROMPT_COUNT} prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":("Required records: " if p.get("requires_supplied_records") else "Required MCPs: ")+names(p)+". "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
+        {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":f"{PROMPT_COUNT} prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":requirement_text(p)+" "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
 
     published=[SERVERS[x] for x in SOURCE_ORDER if listed(SERVERS[x])]
     by_directory=[(label,[server['name'] for server in published if server['directories'][key]]) for key,label in DIRECTORIES]
@@ -406,21 +405,22 @@ def compare_page(out,css_version):
     assert '{{' not in page
     (out/'compare.html').write_text(page)
 
-def build(out, include_readme=False):
+def build(out):
     out.mkdir(parents=True,exist_ok=True)
-    if include_readme:(out/'readme.md').write_text(readme())
+    (out/'readme.md').write_text(readme())
     pdf=out/'docs/1102tools-mcp-prompt-guide.pdf';pages=build_pdf(pdf)
     website(out/'site',pdf,pages)
     return pages
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--include-readme',action='store_true',help='Explicitly regenerate the repository README');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
     ids=[p['id'] for p in DATA['prompts']];assert len(ids)==len(set(ids)) and ids
     for p in DATA['prompts']:
         assert source_ids(p) and all(x in SERVERS for x in source_ids(p))
-        assert p['mcps'] or p.get('requires_supplied_records')
+        assert p['mcps']
+        assert not p.get('requires_local_full_sam') or 'sam' in p['mcps']
     with tempfile.TemporaryDirectory() as tmp:
-        tmp=Path(tmp);pages=build(tmp, include_readme=args.include_readme)
+        tmp=Path(tmp);pages=build(tmp)
         files=[p for p in tmp.rglob('*') if p.is_file()]
         if args.check:
             bad=[str(p.relative_to(tmp)) for p in files if not (ROOT/p.relative_to(tmp)).exists() or p.read_bytes()!=(ROOT/p.relative_to(tmp)).read_bytes()]

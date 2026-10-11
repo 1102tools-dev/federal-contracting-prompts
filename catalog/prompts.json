@@ -237,31 +237,37 @@
       "id": "p01",
       "title": "Size up a competitor",
       "category": "combination-plays",
-      "text": "Size up [COMPANY] using USAspending contract actions dated in the last 24 months. Resolve and report recipient name and UEI, paginate all transaction pages, and distinguish new awards, modifications, net obligations, and cumulative award value. Rank awarding agencies by in-window net obligations, noting reporting lags. Use award details to describe their main work and recorded performance ends. Finish with two evidence-based sentences on strengths and exposure. List registration status, socioeconomic certification dates, and exclusions as external SAM.gov Entity Information checks unless those records are supplied; do not infer them from award set-asides.",
+      "text": "Size up [COMPANY]: use USAspending to show contract obligations over the last 24 months, top agencies, and main work. Confirm the company's name and UEI. With the full SAM.gov server, add registration status, certifications, and exclusions; otherwise list those as checks to do on SAM.gov. Finish with two sentences on strengths and exposure.",
       "mcps": [
+        "sam",
         "usa"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p02",
-      "title": "Award-end leads and supplied SBA exit dates",
+      "title": "The graduation window",
       "category": "combination-plays",
-      "text": "Find a bounded sample of [N] recipients with 8(a) set-aside contract awards under NAICS [NAICS] in USAspending. Report recipient name and UEI, award set-aside field, award ID, and recorded current and potential performance end dates. Highlight ends within the next 12 months as research leads. If I supply authoritative SBA program exit dates, flag exits within 18 months that overlap those award-end leads; otherwise leave certification dates unresolved. Never infer current 8(a) status or graduation from historical awards, and do not label an award end a confirmed recompete.",
+      "text": "Find firms with 8(a) set-aside awards under NAICS [NAICS] in USAspending. Check each selected recipient's SBA certification dates in SAM.gov and the end dates of its relevant awards. Flag documented program exit dates within 18 months that overlap with contract end dates within 12 months. Show the dates and source records. Treat missing certification data as unresolved, not proof of graduation; treat an approaching award end as a research lead, not a confirmed recompete.\nIf SBA exit dates aren't available from the connected SAM.gov server, list the award-end leads and mark the 8(a) exit date as a check to do on SAM.gov.",
       "mcps": [
+        "sam",
         "usa"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p03",
       "title": "Vet a teammate",
       "category": "combination-plays",
-      "text": "Assess [COMPANY]'s federal prime-contract experience at [AGENCY] using USAspending. Resolve recipient name and UEI, retrieve and paginate agency-specific contract records, and show award IDs, scope, obligations, and performance dates. Summarize a clearly bounded wider award-history sample and disclose remaining pages. Distinguish past experience from performance quality and capacity. List current registration expiration and exclusions as separate external SAM.gov Entity Information checks unless I provide those records.",
+      "text": "Vet [COMPANY] as a teammate: check exclusions and registration expiration with the full SAM.gov server, then use USAspending to show whether they have primed work for [AGENCY], including purchases funded there but awarded elsewhere. List other recent federal work. If only Hosted SAM.gov is connected, flag the missing entity checks.",
       "mcps": [
+        "sam",
         "usa"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p04",
@@ -289,7 +295,7 @@
       "id": "p06",
       "title": "What federal IT work is coming that isn't out for bid yet?",
       "category": "catching-opportunities",
-      "text": "Using SAM.gov, count current latest-version Sources Sought and Presolicitation notices under NAICS prefix 5415 by agency. Include only notices with a stated response deadline that has not passed, and state the snapshot date and coverage. List strategic candidates with deadline and time zone, title, agency, stated set-aside and SAM.gov link. Read the descriptions of five candidates and explain why a small IT company might respond. Rank by disclosed value only where available; otherwise label the ranking a scope-based judgment. Flag sole-source intent, ongoing competitions, missing budgets and attachments instead of assuming every notice represents a future open competition.",
+      "text": "Using the SAM.gov tool, show me federal IT work that's coming but not out for bid yet:\n- NAICS starting with 5415 (all computer and IT services)\n- Only Sources Sought and Presolicitation notices\n- Still open for responses\n\nFirst, count them by agency so I can see who's planning the most IT buying.\nThen list the most interesting ones in a table with response due date, title, agency, set-aside (if any), and sam.gov link.\nPick the 5 biggest or most strategic opportunities and say in one line each why a company should respond now.\nKeep notices with no stated deadline; flag sole-source intent, and only call an opportunity big when its notice states a value.",
       "mcps": [
         "sam"
       ],
@@ -359,7 +365,7 @@
       "id": "p13",
       "title": "Their last 12 months",
       "category": "competitor-intelligence",
-      "text": "Using the confirmed recipient UEI for [COMPANY], retrieve dated contract transactions from [START DATE] through [END DATE]. Page within a stated scope, deduplicate awards, and retrieve each award's agency, NAICS, current performance end date, cumulative obligations, and in-window net obligations. Sort by the specified amount measure. State coverage and reporting lags; label any incomplete pull as a sample.",
+      "text": "Pull [COMPANY]'s federal contract activity over the last 12 months. For each award, show award ID, agency, NAICS, performance end date, obligations added minus removals during that window, and cumulative award obligations separately. Sort by obligations added minus removals in the window, largest first. Add \"in NAICS [NAICS] only\" if I want one code.",
       "mcps": [
         "usa"
       ],
@@ -406,40 +412,48 @@
       "in_pdf": true
     },
     {
-      "id": "p20",
-      "title": "Review a supplied registration record",
+      "id": "p18",
+      "title": "Exclusion check",
       "category": "vetting-and-teaming",
-      "text": "Review the official SAM registration extract or search result I provide for [COMPANY]. List each matching legal name, UEI, CAGE code, address and status before selecting an identity. Report the selected record's registration status, expiration, primary NAICS and socioeconomic fields with source date. If no official record is available, state that the hosted opportunity service cannot perform this lookup and give the exact SAM search steps.",
-      "mcps": [],
-      "in_pdf": true,
-      "requires_supplied_records": true,
-      "record_sources": [
+      "text": "Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell me whether any are currently active and what they are for.",
+      "mcps": [
         "sam"
-      ]
+      ],
+      "in_pdf": true,
+      "requires_local_full_sam": true
+    },
+    {
+      "id": "p20",
+      "title": "Registration status at a glance",
+      "category": "vetting-and-teaming",
+      "text": "Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does it expire, what is its primary NAICS, and what socioeconomic categories does it hold? If more than 1 active registration exists, say how many and name the UEI you picked before answering.\nDo not infer corporate ownership from a shared address alone.",
+      "mcps": [
+        "sam"
+      ],
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p21",
-      "title": "Read supplied SBA certification evidence",
+      "title": "SBA certification dates",
       "category": "vetting-and-teaming",
-      "text": "From the official SAM entity record or SBA certification result I provide for [COMPANY / UEI], extract each reported program, status, entry date and exit date using source labels. Show retrieval date and missing fields. If the hosted tools cannot retrieve those records, say so and identify the official source needed. Do not infer present eligibility from an empty list or historical award.",
-      "mcps": [],
-      "in_pdf": true,
-      "requires_supplied_records": true,
-      "record_sources": [
+      "text": "Retrieve [COMPANY]'s SBA certification fields from its SAM.gov entity record. Report each listed program, status, entry date, and exit date using the source's own labels. Distinguish a documented date from an inferred current status. An empty certification list or a historical set-aside award does not by itself prove present eligibility, graduation, or ineligibility.",
+      "mcps": [
         "sam"
-      ]
+      ],
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p22",
-      "title": "Review registration, exclusion and integrity evidence",
+      "title": "Registration, exclusion, and integrity evidence",
       "category": "vetting-and-teaming",
-      "text": "For [UEI], assemble a registration, exclusion and Responsibility/Qualification evidence table from available official SAM records or records I supply. Identify source, retrieval date, entity match and access restrictions for each. State explicitly when the hosted opportunity-only connector cannot retrieve a component, and preserve an unresolved gap rather than a no-record conclusion. Do not make a responsibility determination.",
-      "mcps": [],
-      "in_pdf": true,
-      "requires_supplied_records": true,
-      "record_sources": [
+      "text": "For [UEI], retrieve the current SAM.gov registration status and exclusions, then request the separately available entity integrity information. Report the source, retrieval date, entity match, and any access restrictions or missing records. Present the evidence and unresolved gaps without making a responsibility determination.",
+      "mcps": [
         "sam"
-      ]
+      ],
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p23",
@@ -453,15 +467,14 @@
     },
     {
       "id": "p24",
-      "title": "Review a supplied teaming shortlist",
+      "title": "Build a teaming shortlist",
       "category": "vetting-and-teaming",
-      "text": "From the official SAM entity-search export and SBA certification evidence I supply, build a shortlist of active registrants in [STATE] with [NAICS] anywhere on their records and [SOCIOECONOMIC STATUS]. Report extract date, total source matches, rows supplied, UEI deduplication, relevant NAICS, registration expiration and certification status/dates. Identify missing coverage. If those sources are unavailable, state that the hosted opportunity service cannot perform registry market research.",
-      "mcps": [],
-      "in_pdf": true,
-      "requires_supplied_records": true,
-      "record_sources": [
+      "text": "Build a teaming shortlist from active SAM.gov registrants in [STATE] with NAICS [NAICS] anywhere on their records and [SOCIOECONOMIC STATUS]. Use the server's appropriate business-type or SBA-certification filter. Report the total count and returned page size, paginate within the agreed scope, and deduplicate by UEI. Show each firm's name, UEI, relevant NAICS, registration expiration, and returned certification status and dates. Flag missing evidence and explain search coverage.",
+      "mcps": [
         "sam"
-      ]
+      ],
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p25",
@@ -517,7 +530,7 @@
       "id": "p30",
       "title": "Find your NAICS",
       "category": "speaking-the-governments-codes",
-      "text": "What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and the closest alternates so I do not file under the wrong one.",
+      "text": "What NAICS code covers [BUSINESS ACTIVITY]? Give me the code and the closest alternates so I do not file under the wrong one.",
       "mcps": [
         "usa"
       ],
@@ -537,7 +550,7 @@
       "id": "p32",
       "title": "Find your PSC",
       "category": "speaking-the-governments-codes",
-      "text": "Find PSC codes matching [SERVICE AND DELIVERY MODEL]. Return the exact reference descriptions and explain which best match the scope. Use available PSC reference tools, then check the official PSC manual for any active or end-dated status the tool does not expose. Separate codes useful for current opportunity searches from legacy codes useful for historical awards. If status cannot be verified, state that gap.",
+      "text": "Find PSC codes for [SERVICE AND DELIVERY MODEL], with official names. Check current or retired status in the official PSC manual; mark unverified status unknown. Separate codes for current opportunities from legacy codes for award history.",
       "mcps": [
         "usa"
       ],
@@ -557,7 +570,7 @@
       "id": "p34",
       "title": "Codes to opportunities, one chain",
       "category": "speaking-the-governments-codes",
-      "text": "Find the PSC code for [PLAIN-ENGLISH SERVICE], then search SAM.gov opportunities under that exact code with a response deadline still open. Codes first, opportunities second, one chain.",
+      "text": "Find the PSC code for [SERVICE], then search SAM.gov opportunities under that exact code with a response deadline still open. Codes first, opportunities second, one chain.",
       "mcps": [
         "sam",
         "usa"
@@ -769,7 +782,7 @@
       "id": "p55",
       "title": "Read organizational comments in a docket",
       "category": "regulationsgov",
-      "text": "For docket [DOCKET ID], search posted Regulations.gov comments separately for association, chamber, coalition, and institute. Deduplicate the matches, retrieve comment details and attachment references, and identify organizations from public metadata or signed submissions. Summarize positions only from readable full comment text or attachments, with citations; if attachments cannot be read, report that limitation and avoid inferring a full position from snippets. Distinguish self-reported names from independently verified affiliations, explain the selection method, and do not treat this keyword sample as all received comments, lobbying evidence, or a measure of consensus.",
+      "text": "For docket [DOCKET ID], find organizational comments using terms such as association, chamber, coalition, or institute. Group them by the document commented on. Read full comment text or attachments before summarizing positions, and cite each source. If attachments are unreadable, say so rather than infer positions from snippets. Explain the keyword selection; it is not all comments or a measure of consensus.",
       "mcps": [
         "regs"
       ],

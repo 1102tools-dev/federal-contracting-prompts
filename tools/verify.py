@@ -2,24 +2,24 @@
 """Verify publication parity, link scope, and retired-content removal."""
 from pathlib import Path
 from html.parser import HTMLParser
-import argparse,json,re
+import json,re
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parents[1]
 data=json.loads((ROOT/'catalog/prompts.json').read_text())
-parser=argparse.ArgumentParser();parser.add_argument('--include-readme',action='store_true');args=parser.parse_args()
 class Page(HTMLParser):
- def __init__(self):super().__init__();self.current=None;self.in_text=False;self.prompts={};self.ids=[];self.links=[];self.texts=[]
+ def __init__(self):super().__init__();self.current=None;self.in_text=False;self.card_texts={};self.prompts={};self.ids=[];self.links=[];self.texts=[]
  def handle_starttag(self,t,a):
   a=dict(a)
   if a.get('id'):self.ids.append(a['id'])
   if t=='a':self.links.append(a.get('href',''))
-  if t=='details' and 'prompt-card' in (a.get('class') or ''):self.current=a.get('id');self.prompts[self.current]=''
+  if t=='details' and 'prompt-card' in (a.get('class') or ''):self.current=a.get('id');self.prompts[self.current]='';self.card_texts[self.current]=''
   if t=='p' and a.get('class')=='prompt-text':self.in_text=True
  def handle_endtag(self,t):
   if t=='p':self.in_text=False
   if t=='details':self.current=None
  def handle_data(self,s):
   self.texts.append(s)
+  if self.current:self.card_texts[self.current]+=s
   if self.in_text and self.current:self.prompts[self.current]+=s
 compare=json.loads((ROOT/'catalog/compare.json').read_text())
 APPROVED={'https://github.com/1102tools-dev','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/'}
@@ -27,6 +27,14 @@ page=Page();page.feed((ROOT/'site/index.html').read_text())
 assert len(page.ids)==len(set(page.ids)),'duplicate HTML IDs'
 assert len(page.prompts)==len(data['prompts'])
 for p in data['prompts']:assert page.prompts[p['id']]==p['text'],p['id']
+structured=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>',(ROOT/'site/index.html').read_text(),re.S).group(1))
+items=next(x for x in structured['@graph'] if x['@type']=='CollectionPage')['mainEntity']['itemListElement']
+descriptions={x['item']['url'].split('#')[-1]:x['item']['description'] for x in items}
+for p in data['prompts']:
+ if p.get('requires_local_full_sam'):
+  label='SAM.gov entity checks need the Local full SAM.gov edition.'
+  assert label in page.card_texts[p['id']] and label in descriptions[p['id']],p['id']
+ assert p['text'] in descriptions[p['id']],p['id']
 for link in page.links:
  if link.startswith('#'):assert link[1:] in page.ids,link
  if link.startswith('https://'):assert link in APPROVED or link in {url for s in data['servers'] for url in s.get('directories',{}).values() if url} or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
@@ -40,11 +48,10 @@ for link in compare_page.links:
  if link.startswith('#'):assert link[1:] in compare_page.ids,link
 assert {x['id'] for x in compare['sources']}=={s['id'] for s in data['servers']},'compare page must cover every source'
 normalize=lambda s:re.sub(r'\s+','',s)
-if args.include_readme:
- readme=(ROOT/'readme.md').read_text()
- blocks=re.findall(r'```text\n(.*?)```',readme,re.S)
- assert len(blocks)==len(data['prompts'])
- for p,b in zip(data['prompts'],blocks):assert normalize(p['text'])==normalize(b),p['id']
+readme=(ROOT/'readme.md').read_text()
+blocks=re.findall(r'```text\n(.*?)```',readme,re.S)
+assert len(blocks)==len(data['prompts'])
+for p,b in zip(data['prompts'],blocks):assert normalize(p['text'])==normalize(b),p['id']
 pdf=PdfReader(ROOT/'docs/1102tools-mcp-prompt-guide.pdf')
 text='\n'.join(p.extract_text() for p in pdf.pages)
 for p in data['prompts']:
@@ -56,7 +63,7 @@ for page_ in pdf.pages:
   if action and action.get('/URI'):
    url=str(action['/URI']);assert url == 'https://1102tools.com/#mcps' or url.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),url
 for forbidden in ['universal-setup','agent-setup','federal-contracting-agents','federal-contracting-skills','August 2026','124 TOOLS','every pattern run live','plain English','one click','recommended']:
- assert forbidden.lower() not in (text+'\n'+''.join(page.texts)).lower(),forbidden
+ assert forbidden.lower() not in (text+'\n'+readme+'\n'+''.join(page.texts)+'\n'+''.join(compare_page.texts)).lower(),forbidden
 assert data==json.loads((ROOT/'site/prompts.json').read_text())
 assert (ROOT/'docs/1102tools-mcp-prompt-guide.pdf').read_bytes()==(ROOT/'site/downloads/1102tools-prompt-guide.pdf').read_bytes()
-print(f'PASS: {len(data["prompts"])} web prompts; {sum(p["in_pdf"] for p in data["prompts"])} complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')
+print(f'PASS: {len(data["prompts"])} README/web prompts; {sum(p["in_pdf"] for p in data["prompts"])} complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')

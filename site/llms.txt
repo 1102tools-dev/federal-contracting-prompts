@@ -6,10 +6,10 @@ No federal agency offers an official MCP server for these nine sources (checked 
 
 ## Start here
 
-- [Prompt library](https://1102tools.com/#prompts): 55 prompts organized into 14 task groups.
+- [Prompt library](https://1102tools.com/#prompts): 56 prompts organized into 14 task groups.
 - [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.
 - [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and Claude and ChatGPT directory links.
-- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 55 prompts for the nine sources, organized by task.
+- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 56 prompts for the nine sources, organized by task.
 - [Prompt source repository](https://github.com/1102tools-dev/federal-contracting-prompts): canonical catalog and generated website/PDF.
 - [MCP source repository](https://github.com/1102tools-dev/federal-contracting-mcps): server implementations, installation, and testing records.
 
