@@ -52,7 +52,7 @@ nav a[aria-current="page"]{color:var(--green);font-weight:600}
 .runways-head{max-width:760px;margin-bottom:28px}
 .runways-head h2{font-size:36px;line-height:1.15;letter-spacing:-.04em;font-weight:500;margin-bottom:14px}
 .runways-head p:not(.eyebrow){color:var(--muted);font-size:16px;margin:0}
-.runways-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(8,auto);column-gap:18px}
+.runways-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(9,auto);column-gap:18px}
 .runway{grid-row:1/-1;display:grid;grid-template-rows:subgrid;background:#fff;border:1px solid #cfdcd3;border-radius:8px;padding:20px 24px}
 .runway-top{display:flex;align-items:baseline;gap:12px;padding-bottom:10px}
 .runway-top h3{font-size:24px;font-weight:500;letter-spacing:-.03em;margin:0}
