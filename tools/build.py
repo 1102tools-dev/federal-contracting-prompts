@@ -28,7 +28,7 @@ LOCAL_VS_HOSTED=(
     ('Setup','Ask your AI to set it up from the setup guide. Free keys for SAM.gov, Regulations.gov, and some Per Diem lookups','Install from the Claude or ChatGPT directory. No keys'),
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
     ('Relies on','Government sources','Government sources and Cloudflare'),
-    ('Updates','Manual. You keep the version, and its BLS and Per Diem data, until you ask your AI to update it','Automatic. Always runs the latest release'),
+    ('Updates','Manual. Local installs don't update themselves. Ask your AI to update them','Automatic. Always runs the latest release'),
     ('SAM.gov','Full edition: 20 tools, free key','4 tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
