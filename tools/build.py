@@ -35,19 +35,17 @@ COMPARE=json.loads((ROOT/'catalog/compare.json').read_text())
 MONTHS=('January','February','March','April','May','June','July','August','September','October','November','December')
 def month_year(iso):y,m,_=iso.split('-');return MONTHS[int(m)-1]+' '+y
 def number_word(n):return ('Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten')[n] if n<=10 else str(n)
-def rounds_label(s):return f'{s["proof"]["audit_rounds"]} audit rounds' if s['proof']['audit_rounds'] else 'Independent review'
 def proof_list(s,tools=None):
-    pr=s['proof'];rounds=f'<li><strong>{pr["audit_rounds"]}</strong> audit rounds</li>' if pr['audit_rounds'] else '<li><strong>Independent</strong> review</li>'
-    return f'<p class="support-note">Package v{ESC(pr["version"])}</p><ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li><li><strong>{pr["tests"]:,}</strong> collected tests</li>{rounds}</ul>'
+    pr=s['proof']
+    return f'<p class="support-note">Package v{ESC(pr["version"])}</p><ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li></ul>'
 def stats():
     servers=DATA['servers']
-    return {'servers':len(servers),'tools':sum(s['proof']['tools'] for s in servers),'tests':sum(s['proof']['tests'] for s in servers),
-        'max_rounds':max(s['proof']['audit_rounds'] or 0 for s in servers),
+    return {'servers':len(servers),'tools':sum(s['proof']['tools'] for s in servers),
         'directory':{label:[s['name'] for s in servers if s.get('directories',{}).get(key)] for key,label in DIRECTORIES}}
 def hero_proof():
     st=stats();listed_in=[label for label,found in st['directory'].items() if found]
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
-        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>{st["tests"]:,}</strong><span>collected tests</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
+        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
         '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in p['mcps'])
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in p['mcps'])
@@ -158,8 +156,7 @@ def website(out,pdf,pages):
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
-                f'<p>Package v{ESC(s["proof"]["version"])}. <strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>'
-                f'<ul class="card-proof"><li><strong>{s["proof"]["tests"]:,}</strong> collected tests</li><li><strong>{s["proof"]["audit_rounds"]}</strong> audit rounds</li></ul></details>')
+                f'<p>Package v{ESC(s["proof"]["version"])}. <strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>''</details>')
             cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Source code ↗</a></article>')
         else:
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Source code ↗</a></article>')
@@ -187,7 +184,7 @@ def website(out,pdf,pages):
 
     st=stats()
     replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'HERO_PROOF':hero_proof(),
-        'TOTAL_TESTS':f"{st['tests']:,}",'MAX_ROUNDS':number_word(st['max_rounds']).lower(),'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
+        'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
         'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
         'RELEASE_VALIDATION':ESC(DATA.get('release_validation',{}).get('summary','')),
@@ -226,7 +223,7 @@ def website(out,pdf,pages):
         'No affiliation with or endorsement by a federal agency is claimed.','',
         '## Why 1102tools','',
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
-        f"- Tested: {st['tests']:,} collected regression tests, including live-API tests, across {st['servers']} servers ({st['tools']} tools), with up to {st['max_rounds']} documented audit rounds per server. Collected totals include optional live tests; dated records distinguish offline regressions, live source checks, and source-file comparisons.",
+        f"- Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the {st['servers']} servers went through seven rounds of content checks with real contracting questions.",
         "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city lookups without a county or years before FY2021.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
@@ -239,9 +236,9 @@ def website(out,pdf,pages):
             he=server['hosted_edition'];pending=[label for key,label in DIRECTORIES if not server['directories'][key]]
             llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source, in two editions.')
             llms.append(f"  Directory edition (hosted, no key): {he['tools']} tools for {he['summary']}, built from {he['source']}. Install: "+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server))+('. Coming soon to the '+series(pending)+(' directories.' if len(pending)>1 else ' directory.') if pending else '.'))
-            llms.append(f"  Full local edition (free SAM.gov key): {server['proof']['tools']} tools, {server['proof']['tests']:,} collected regression tests, {rounds_label(server).lower()}. Adds {server['full_edition_adds']}. It is not in the directories; install it locally.")
+            llms.append(f"  Full local edition (free SAM.gov key): {server['proof']['tools']} tools. Adds {server['full_edition_adds']}. It is not in the directories; install it locally.")
             continue
-        llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools, '+f"{server['proof']['tests']:,}"+' collected regression tests, '+rounds_label(server).lower()+'.')
+        llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools.')
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
         pending=[label for key,label in DIRECTORIES if key in server.get('directories',{}) and not server['directories'][key]]
         if pending and not server.get('hosted_edition'):llms.append('  Coming soon to the '+series(pending)+(' directories' if len(pending)>1 else ' directory')+', with no user API key.')
@@ -379,11 +376,11 @@ def compare_page(out,css_version):
         s=SERVERS[row['id']];pr=s['proof']
         listed_in=', '.join(label for label,_ in listed(s))
         where=dir_chips({key:bool(s.get('directories',{}).get(key)) for key,_ in DIRECTORIES}) if listed_in or row['id'] in ('sam','bls') else '<span>Local install</span>'
-        ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">{pr["tests"]:,} collected tests</a> · {ESC(rounds_label(s).lower())}</span>{where}'
+        ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">Source and testing records</a></span>{where}'
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             ours=(f'<strong>{he["tools"]} tools in the directories</strong><span>Hosted edition, no key: contract opportunities, award notices, and justifications</span>{where}'
-                f'<strong>{pr["tools"]} tools installed locally</strong><span>Full edition with a free SAM.gov key · <a href="{s["url"]}">{pr["tests"]:,} collected tests</a> · {ESC(rounds_label(s).lower())}</span>')
+                f'<strong>{pr["tools"]} tools installed locally</strong><span>Full edition with a free SAM.gov key · <a href="{s["url"]}">Source and testing records</a></span>')
         alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>{dir_chips(row.get("alt_directories",{}))}' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
         rows.append(('<tr class="more">' if i>source_cut else '<tr>')+f'<th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
     alts=[r for r in COMPARE['sources'] if r['alt']]
