@@ -29,9 +29,9 @@ All nine are in the Claude directory and six in ChatGPT as hosted installs. The 
 | BLS OEWS | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) | [Install](https://claude.ai/directory/bls-oews-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e) |
 | GSA Per Diem | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp#installation) (free key only for city lookups without a county or years before FY2021) | [Install](https://claude.ai/directory/gsa-perdiem-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9) |
 | eCFR | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp#installation) | [Install](https://claude.ai/directory/ecfr-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34) |
-| Acquisition.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) | [Install](https://claude.ai/directory/acquisition-gov-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333) |
 | Federal Register | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp#installation) | [Install](https://claude.ai/directory/federal-register-by-1102tools) | Coming soon |
 | Regulations.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp#installation) (free key) | [Install](https://claude.ai/directory/regulations-gov-by-1102tools) | Coming soon |
+| Acquisition.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp#install) | [Install](https://claude.ai/directory/acquisition-gov-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333) |
 
 | | Local | Hosted |
 |---|---|---|
@@ -78,9 +78,9 @@ A prompt does not install an MCP. Connect every source listed under **Required M
 | [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year from the Bureau of Labor Statistics. | No user API key |
 | [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp) | Lodging and meals-and-incidental-expense rates by locality. | Local: free key only for city lookups without a county or years before FY2021. Hosted: no key |
 | [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp) | Codified regulatory text, dates, and version comparisons. | No user API key |
-| [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp) | FAR Overhaul model text, posted agency deviations, and guidance. | No user API key |
 | [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp) | Published rules, notices, comment periods, and FAR cases. | No user API key |
 | [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp) | Rulemaking dockets, documents, and public comments. | Local: free key. Hosted: no key |
+| [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp) | FAR Overhaul model text, posted agency deviations, and guidance. | No user API key |
 
 The individual server READMEs contain installation instructions, configuration examples, access requirements, and testing records. A prompt does not install an MCP.
 
