@@ -25,7 +25,7 @@
       "proof": {
         "tools": 20,
         "tests": 1158,
-        "audit_rounds": 15,
+        "audit_rounds": 16,
         "version": "1.0.14"
       },
       "card_access": "No user API key"
@@ -44,7 +44,7 @@
       "proof": {
         "tools": 55,
         "tests": 2322,
-        "audit_rounds": 18,
+        "audit_rounds": 19,
         "version": "1.0.23"
       }
     },
@@ -62,7 +62,7 @@
       "proof": {
         "tools": 8,
         "tests": 443,
-        "audit_rounds": 12,
+        "audit_rounds": 13,
         "version": "1.0.17"
       }
     },
@@ -81,7 +81,7 @@
       "proof": {
         "tools": 8,
         "tests": 298,
-        "audit_rounds": 14,
+        "audit_rounds": 15,
         "version": "1.1.4"
       }
     },
@@ -100,7 +100,7 @@
       "proof": {
         "tools": 7,
         "tests": 588,
-        "audit_rounds": 15,
+        "audit_rounds": 16,
         "version": "1.2.5"
       }
     },
@@ -118,7 +118,7 @@
       "proof": {
         "tools": 13,
         "tests": 464,
-        "audit_rounds": 13,
+        "audit_rounds": 14,
         "version": "1.1.8"
       }
     },
@@ -136,7 +136,7 @@
       "proof": {
         "tools": 8,
         "tests": 295,
-        "audit_rounds": 14,
+        "audit_rounds": 15,
         "version": "1.0.16"
       }
     },
@@ -155,7 +155,7 @@
       "proof": {
         "tools": 9,
         "tests": 298,
-        "audit_rounds": 13,
+        "audit_rounds": 14,
         "version": "2.0.6"
       }
     },
