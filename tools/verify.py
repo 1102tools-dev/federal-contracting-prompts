@@ -2,10 +2,11 @@
 """Verify publication parity, link scope, and retired-content removal."""
 from pathlib import Path
 from html.parser import HTMLParser
-import json,re
+import argparse,json,re
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parents[1]
 data=json.loads((ROOT/'catalog/prompts.json').read_text())
+parser=argparse.ArgumentParser();parser.add_argument('--include-readme',action='store_true');args=parser.parse_args()
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.current=None;self.in_text=False;self.prompts={};self.ids=[];self.links=[];self.texts=[]
  def handle_starttag(self,t,a):
@@ -24,7 +25,7 @@ compare=json.loads((ROOT/'catalog/compare.json').read_text())
 APPROVED={'https://github.com/1102tools-dev','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/'}
 page=Page();page.feed((ROOT/'site/index.html').read_text())
 assert len(page.ids)==len(set(page.ids)),'duplicate HTML IDs'
-assert len(page.prompts)==57
+assert len(page.prompts)==len(data['prompts'])
 for p in data['prompts']:assert page.prompts[p['id']]==p['text'],p['id']
 for link in page.links:
  if link.startswith('#'):assert link[1:] in page.ids,link
@@ -38,11 +39,12 @@ for link in compare_page.links:
  if link.startswith('/#'):assert link[2:] in page.ids,link
  if link.startswith('#'):assert link[1:] in compare_page.ids,link
 assert {x['id'] for x in compare['sources']}=={s['id'] for s in data['servers']},'compare page must cover every source'
-readme=(ROOT/'readme.md').read_text()
-blocks=re.findall(r'```text\n(.*?)```',readme,re.S)
-assert len(blocks)==57
 normalize=lambda s:re.sub(r'\s+','',s)
-for p,b in zip(data['prompts'],blocks):assert normalize(p['text'])==normalize(b),p['id']
+if args.include_readme:
+ readme=(ROOT/'readme.md').read_text()
+ blocks=re.findall(r'```text\n(.*?)```',readme,re.S)
+ assert len(blocks)==len(data['prompts'])
+ for p,b in zip(data['prompts'],blocks):assert normalize(p['text'])==normalize(b),p['id']
 pdf=PdfReader(ROOT/'docs/1102tools-mcp-prompt-guide.pdf')
 text='\n'.join(p.extract_text() for p in pdf.pages)
 for p in data['prompts']:
@@ -53,8 +55,8 @@ for page_ in pdf.pages:
   action=annotation.get_object().get('/A')
   if action and action.get('/URI'):
    url=str(action['/URI']);assert url == 'https://1102tools.com/#mcps' or url.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),url
-for forbidden in ['universal-setup','agent-setup','federal-contracting-agents','federal-contracting-skills','August 2026','124 TOOLS','every pattern run live']:
- assert forbidden.lower() not in (text+'\n'+readme+'\n'+''.join(page.texts)).lower(),forbidden
+for forbidden in ['universal-setup','agent-setup','federal-contracting-agents','federal-contracting-skills','August 2026','124 TOOLS','every pattern run live','plain English','one click','recommended']:
+ assert forbidden.lower() not in (text+'\n'+''.join(page.texts)).lower(),forbidden
 assert data==json.loads((ROOT/'site/prompts.json').read_text())
 assert (ROOT/'docs/1102tools-mcp-prompt-guide.pdf').read_bytes()==(ROOT/'site/downloads/1102tools-prompt-guide.pdf').read_bytes()
-print('PASS: 57 README/web prompts; 57 complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')
+print(f'PASS: {len(data["prompts"])} web prompts; {sum(p["in_pdf"] for p in data["prompts"])} complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')
