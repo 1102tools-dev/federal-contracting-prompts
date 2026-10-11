@@ -25,7 +25,7 @@ DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 LOCAL_VS_HOSTED=(
     ('Why use it','Your own full rate limits, so you skip any congestion on hosted','Always up to date. No keys, and it works in Claude or ChatGPT anywhere'),
     ('Works in','Claude or ChatGPT desktop apps and other AI apps, on a desktop or laptop','Claude or ChatGPT on web, desktop, and phone'),
-    ('Setup','Ask your AI to set it up from the setup guide. Free keys for SAM.gov, Regulations.gov, and some Per Diem lookups','Install from the Claude or ChatGPT directory. No keys'),
+    ('Setup','Ask your AI to set it up from the setup guide. Free keys for SAM.gov, Regulations.gov, and GSA Per Diem','Install from the Claude or ChatGPT directory. No keys'),
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
     ('Relies on','Government sources','Government sources and Cloudflare'),
     ('Updates',"Manual. Local installs don't update themselves. Ask your AI to update them",'Automatic. Always runs the latest release'),
