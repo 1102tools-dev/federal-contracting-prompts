@@ -19,7 +19,7 @@
         "tools": 6,
         "summary": "searching and reading contract opportunities, award notices, and justifications; looking up public entity registrations by UEI or CAGE and searching by name, NAICS, state, business/SBA certification codes, and active status; checking exclusions by UEI, CAGE, or name",
         "source": "SAM.gov's public files: opportunities checked daily, exclusions checked every four hours with an extra check after usual daily publication, and monthly entity registrations checked alongside exclusions; unchanged files write no rows. Answers report source file names and dates, and entities that opted out of public display are not included in the hosted public mirror",
-        "version": "1.1.4"
+        "version": "1.1.5"
       },
       "full_edition_adds": "live API registration and exclusion lookups, detailed SBA certification dates, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards",
       "proof": {
