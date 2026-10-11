@@ -195,9 +195,9 @@ def website(out,pdf,pages):
     replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'PROMPT_COUNT':str(PROMPT_COUNT),'HERO_PROOF':hero_proof(),
         'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
-        'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
-        'RELEASE_VALIDATION':ESC(DATA.get('release_validation',{}).get('summary','')),
-        'PROOF_MONTH':(lambda m,y:m[:3]+' '+y)(*month_year(DATA['proof_as_of']).split())}
+        'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found)
+            +''.join(f" The rest are planned for {label}." for label,found in st['directory'].items() if found and len(found)<st['servers']),
+        'RELEASE_VALIDATION':ESC(DATA.get('release_validation',{}).get('summary',''))}
     template=(ROOT/'templates/index.html').read_text()
     for k,v in replacements.items():template=template.replace('{{'+k+'}}',v)
     assert '{{' not in template
