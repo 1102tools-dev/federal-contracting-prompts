@@ -40,7 +40,7 @@ All nine are in the Claude directory and six in ChatGPT as hosted installs. The 
 | **Setup** | Ask your AI to set it up from the setup guide. Free keys for SAM.gov, Regulations.gov, and some Per Diem lookups | Install from the Claude or ChatGPT directory. No keys |
 | **Rate limits** | Your own, in full | Pooled across all users. Your lookups stay private |
 | **Relies on** | Government sources | Government sources and Cloudflare |
-| **Updates** | Manual. You keep the version, and its BLS and Per Diem data, until you ask your AI to update it | Automatic. Always runs the latest release |
+| **Updates** | Manual. Local installs don't update themselves. Ask your AI to update them | Automatic. Always runs the latest release |
 | **SAM.gov** | Full edition: 20 tools, free key | 4 tools, no key |
 
 **Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity search without a key.
