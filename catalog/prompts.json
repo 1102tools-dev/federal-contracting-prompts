@@ -90,13 +90,13 @@
       "name": "GSA Per Diem",
       "slug": "gsa-perdiem-mcp",
       "description": "Lodging and meals-and-incidental-expense rates by locality.",
-      "access": "Local: city-only/API lookups and unbundled years need a key; bundled city+county lookups do not. Hosted: no key",
+      "access": "Local: free key only for city lookups without a county or years before FY2021. Hosted: no key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/gsa-perdiem-by-1102tools",
         "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9"
       },
-      "card_access": "Local: key for city-only/API lookups or unbundled years. Hosted: no key",
+      "card_access": "Local: free key only for city lookups without a county or years before FY2021. Hosted: no key",
       "proof": {
         "tools": 7,
         "tests": 588,
