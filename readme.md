@@ -195,13 +195,11 @@ opportunity big when its notice states a value.
 ### Open solicitations, deadline first
 
 ```text
-Search current SAM.gov Solicitation and Combined Synopsis/Solicitation notices under
-NAICS [NAICS], with stated response deadlines from today through [N] days from
-today. Use the current tool filters, page until all matches are fetched, merge and
-deduplicate by notice ID, and sort by deadline. Show title, agency, deadline with
-time zone, stated set-aside and SAM.gov link. Exclude deadlines already passed even
-if active; identify the snapshot date, active-file coverage, missing fields and
-attachment limits.
+Find current SAM.gov Solicitation and Combined Synopsis/Solicitation notices for
+NAICS [NAICS] due between today and [N] days from now. Fetch all matches, remove
+duplicate notice IDs, and sort by deadline. Show title, agency, deadline and time
+zone, set-aside, and SAM.gov link. Exclude expired deadlines. Note snapshot date,
+active-file coverage, missing fields, and attachment limits.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
@@ -249,13 +247,11 @@ that no awards occurred or assume every award posts immediately.
 ### One agency's postings
 
 ```text
-Search current SAM.gov opportunity notices under NAICS [NAICS], posted in the last
-90 days, using the agency filter for [AGENCY]. State exactly which department,
-sub-tier and office names the filter matched; command names may not match
-subordinate field offices. Include past deadlines when reviewing all postings,
-identify notice types, and page until all matches are fetched. Show title, agency
-path, posting date, response deadline and SAM.gov link. Report snapshot date and
-active-file coverage, and distinguish fetched records from total matches.
+Find current SAM.gov notices for NAICS [NAICS] posted in the last 90 days by
+[AGENCY]. Show title, agency path, notice type, posting date, response deadline, and
+SAM.gov link, including postings with past deadlines. List the department, sub-tier,
+and office names matched by the agency filter; command names may miss subordinate
+field offices.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)

@@ -1,5 +1,7 @@
 # October 2026
 
+- Shorten p07 and p11 for small-business opportunity research while retaining the agency-filter warning.
+
 - Restore Local full SAM.gov checks, trim reviewed prompts, retain the registration merge, and rebuild the matching 56-prompt README, website and PDF.
 
 - Complete the final federal-contracting content audits across all eight goal servers with no new confirmed P0–P2 defects. Increase each goal server's audit record by one. Retain the accepted package versions and measured 6,121 product / 5,866 goal collected tests; 255 unchanged Acquisition.gov tests remain outside the goal. Collected totals are separate from executed and passing checks, and source/credential/index/attachment limits remain explicit in the linked testing records. The last USAspending documentation and independent review gate remains pending at this source-review stage; this change prepares website publication and does not claim final documentation, website or overall goal closure. Preserve all 57 prompts, 25 protected files, Acquisition.gov's passive card, directory/navigation links and printable assets, and the exact 28-word impersonal audit summary. This is the last content round; no further audit round is started.
