@@ -23,9 +23,9 @@ SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','acq','fr','regs')
 SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','acq','fr','regs')))
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 LOCAL_VS_HOSTED=(
-    ('Why use it','Your own full rate limits, so you skip any congestion on hosted. It uses government-source data, including bundled snapshots','Convenience. One click, no keys, and it works in Claude or ChatGPT anywhere'),
+    ('Why use it','Your own full rate limits, so you skip any congestion on hosted. It uses government-source data, including bundled snapshots','Convenience. No keys, and it works in Claude or ChatGPT anywhere'),
     ('Works in','Claude or ChatGPT desktop apps and other AI apps, on a desktop or laptop','Claude or ChatGPT on web, desktop, and phone'),
-    ('Setup','Ask your AI to set it up or walk you through it, using the setup guide. Free keys for SAM.gov and Regulations.gov; Per Diem city-only/API and unbundled-year lookups also require a key','One click. No keys'),
+    ('Setup','Ask your AI to set it up or walk you through it, using the setup guide. Free keys for SAM.gov and Regulations.gov; Per Diem city-only/API and unbundled-year lookups also require a key','Install from the Claude or ChatGPT directory. No keys'),
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
     ('Relies on','Government-source data, including bundled snapshots','Government-source data, bundled snapshots, and Cloudflare'),
     ('SAM.gov','Full edition: 20 tools, free key','4 tools, no key'))
