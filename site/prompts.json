@@ -16,12 +16,12 @@
       },
       "hosted_edition": {
         "status": "listed",
-        "tools": 4,
-        "summary": "searching and reading contract opportunities, award notices, and justifications, with counts by agency, NAICS, set-aside, and notice type",
-        "source": "SAM.gov's daily public contract opportunities file",
-        "version": "1.0.4"
+        "tools": 6,
+        "summary": "searching and reading contract opportunities, award notices, and justifications; looking up public entity registrations by UEI or CAGE and searching by name, NAICS, state, business/SBA certification codes, and active status; checking exclusions by UEI, CAGE, or name",
+        "source": "SAM.gov's public files: opportunities and exclusions daily, entity registrations monthly; answers report source file names and dates, and entities that opted out of public display are not included in the hosted public mirror",
+        "version": "1.1.0"
       },
-      "full_edition_adds": "entity registrations, SBA certifications, exclusions, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards",
+      "full_edition_adds": "live API registration and exclusion lookups, detailed SBA certification dates, reps and certs, integrity records, contract award records, the federal hierarchy, and subawards",
       "proof": {
         "tools": 20,
         "version": "1.0.14"
@@ -237,13 +237,13 @@
       "id": "p01",
       "title": "Size up a competitor",
       "category": "combination-plays",
-      "text": "Size up [COMPANY]: use USAspending to show contract obligations over the last 24 months, top agencies, and main work. Confirm the company's name and UEI. With the full SAM.gov server, add registration status, certifications, and exclusions; otherwise list those as checks to do on SAM.gov. Finish with two sentences on strengths and exposure.",
+      "text": "Size up [COMPANY]: use USAspending to show contract obligations over the last 24 months, top agencies, and main work. Confirm the company's name and UEI. With SAM.gov, add registration status, returned certification evidence, and exclusions. If Hosted SAM.gov is connected, report its source file dates, distinguish certification codes from detailed certification dates, and confirm current registration on SAM.gov; flag missing evidence. Finish with two sentences on strengths and exposure.",
       "mcps": [
         "sam",
         "usa"
       ],
       "in_pdf": true,
-      "requires_local_full_sam": true
+      "sam_edition_note": "Hosted SAM.gov supplies dated public registration, certification codes, and exclusions; use Local full for live API details and certification dates."
     },
     {
       "id": "p02",
@@ -261,13 +261,13 @@
       "id": "p03",
       "title": "Vet a teammate",
       "category": "combination-plays",
-      "text": "Vet [COMPANY] as a teammate: check exclusions and registration expiration with the full SAM.gov server, then use USAspending to show whether they have primed work for [AGENCY], including purchases funded there but awarded elsewhere. List other recent federal work. If only Hosted SAM.gov is connected, flag the missing entity checks.",
+      "text": "Vet [COMPANY] as a teammate: check exclusions and registration expiration with SAM.gov, then use USAspending to show whether they have primed work for [AGENCY], including purchases funded there but awarded elsewhere. List other recent federal work. If Hosted SAM.gov is connected, report its source file dates and confirm current registration on SAM.gov. Flag missing evidence; opted-out entities are not included in the hosted public mirror.",
       "mcps": [
         "sam",
         "usa"
       ],
       "in_pdf": true,
-      "requires_local_full_sam": true
+      "sam_edition_note": "Hosted SAM.gov supplies dated public registration and exclusion checks; confirm current registration on SAM.gov."
     },
     {
       "id": "p04",
@@ -415,23 +415,23 @@
       "id": "p18",
       "title": "Exclusion check",
       "category": "vetting-and-teaming",
-      "text": "Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell me whether any are currently active and what they are for.",
+      "text": "Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell me whether any are currently active and what they are for.\nIf Hosted SAM.gov is connected, report the source file name and date. Entity records are monthly snapshots; opted-out entities are not included in the hosted public mirror. Confirm current registration and material exclusion findings on SAM.gov before relying on them.",
       "mcps": [
         "sam"
       ],
       "in_pdf": true,
-      "requires_local_full_sam": true
+      "sam_edition_note": "Hosted SAM.gov supplies dated public exclusion records; verify current findings on SAM.gov."
     },
     {
       "id": "p20",
       "title": "Registration status at a glance",
       "category": "vetting-and-teaming",
-      "text": "Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does it expire, what is its primary NAICS, and what socioeconomic categories does it hold? If more than 1 active registration exists, say how many and name the UEI you picked before answering.\nDo not infer corporate ownership from a shared address alone.",
+      "text": "Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does it expire, what is its primary NAICS, and what socioeconomic categories does it hold? If more than 1 active registration exists, say how many and name the UEI you picked before answering.\nDo not infer corporate ownership from a shared address alone.\nIf Hosted SAM.gov is connected, report the source file name and date. Entity records are monthly snapshots; opted-out entities are not included in the hosted public mirror. Confirm current registration and material exclusion findings on SAM.gov before relying on them.",
       "mcps": [
         "sam"
       ],
       "in_pdf": true,
-      "requires_local_full_sam": true
+      "sam_edition_note": "Hosted SAM.gov supplies monthly public registration records and certification codes; confirm current registration on SAM.gov."
     },
     {
       "id": "p21",
@@ -469,12 +469,12 @@
       "id": "p24",
       "title": "Build a teaming shortlist",
       "category": "vetting-and-teaming",
-      "text": "Build a teaming shortlist from active SAM.gov registrants in [STATE] with NAICS [NAICS] anywhere on their records and [SOCIOECONOMIC STATUS]. Use the server's appropriate business-type or SBA-certification filter. Report the total count and returned page size, paginate within the agreed scope, and deduplicate by UEI. Show each firm's name, UEI, relevant NAICS, registration expiration, and returned certification status and dates. Flag missing evidence and explain search coverage.",
+      "text": "Build a teaming shortlist from active SAM.gov registrants in [STATE] with NAICS [NAICS] anywhere on their records and [SOCIOECONOMIC STATUS]. Use the server's appropriate business-type or SBA-certification filter. Report the total count and returned page size, paginate within the agreed scope, and deduplicate by UEI. Show each firm's name, UEI, relevant NAICS, registration expiration, and returned certification status and dates. Flag missing evidence and explain search coverage.\nIf Hosted SAM.gov is connected, report the source file name and date. Entity records are monthly snapshots; opted-out entities are not included in the hosted public mirror. Confirm current registration and material exclusion findings on SAM.gov before relying on them.",
       "mcps": [
         "sam"
       ],
       "in_pdf": true,
-      "requires_local_full_sam": true
+      "sam_edition_note": "Hosted SAM.gov supplies monthly public registration records and certification codes; detailed SBA certification dates require Local full."
     },
     {
       "id": "p25",

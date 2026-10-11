@@ -31,7 +31,7 @@ LOCAL_VS_HOSTED=(
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
     ('Relies on','Government sources','Government sources and Cloudflare'),
     ('Updates',"Manual. Local installs don't update themselves. Ask your AI to update them",'Automatic. Always runs the latest release'),
-    ('SAM.gov','Full edition: 20 tools, free key','4 tools, no key'))
+    ('SAM.gov',f'Full edition: {SERVERS["sam"]["proof"]["tools"]} tools, free key',f'{SERVERS["sam"]["hosted_edition"]["tools"]} tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
 COMPARE=json.loads((ROOT/'catalog/compare.json').read_text())
@@ -51,7 +51,7 @@ def hero_proof():
         f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
         '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
 def source_ids(p):return p['mcps']
-def edition_requirement(p):return 'SAM.gov entity checks need the Local full SAM.gov edition.' if p.get('requires_local_full_sam') else ''
+def edition_requirement(p):return p.get('sam_edition_note') or ('This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.' if p.get('requires_local_full_sam') else '')
 def requirement_text(p):return 'Required MCPs: '+names(p)+'. '+edition_requirement(p)
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in source_ids(p))
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in source_ids(p))
@@ -69,7 +69,7 @@ def readme():
         edition=f" ({server['hosted_edition']['tools']}-tool edition, no key)" if server.get('hosted_edition') else ''
         lines.append(f"| {server['name']} | {local} | "+' | '.join(f"[Install]({server['directories'][key]}){edition}" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+' |')
     lines+=['','| | Local | Hosted |','|---|---|---|',*[f'| **{label}** | {mine} | {hosted} |' for label,mine,hosted in LOCAL_VS_HOSTED],'',
-        "**Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity search without a key.",'',
+        "**Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity, public registration, or exclusion research without a key.",'',
         f'Hosted services temporarily cache some public government responses. Some responses are cached in bounded memory; no conversations or query/result logs are retained. Their code and Cloudflare setup are public in [federal-contracting-mcps]({MR}/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.']
     lines+=['','A prompt does not install an MCP. Connect every source listed under **Required MCPs** before running it; if two are listed, both are required. Other sources and MCP clients use the individual server setup instructions below.','','## Browse by task','','| Task | Prompts |','|---|---|']
     for sec in DATA['sections']:
@@ -193,6 +193,7 @@ def website(out,pdf,pages):
 
     st=stats()
     replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'PROMPT_COUNT':str(PROMPT_COUNT),'HERO_PROOF':hero_proof(),
+        'SAM_LOCAL_TOOLS':str(SERVERS['sam']['proof']['tools']),'SAM_HOSTED_TOOLS':str(SERVERS['sam']['hosted_edition']['tools']),
         'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
         'DIRECTORY_SENTENCE':' '.join(f"{number_word(len(found))} {'server' if len(found)==1 else 'servers'} in {label}'s directory." for label,found in st['directory'].items() if found),
@@ -272,7 +273,7 @@ def price_cell(x):
     return f'<strong>{ESC(x["pricing"])}</strong><details class="price-details"><summary>Pricing details</summary>{details}</details>'
 HOSTS={'sam':'sam','usa':'usaspending','calc':'gsa-calc','bls':'bls-oews','travel':'gsa-perdiem','ecfr':'ecfr','acq':'acquisition-gov','fr':'federal-register','regs':'regulations-gov'}
 FRESHNESS={
-    'sam':'Hosted: a copy of SAM.gov\'s public contract opportunities file, refreshed daily (up to a day behind). Local full edition: live SAM.gov APIs.',
+    'sam':"Hosted: dated public files, with opportunities and exclusions daily and entity registrations monthly. Opted-out entities are not included in the hosted public mirror. Confirm current registration on SAM.gov. Local full edition: live SAM.gov APIs with detailed certification, reps/certs, and integrity fields.",
     'usa':'Live from USAspending.gov. Repeat answers may be reused for up to 24 hours.',
     'calc':'Live from GSA CALC+. Repeat answers may be reused for up to 12 hours.',
     'bls':'The latest published OEWS release (May 2025).',
@@ -388,7 +389,7 @@ def compare_page(out,css_version):
         ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">Source and testing records</a></span>{where}'
         if s.get('hosted_edition'):
             he=s['hosted_edition']
-            ours=(f'<strong>{he["tools"]} tools in the directories</strong><span>Hosted edition, no key: contract opportunities, award notices, and justifications</span>{where}'
+            ours=(f'<strong>{he["tools"]} tools in the directories</strong><span>Hosted edition, no key: contract opportunities, public registrations and certification codes, and exclusions</span>{where}'
                 f'<strong>{pr["tools"]} tools installed locally</strong><span>Full edition with a free SAM.gov key · <a href="{s["url"]}">Source and testing records</a></span>')
         alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>{dir_chips(row.get("alt_directories",{}))}' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
         rows.append(('<tr class="more">' if i>source_cut else '<tr>')+f'<th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')

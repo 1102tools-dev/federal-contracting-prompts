@@ -25,7 +25,7 @@ All nine are in the Claude directory and six in ChatGPT as hosted installs. The 
 
 | MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |
 |---|---|---|---|
-| SAM.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (full 20-tool edition, free key) | [Install](https://claude.ai/directory/sam-gov-by-1102tools) (4-tool edition, no key) | Coming soon |
+| SAM.gov | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp#installation) (full 20-tool edition, free key) | [Install](https://claude.ai/directory/sam-gov-by-1102tools) (6-tool edition, no key) | Coming soon |
 | USAspending | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp#installation) | [Install](https://claude.ai/directory/usaspending-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799) |
 | GSA CALC+ | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp#installation) | [Install](https://claude.ai/directory/gsa-calc-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1) |
 | BLS OEWS | [Setup guide](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp#installation) | [Install](https://claude.ai/directory/bls-oews-by-1102tools) | [Install](https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e) |
@@ -43,9 +43,9 @@ All nine are in the Claude directory and six in ChatGPT as hosted installs. The 
 | **Rate limits** | Your own, in full | Pooled across all users. Your lookups stay private |
 | **Relies on** | Government sources | Government sources and Cloudflare |
 | **Updates** | Manual. Local installs don't update themselves. Ask your AI to update them | Automatic. Always runs the latest release |
-| **SAM.gov** | Full edition: 20 tools, free key | 4 tools, no key |
+| **SAM.gov** | Full edition: 20 tools, free key | 6 tools, no key |
 
-**Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity search without a key.
+**Use hosted if** you're on your phone, your work computer blocks installs, or you want SAM.gov opportunity, public registration, or exclusion research without a key.
 
 Hosted services temporarily cache some public government responses. Some responses are cached in bounded memory; no conversations or query/result logs are retained. Their code and Cloudflare setup are public in [federal-contracting-mcps](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy). Cloudflare still handles connection data such as IP addresses, and Claude or ChatGPT handles your conversation under its own privacy policy.
 
@@ -96,15 +96,17 @@ Use multiple MCPs to connect award history, company records, and pricing context
 
 ```text
 Size up [COMPANY]: use USAspending to show contract obligations over the last 24
-months, top agencies, and main work. Confirm the company's name and UEI. With the
-full SAM.gov server, add registration status, certifications, and exclusions;
-otherwise list those as checks to do on SAM.gov. Finish with two sentences on
+months, top agencies, and main work. Confirm the company's name and UEI. With
+SAM.gov, add registration status, returned certification evidence, and exclusions.
+If Hosted SAM.gov is connected, report its source file dates, distinguish
+certification codes from detailed certification dates, and confirm current
+registration on SAM.gov; flag missing evidence. Finish with two sentences on
 strengths and exposure.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** Hosted SAM.gov supplies dated public registration, certification codes, and exclusions; use Local full for live API details and certification dates.
 
 <a id="p02"></a>
 ### The graduation window
@@ -122,21 +124,23 @@ award-end leads and mark the 8(a) exit date as a check to do on SAM.gov.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.
 
 <a id="p03"></a>
 ### Vet a teammate
 
 ```text
-Vet [COMPANY] as a teammate: check exclusions and registration expiration with the
-full SAM.gov server, then use USAspending to show whether they have primed work for
-[AGENCY], including purchases funded there but awarded elsewhere. List other recent
-federal work. If only Hosted SAM.gov is connected, flag the missing entity checks.
+Vet [COMPANY] as a teammate: check exclusions and registration expiration with
+SAM.gov, then use USAspending to show whether they have primed work for [AGENCY],
+including purchases funded there but awarded elsewhere. List other recent federal
+work. If Hosted SAM.gov is connected, report its source file dates and confirm
+current registration on SAM.gov. Flag missing evidence; opted-out entities are not
+included in the hosted public mirror.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** Hosted SAM.gov supplies dated public registration and exclusion checks; confirm current registration on SAM.gov.
 
 <a id="p04"></a>
 ### Opportunity evidence screen
@@ -360,11 +364,15 @@ Use entity identifiers, registration records, and supporting evidence to build a
 ```text
 Check whether [COMPANY / UEI] has any exclusion records. If records exist, tell me
 whether any are currently active and what they are for.
+If Hosted SAM.gov is connected, report the source file name and date. Entity records
+are monthly snapshots; opted-out entities are not included in the hosted public
+mirror. Confirm current registration and material exclusion findings on SAM.gov
+before relying on them.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** Hosted SAM.gov supplies dated public exclusion records; verify current findings on SAM.gov.
 
 <a id="p20"></a>
 ### Registration status at a glance
@@ -375,11 +383,15 @@ expire, what is its primary NAICS, and what socioeconomic categories does it hol
 If more than 1 active registration exists, say how many and name the UEI you picked
 before answering.
 Do not infer corporate ownership from a shared address alone.
+If Hosted SAM.gov is connected, report the source file name and date. Entity records
+are monthly snapshots; opted-out entities are not included in the hosted public
+mirror. Confirm current registration and material exclusion findings on SAM.gov
+before relying on them.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** Hosted SAM.gov supplies monthly public registration records and certification codes; confirm current registration on SAM.gov.
 
 <a id="p21"></a>
 ### SBA certification dates
@@ -394,7 +406,7 @@ eligibility, graduation, or ineligibility.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.
 
 <a id="p22"></a>
 ### Registration, exclusion, and integrity evidence
@@ -409,7 +421,7 @@ determination.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.
 
 <a id="p23"></a>
 ### Historical contract activity by fiscal year
@@ -435,11 +447,15 @@ appropriate business-type or SBA-certification filter. Report the total count an
 returned page size, paginate within the agreed scope, and deduplicate by UEI. Show
 each firm's name, UEI, relevant NAICS, registration expiration, and returned
 certification status and dates. Flag missing evidence and explain search coverage.
+If Hosted SAM.gov is connected, report the source file name and date. Entity records
+are monthly snapshots; opted-out entities are not included in the hosted public
+mirror. Confirm current registration and material exclusion findings on SAM.gov
+before relying on them.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+**Edition:** Hosted SAM.gov supplies monthly public registration records and certification codes; detailed SBA certification dates require Local full.
 
 <a id="market-and-agency-intel"></a>
 ## Understand a market
