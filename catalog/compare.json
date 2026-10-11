@@ -285,7 +285,7 @@
       "alt": "cliwant/mcp-sam-gov",
       "alt_url": "https://github.com/cliwant/mcp-sam-gov",
       "alt_detail": "About 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional",
-      "edge": "20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check, plus a keyless 4-tool edition for contract opportunities in the Claude directory.",
+      "edge": "20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check, plus a keyless 6-tool edition for contract opportunities, entity registrations and exclusions in the Claude directory.",
       "alt_directories": {
         "claude": false,
         "chatgpt": false
