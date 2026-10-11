@@ -1,6 +1,6 @@
 {
   "edition": "October 2026",
-  "date": "2026-10-07",
+  "date": "2026-10-10",
   "title": "1102tools MCP Prompt Guide",
   "servers": [
     {
@@ -237,34 +237,37 @@
       "id": "p01",
       "title": "Size up a competitor",
       "category": "combination-plays",
-      "text": "Size up [COMPANY] as a competitor: their last 24 months of awards and top agencies from USAspending, then their registration status, socioeconomic categories, and any exclusions from SAM.gov. If SAM returns multiple registrations, say so and list them before picking. Finish with 2 sentences on where they are strong and where they are exposed.",
+      "text": "Size up [COMPANY]: use USAspending to show contract obligations over the last 24 months, top agencies, and main work. Confirm the company's name and UEI. With the full SAM.gov server, add registration status, certifications, and exclusions; otherwise list those as checks to do on SAM.gov. Finish with two sentences on strengths and exposure.",
       "mcps": [
         "sam",
         "usa"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p02",
       "title": "The graduation window",
       "category": "combination-plays",
-      "text": "Find firms with 8(a) set-aside awards under NAICS [NAICS] in USAspending. Check each selected recipient's SBA certification dates in SAM.gov and the end dates of its relevant awards. Flag documented program exit dates within 18 months that overlap with contract end dates within 12 months. Show the dates and source records. Treat missing certification data as unresolved, not proof of graduation; treat an approaching award end as a research lead, not a confirmed recompete.",
+      "text": "Find firms with 8(a) set-aside awards under NAICS [NAICS] in USAspending. Check each selected recipient's SBA certification dates in SAM.gov and the end dates of its relevant awards. Flag documented program exit dates within 18 months that overlap with contract end dates within 12 months. Show the dates and source records. Treat missing certification data as unresolved, not proof of graduation; treat an approaching award end as a research lead, not a confirmed recompete.\nIf SBA exit dates aren't available from the connected SAM.gov server, list the award-end leads and mark the 8(a) exit date as a check to do on SAM.gov.",
       "mcps": [
         "sam",
         "usa"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p03",
       "title": "Vet a teammate",
       "category": "combination-plays",
-      "text": "Vet [COMPANY] as a teammate: exclusions and registration expiration from SAM.gov, then their award history from USAspending, including whether they have primed work at [AGENCY] before.",
+      "text": "Vet [COMPANY] as a teammate: check exclusions and registration expiration with the full SAM.gov server, then use USAspending to show whether they have primed work for [AGENCY], including purchases funded there but awarded elsewhere. List other recent federal work. If only Hosted SAM.gov is connected, flag the missing entity checks.",
       "mcps": [
         "sam",
         "usa"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p04",
@@ -292,7 +295,7 @@
       "id": "p06",
       "title": "What federal IT work is coming that isn't out for bid yet?",
       "category": "catching-opportunities",
-      "text": "Using the SAM.gov tool, show me federal IT work that's coming but not out for bid yet:\n- NAICS starting with 5415 (all computer and IT services)\n- Only Sources Sought and Presolicitation notices\n- Still open for responses\n\nFirst, count them by agency so I can see who's planning the most IT buying.\nThen list the most interesting ones in a table with response due date, title, agency, set-aside (if any), and sam.gov link.\nPick the 5 biggest or most strategic opportunities and say in one line each why a company should respond now.",
+      "text": "Using the SAM.gov tool, show me federal IT work that's coming but not out for bid yet:\n- NAICS starting with 5415 (all computer and IT services)\n- Only Sources Sought and Presolicitation notices\n- Still open for responses\n\nFirst, count them by agency so I can see who's planning the most IT buying.\nThen list the most interesting ones in a table with response due date, title, agency, set-aside (if any), and sam.gov link.\nPick the 5 biggest or most strategic opportunities and say in one line each why a company should respond now.\nKeep notices with no stated deadline; flag sole-source intent, and only call an opportunity big when its notice states a value.",
       "mcps": [
         "sam"
       ],
@@ -302,7 +305,7 @@
       "id": "p07",
       "title": "Open solicitations, deadline first",
       "category": "catching-opportunities",
-      "text": "Search SAM.gov for solicitations and combined synopses under NAICS [NAICS] with a response deadline between today and [N] days out. Give me title, agency, deadline, and set-aside type, and drop anything whose deadline has already passed even if SAM still marks it active. The search filters 1 notice type per call, so expect 2 searches merged, not 1.",
+      "text": "Search current SAM.gov Solicitation and Combined Synopsis/Solicitation notices under NAICS [NAICS], with stated response deadlines from today through [N] days from today. Use the current tool filters, page until all matches are fetched, merge and deduplicate by notice ID, and sort by deadline. Show title, agency, deadline with time zone, stated set-aside and SAM.gov link. Exclude deadlines already passed even if active; identify the snapshot date, active-file coverage, missing fields and attachment limits.",
       "mcps": [
         "sam"
       ],
@@ -342,7 +345,7 @@
       "id": "p11",
       "title": "One agency's postings",
       "category": "catching-opportunities",
-      "text": "Search opportunities under NAICS [NAICS] from the last 90 days with the result limit set high, then filter for [AGENCY] yourself from the agency path field in the results. The agency filter only screens what was fetched, so if the total count is much larger than what came back, page through before concluding anything.",
+      "text": "Search current SAM.gov opportunity notices under NAICS [NAICS], posted in the last 90 days, using the agency filter for [AGENCY]. State exactly which department, sub-tier and office names the filter matched; command names may not match subordinate field offices. Include past deadlines when reviewing all postings, identify notice types, and page until all matches are fetched. Show title, agency path, posting date, response deadline and SAM.gov link. Report snapshot date and active-file coverage, and distinguish fetched records from total matches.",
       "mcps": [
         "sam"
       ],
@@ -362,7 +365,7 @@
       "id": "p13",
       "title": "Their last 12 months",
       "category": "competitor-intelligence",
-      "text": "Pull [COMPANY]'s federal contract awards with activity in the last 12 months: award ID, agency, amount, NAICS, and period of performance end date. Sort by amount. Add \"in NAICS [NAICS] only\" if I want one code.",
+      "text": "Pull [COMPANY]'s federal contract activity over the last 12 months. For each award, show award ID, agency, NAICS, performance end date, obligations added minus removals during that window, and cumulative award obligations separately. Sort by obligations added minus removals in the window, largest first. Add \"in NAICS [NAICS] only\" if I want one code.",
       "mcps": [
         "usa"
       ],
@@ -382,7 +385,7 @@
       "id": "p15",
       "title": "Who they sub to",
       "category": "competitor-intelligence",
-      "text": "Retrieve [COMPANY]'s ten largest prime awards from USAspending using a confirmed recipient identity. For each, search the reported subawards and list the prime award, subaward recipient, amount, and date. Keep similarly named firms and joint ventures separate unless identifiers establish the relationship. Empty subaward results mean no matching reports were returned; they do not establish that the prime self-performed everything.",
+      "text": "Find who [COMPANY] reports subcontracting work to. Confirm its recipient identity, retrieve its ten largest contract prime awards by cumulative obligations, and search all reported subaward pages for each. List prime ID, subcontract recipient, report amount and action date. Explain that these are the company's subcontractors, not primes it works under, and that absent reports do not establish self-performance.",
       "mcps": [
         "usa"
       ],
@@ -416,27 +419,19 @@
       "mcps": [
         "sam"
       ],
-      "in_pdf": true
-    },
-    {
-      "id": "p19",
-      "title": "Untangle multiple registrations",
-      "category": "vetting-and-teaming",
-      "text": "Search SAM.gov for [COMPANY]. List each matching entity's legal name, UEI, CAGE code, address, and registration status before choosing a record. Group related-looking records for review, but do not infer headquarters or corporate ownership from a shared address alone. Identify which UEI best matches the company I mean and explain any unresolved ambiguity.",
-      "mcps": [
-        "sam"
-      ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p20",
       "title": "Registration status at a glance",
       "category": "vetting-and-teaming",
-      "text": "Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does it expire, what is its primary NAICS, and what socioeconomic categories does it hold? If more than 1 active registration exists, say how many and name the UEI you picked before answering.",
+      "text": "Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does it expire, what is its primary NAICS, and what socioeconomic categories does it hold? If more than 1 active registration exists, say how many and name the UEI you picked before answering.\nDo not infer corporate ownership from a shared address alone.",
       "mcps": [
         "sam"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p21",
@@ -446,7 +441,8 @@
       "mcps": [
         "sam"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p22",
@@ -456,15 +452,16 @@
       "mcps": [
         "sam"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p23",
-      "title": "How far back they go",
+      "title": "Historical contract activity by fiscal year",
       "category": "vetting-and-teaming",
-      "text": "Research [COMPANY]'s historical contract awards in SAM.gov for [START FY] through [END FY], in manageable fiscal-year ranges supported by the server. Use a confirmed entity identifier where the tool permits it. Show the earliest returned award, counts by period, and query coverage. Separate unsupported date ranges, empty responses, and sparse reporting; do not treat the earliest returned record as the company's first-ever federal award.",
+      "text": "Using the confirmed recipient UEI for [COMPANY], retrieve USAspending dated contract transactions for [START FY] through [END FY], one fiscal year at a time. Report query coverage, transaction and distinct-award counts, and the earliest returned action date. Page within a stated scope. Distinguish reporting gaps, unsupported periods and empty responses; the earliest returned action is not proof of the company's first federal award.",
       "mcps": [
-        "sam"
+        "usa"
       ],
       "in_pdf": true
     },
@@ -476,7 +473,8 @@
       "mcps": [
         "sam"
       ],
-      "in_pdf": true
+      "in_pdf": true,
+      "requires_local_full_sam": true
     },
     {
       "id": "p25",
@@ -532,7 +530,7 @@
       "id": "p30",
       "title": "Find your NAICS",
       "category": "speaking-the-governments-codes",
-      "text": "What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and the closest alternates so I do not file under the wrong one.",
+      "text": "What NAICS code covers [BUSINESS ACTIVITY]? Give me the code and the closest alternates so I do not file under the wrong one.",
       "mcps": [
         "usa"
       ],
@@ -552,7 +550,7 @@
       "id": "p32",
       "title": "Find your PSC",
       "category": "speaking-the-governments-codes",
-      "text": "What PSC codes cover [PLAIN-ENGLISH SERVICE]? Give me the codes and official names so I can search with them.",
+      "text": "Find PSC codes for [SERVICE AND DELIVERY MODEL], with official names. Check current or retired status in the official PSC manual; mark unverified status unknown. Separate codes for current opportunities from legacy codes for award history.",
       "mcps": [
         "usa"
       ],
@@ -572,7 +570,7 @@
       "id": "p34",
       "title": "Codes to opportunities, one chain",
       "category": "speaking-the-governments-codes",
-      "text": "Find the PSC code for [PLAIN-ENGLISH SERVICE], then search SAM.gov opportunities under that exact code with a response deadline still open. Codes first, opportunities second, one chain.",
+      "text": "Find the PSC code for [SERVICE], then search SAM.gov opportunities under that exact code with a response deadline still open. Codes first, opportunities second, one chain.",
       "mcps": [
         "sam",
         "usa"
@@ -782,9 +780,9 @@
     },
     {
       "id": "p55",
-      "title": "Who's lobbying a docket",
+      "title": "Read organizational comments in a docket",
       "category": "regulationsgov",
-      "text": "For docket [DOCKET ID], search Regulations.gov comments for organizational submitters, including terms such as association, chamber, coalition, or institute. Retrieve details and attachment references for the relevant matches. Summarize each identified organization's position with citations, distinguish names from verified affiliations, and explain the selection method. Do not treat this keyword sample as all comments or a measure of consensus.",
+      "text": "For docket [DOCKET ID], find organizational comments using terms such as association, chamber, coalition, or institute. Group them by the document commented on. Read full comment text or attachments before summarizing positions, and cite each source. If attachments are unreadable, say so rather than infer positions from snippets. Explain the keyword selection; it is not all comments or a measure of consensus.",
       "mcps": [
         "regs"
       ],

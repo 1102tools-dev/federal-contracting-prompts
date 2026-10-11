@@ -12,7 +12,7 @@ Practical questions for federal opportunities, competitor research, teaming, pri
 2. Set up the required MCPs locally from their setup guides, or install the hosted versions from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.
 3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.
 
-The print guide and the online library contain the same 57 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
+The print guide and the online library contain the same 56 prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.
 
 <a id="available-in-claude-and-chatgpt"></a>
 ## Local or hosted
@@ -57,7 +57,7 @@ A prompt does not install an MCP. Connect every source listed under **Required M
 | [Find opportunities](#catching-opportunities) | 6 |
 | [Research competitors](#competitor-intelligence) | 4 |
 | [Track potential recompetes](#recompete-radar) | 2 |
-| [Vet companies and find teammates](#vetting-and-teaming) | 7 |
+| [Vet companies and find teammates](#vetting-and-teaming) | 6 |
 | [Understand a market](#market-and-agency-intel) | 5 |
 | [Find the right codes](#speaking-the-governments-codes) | 5 |
 | [Compare labor rates](#gsa-calc) | 4 |
@@ -93,14 +93,16 @@ Use multiple MCPs to connect award history, company records, and pricing context
 ### Size up a competitor
 
 ```text
-Size up [COMPANY] as a competitor: their last 24 months of awards and top agencies
-from USAspending, then their registration status, socioeconomic categories, and any
-exclusions from SAM.gov. If SAM returns multiple registrations, say so and list them
-before picking. Finish with 2 sentences on where they are strong and where they are
-exposed.
+Size up [COMPANY]: use USAspending to show contract obligations over the last 24
+months, top agencies, and main work. Confirm the company's name and UEI. With the
+full SAM.gov server, add registration status, certifications, and exclusions;
+otherwise list those as checks to do on SAM.gov. Finish with two sentences on
+strengths and exposure.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
 
 <a id="p02"></a>
 ### The graduation window
@@ -112,20 +114,27 @@ relevant awards. Flag documented program exit dates within 18 months that overla
 with contract end dates within 12 months. Show the dates and source records. Treat
 missing certification data as unresolved, not proof of graduation; treat an
 approaching award end as a research lead, not a confirmed recompete.
+If SBA exit dates aren't available from the connected SAM.gov server, list the
+award-end leads and mark the 8(a) exit date as a check to do on SAM.gov.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
 
 <a id="p03"></a>
 ### Vet a teammate
 
 ```text
-Vet [COMPANY] as a teammate: exclusions and registration expiration from SAM.gov,
-then their award history from USAspending, including whether they have primed work
-at [AGENCY] before.
+Vet [COMPANY] as a teammate: check exclusions and registration expiration with the
+full SAM.gov server, then use USAspending to show whether they have primed work for
+[AGENCY], including purchases funded there but awarded elsewhere. List other recent
+federal work. If only Hosted SAM.gov is connected, flag the missing entity checks.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
+
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
 
 <a id="p04"></a>
 ### Opportunity evidence screen
@@ -176,6 +185,8 @@ Then list the most interesting ones in a table with response due date, title,
 agency, set-aside (if any), and sam.gov link.
 Pick the 5 biggest or most strategic opportunities and say in one line each why a
 company should respond now.
+Keep notices with no stated deadline; flag sole-source intent, and only call an
+opportunity big when its notice states a value.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
@@ -184,11 +195,13 @@ company should respond now.
 ### Open solicitations, deadline first
 
 ```text
-Search SAM.gov for solicitations and combined synopses under NAICS [NAICS] with a
-response deadline between today and [N] days out. Give me title, agency, deadline,
-and set-aside type, and drop anything whose deadline has already passed even if SAM
-still marks it active. The search filters 1 notice type per call, so expect 2
-searches merged, not 1.
+Search current SAM.gov Solicitation and Combined Synopsis/Solicitation notices under
+NAICS [NAICS], with stated response deadlines from today through [N] days from
+today. Use the current tool filters, page until all matches are fetched, merge and
+deduplicate by notice ID, and sort by deadline. Show title, agency, deadline with
+time zone, stated set-aside and SAM.gov link. Exclude deadlines already passed even
+if active; identify the snapshot date, active-file coverage, missing fields and
+attachment limits.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
@@ -236,10 +249,13 @@ that no awards occurred or assume every award posts immediately.
 ### One agency's postings
 
 ```text
-Search opportunities under NAICS [NAICS] from the last 90 days with the result limit
-set high, then filter for [AGENCY] yourself from the agency path field in the
-results. The agency filter only screens what was fetched, so if the total count is
-much larger than what came back, page through before concluding anything.
+Search current SAM.gov opportunity notices under NAICS [NAICS], posted in the last
+90 days, using the agency filter for [AGENCY]. State exactly which department,
+sub-tier and office names the filter matched; command names may not match
+subordinate field offices. Include past deadlines when reviewing all postings,
+identify notice types, and page until all matches are fetched. Show title, agency
+path, posting date, response deadline and SAM.gov link. Report snapshot date and
+active-file coverage, and distinguish fetched records from total matches.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
@@ -266,9 +282,11 @@ try the other recipient search tool before deciding the company is not in the da
 ### Their last 12 months
 
 ```text
-Pull [COMPANY]'s federal contract awards with activity in the last 12 months: award
-ID, agency, amount, NAICS, and period of performance end date. Sort by amount. Add
-"in NAICS [NAICS] only" if I want one code.
+Pull [COMPANY]'s federal contract activity over the last 12 months. For each award,
+show award ID, agency, NAICS, performance end date, obligations added minus removals
+during that window, and cumulative award obligations separately. Sort by obligations
+added minus removals in the window, largest first. Add "in NAICS [NAICS] only" if I
+want one code.
 ```
 
 **Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
@@ -291,12 +309,11 @@ concentration.
 ### Who they sub to
 
 ```text
-Retrieve [COMPANY]'s ten largest prime awards from USAspending using a confirmed
-recipient identity. For each, search the reported subawards and list the prime
-award, subaward recipient, amount, and date. Keep similarly named firms and joint
-ventures separate unless identifiers establish the relationship. Empty subaward
-results mean no matching reports were returned; they do not establish that the prime
-self-performed everything.
+Find who [COMPANY] reports subcontracting work to. Confirm its recipient identity,
+retrieve its ten largest contract prime awards by cumulative obligations, and search
+all reported subaward pages for each. List prime ID, subcontract recipient, report
+amount and action date. Explain that these are the company's subcontractors, not
+primes it works under, and that absent reports do not establish self-performance.
 ```
 
 **Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
@@ -349,18 +366,7 @@ whether any are currently active and what they are for.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-<a id="p19"></a>
-### Untangle multiple registrations
-
-```text
-Search SAM.gov for [COMPANY]. List each matching entity's legal name, UEI, CAGE
-code, address, and registration status before choosing a record. Group
-related-looking records for review, but do not infer headquarters or corporate
-ownership from a shared address alone. Identify which UEI best matches the company I
-mean and explain any unresolved ambiguity.
-```
-
-**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
 
 <a id="p20"></a>
 ### Registration status at a glance
@@ -370,9 +376,12 @@ Look up [COMPANY] in SAM.gov and tell me: is the registration active, when does 
 expire, what is its primary NAICS, and what socioeconomic categories does it hold?
 If more than 1 active registration exists, say how many and name the UEI you picked
 before answering.
+Do not infer corporate ownership from a shared address alone.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
 
 <a id="p21"></a>
 ### SBA certification dates
@@ -387,6 +396,8 @@ eligibility, graduation, or ineligibility.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+
 <a id="p22"></a>
 ### Registration, exclusion, and integrity evidence
 
@@ -400,19 +411,21 @@ determination.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
+
 <a id="p23"></a>
-### How far back they go
+### Historical contract activity by fiscal year
 
 ```text
-Research [COMPANY]'s historical contract awards in SAM.gov for [START FY] through
-[END FY], in manageable fiscal-year ranges supported by the server. Use a confirmed
-entity identifier where the tool permits it. Show the earliest returned award,
-counts by period, and query coverage. Separate unsupported date ranges, empty
-responses, and sparse reporting; do not treat the earliest returned record as the
-company's first-ever federal award.
+Using the confirmed recipient UEI for [COMPANY], retrieve USAspending dated contract
+transactions for [START FY] through [END FY], one fiscal year at a time. Report
+query coverage, transaction and distinct-award counts, and the earliest returned
+action date. Page within a stated scope. Distinguish reporting gaps, unsupported
+periods and empty responses; the earliest returned action is not proof of the
+company's first federal award.
 ```
 
-**Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+**Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
 <a id="p24"></a>
 ### Build a teaming shortlist
@@ -427,6 +440,8 @@ certification status and dates. Flag missing evidence and explain search coverag
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
+
+**Edition:** SAM.gov entity checks need the Local full SAM.gov edition.
 
 <a id="market-and-agency-intel"></a>
 ## Understand a market
@@ -507,8 +522,8 @@ Use source references for NAICS, PSC, and size-standard research.
 ### Find your NAICS
 
 ```text
-What NAICS code covers [PLAIN-ENGLISH BUSINESS ACTIVITY]? Give me the code and the
-closest alternates so I do not file under the wrong one.
+What NAICS code covers [BUSINESS ACTIVITY]? Give me the code and the closest
+alternates so I do not file under the wrong one.
 ```
 
 **Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
@@ -530,8 +545,9 @@ and do not supply a threshold from memory.
 ### Find your PSC
 
 ```text
-What PSC codes cover [PLAIN-ENGLISH SERVICE]? Give me the codes and official names
-so I can search with them.
+Find PSC codes for [SERVICE AND DELIVERY MODEL], with official names. Check current
+or retired status in the official PSC manual; mark unverified status unknown.
+Separate codes for current opportunities from legacy codes for award history.
 ```
 
 **Required MCPs:** [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
@@ -552,9 +568,9 @@ unavailable, identify that gap instead of inferring it from a missing search res
 ### Codes to opportunities, one chain
 
 ```text
-Find the PSC code for [PLAIN-ENGLISH SERVICE], then search SAM.gov opportunities
-under that exact code with a response deadline still open. Codes first,
-opportunities second, one chain.
+Find the PSC code for [SERVICE], then search SAM.gov opportunities under that exact
+code with a response deadline still open. Codes first, opportunities second, one
+chain.
 ```
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
@@ -835,15 +851,15 @@ date, source link, and any filter or coverage limitations.
 **Required MCPs:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
 
 <a id="p55"></a>
-### Who's lobbying a docket
+### Read organizational comments in a docket
 
 ```text
-For docket [DOCKET ID], search Regulations.gov comments for organizational
-submitters, including terms such as association, chamber, coalition, or institute.
-Retrieve details and attachment references for the relevant matches. Summarize each
-identified organization's position with citations, distinguish names from verified
-affiliations, and explain the selection method. Do not treat this keyword sample as
-all comments or a measure of consensus.
+For docket [DOCKET ID], find organizational comments using terms such as
+association, chamber, coalition, or institute. Group them by the document commented
+on. Read full comment text or attachments before summarizing positions, and cite
+each source. If attachments are unreadable, say so rather than infer positions from
+snippets. Explain the keyword selection; it is not all comments or a measure of
+consensus.
 ```
 
 **Required MCPs:** [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp)
@@ -852,8 +868,6 @@ all comments or a measure of consensus.
 ## FAR Overhaul and deviations
 
 Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
-
-These two examples have not been live-tested as part of this guide refresh.
 
 <a id="p56"></a>
 ### Find the model text and the agency's posted deviation
