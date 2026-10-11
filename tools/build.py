@@ -273,7 +273,7 @@ def price_cell(x):
     return f'<strong>{ESC(x["pricing"])}</strong><details class="price-details"><summary>Pricing details</summary>{details}</details>'
 HOSTS={'sam':'sam','usa':'usaspending','calc':'gsa-calc','bls':'bls-oews','travel':'gsa-perdiem','ecfr':'ecfr','acq':'acquisition-gov','fr':'federal-register','regs':'regulations-gov'}
 FRESHNESS={
-    'sam':"Hosted: dated public files, with opportunities and exclusions daily and entity registrations monthly. Opted-out entities are not included in the hosted public mirror. Confirm current registration on SAM.gov. Local full edition: live SAM.gov APIs with detailed certification, reps/certs, and integrity fields.",
+    'sam':"Hosted: dated public files, with opportunities checked daily, exclusions checked every four hours plus an extra check after usual daily publication, and monthly entity registrations checked alongside exclusions. Opted-out entities are not included in the hosted public mirror. Confirm current registration on SAM.gov. Local full edition: live SAM.gov APIs with detailed certification, reps/certs, and integrity fields.",
     'usa':'Live from USAspending.gov. Repeat answers may be reused for up to 24 hours.',
     'calc':'Live from GSA CALC+. Repeat answers may be reused for up to 12 hours.',
     'bls':'The latest published OEWS release (May 2025).',
