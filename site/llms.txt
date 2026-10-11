@@ -66,7 +66,7 @@ No affiliation with or endorsement by a federal agency is claimed.
 ## Why 1102tools
 
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
-- Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the 9 servers went through seven rounds of content checks with real contracting questions.
+- Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the nine servers went through seven rounds of content checks with real contracting questions.
 - No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city lookups without a county or years before FY2021.
 - Listed: 9 in the Claude directory; 6 in the ChatGPT directory.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
@@ -97,7 +97,7 @@ No affiliation with or endorsement by a federal agency is claimed.
 - Federal Register: FAR case history tracing, open comment periods, and a Claude directory listing. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server (see eCFR).
 - Regulations.gov: 9 docket and comment tools and a Claude directory listing. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server; Regulations.gov part needs a key.
 
-The alternatives are general-purpose servers. 1102tools servers are built for contracting work, with tools such as IGCE benchmarks and price-reasonableness checks (GSA CALC+), FAR clause lookup (eCFR), FAR case history (Federal Register and Regulations.gov), and a one-call vendor responsibility check (SAM.gov full edition). Every 1102tools server publishes its regression-test count and review record. No directory listing was found for the best free alternatives in the Claude or ChatGPT directories. Full details: [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare).
+The alternatives are general-purpose servers. 1102tools servers are built for contracting work, with tools such as IGCE benchmarks and price-reasonableness checks (GSA CALC+), FAR clause lookup (eCFR), FAR case history (Federal Register and Regulations.gov), and a one-call vendor responsibility check (SAM.gov full edition). Every 1102tools server publishes its testing record. No directory listing was found for the best free alternatives in the Claude or ChatGPT directories. Full details: [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare).
 
 ## Works with
 
@@ -163,7 +163,7 @@ Hosted addresses for AI apps that connect by URL:
 - Does it replace a paid GovCon platform? It covers the research for free: opportunities, award history, incumbents, labor rates and regulations. Paid platforms add pipeline, capture and proposal workflows. See the comparison: https://1102tools.com/compare
 - Can I use it at work? The servers only read public government data. Do not put proprietary pricing, CUI, source selection information or other sensitive details in prompts, and follow your company's or agency's AI policy. The local version keeps 1102tools out of the path, but your AI app still sees the conversation.
 - Does it work with other AI apps? Hosted works with any app that connects to remote MCP servers by URL; local works with any MCP client.
-- Is it maintained? Yes. Each server publishes its regression tests and review record, and the hosted servers are checked automatically every 30 minutes.
+- Is it maintained? Yes. Each server publishes its testing record, and the hosted servers are checked automatically every 30 minutes.
 
 ## Support
 
