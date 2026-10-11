@@ -1,5 +1,7 @@
 # Federal contracting MCP prompts
 
+[![price: free](https://img.shields.io/badge/price-free-007a59)](https://1102tools.com/#why) [![license: MIT](https://img.shields.io/badge/license-MIT-007a59)](license) [![prompts](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2F1102tools.com%2Fprompts.json&query=%24.prompts.length&label=prompts&color=007a59)](https://1102tools.com/#prompts) [![regression tests](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/1102tools-dev/federal-contracting-mcps/main/badges/tests-total.json)](https://github.com/1102tools-dev/federal-contracting-mcps#testing)
+
 **October 2026 · Copy, paste, adapt.**
 
 Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.
