@@ -74,7 +74,7 @@ A prompt does not install an MCP. Connect every source listed under **Required M
 
 | Source | What it provides | Access |
 |---|---|---|
-| [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Contract opportunities, award notices, and justifications. | Local full edition: free SAM.gov key. Hosted: no key |
+| [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) | Contract opportunities, entity registrations, SBA certifications, and exclusions. | Local full edition: free SAM.gov key. Hosted: no key |
 | [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp) | Awards, obligations, recipients, agencies, and reported subawards. | No user API key |
 | [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp) | Awarded labor-category ceiling rates and comparison data. | No user API key |
 | [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp) | Occupational wages by geography and data year from the Bureau of Labor Statistics. | No user API key |
@@ -106,7 +106,7 @@ strengths and exposure.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-**Edition:** Hosted SAM.gov supplies dated public registration, certification codes, and exclusions; use Local full for live API details and certification dates.
+**Edition:** Hosted SAM.gov supplies dated public registration, certification codes with any listed exit dates, and exclusions; use Local full for live API details and certification entry dates.
 
 <a id="p02"></a>
 ### The graduation window
@@ -124,7 +124,7 @@ award-end leads and mark the 8(a) exit date as a check to do on SAM.gov.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp) + [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp)
 
-**Edition:** This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.
+**Edition:** Hosted SAM.gov supplies monthly public certification codes and any listed 8(a) exit dates, and flags exit dates that have passed; confirm current certification with SBA.
 
 <a id="p03"></a>
 ### Vet a teammate
@@ -406,7 +406,7 @@ eligibility, graduation, or ineligibility.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-**Edition:** This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.
+**Edition:** Hosted SAM.gov shows certification codes and any listed exit dates; entry dates and live status need the Local full SAM.gov edition.
 
 <a id="p22"></a>
 ### Registration, exclusion, and integrity evidence
@@ -455,7 +455,7 @@ before relying on them.
 
 **Required MCPs:** [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp)
 
-**Edition:** Hosted SAM.gov supplies monthly public registration records and certification codes; detailed SBA certification dates require Local full.
+**Edition:** Hosted SAM.gov supplies monthly public registration records, certification codes, and any listed exit dates; entry dates and live details require Local full.
 
 <a id="market-and-agency-intel"></a>
 ## Understand a market

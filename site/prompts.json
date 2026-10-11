@@ -7,7 +7,7 @@
       "id": "sam",
       "name": "SAM.gov",
       "slug": "sam-gov-mcp",
-      "description": "Contract opportunities, award notices, and justifications.",
+      "description": "Contract opportunities, entity registrations, SBA certifications, and exclusions.",
       "access": "Local full edition: free SAM.gov key. Hosted: no key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp",
       "directories": {
@@ -243,7 +243,7 @@
         "usa"
       ],
       "in_pdf": true,
-      "sam_edition_note": "Hosted SAM.gov supplies dated public registration, certification codes, and exclusions; use Local full for live API details and certification dates."
+      "sam_edition_note": "Hosted SAM.gov supplies dated public registration, certification codes with any listed exit dates, and exclusions; use Local full for live API details and certification entry dates."
     },
     {
       "id": "p02",
@@ -255,7 +255,7 @@
         "usa"
       ],
       "in_pdf": true,
-      "requires_local_full_sam": true
+      "sam_edition_note": "Hosted SAM.gov supplies monthly public certification codes and any listed 8(a) exit dates, and flags exit dates that have passed; confirm current certification with SBA."
     },
     {
       "id": "p03",
@@ -442,7 +442,7 @@
         "sam"
       ],
       "in_pdf": true,
-      "requires_local_full_sam": true
+      "sam_edition_note": "Hosted SAM.gov shows certification codes and any listed exit dates; entry dates and live status need the Local full SAM.gov edition."
     },
     {
       "id": "p22",
@@ -474,7 +474,7 @@
         "sam"
       ],
       "in_pdf": true,
-      "sam_edition_note": "Hosted SAM.gov supplies monthly public registration records and certification codes; detailed SBA certification dates require Local full."
+      "sam_edition_note": "Hosted SAM.gov supplies monthly public registration records, certification codes, and any listed exit dates; entry dates and live details require Local full."
     },
     {
       "id": "p25",
