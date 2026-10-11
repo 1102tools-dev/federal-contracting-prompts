@@ -19,8 +19,8 @@ PR='https://github.com/1102tools-dev/federal-contracting-prompts'
 MR='https://github.com/1102tools-dev/federal-contracting-mcps'
 ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
-SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','acq','fr','regs')
-SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','acq','fr','regs')))
+SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
+SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','fr','regs','acq')))
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 LOCAL_VS_HOSTED=(
     ('Why use it','Your own full rate limits, so you skip any congestion on hosted','Always up to date. No keys, and it works in Claude or ChatGPT anywhere'),
@@ -38,7 +38,7 @@ def month_year(iso):y,m,_=iso.split('-');return MONTHS[int(m)-1]+' '+y
 def number_word(n):return ('Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten')[n] if n<=10 else str(n)
 def proof_list(s,tools=None):
     pr=s['proof']
-    return f'<p class="support-note">Package v{ESC(pr["version"])}</p><ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li></ul>'
+    return f'<ul class="card-proof"><li><strong>{tools or pr["tools"]}</strong> tools</li></ul>'
 def stats():
     servers=DATA['servers']
     return {'servers':len(servers),'tools':sum(s['proof']['tools'] for s in servers),
@@ -157,7 +157,7 @@ def website(out,pdf,pages):
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
-                f'<p>Package v{ESC(s["proof"]["version"])}. <strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>''</details>')
+                f'<p><strong>{s["proof"]["tools"]} tools</strong> against the live SAM.gov APIs. Adds {ESC(s["full_edition_adds"])}.</p>''</details>')
             cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Source code ↗</a></article>')
         else:
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Source code ↗</a></article>')
@@ -214,7 +214,7 @@ def website(out,pdf,pages):
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.','',
         *llms_when(),
         '## Available in the Claude and ChatGPT directories','',
-        'Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, FAR Overhaul model text and agency deviation research, Federal Register rulemaking research, or Regulations.gov docket and comment research, users can install the matching MCP from these direct listing links:','',
+        'Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, Regulations.gov docket and comment research, or FAR Overhaul model text and agency deviation research, users can install the matching MCP from these direct listing links:','',
         *[line for key,label in DIRECTORIES for line in ['### '+label+' directory','',*['- ['+server['name']+' by 1102tools — install in '+label+']('+server['directories'][key]+')'+(f" (hosted {server['hosted_edition']['tools']}-tool edition; the full {server['proof']['tools']}-tool edition is a local install)" if server.get('hosted_edition') else '') for server in published if server['directories'][key]],'']],
         'The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
         '## Prerequisites and scope','',

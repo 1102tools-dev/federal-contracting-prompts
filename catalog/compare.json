@@ -352,14 +352,6 @@
       }
     },
     {
-      "id": "acq",
-      "others": "None found",
-      "alt": "",
-      "alt_url": "",
-      "alt_detail": "No other MCP server for Acquisition.gov RFO model text or agency deviations",
-      "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations, in both the Claude and ChatGPT directories."
-    },
-    {
       "id": "fr",
       "others": "15+",
       "alt": "cyanheads/federal-regulations-mcp-server",
@@ -382,6 +374,14 @@
         "claude": false,
         "chatgpt": false
       }
+    },
+    {
+      "id": "acq",
+      "others": "None found",
+      "alt": "",
+      "alt_url": "",
+      "alt_detail": "No other MCP server for Acquisition.gov RFO model text or agency deviations",
+      "edge": "The only known MCP server for FAR Overhaul model parts and agency class deviations, in both the Claude and ChatGPT directories."
     }
   ],
   "fit": [
