@@ -32,8 +32,10 @@ items=next(x for x in structured['@graph'] if x['@type']=='CollectionPage')['mai
 descriptions={x['item']['url'].split('#')[-1]:x['item']['description'] for x in items}
 for p in data['prompts']:
  if p.get('requires_local_full_sam'):
-  label='SAM.gov entity checks need the Local full SAM.gov edition.'
+  label='This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.'
   assert label in page.card_texts[p['id']] and label in descriptions[p['id']],p['id']
+ if p.get('sam_edition_note'):
+  assert p['sam_edition_note'] in page.card_texts[p['id']] and p['sam_edition_note'] in descriptions[p['id']],p['id']
  assert p['text'] in descriptions[p['id']],p['id']
 for link in page.links:
  if link.startswith('#'):assert link[1:] in page.ids,link
