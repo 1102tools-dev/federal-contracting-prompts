@@ -323,7 +323,7 @@ def llms_help():
         '- For nothing to pass through 1102tools at all, install the local version; it runs on the user\'s own computer.',
         '- Each server\'s privacy notice: '+priv,'',
         '## Limits','',
-        '- Hosted: up to 120 requests a minute from one connection address on SAM.gov, BLS OEWS, GSA Per Diem and Acquisition.gov; 20 on USAspending, eCFR and Federal Register; 10 on GSA CALC+ and Regulations.gov; and 600 from Claude\'s and ChatGPT\'s own servers, which carry all of their users.',
+        '- Hosted: up to 120 requests a minute from one connection address on SAM.gov, BLS OEWS, GSA Per Diem and Acquisition.gov; 20 on USAspending, eCFR and Federal Register; 10 on GSA CALC+ and Regulations.gov; and 600 from Claude\'s and ChatGPT\'s own servers, which carry all of their users. Each ChatGPT user is also held to the same limit as one connection address.',
         '- The government sources set their own limits. On hosted servers these are pooled across all users; each user\'s lookups stay private.',
         '- For heavy or automated use, install the local version and configure a free agency key where its setup requires one. Requests use your own source limits.','',
         '## Common questions','',
