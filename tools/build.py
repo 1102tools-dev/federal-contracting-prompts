@@ -165,7 +165,7 @@ def website(out,pdf,pages):
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
-                f'<p><strong>{s["proof"]["tools"]} tools</strong>. Adds {ESC(s["full_edition_adds"])}.</p>''</details>')
+                f'<p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p>''</details>')
             cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Source code ↗</a></article>')
         else:
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Source code ↗</a></article>')
@@ -246,7 +246,7 @@ def website(out,pdf,pages):
             he=server['hosted_edition'];pending=[label for key,label in DIRECTORIES if not server['directories'][key]]
             llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source, in two editions.')
             llms.append(f"  Directory edition (hosted, no key): {he['tools']} tools for {he['summary']}, built from {he['source']}. Install: "+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server))+('. Coming soon to the '+series(pending)+(' directories.' if len(pending)>1 else ' directory.') if pending else '.'))
-            llms.append(f"  Full local edition (free SAM.gov key): {server['proof']['tools']} tools. Adds {server['full_edition_adds']}. It is not in the directories; install it locally.")
+            llms.append(f"  Full local edition (free SAM.gov key): {server['proof']['tools']} tools. Everything in hosted, plus {server['full_edition_adds']}. It is not in the directories; install it locally.")
             continue
         llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools.')
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))

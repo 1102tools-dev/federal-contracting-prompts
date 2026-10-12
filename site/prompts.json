@@ -21,7 +21,7 @@
         "source": "SAM.gov's public files: opportunities checked every two hours, exclusions checked every four hours with an extra check after usual daily publication, and monthly entity registrations checked alongside exclusions; unchanged files write no rows. Answers report source file names and dates, and entities that opted out of public display are not included in the hosted public mirror",
         "version": "1.1.7"
       },
-      "full_edition_adds": "reps and certs, integrity records, SBA certification entry dates, contract awards, the federal hierarchy, subawards, and PSC lookups",
+      "full_edition_adds": "contract awards, subawards, reps and certs, and past terminations and legal proceedings",
       "proof": {
         "tools": 20,
         "version": "1.0.14"
