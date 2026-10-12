@@ -67,7 +67,7 @@ No affiliation with or endorsement by a federal agency is claimed.
 
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
 - Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the nine servers went through seven rounds of content checks with real contracting questions.
-- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city lookups without a county or years before FY2021.
+- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.
 - Listed: 9 in the Claude directory; 6 in the ChatGPT directory.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
 - Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.
@@ -129,19 +129,25 @@ Hosted addresses for AI apps that connect by URL:
 - Regulations.gov: https://regulations-gov.1102tools.com/mcp
 - Acquisition.gov: https://acquisition-gov.1102tools.com/mcp
 
+## How the hosted servers run
+
+- Each hosted server is a Cloudflare Worker. SAM.gov, BLS OEWS, GSA Per Diem and Acquisition.gov answer from 1102tools' copy of the agency's public files in Cloudflare databases, refreshed on a schedule, so no government API is called while you wait. GSA Per Diem calls GSA only for city names its data can't place.
+- USAspending, eCFR, Federal Register, GSA CALC+ and Regulations.gov call the live government API through a dedicated 1102tools server, keep recent public answers in memory, and pace their calls to stay within each agency's limits.
+- The deployment code is open source: [deploy/](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy).
+
 ## Privacy
 
 - Conversations and query/result logs are not retained. Some public government responses are cached temporarily to reduce repeated source requests. There are no accounts, cookies or user profiles, and nothing is sold or shared.
 - 1102tools does not log or keep IP addresses.
 - The only record is a 7-day service record for each call: the tool name, which AI app sent it, whether it worked and how long it took. It contains no search terms, results, IP address or location.
-- SAM.gov, BLS OEWS and Acquisition.gov answer from 1102tools' own copy of the public data, so searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. The cache holds the public answer, not who asked.
+- SAM.gov, BLS OEWS and Acquisition.gov answer from 1102tools' own copy of the public data, so searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. SAM.gov reuses an identical answer for up to 5 minutes. The cache holds the public answer, not who asked.
 - The user's AI app (Claude, ChatGPT or another) handles the conversation under its own privacy policy.
 - For nothing to pass through 1102tools at all, install the local version; it runs on the user's own computer.
 - Each server's privacy notice: [SAM.gov](https://sam.1102tools.com/privacy) · [USAspending](https://usaspending.1102tools.com/privacy) · [GSA CALC+](https://gsa-calc.1102tools.com/privacy) · [BLS OEWS](https://bls-oews.1102tools.com/privacy) · [GSA Per Diem](https://gsa-perdiem.1102tools.com/privacy) · [eCFR](https://ecfr.1102tools.com/privacy) · [Federal Register](https://federal-register.1102tools.com/privacy) · [Regulations.gov](https://regulations-gov.1102tools.com/privacy) · [Acquisition.gov](https://acquisition-gov.1102tools.com/privacy)
 
 ## Limits
 
-- Hosted: up to 120 requests a minute from one connection address, and 600 a minute from Claude's and ChatGPT's own servers, which carry all of their users.
+- Hosted: up to 120 requests a minute from one connection address on SAM.gov, BLS OEWS, GSA Per Diem and Acquisition.gov; 20 on USAspending, eCFR and Federal Register; 10 on GSA CALC+ and Regulations.gov; and 600 from Claude's and ChatGPT's own servers, which carry all of their users.
 - The government sources set their own limits. On hosted servers these are pooled across all users; each user's lookups stay private.
 - For heavy or automated use, install the local version and configure a free agency key where its setup requires one. Requests use your own source limits.
 
@@ -149,13 +155,13 @@ Hosted addresses for AI apps that connect by URL:
 
 - Is it free? Yes. Every server is free and MIT-licensed. Hosted use needs no account and no API key.
 - Is it official? No. 1102tools is independent and built by a federal contracting officer; no agency is affiliated with it or endorses it. No agency offers an official MCP server for these sources (see the status section above).
-- Do I need an API key? Not for hosted use. Local SAM.gov (full edition) and Regulations.gov require free agency keys. Local GSA Per Diem needs one only for city lookups without a county or years before FY2021; ZIP, state, M&IE and city-plus-county lookups need none. The other six require none.
+- Do I need an API key? Not for hosted use. Local SAM.gov (full edition) and Regulations.gov require free agency keys. Local GSA Per Diem needs one only for city names its bundled Census and county data can't place, or years before FY2021; ZIP, state, M&IE, city-plus-county and most city-name lookups need none. The other six require none.
 - How current is the data?
   - SAM.gov: Hosted: dated public files, with opportunities checked every two hours, exclusions checked every four hours plus an extra check after usual daily publication, and monthly entity registrations checked alongside exclusions. Opted-out entities are not included in the hosted public mirror. Confirm current registration on SAM.gov. Local full edition: live SAM.gov APIs with detailed certification, reps/certs, and integrity fields.
   - USAspending: Live from USAspending.gov. Repeat answers may be reused for up to 24 hours.
   - GSA CALC+: Live from GSA CALC+. Repeat answers may be reused for up to 12 hours.
   - BLS OEWS: The latest published OEWS release (May 2025).
-  - GSA Per Diem: 1102tools' copy of GSA's published per diem files for fiscal years 2021 onward; city lookups without a county, and earlier years, use the live GSA API.
+  - GSA Per Diem: 1102tools' copy of GSA's published per diem files for fiscal years 2021 onward; most city lookups are settled from Census and GSA county data, and other city names, and earlier years, use the live GSA API.
   - eCFR: Live from eCFR, including today's text. Answers for past dates may be reused for up to 24 hours.
   - Federal Register: Live from the Federal Register. Searches may be reused for up to an hour.
   - Regulations.gov: Live from Regulations.gov. Searches may be reused for up to 15 minutes.
@@ -198,7 +204,7 @@ Each release has a public record of its versions, fixes and test results.
   Install: [Claude directory](https://claude.ai/directory/gsa-calc-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [BLS OEWS](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp): Occupational wages by geography and data year from the Bureau of Labor Statistics. Access: No user API key. Free and open source; 8 tools.
   Install: [Claude directory](https://claude.ai/directory/bls-oews-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e)
-- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Local: free key only for city lookups without a county or years before FY2021. Hosted: no key. Free and open source; 7 tools.
+- [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Local: free key only for city names its bundled Census and county data can't place, or years before FY2021. Hosted: no key. Free and open source; 7 tools.
   Install: [Claude directory](https://claude.ai/directory/gsa-perdiem-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9)
 - [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools.
   Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)

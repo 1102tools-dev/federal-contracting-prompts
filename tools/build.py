@@ -65,7 +65,7 @@ def readme():
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
     lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Local or hosted','',f'Every MCP works in Claude or ChatGPT two ways. **Local** runs it on your computer, inside the Claude or ChatGPT desktop app or another AI app. **Hosted** runs it on Cloudflare, so it works anywhere you use Claude or ChatGPT. Local is the better setup for daily work, and you don\'t have to set it up by hand: give your AI the [local setup guide]({MR}#local-setup) and ask it to set it up or walk you through it.','',f'All nine are in the Claude directory and {chatgpt_count.lower()} in ChatGPT as hosted installs. The rest are coming soon to ChatGPT.','','| MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
-        local=f"[Setup guide]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(f" (full {server['proof']['tools']}-tool edition, free key)" if server.get('hosted_edition') else ' (free key only for city lookups without a county or years before FY2021)' if server['id']=='travel' else ' (free key)' if server['id']=='regs' else '')
+        local=f"[Setup guide]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(f" (full {server['proof']['tools']}-tool edition, free key)" if server.get('hosted_edition') else ' (free key only for city names its bundled Census and county data can\'t place, or years before FY2021)' if server['id']=='travel' else ' (free key)' if server['id']=='regs' else '')
         edition=f" ({server['hosted_edition']['tools']}-tool edition, no key)" if server.get('hosted_edition') else ''
         lines.append(f"| {server['name']} | {local} | "+' | '.join(f"[Install]({server['directories'][key]}){edition}" if server['directories'][key] else 'Coming soon' for key,_ in DIRECTORIES)+' |')
     lines+=['','| | Local | Hosted |','|---|---|---|',*[f'| **{label}** | {mine} | {hosted} |' for label,mine,hosted in LOCAL_VS_HOSTED],'',
@@ -234,7 +234,7 @@ def website(out,pdf,pages):
         '## Why 1102tools','',
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
         f"- Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the {number_word(st['servers']).lower()} servers went through seven rounds of content checks with real contracting questions.",
-        "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city lookups without a county or years before FY2021.",
+        "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.",
@@ -277,7 +277,7 @@ FRESHNESS={
     'usa':'Live from USAspending.gov. Repeat answers may be reused for up to 24 hours.',
     'calc':'Live from GSA CALC+. Repeat answers may be reused for up to 12 hours.',
     'bls':'The latest published OEWS release (May 2025).',
-    'travel':'1102tools\' copy of GSA\'s published per diem files for fiscal years 2021 onward; city lookups without a county, and earlier years, use the live GSA API.',
+    'travel':'1102tools\' copy of GSA\'s published per diem files for fiscal years 2021 onward; most city lookups are settled from Census and GSA county data, and other city names, and earlier years, use the live GSA API.',
     'ecfr':'Live from eCFR, including today\'s text. Answers for past dates may be reused for up to 24 hours.',
     'acq':'A copy of Acquisition.gov\'s FAR Overhaul text and agency deviations, refreshed daily.',
     'fr':'Live from the Federal Register. Searches may be reused for up to an hour.',
@@ -310,22 +310,26 @@ def llms_help():
         '| | Local | Hosted |','|---|---|---|',*[f'| {label} | {local} | {hosted} |' for label,local,hosted in LOCAL_VS_HOSTED],'',
         'Hosted addresses for AI apps that connect by URL:','',
         *[f"- {SERVERS[sid]['name']}: https://{HOSTS[sid]}.1102tools.com/mcp" for sid in SOURCE_ORDER],'',
+        '## How the hosted servers run','',
+        '- Each hosted server is a Cloudflare Worker. SAM.gov, BLS OEWS, GSA Per Diem and Acquisition.gov answer from 1102tools\' copy of the agency\'s public files in Cloudflare databases, refreshed on a schedule, so no government API is called while you wait. GSA Per Diem calls GSA only for city names its data can\'t place.',
+        '- USAspending, eCFR, Federal Register, GSA CALC+ and Regulations.gov call the live government API through a dedicated 1102tools server, keep recent public answers in memory, and pace their calls to stay within each agency\'s limits.',
+        '- The deployment code is open source: [deploy/](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy).','',
         '## Privacy','',
         '- Conversations and query/result logs are not retained. Some public government responses are cached temporarily to reduce repeated source requests. There are no accounts, cookies or user profiles, and nothing is sold or shared.',
         '- 1102tools does not log or keep IP addresses.',
         '- The only record is a 7-day service record for each call: the tool name, which AI app sent it, whether it worked and how long it took. It contains no search terms, results, IP address or location.',
-        '- SAM.gov, BLS OEWS and Acquisition.gov answer from 1102tools\' own copy of the public data, so searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. The cache holds the public answer, not who asked.',
+        '- SAM.gov, BLS OEWS and Acquisition.gov answer from 1102tools\' own copy of the public data, so searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. SAM.gov reuses an identical answer for up to 5 minutes. The cache holds the public answer, not who asked.',
         '- The user\'s AI app (Claude, ChatGPT or another) handles the conversation under its own privacy policy.',
         '- For nothing to pass through 1102tools at all, install the local version; it runs on the user\'s own computer.',
         '- Each server\'s privacy notice: '+priv,'',
         '## Limits','',
-        '- Hosted: up to 120 requests a minute from one connection address, and 600 a minute from Claude\'s and ChatGPT\'s own servers, which carry all of their users.',
+        '- Hosted: up to 120 requests a minute from one connection address on SAM.gov, BLS OEWS, GSA Per Diem and Acquisition.gov; 20 on USAspending, eCFR and Federal Register; 10 on GSA CALC+ and Regulations.gov; and 600 from Claude\'s and ChatGPT\'s own servers, which carry all of their users.',
         '- The government sources set their own limits. On hosted servers these are pooled across all users; each user\'s lookups stay private.',
         '- For heavy or automated use, install the local version and configure a free agency key where its setup requires one. Requests use your own source limits.','',
         '## Common questions','',
         '- Is it free? Yes. Every server is free and MIT-licensed. Hosted use needs no account and no API key.',
         '- Is it official? No. 1102tools is independent and built by a federal contracting officer; no agency is affiliated with it or endorses it. No agency offers an official MCP server for these sources (see the status section above).',
-        '- Do I need an API key? Not for hosted use. Local SAM.gov (full edition) and Regulations.gov require free agency keys. Local GSA Per Diem needs one only for city lookups without a county or years before FY2021; ZIP, state, M&IE and city-plus-county lookups need none. The other six require none.',
+        '- Do I need an API key? Not for hosted use. Local SAM.gov (full edition) and Regulations.gov require free agency keys. Local GSA Per Diem needs one only for city names its bundled Census and county data can\'t place, or years before FY2021; ZIP, state, M&IE, city-plus-county and most city-name lookups need none. The other six require none.',
         '- How current is the data?',
         *[f"  - {SERVERS[sid]['name']}: {FRESHNESS[sid]}" for sid in SOURCE_ORDER],
         '- Can competitors or the government see what I research? No. Searches are not logged or saved, and on hosted servers government sites see requests from 1102tools, not from you. SAM.gov, BLS OEWS and Acquisition.gov searches never leave 1102tools\' own copy of the data.',
