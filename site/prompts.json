@@ -32,7 +32,7 @@
       "id": "usa",
       "name": "USAspending",
       "slug": "usaspending-gov-mcp",
-      "description": "Awards, obligations, recipients, agencies, and reported subawards.",
+      "description": "Contracts, grants, loans, recipients, agencies, and subawards.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp",
       "directories": {
