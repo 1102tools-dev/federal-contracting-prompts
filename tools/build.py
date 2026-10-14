@@ -167,9 +167,9 @@ def website(out,pdf,pages):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
                 f'<p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p>''</details>')
-            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}{demo}<a href="{s["url"]}">Source code ↗</a></article>')
+            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}{demo}</article>')
         else:
-            cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}{demo}<a href="{s["url"]}">Source code ↗</a></article>')
+            cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}{demo}</article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
         {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":f"{PROMPT_COUNT} prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":requirement_text(p)+" "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
