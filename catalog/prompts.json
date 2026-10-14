@@ -27,7 +27,7 @@
         "version": "1.0.14"
       },
       "card_access": "No user API key",
-      "demo": "https://youtu.be/31C43zdjVWg"
+      "demo": "/downloads/1102tools-sam-gov-demo.mp4"
     },
     {
       "id": "usa",
@@ -43,7 +43,8 @@
       "proof": {
         "tools": 55,
         "version": "1.0.23"
-      }
+      },
+      "demo": "/downloads/1102tools-usaspending-demo.mp4"
     },
     {
       "id": "calc",
@@ -60,7 +61,7 @@
         "tools": 8,
         "version": "1.0.17"
       },
-      "demo": "https://youtu.be/8_6RRSAbiLM"
+      "demo": "/downloads/1102tools-gsa-calc-demo.mp4"
     },
     {
       "id": "bls",
@@ -78,7 +79,7 @@
         "tools": 8,
         "version": "1.1.4"
       },
-      "demo": "https://youtu.be/9q7jnTdI8W0"
+      "demo": "/downloads/1102tools-bls-oews-demo.mp4"
     },
     {
       "id": "travel",
@@ -96,7 +97,7 @@
         "tools": 7,
         "version": "1.2.5"
       },
-      "demo": "https://youtu.be/YtUYhXzy1E4"
+      "demo": "/downloads/1102tools-gsa-perdiem-demo.mp4"
     },
     {
       "id": "ecfr",
@@ -113,7 +114,7 @@
         "tools": 13,
         "version": "1.1.8"
       },
-      "demo": "https://youtu.be/i8L2zV7RA5E"
+      "demo": "/downloads/1102tools-ecfr-demo.mp4"
     },
     {
       "id": "fr",
@@ -130,7 +131,7 @@
         "tools": 8,
         "version": "1.0.16"
       },
-      "demo": "https://youtu.be/ppGiEI2GHZk"
+      "demo": "/downloads/1102tools-federal-register-demo.mp4"
     },
     {
       "id": "regs",
@@ -148,7 +149,7 @@
         "tools": 9,
         "version": "2.0.6"
       },
-      "demo": "https://youtu.be/p-bN2sC77zs"
+      "demo": "/downloads/1102tools-regulations-gov-demo.mp4"
     },
     {
       "id": "acq",
@@ -165,7 +166,7 @@
         "tools": 5,
         "version": "1.0.10"
       },
-      "demo": "https://youtu.be/WTddOHTbNpA"
+      "demo": "/downloads/1102tools-acquisition-gov-demo.mp4"
     }
   ],
   "sections": [
