@@ -158,7 +158,7 @@ def website(out,pdf,pages):
             local_href=s['url']+('#install' if s['id']=='acq' else '#installation')
             local_link=f'<a class="directory-link" href="{local_href}"><b>Local setup</b><em>{"full edition, desktop" if s.get("hosted_edition") else "desktop only"}</em><span aria-hidden="true">→</span></a>'
             one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
-            directory='<div class="directory-links">'+(one_click+local_link if s.get('hosted_edition') else local_link+one_click)+'</div>'
+            directory='<div class="directory-links">'+local_link+one_click+'</div>'
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'
         access=ESC(s.get('card_access',s['access']))
