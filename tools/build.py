@@ -162,7 +162,7 @@ def website(out,pdf,pages):
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'
         access=ESC(s.get('card_access',s['access']))
-        demo=f'<a class="demo-link" href="{s["demo"]}">Watch the demo ↗</a>' if s.get('demo') else ''
+        demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'

@@ -21,3 +21,13 @@ showAllMcps.textContent='Show all '+serverGrid.querySelectorAll('.server-card').
 function expandMcps(){serverGrid.classList.remove('collapsed');showAllMcps.hidden=true;}
 serverGrid.classList.add('collapsed');showAllMcps.hidden=false;showAllMcps.addEventListener('click',expandMcps);
 window.addEventListener('hashchange',openHash);openHash();
+// "Watch the demo" opens the video in a pop-up player on the page; without JavaScript the link plays the file directly.
+const player=document.getElementById('demo-player');
+if(player&&player.showModal){
+  const video=player.querySelector('video');
+  const stop=()=>{video.pause();video.removeAttribute('src');video.load();};
+  document.addEventListener('click',e=>{const a=e.target.closest('a.demo-link');if(!a||e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();video.src=a.getAttribute('href');player.showModal();video.play().catch(()=>{});});
+  player.querySelector('.demo-close').addEventListener('click',()=>player.close());
+  player.addEventListener('click',e=>{if(e.target===player)player.close();});
+  player.addEventListener('close',stop);
+}
