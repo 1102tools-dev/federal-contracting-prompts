@@ -162,13 +162,14 @@ def website(out,pdf,pages):
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'
         access=ESC(s.get('card_access',s['access']))
+        demo=f'<a class="demo-link" href="{s["demo"]}">Watch the demo ↗</a>' if s.get('demo') else ''
         if s.get('hosted_edition'):
             he=s['hosted_edition']
             full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
                 f'<p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p>''</details>')
-            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}<a href="{s["url"]}">Source code ↗</a></article>')
+            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}{demo}<a href="{s["url"]}">Source code ↗</a></article>')
         else:
-            cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}<a href="{s["url"]}">Source code ↗</a></article>')
+            cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}{demo}<a href="{s["url"]}">Source code ↗</a></article>')
     structured={"@context":"https://schema.org","@graph":[
         {"@type":"WebSite","@id":"https://1102tools.com/#website","url":"https://1102tools.com/","name":"1102tools","description":"Free, independent federal contracting MCP servers and practical prompts.","inLanguage":"en"},
         {"@type":"CollectionPage","@id":"https://1102tools.com/#webpage","url":"https://1102tools.com/","name":"1102tools | Free federal contracting MCPs and prompts","description":f"{PROMPT_COUNT} prompts for nine free MCP sources. Directory installs need no 1102tools account or user API key. Install and connect the required MCPs before running a prompt.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":DATA['website_updated'],"inLanguage":"en","mainEntity":{"@type":"ItemList","numberOfItems":len(DATA['prompts']),"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"CreativeWork","name":p['title'],"url":"https://1102tools.com/#"+p['id'],"description":requirement_text(p)+" "+p['text']}} for i,p in enumerate(DATA['prompts'],1)]}}]}
