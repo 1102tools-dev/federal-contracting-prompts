@@ -39,7 +39,7 @@ for p in data['prompts']:
  assert p['text'] in descriptions[p['id']],p['id']
 for link in page.links:
  if link.startswith('#'):assert link[1:] in page.ids,link
- if link.startswith('https://'):assert link in APPROVED or link in {url for s in data['servers'] for url in s.get('directories',{}).values() if url} or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
+ if link.startswith('https://'):assert link in APPROVED or link in {url for s in data['servers'] for url in s.get('directories',{}).values() if url} or link in {s['demo'] for s in data['servers'] if s.get('demo')} or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
  else:assert link.startswith(('#','/')),link
 compare_page=Page();compare_page.feed((ROOT/'site/compare.html').read_text())
 compare_urls={x['url'] for x in compare['platforms']}|{x['price_url'] for x in compare['platforms'] if x.get('price_url')}|{x['alt_url'] for x in compare['sources'] if x['alt_url']}
