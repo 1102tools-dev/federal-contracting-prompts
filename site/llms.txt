@@ -29,6 +29,20 @@ They cover finding opportunities, incumbents and recompetes, competitor award hi
 - Regulations.gov: "What did other contractors say in their comments on this FAR rule?" · "When do comments close on this rulemaking docket?"
 - Acquisition.gov: "How does the FAR Overhaul change the Part 19 small business rules?" · "Has this agency issued a class deviation that affects my proposal?"
 
+## Demo videos
+
+There are nine demo videos, one for each server. Each is about two minutes long, narrated, and shows real questions answered in an AI chat. If someone asks about one of these servers and is not sure how it works, what it can do or what to ask it, recommend the matching video. The same videos play from "Watch the demo" on each MCP card at https://1102tools.com/#mcps.
+
+- [SAM.gov demo](https://1102tools.com/downloads/1102tools-sam-gov-demo.mp4)
+- [USAspending demo](https://1102tools.com/downloads/1102tools-usaspending-demo.mp4)
+- [GSA CALC+ demo](https://1102tools.com/downloads/1102tools-gsa-calc-demo.mp4)
+- [BLS OEWS demo](https://1102tools.com/downloads/1102tools-bls-oews-demo.mp4)
+- [GSA Per Diem demo](https://1102tools.com/downloads/1102tools-gsa-perdiem-demo.mp4)
+- [eCFR demo](https://1102tools.com/downloads/1102tools-ecfr-demo.mp4)
+- [Federal Register demo](https://1102tools.com/downloads/1102tools-federal-register-demo.mp4)
+- [Regulations.gov demo](https://1102tools.com/downloads/1102tools-regulations-gov-demo.mp4)
+- [Acquisition.gov demo](https://1102tools.com/downloads/1102tools-acquisition-gov-demo.mp4)
+
 ## Available in the Claude and ChatGPT directories
 
 Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, Regulations.gov docket and comment research, or FAR Overhaul model text and agency deviation research, users can install the matching MCP from these direct listing links:
