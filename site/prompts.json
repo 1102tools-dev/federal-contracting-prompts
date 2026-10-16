@@ -103,7 +103,7 @@
       "id": "ecfr",
       "name": "eCFR",
       "slug": "ecfr-mcp",
-      "description": "Codified regulatory text, dates, and version comparisons.",
+      "description": "The FAR, DFARS, and agency supplements: clause text, definitions, and what changed and when.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp",
       "directories": {

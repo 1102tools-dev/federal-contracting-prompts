@@ -220,7 +220,7 @@ Each release has a public record of its versions, fixes and test results.
   Install: [Claude directory](https://claude.ai/directory/bls-oews-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e)
 - [GSA Per Diem](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp): Lodging and meals-and-incidental-expense rates by locality. Access: Local: free key only for city names its bundled Census and county data can't place, or years before FY2021. Hosted: no key. Free and open source; 7 tools.
   Install: [Claude directory](https://claude.ai/directory/gsa-perdiem-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9)
-- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): Codified regulatory text, dates, and version comparisons. Access: No user API key. Free and open source; 13 tools.
+- [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): The FAR, DFARS, and agency supplements: clause text, definitions, and what changed and when. Access: No user API key. Free and open source; 13 tools.
   Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
 - [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key. Free and open source; 8 tools.
   Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools)
