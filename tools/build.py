@@ -83,7 +83,7 @@ def readme():
         for p in DATA['prompts']:
             if p['category']!=sec['id']:continue
             lines += [f'<a id="{p["id"]}"></a>',f"### {p['title']}",'','```text','\n'.join(textwrap.fill(line,width=84,break_long_words=False,break_on_hyphens=False) for line in p['text'].split('\n')),'```','',f"**Required MCPs:** {linklabel(p)}",*( ['','**Edition:** '+edition_requirement(p)] if edition_requirement(p) else []),'']
-    lines+=['## Maintaining this library','','Edit `catalog/prompts.json`, then run `python tools/build.py`. The README, PDF, and website are generated from that one file. `python tools/build.py --check` verifies that generated copies match. See [maintenance notes](MAINTAINING.md).','','MIT licensed. Built by James Jenrette. Independently developed and not affiliated with or endorsed by any federal agency.','']
+    lines+=['## Maintaining this library','','Edit `catalog/prompts.json`, then run `python tools/build.py`. The README, PDF, and website are generated from that one file. `python tools/build.py --check` verifies that generated copies match. See [maintenance notes](MAINTAINING.md).','','MIT licensed. Independently developed and not affiliated with or endorsed by any federal agency.','']
     return '\n'.join(lines)
 class Doc(BaseDocTemplate):
     def afterFlowable(self,f):
