@@ -914,4 +914,4 @@ text as agency adoption or infer applicability from a filename.
 
 Edit `catalog/prompts.json`, then run `python tools/build.py`. The README, PDF, and website are generated from that one file. `python tools/build.py --check` verifies that generated copies match. See [maintenance notes](MAINTAINING.md).
 
-MIT licensed. Built by James Jenrette. Independently developed and not affiliated with or endorsed by any federal agency.
+MIT licensed. Independently developed and not affiliated with or endorsed by any federal agency.
