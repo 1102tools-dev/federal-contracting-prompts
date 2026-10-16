@@ -45,11 +45,12 @@ def stats():
     servers=DATA['servers']
     return {'servers':len(servers),'tools':sum(s['proof']['tools'] for s in servers),
         'directory':{label:[s['name'] for s in servers if s.get('directories',{}).get(key)] for key,label in DIRECTORIES}}
-def hero_proof():
+def hero_proof(youtube=False):
     st=stats();listed_in=[label for label,found in st['directory'].items() if found]
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
         f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
-        '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)+'</p>')
+        '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)
+        +('<a class="badge badge-youtube" href="https://www.youtube.com/@1102tools/shorts" aria-label="1102tools Shorts on YouTube"><span aria-hidden="true">▶</span>YOUTUBE</a>' if youtube else '')+'</p>')
 def source_ids(p):return p['mcps']
 def edition_requirement(p):return p.get('sam_edition_note') or ('This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.' if p.get('requires_local_full_sam') else '')
 def requirement_text(p):return 'Required MCPs: '+names(p)+'. '+edition_requirement(p)
@@ -194,7 +195,7 @@ def website(out,pdf,pages):
             'publisher':{'@id':'https://1102tools.com/#organization'}})
 
     st=stats()
-    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'PROMPT_COUNT':str(PROMPT_COUNT),'HERO_PROOF':hero_proof(),
+    replacements={'CSS_VERSION':hashlib.sha256((ROOT/'templates/styles.css').read_bytes()).hexdigest()[:12],'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'TASK_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["title"])}</option>' for s in DATA['sections']),'SOURCE_OPTIONS':''.join(f'<option value="{s["id"]}">{ESC(s["name"])}</option>' for s in (SERVERS[x] for x in SOURCE_ORDER)),'PROMPT_GROUPS':''.join(groups),'SERVER_CARDS':''.join(cards),'PDF_PAGES':str(pages),'PROMPT_COUNT':str(PROMPT_COUNT),'HERO_PROOF':hero_proof(youtube=True),
         'SAM_LOCAL_TOOLS':str(SERVERS['sam']['proof']['tools']),'SAM_HOSTED_TOOLS':str(SERVERS['sam']['hosted_edition']['tools']),
         'SERVER_COUNT':number_word(st['servers']).lower(),'SERVER_COUNT_WORD':number_word(st['servers']),
         'DIRECTORY_COUNT':' + '.join(str(len(found)) for found in st['directory'].values() if found),
