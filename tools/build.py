@@ -22,7 +22,8 @@ MR='https://github.com/1102tools-dev/federal-contracting-mcps'
 ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
-SOURCE_GROUPS=(('Find and vet',('sam','usa')),('Price the work',('calc','bls','travel')),('Know the rules',('ecfr','fr','regs','acq')))
+CARD_ORDER=('sam','usa','ecfr','calc','bls','travel','fr','regs','acq')
+FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations'}
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 LOCAL_VS_HOSTED=(
     ('Why use it','Your own full rate limits, so you skip any congestion on hosted','Always up to date. No keys, and it works in Claude or ChatGPT anywhere'),
@@ -151,10 +152,8 @@ def website(out,pdf,pages):
             cards.append(f'<details class="prompt-card" id="{p["id"]}" data-task="{sec["id"]}" data-sources="{" ".join(source_ids(p))}"><summary><span class="prompt-name">{ESC(p["title"])}</span><span class="chips">{chips}</span></summary><div class="prompt-body"><div class="prompt-requirements"><div class="requirements-heading"><span class="requirements-label">{requirements_label}</span><span class="required-links">{required}</span></div><p>{input_note}</p></div><p class="prompt-text">{ESC(p["text"])}</p><div class="copy-row"><button class="copy-button" type="button" aria-label="Copy prompt: {ESC(p["title"],quote=True)}">Copy prompt</button><span class="prompt-code">{p["id"].upper()}</span></div></div></details>')
         groups.append(f'<section class="prompt-group" id="{sec["id"]}"><div class="group-heading"><span>{n:02}</span><h3>{ESC(sec["title"])}</h3></div><div class="prompt-grid">'+''.join(cards)+'</div></section>')
     cards=[]
-    group_of={x:(g,xs[0]==x) for g,xs in SOURCE_GROUPS for x in xs}
-    for i,source_id in enumerate(SOURCE_ORDER,1):
+    for source_id in CARD_ORDER:
         s=SERVERS[source_id]
-        if group_of[source_id][1]:cards.append(f'<h3 class="grid-group">{ESC(group_of[source_id][0])}</h3>')
         directory=''
         if s.get('directories'):
             local_href=s['url']+('#install' if s['id']=='acq' else '#installation')
@@ -162,7 +161,8 @@ def website(out,pdf,pages):
             one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
             directory='<div class="directory-links">'+local_link+one_click+'</div>'
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')
-        head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="card-top"><span>SOURCE {i:02}</span></div><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3><p>{ESC(s["description"])}</p>'
+        full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
+        head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p>{ESC(s["description"])}</p>'
         access=ESC(s.get('card_access',s['access']))
         demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
         if s.get('hosted_edition'):
