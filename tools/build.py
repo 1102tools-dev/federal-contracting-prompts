@@ -396,8 +396,9 @@ def compare_page(out,css_version):
     st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
     me=('<tr class="me"><th scope="row">1102tools</th><td><strong>Free</strong></td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
         f'<td>{dir_chips(mine)}</td><td>Source research across {st["servers"]} federal data sources</td></tr>')
-    cut=next(i for i,x in enumerate(COMPARE['platforms']) if x['name']=='GovTribe')
-    platforms=''.join(('<tr class="more">' if i>cut else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(COMPARE['platforms']))
+    # Free first, then free tier with paid, then paid only; catalog order within each group.
+    order={'Free':0,'Free tier with paid':1,'Paid':2}
+    platforms=''.join(('<tr class="more">' if i>1 else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(sorted(COMPARE['platforms'],key=lambda x:order[x['pricing']])))
     rows=[]
     source_cut=next(i for i,r in enumerate(COMPARE['sources']) if r['id']=='calc')
     for i,row in enumerate(COMPARE['sources']):
