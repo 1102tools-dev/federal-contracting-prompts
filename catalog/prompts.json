@@ -8,6 +8,7 @@
       "name": "SAM.gov",
       "slug": "sam-gov-mcp",
       "description": "Contract opportunities, entity registrations, SBA certifications, and exclusions.",
+      "best_for": "Finding opportunities to bid on. The full version looks up awards too.",
       "access": "Local full edition: free SAM.gov key. Hosted: no key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp",
       "directories": {
@@ -34,6 +35,7 @@
       "name": "USAspending",
       "slug": "usaspending-gov-mcp",
       "description": "Contracts, grants, loans, recipients, agencies, and subawards.",
+      "best_for": "Looking up past awards: who won, how much, and from which agency.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp",
       "directories": {
@@ -51,6 +53,7 @@
       "name": "GSA CALC+",
       "slug": "gsa-calc-mcp",
       "description": "Awarded labor-category ceiling rates and comparison data.",
+      "best_for": "Pricing labor in proposals and IGCEs against rates GSA has already awarded.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp",
       "directories": {
@@ -68,6 +71,7 @@
       "name": "BLS OEWS",
       "slug": "bls-oews-mcp",
       "description": "Occupational wages by geography and data year from the Bureau of Labor Statistics.",
+      "best_for": "Pricing labor in proposals and IGCEs with market wage data.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/bls-oews-mcp",
       "directories": {
@@ -86,6 +90,7 @@
       "name": "GSA Per Diem",
       "slug": "gsa-perdiem-mcp",
       "description": "Lodging and meals-and-incidental-expense rates by locality.",
+      "best_for": "Pricing travel in proposals and IGCEs.",
       "access": "Local: free key only for city names its bundled Census and county data can't place, or years before FY2021. Hosted: no key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-perdiem-mcp",
       "directories": {
@@ -104,6 +109,7 @@
       "name": "eCFR",
       "slug": "ecfr-mcp",
       "description": "The FAR, DFARS, and agency supplements: clause text, definitions, and what changed and when.",
+      "best_for": "A FAR answer when there's no contracting officer to ask.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp",
       "directories": {
@@ -121,6 +127,7 @@
       "name": "Federal Register",
       "slug": "federal-register-mcp",
       "description": "Published rules, notices, comment periods, and FAR cases.",
+      "best_for": "Seeing which FAR rules are coming and when comments close.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp",
       "directories": {
@@ -138,6 +145,7 @@
       "name": "Regulations.gov",
       "slug": "regulations-gov-mcp",
       "description": "Rulemaking dockets, documents, and public comments.",
+      "best_for": "Reading what contractors said about a rule before you comment.",
       "access": "Local: free key. Hosted: no key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp",
       "directories": {
@@ -156,6 +164,7 @@
       "name": "Acquisition.gov",
       "slug": "acquisition-gov-mcp",
       "description": "FAR Overhaul model text, posted agency deviations, and guidance.",
+      "best_for": "Seeing which FAR Overhaul changes an agency has adopted.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp",
       "directories": {
