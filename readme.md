@@ -42,6 +42,7 @@ All nine are in the Claude directory and six in ChatGPT as hosted installs. The 
 | **Setup** | Ask your AI to set it up from the setup guide. Free keys for SAM.gov, Regulations.gov, and GSA Per Diem | Install from the Claude or ChatGPT directory. No keys |
 | **Rate limits** | Your own, in full | Pooled across all users. Your lookups stay private |
 | **Relies on** | Government sources | Government sources and Cloudflare |
+| **Privacy** | Runs on your computer. Nothing passes through 1102tools | No tracking. Searches aren't logged and IP addresses aren't kept |
 | **Updates** | Manual. Local installs don't update themselves. Ask your AI to update them | Automatic. Always runs the latest release |
 | **SAM.gov** | Full edition: 20 tools, free key | 6 tools, no key |
 
