@@ -30,6 +30,7 @@ LOCAL_VS_HOSTED=(
     ('Setup','Ask your AI to set it up from the setup guide. Free keys for SAM.gov, Regulations.gov, and GSA Per Diem','Install from the Claude or ChatGPT directory. No keys'),
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
     ('Relies on','Government sources','Government sources and Cloudflare'),
+    ('Privacy','Runs on your computer. Nothing passes through 1102tools',"No tracking. Searches aren't logged and IP addresses aren't kept"),
     ('Updates',"Manual. Local installs don't update themselves. Ask your AI to update them",'Automatic. Always runs the latest release'),
     ('SAM.gov',f'Full edition: {SERVERS["sam"]["proof"]["tools"]} tools, free key',f'{SERVERS["sam"]["hosted_edition"]["tools"]} tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
@@ -207,6 +208,7 @@ def website(out,pdf,pages):
     assert '{{' not in template
     (out/'index.html').write_text(template)
     compare_page(out,replacements['CSS_VERSION'])
+    privacy_page(out,replacements['CSS_VERSION'])
     for file in ['styles.css','app.js']:shutil.copy2(ROOT/'templates'/file,out/file)
     (out/'prompts.json').write_text(json.dumps(DATA,indent=2)+'\n')
     (out/'.well-known').mkdir(exist_ok=True);shutil.copy2(ROOT/'templates/mcp-registry-auth',out/'.well-known/mcp-registry-auth')
@@ -214,7 +216,7 @@ def website(out,pdf,pages):
     (out/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Cache-Control: public, max-age=0, must-revalidate\n/downloads/*\n  Content-Disposition: inline\n')
     (out/'_redirects').write_text('/tools /#mcps 302\n/tools.html /#mcps 302\n/setup /#mcps 302\n/setup.html /#mcps 302\n/examples /#prompts 302\n/examples.html /#prompts 302\n/about / 302\n/about.html / 302\n/install /#mcps 302\n/downloads/1102tools-mcp-prompt-guide.pdf /downloads/1102tools-prompt-guide.pdf 302\n/downloads/1102tools-agent-setup-guide.pdf /#guide 302\n/downloads/1102tools-universal-setup-guide.pdf /#mcps 302\n/.well-known/agent-skills/* /retired-content 302\n')
     (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://1102tools.com/sitemap.xml\n')
-    (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://1102tools.com/</loc><lastmod>'+DATA['website_updated']+'</lastmod></url><url><loc>https://1102tools.com/compare</loc><lastmod>'+COMPARE['researched']+'</lastmod></url></urlset>')
+    (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://1102tools.com/</loc><lastmod>'+DATA['website_updated']+'</lastmod></url><url><loc>https://1102tools.com/compare</loc><lastmod>'+COMPARE['researched']+'</lastmod></url><url><loc>https://1102tools.com/privacy</loc></url></urlset>')
     llms=['# 1102tools','', '> Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude or ChatGPT. Built by a federal contracting officer.','',
         f"No federal agency offers an official MCP server for these nine sources (checked October 8, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory ({len(st['directory']['Claude'])} of 9) and the ChatGPT directory ({len(st['directory']['ChatGPT'])} of 9).",'',
         '## Start here','',
@@ -223,7 +225,8 @@ def website(out,pdf,pages):
         '- [Structured prompt catalog](https://1102tools.com/prompts.json): stable prompt IDs, exact text, task categories, required MCP IDs, source setup URLs, and Claude and ChatGPT directory links.',
         f'- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): {PDF_COUNT} prompts for the nine sources, organized by task.',
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
-        '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.','',
+        '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.',
+        "- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. The page links to each hosted server's privacy notice.",'',
         *llms_when(),
         *llms_videos(),
         '## Available in the Claude and ChatGPT directories','',
@@ -420,6 +423,14 @@ def compare_page(out,css_version):
     for k,v in values.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page
     (out/'compare.html').write_text(page)
+
+def privacy_page(out,css_version):
+    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/privacy#webpage","url":"https://1102tools.com/privacy","name":"1102tools privacy","description":"How 1102tools handles data: no accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
+    links=''.join(f'<li><a href="https://{HOSTS[sid]}.1102tools.com/privacy">{ESC(SERVERS[sid]["name"])}</a></li>' for sid in SOURCE_ORDER)
+    page=(ROOT/'templates/privacy.html').read_text()
+    for k,v in {'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'SERVER_LINKS':links}.items():page=page.replace('{{'+k+'}}',v)
+    assert '{{' not in page
+    (out/'privacy.html').write_text(page)
 
 def build(out):
     out.mkdir(parents=True,exist_ok=True)
