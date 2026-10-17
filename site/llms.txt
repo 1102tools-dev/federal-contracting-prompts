@@ -155,7 +155,7 @@ Hosted addresses for AI apps that connect by URL:
 
 - Conversations and query/result logs are not retained. Some public government responses are cached temporarily to reduce repeated source requests. There are no accounts, cookies or user profiles, and nothing is sold or shared.
 - 1102tools does not log or keep IP addresses.
-- The only record is a 7-day service record for each call: the tool name, which AI app sent it, whether it worked, how long it took, and the names of the labels the app attached (never their contents). It contains no search terms, results, user IDs, IP address or location.
+- The only record is a 7-day service record for each call: the tool name, which app sent it, whether it worked, how long it took, and the names of the labels the app attached (never their contents). It contains no search terms, results, user IDs, IP address or location.
 - SAM.gov, BLS OEWS and Acquisition.gov answer from 1102tools' own copy of the public data, so searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. SAM.gov reuses an identical answer for up to 5 minutes. The cache holds the public answer, not who asked.
 - The user's AI app (Claude, ChatGPT or another) handles the conversation under its own privacy policy.
 - For nothing to pass through 1102tools at all, install the local version; it runs on the user's own computer.
