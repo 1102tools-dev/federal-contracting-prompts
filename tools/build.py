@@ -25,6 +25,7 @@ SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','calc','bls','travel','fr','regs','acq')
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
+DIRECTORIES_SOON=('Muse','Grok')
 LOCAL_VS_HOSTED=(
     ('Why use it','Your own full rate limits, so you skip any congestion on hosted','Always up to date. No keys, and it works in Claude or ChatGPT anywhere'),
     ('Works in','Claude or ChatGPT desktop apps and other AI apps, on a desktop or laptop','Claude or ChatGPT on web, desktop, and phone'),
@@ -51,8 +52,8 @@ def hero_proof():
     st=stats();listed_in=[label for label,found in st['directory'].items() if found]
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
         f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
-        '<p class="directory-proof">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)
-        +'</p>')
+        '<p class="directory-proof"><span class="badge-row">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)
+        +'</span><span class="badge-row">'+''.join(f'<span class="badge badge-soon">COMING SOON · {label.upper()} DIRECTORY</span>' for label in DIRECTORIES_SOON)+'</span></p>')
 def source_ids(p):return p['mcps']
 def edition_requirement(p):return p.get('sam_edition_note') or ('This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.' if p.get('requires_local_full_sam') else '')
 def requirement_text(p):return 'Required MCPs: '+names(p)+'. '+edition_requirement(p)
