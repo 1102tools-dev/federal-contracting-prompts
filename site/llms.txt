@@ -230,7 +230,7 @@ Each release has a public record of its versions, fixes and test results.
 - [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Local: free key. Hosted: no key. Free and open source; 9 tools.
   Install: [Claude directory](https://claude.ai/directory/regulations-gov-by-1102tools)
   Coming soon to the ChatGPT directory, with no user API key.
-- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. Access: No user API key. Free and open source; 5 tools.
+- [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. The only known MCP server for this source. Access: No user API key. Free and open source; 5 tools.
   Install: [Claude directory](https://claude.ai/directory/acquisition-gov-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333)
 
 ## Browse by task
