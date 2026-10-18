@@ -163,7 +163,7 @@
       "id": "acq",
       "name": "Acquisition.gov",
       "slug": "acquisition-gov-mcp",
-      "description": "FAR Overhaul model text, posted agency deviations, and guidance.",
+      "description": "FAR Overhaul model text, posted agency deviations, and guidance. The only known MCP server for this source.",
       "best_for": "Seeing which FAR Overhaul changes an agency has adopted.",
       "access": "No user API key",
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp",
