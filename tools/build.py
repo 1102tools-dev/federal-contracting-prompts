@@ -210,7 +210,7 @@ def website(out,pdf,pages):
     (out/'index.html').write_text(template)
     compare_page(out,replacements['CSS_VERSION'])
     privacy_page(out,replacements['CSS_VERSION'])
-    for file in ['styles.css','app.js']:shutil.copy2(ROOT/'templates'/file,out/file)
+    for file in ['styles.css','app.js','muse.webp']:shutil.copy2(ROOT/'templates'/file,out/file)
     (out/'prompts.json').write_text(json.dumps(DATA,indent=2)+'\n')
     (out/'.well-known').mkdir(exist_ok=True);shutil.copy2(ROOT/'templates/mcp-registry-auth',out/'.well-known/mcp-registry-auth')
     (out/'favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#007a59"/><text x="32" y="41" text-anchor="middle" font-family="monospace" font-size="30" font-weight="bold" fill="white">02</text></svg>')
