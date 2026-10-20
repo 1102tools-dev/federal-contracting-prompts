@@ -22,7 +22,7 @@ class Page(HTMLParser):
   if self.current:self.card_texts[self.current]+=s
   if self.in_text and self.current:self.prompts[self.current]+=s
 compare=json.loads((ROOT/'catalog/compare.json').read_text())
-APPROVED={'https://github.com/1102tools-dev/federal-contracting-mcps','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/','https://www.youtube.com/@1102tools','https://www.youtube.com/@1102tools/shorts'}
+APPROVED={'https://github.com/1102tools-dev/federal-contracting-mcps','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/','https://www.youtube.com/@1102tools','https://www.youtube.com/@1102tools/shorts','https://www.war.gov/News/Contracts/'}
 page=Page();page.feed((ROOT/'site/index.html').read_text())
 assert len(page.ids)==len(set(page.ids)),'duplicate HTML IDs'
 assert len(page.prompts)==len(data['prompts'])

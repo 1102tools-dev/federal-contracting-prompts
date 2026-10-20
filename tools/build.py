@@ -24,6 +24,8 @@ GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.He
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','calc','bls','travel','fr','regs','acq')
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
+CARD_NOTES={'usa':('Department of War contracts',"Department of War (DoD) awards appear 90 days after signing, here and in every other public source, SAM.gov included. Awards over $9 million go up each business day at 5 p.m. Eastern in the department's contract announcements.",'https://www.war.gov/News/Contracts/','See daily announcements'),
+    'ecfr':('FAR Overhaul deviations',"Agency deviations aren't in the eCFR. The Acquisition.gov MCP tracks which FAR Overhaul changes each agency has adopted.",'#mcp-acq','See Acquisition.gov')}
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 DIRECTORIES_SOON=('Muse','Grok')
 LOCAL_VS_HOSTED=(
@@ -163,7 +165,8 @@ def website(out,pdf,pages):
             directory='<div class="directory-links">'+local_link+one_click+'</div>'
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')+('<span class="badge badge-mco">MINI CONTRACTING OFFICER</span>' if s['id']=='ecfr' else '')
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
-        note=('<div class="card-note"><p class="card-note-label">FAR Overhaul deviations</p><p>Agency deviations aren&#x27;t in the eCFR. The Acquisition.gov MCP tracks which FAR Overhaul changes each agency has adopted.</p><a href="#mcp-acq">See Acquisition.gov <span aria-hidden="true">→</span></a></div>' if s['id']=='ecfr' else '')
+        label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
+        note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p><a href="{href}">{link} <span aria-hidden="true">→</span></a></div>' if label else ''
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
         access=ESC(s.get('card_access',s['access']))
         demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
@@ -171,7 +174,7 @@ def website(out,pdf,pages):
             he=s['hosted_edition']
             full=(f'<div class="card-note"><p class="card-note-label">Full local version · free SAM.gov key</p>'
                 f'<p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p></div>')
-            cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}{demo}</article>')
+            cards.append(head+f'{full}<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{directory}{demo}</article>')
         else:
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}{demo}</article>')
     structured={"@context":"https://schema.org","@graph":[
