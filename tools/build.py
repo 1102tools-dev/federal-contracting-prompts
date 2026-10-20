@@ -163,14 +163,14 @@ def website(out,pdf,pages):
             directory='<div class="directory-links">'+local_link+one_click+'</div>'
         badges='<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')+('<span class="badge badge-mco">MINI CONTRACTING OFFICER</span>' if s['id']=='ecfr' else '')
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
-        note=('<div class="deviation-note"><p class="deviation-label">FAR Overhaul deviations</p><p>Agency deviations aren&#x27;t in the eCFR. The Acquisition.gov MCP tracks which FAR Overhaul changes each agency has adopted.</p><a href="#mcp-acq">See Acquisition.gov <span aria-hidden="true">→</span></a></div>' if s['id']=='ecfr' else '')
+        note=('<div class="card-note"><p class="card-note-label">FAR Overhaul deviations</p><p>Agency deviations aren&#x27;t in the eCFR. The Acquisition.gov MCP tracks which FAR Overhaul changes each agency has adopted.</p><a href="#mcp-acq">See Acquisition.gov <span aria-hidden="true">→</span></a></div>' if s['id']=='ecfr' else '')
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
         access=ESC(s.get('card_access',s['access']))
         demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
         if s.get('hosted_edition'):
             he=s['hosted_edition']
-            full=(f'<details class="full-edition"><summary>Full local version · free SAM.gov key</summary>'
-                f'<p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p>''</details>')
+            full=(f'<div class="card-note"><p class="card-note-label">Full local version · free SAM.gov key</p>'
+                f'<p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p></div>')
             cards.append(head+f'<ul class="card-proof"><li><strong>{he["tools"]}</strong> tools</li></ul><small>{access}</small>{full}{directory}{demo}</article>')
         else:
             cards.append(head+f'{proof_list(s)}<small>{access}</small>{directory}{demo}</article>')
