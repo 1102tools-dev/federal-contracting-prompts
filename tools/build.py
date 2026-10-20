@@ -24,7 +24,7 @@ GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.He
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','calc','bls','travel','fr','regs','acq')
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
-CARD_NOTES={'usa':('Department of War contracts',"Department of War (DoD) awards appear 90 days after signing, here and in every other public source, SAM.gov included. Awards over $9 million go up each business day at 5 p.m. Eastern in the department's contract announcements.",'https://www.war.gov/News/Contracts/','See daily announcements'),
+CARD_NOTES={'usa':('Department of Defense contracts',"DoD awards appear 90 days after signing, here and in every other public source, SAM.gov included. Awards over $9 million go up each business day at 5 p.m. Eastern in the department's contract announcements.",'https://www.war.gov/News/Contracts/','See daily announcements'),
     'ecfr':('FAR Overhaul deviations',"Agency deviations aren't in the eCFR. The Acquisition.gov MCP tracks which FAR Overhaul changes each agency has adopted.",'#mcp-acq','See Acquisition.gov')}
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 DIRECTORIES_SOON=('Muse','Grok')
