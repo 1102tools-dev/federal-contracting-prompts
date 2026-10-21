@@ -49,6 +49,23 @@ for link in compare_page.links:
  if link.startswith('/#'):assert link[2:] in page.ids,link
  if link.startswith('#'):assert link[1:] in compare_page.ids,link
 assert {x['id'] for x in compare['sources']}=={s['id'] for s in data['servers']},'compare page must cover every source'
+# One page per server under /mcp/, each linked from its card.
+server_files=sorted((ROOT/'site/mcp').glob('*.html'))
+assert len(server_files)==len(data['servers']),'one page per server'
+directory_urls={url for s in data['servers'] for url in s.get('directories',{}).values() if url}
+server_texts=[]
+for f in server_files:
+ sp=Page();sp.feed(f.read_text());server_texts.append(''.join(sp.texts))
+ assert len(sp.ids)==len(set(sp.ids)),f.name
+ for link in sp.links:
+  if link.startswith('https://'):assert link in APPROVED or link in directory_urls or re.fullmatch(r'https://[a-z-]+\.1102tools\.com/privacy',link) or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),(f.name,link)
+  elif link.startswith('#'):assert link[1:] in sp.ids,(f.name,link)
+  else:assert link.startswith('/'),(f.name,link)
+  if link.startswith('/#'):assert link[2:] in page.ids,(f.name,link)
+  if link.startswith('/mcp/'):assert (ROOT/'site'/(link[1:]+'.html')).exists(),(f.name,link)
+for link in page.links:
+ if link.startswith('/mcp/'):assert (ROOT/'site'/(link[1:]+'.html')).exists(),link
+assert sum(l.startswith('/mcp/') for l in page.links)==len(data['servers']),'each card links to its server page'
 normalize=lambda s:re.sub(r'\s+','',s)
 readme=(ROOT/'readme.md').read_text()
 blocks=re.findall(r'```text\n(.*?)```',readme,re.S)
@@ -65,7 +82,7 @@ for page_ in pdf.pages:
   if action and action.get('/URI'):
    url=str(action['/URI']);assert url == 'https://1102tools.com/#mcps' or url.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),url
 for forbidden in ['universal-setup','agent-setup','federal-contracting-agents','federal-contracting-skills','August 2026','124 TOOLS','every pattern run live','plain English','one click','recommended']:
- assert forbidden.lower() not in (text+'\n'+readme+'\n'+''.join(page.texts)+'\n'+''.join(compare_page.texts)).lower(),forbidden
+ assert forbidden.lower() not in (text+'\n'+readme+'\n'+''.join(page.texts)+'\n'+''.join(compare_page.texts)+'\n'+''.join(server_texts)).lower(),forbidden
 assert data==json.loads((ROOT/'site/prompts.json').read_text())
 assert (ROOT/'docs/1102tools-mcp-prompt-guide.pdf').read_bytes()==(ROOT/'site/downloads/1102tools-prompt-guide.pdf').read_bytes()
 print(f'PASS: {len(data["prompts"])} README/web prompts; {sum(p["in_pdf"] for p in data["prompts"])} complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')
