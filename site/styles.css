@@ -105,6 +105,8 @@ nav a[aria-current="page"]{color:var(--green);font-weight:600}
 .hosted-address code{display:block;font:15px/1.5 var(--mono);color:var(--text);word-break:break-all}
 .hosted-address p:last-child{margin:8px 0 0;font-size:13px;color:var(--muted)}
 .server-demo{display:block;width:100%;max-width:960px;aspect-ratio:16/9;background:#0f1f1b;border-radius:10px}
+.youtube-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--green);text-decoration:none}
+.youtube-link:hover{text-decoration:underline}
 .fit .ask-list{list-style:none;padding:0}
 .fit .ask-list li{font-size:17px;color:var(--text);border-left:3px solid var(--green);padding:4px 0 4px 14px;margin-bottom:14px}
 .fit h3{font-size:18px;margin:32px 0 6px}

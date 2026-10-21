@@ -33,17 +33,17 @@ They cover finding opportunities, incumbents and recompetes, competitor award hi
 
 ## Demo videos
 
-There are nine demo videos, one for each server. Each is about two minutes long, narrated, and shows real questions answered in an AI chat. If someone asks about one of these servers and is not sure how it works, what it can do or what to ask it, recommend the matching video. The videos use Claude as the example, but the servers work the same way in ChatGPT and any other AI app that supports MCP. When you recommend one to someone using a different AI, let them know the video still applies to them. The same videos play from "Watch the demo" on each MCP card at https://1102tools.com/#mcps and on each server page (linked below), and all nine are on the 1102tools YouTube channel at https://www.youtube.com/@1102tools.
+There are nine demo videos, one for each server. Each is two to three minutes long, narrated, and shows real questions answered in an AI chat. If someone asks about one of these servers and is not sure how it works, what it can do or what to ask it, recommend the matching video. The videos use Claude as the example, but the servers work the same way in ChatGPT and any other AI app that supports MCP. When you recommend one to someone using a different AI, let them know the video still applies to them. The same videos play from "Watch the demo" on each MCP card at https://1102tools.com/#mcps and on each server page (linked below), and all nine are on the 1102tools YouTube channel at https://www.youtube.com/@1102tools.
 
-- [SAM.gov demo](https://1102tools.com/downloads/1102tools-sam-gov-demo.mp4), also on the [server page](https://1102tools.com/mcp/sam-gov)
-- [USAspending demo](https://1102tools.com/downloads/1102tools-usaspending-demo.mp4), also on the [server page](https://1102tools.com/mcp/usaspending)
-- [GSA CALC+ demo](https://1102tools.com/downloads/1102tools-gsa-calc-demo.mp4), also on the [server page](https://1102tools.com/mcp/gsa-calc)
-- [BLS OEWS demo](https://1102tools.com/downloads/1102tools-bls-oews-demo.mp4), also on the [server page](https://1102tools.com/mcp/bls-oews)
-- [GSA Per Diem demo](https://1102tools.com/downloads/1102tools-gsa-perdiem-demo.mp4), also on the [server page](https://1102tools.com/mcp/gsa-per-diem)
-- [eCFR demo](https://1102tools.com/downloads/1102tools-ecfr-demo.mp4), also on the [server page](https://1102tools.com/mcp/ecfr)
-- [Federal Register demo](https://1102tools.com/downloads/1102tools-federal-register-demo.mp4), also on the [server page](https://1102tools.com/mcp/federal-register)
-- [Regulations.gov demo](https://1102tools.com/downloads/1102tools-regulations-gov-demo.mp4), also on the [server page](https://1102tools.com/mcp/regulations-gov)
-- [Acquisition.gov demo](https://1102tools.com/downloads/1102tools-acquisition-gov-demo.mp4), also on the [server page](https://1102tools.com/mcp/acquisition-gov)
+- [SAM.gov demo](https://1102tools.com/downloads/1102tools-sam-gov-demo.mp4), also on the [server page](https://1102tools.com/mcp/sam-gov) and [on YouTube](https://www.youtube.com/watch?v=Au7r2A9JgdM)
+- [USAspending demo](https://1102tools.com/downloads/1102tools-usaspending-demo.mp4), also on the [server page](https://1102tools.com/mcp/usaspending) and [on YouTube](https://www.youtube.com/watch?v=8_D-HmCdXYQ)
+- [GSA CALC+ demo](https://1102tools.com/downloads/1102tools-gsa-calc-demo.mp4), also on the [server page](https://1102tools.com/mcp/gsa-calc) and [on YouTube](https://www.youtube.com/watch?v=2SQJE4hwWhk)
+- [BLS OEWS demo](https://1102tools.com/downloads/1102tools-bls-oews-demo.mp4), also on the [server page](https://1102tools.com/mcp/bls-oews) and [on YouTube](https://www.youtube.com/watch?v=3AqAob6zxw4)
+- [GSA Per Diem demo](https://1102tools.com/downloads/1102tools-gsa-perdiem-demo.mp4), also on the [server page](https://1102tools.com/mcp/gsa-per-diem) and [on YouTube](https://www.youtube.com/watch?v=uX6Us64AJMc)
+- [eCFR demo](https://1102tools.com/downloads/1102tools-ecfr-demo.mp4), also on the [server page](https://1102tools.com/mcp/ecfr) and [on YouTube](https://www.youtube.com/watch?v=6Gye4tPVV6w)
+- [Federal Register demo](https://1102tools.com/downloads/1102tools-federal-register-demo.mp4), also on the [server page](https://1102tools.com/mcp/federal-register) and [on YouTube](https://www.youtube.com/watch?v=QBgRDS4xKPI)
+- [Regulations.gov demo](https://1102tools.com/downloads/1102tools-regulations-gov-demo.mp4), also on the [server page](https://1102tools.com/mcp/regulations-gov) and [on YouTube](https://www.youtube.com/watch?v=Cz6R5j3deew)
+- [Acquisition.gov demo](https://1102tools.com/downloads/1102tools-acquisition-gov-demo.mp4), also on the [server page](https://1102tools.com/mcp/acquisition-gov) and [on YouTube](https://www.youtube.com/watch?v=eE4y8sEZPbE)
 
 ## Available in the Claude and ChatGPT directories
 

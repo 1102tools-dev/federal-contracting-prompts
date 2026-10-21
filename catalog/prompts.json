@@ -28,7 +28,12 @@
         "version": "1.0.14"
       },
       "card_access": "No user API key",
-      "demo": "/downloads/1102tools-sam-gov-demo.mp4"
+      "demo": "/downloads/1102tools-sam-gov-demo.mp4",
+      "youtube": {
+        "id": "Au7r2A9JgdM",
+        "published": "2026-10-18T14:50:15-07:00",
+        "duration": "PT3M"
+      }
     },
     {
       "id": "usa",
@@ -46,7 +51,12 @@
         "tools": 55,
         "version": "1.0.23"
       },
-      "demo": "/downloads/1102tools-usaspending-demo.mp4"
+      "demo": "/downloads/1102tools-usaspending-demo.mp4",
+      "youtube": {
+        "id": "8_D-HmCdXYQ",
+        "published": "2026-10-18T12:30:45-07:00",
+        "duration": "PT2M1S"
+      }
     },
     {
       "id": "calc",
@@ -64,7 +74,12 @@
         "tools": 8,
         "version": "1.0.17"
       },
-      "demo": "/downloads/1102tools-gsa-calc-demo.mp4"
+      "demo": "/downloads/1102tools-gsa-calc-demo.mp4",
+      "youtube": {
+        "id": "2SQJE4hwWhk",
+        "published": "2026-10-18T12:30:39-07:00",
+        "duration": "PT2M52S"
+      }
     },
     {
       "id": "bls",
@@ -83,7 +98,12 @@
         "tools": 8,
         "version": "1.1.4"
       },
-      "demo": "/downloads/1102tools-bls-oews-demo.mp4"
+      "demo": "/downloads/1102tools-bls-oews-demo.mp4",
+      "youtube": {
+        "id": "3AqAob6zxw4",
+        "published": "2026-10-18T12:30:37-07:00",
+        "duration": "PT2M41S"
+      }
     },
     {
       "id": "travel",
@@ -102,7 +122,12 @@
         "tools": 7,
         "version": "1.2.5"
       },
-      "demo": "/downloads/1102tools-gsa-perdiem-demo.mp4"
+      "demo": "/downloads/1102tools-gsa-perdiem-demo.mp4",
+      "youtube": {
+        "id": "uX6Us64AJMc",
+        "published": "2026-10-18T12:30:34-07:00",
+        "duration": "PT2M29S"
+      }
     },
     {
       "id": "ecfr",
@@ -120,7 +145,12 @@
         "tools": 13,
         "version": "1.1.8"
       },
-      "demo": "/downloads/1102tools-ecfr-demo.mp4"
+      "demo": "/downloads/1102tools-ecfr-demo.mp4",
+      "youtube": {
+        "id": "6Gye4tPVV6w",
+        "published": "2026-10-18T12:30:43-07:00",
+        "duration": "PT2M51S"
+      }
     },
     {
       "id": "fr",
@@ -138,7 +168,12 @@
         "tools": 8,
         "version": "1.0.16"
       },
-      "demo": "/downloads/1102tools-federal-register-demo.mp4"
+      "demo": "/downloads/1102tools-federal-register-demo.mp4",
+      "youtube": {
+        "id": "QBgRDS4xKPI",
+        "published": "2026-10-18T12:30:31-07:00",
+        "duration": "PT2M51S"
+      }
     },
     {
       "id": "regs",
@@ -157,7 +192,12 @@
         "tools": 9,
         "version": "2.0.6"
       },
-      "demo": "/downloads/1102tools-regulations-gov-demo.mp4"
+      "demo": "/downloads/1102tools-regulations-gov-demo.mp4",
+      "youtube": {
+        "id": "Cz6R5j3deew",
+        "published": "2026-10-18T12:30:28-07:00",
+        "duration": "PT2M52S"
+      }
     },
     {
       "id": "acq",
@@ -175,7 +215,12 @@
         "tools": 5,
         "version": "1.0.10"
       },
-      "demo": "/downloads/1102tools-acquisition-gov-demo.mp4"
+      "demo": "/downloads/1102tools-acquisition-gov-demo.mp4",
+      "youtube": {
+        "id": "eE4y8sEZPbE",
+        "published": "2026-10-18T12:30:24-07:00",
+        "duration": "PT2M55S"
+      }
     }
   ],
   "sections": [

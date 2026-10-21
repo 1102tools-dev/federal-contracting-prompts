@@ -53,12 +53,13 @@ assert {x['id'] for x in compare['sources']}=={s['id'] for s in data['servers']}
 server_files=sorted((ROOT/'site/mcp').glob('*.html'))
 assert len(server_files)==len(data['servers']),'one page per server'
 directory_urls={url for s in data['servers'] for url in s.get('directories',{}).values() if url}
+youtube_urls={'https://www.youtube.com/watch?v='+s['youtube']['id'] for s in data['servers'] if s.get('youtube')}
 server_texts=[]
 for f in server_files:
  sp=Page();sp.feed(f.read_text());server_texts.append(''.join(sp.texts))
  assert len(sp.ids)==len(set(sp.ids)),f.name
  for link in sp.links:
-  if link.startswith('https://'):assert link in APPROVED or link in directory_urls or re.fullmatch(r'https://[a-z-]+\.1102tools\.com/privacy',link) or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),(f.name,link)
+  if link.startswith('https://'):assert link in APPROVED or link in directory_urls or link in youtube_urls or re.fullmatch(r'https://[a-z-]+\.1102tools\.com/privacy',link) or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),(f.name,link)
   elif link.startswith('#'):assert link[1:] in sp.ids,(f.name,link)
   else:assert link.startswith('/'),(f.name,link)
   if link.startswith('/#'):assert link[2:] in page.ids,(f.name,link)
