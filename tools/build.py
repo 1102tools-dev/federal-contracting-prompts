@@ -503,7 +503,7 @@ def server_pages(out,css_version):
         values={'TITLE':f'{name} MCP Server: Free, Hosted, No API Key | 1102tools','OG_TITLE':f'{name} MCP server by 1102tools','DESCRIPTION':ESC(description),'CANONICAL':canonical,
             'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'CSS_VERSION':css_version,'NAME':ESC(name),'ID':sid,'BADGES':card_badges(s),
             'FULL_NAME':f'<p class="full-name">{ESC(FULL_NAMES[sid])}</p>' if sid in FULL_NAMES else '','INTRO':ESC(s['description']+' Best for '+s['best_for'][0].lower()+s['best_for'][1:]),'INSTALL':install,
-            'HOSTED_URL':hosted,'DEMO':s['demo'],'YOUTUBE':youtube_url(s),'ASK':''.join(f'<li>“{ESC(q)}”</li>' for q in WHEN[sid]),'PROMPTS':prompts,'GLANCE':''.join(f'<li>{x}</li>' for x in glance),
+            'HOSTED_URL':hosted,'DEMO':s['demo'],'POSTER':s['demo'].replace('.mp4','.jpg',1),'YOUTUBE':youtube_url(s),'ASK':''.join(f'<li>“{ESC(q)}”</li>' for q in WHEN[sid]),'PROMPTS':prompts,'GLANCE':''.join(f'<li>{x}</li>' for x in glance),
             'NOTE':note,'HOSTED_TEXT':ESC(hosted_text),'LOCAL_TEXT':ESC(local_text),'LOCAL_URL':local_href(s),'FAQ':faq_html,'OTHERS':others}
         page=(ROOT/'templates/server.html').read_text()
         for k,v in values.items():page=page.replace('{{'+k+'}}',v)
