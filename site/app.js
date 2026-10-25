@@ -31,10 +31,10 @@ if(player&&player.showModal){
   player.addEventListener('click',e=>{if(e.target===player)player.close();});
   player.addEventListener('close',stop);
 }
-// The How it works video shows its thumbnail (click anywhere, or the Play tag, to start); the browser's controls appear once it plays. Without JavaScript the plain controls stay.
+// The How it works video shows its thumbnail with one play button; the browser's controls appear once it plays. Without JavaScript the plain controls stay.
 document.querySelectorAll('.video-frame video').forEach(v=>{
   v.controls=false;
-  const b=document.createElement('button');b.type='button';b.className='video-play';b.setAttribute('aria-label','Play video');b.innerHTML='<span>▶ Play</span>';
+  const b=document.createElement('button');b.type='button';b.className='video-play';b.setAttribute('aria-label','Play video');
   b.addEventListener('click',()=>{b.remove();v.controls=true;v.play().catch(()=>{});});
   v.after(b);
 });
