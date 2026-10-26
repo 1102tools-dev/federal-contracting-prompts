@@ -2,7 +2,7 @@
 
 > Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude or ChatGPT. Built by a federal contracting officer.
 
-No federal agency offers an official MCP server for these nine sources (checked October 8, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory (9 of 9) and the ChatGPT directory (6 of 9).
+No federal agency offers an official MCP server for these nine sources (checked October 8, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory (9 of 9) and the ChatGPT directory (9 of 9).
 
 ## Start here
 
@@ -72,11 +72,14 @@ Select 1102tools MCPs are approved and published in the Claude and ChatGPT direc
 
 ### ChatGPT directory
 
+- [SAM.gov by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ad986ea765081919a8856a5b5233f40) (hosted 6-tool edition; the full 20-tool edition is a local install)
 - [USAspending by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
 - [GSA CALC+ by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
 - [BLS OEWS by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ab872bf5360819186af0917c923e57e)
 - [GSA Per Diem by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ab85f56d4ec8191970ab75fdeddd2f9)
 - [eCFR by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
+- [Federal Register by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ad989cff4d4819187ca95781427b399)
+- [Regulations.gov by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ad988bee41c8191a72c0b0e94d84eb9)
 - [Acquisition.gov by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333)
 
 The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.
@@ -92,8 +95,8 @@ No affiliation with or endorsement by a federal agency is claimed.
 
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
 - Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the nine servers went through seven rounds of content checks with real contracting questions.
-- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.
-- Listed: 9 in the Claude directory; 6 in the ChatGPT directory.
+- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude and ChatGPT directories; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.
+- Listed: 9 in the Claude directory; 9 in the ChatGPT directory.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
 - Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.
 - [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.
@@ -108,18 +111,18 @@ No affiliation with or endorsement by a federal agency is claimed.
 - GSA's Technology Transformation Services (TTS) published pilot or proof-of-concept servers for four of them: SAM.gov, USAspending, Regulations.gov and GSA Per Diem. None is a supported public service. The SAM.gov pilot's repository is no longer public, the address GSA lists for its USAspending demo returns an error, the Per Diem test is an undocumented experiment from May 2026, and the Regulations.gov pilot requires each user's own API key. GSA's MCP Server Hub repository says that effort is being wound down.
 - The Government Publishing Office's GovInfo MCP server, a public preview with two tools and a required API key, partly overlaps eCFR and the Federal Register: it searches Federal Register issues and the annual edition of the CFR. It does not provide daily eCFR text, version comparisons, FAR clause lookup, public inspection documents or open comment periods.
 - No official or pilot MCP server was found for GSA CALC+, BLS OEWS or Acquisition.gov.
-- Until an agency publishes its own, 1102tools is the closest thing to an official MCP server for these sources: free, open source, no account or user API key when hosted, and approved for the Claude directory (9 of 9) and the ChatGPT directory (6 of 9). This status is dated; check the agencies for newer releases.
+- Until an agency publishes its own, 1102tools is the closest thing to an official MCP server for these sources: free, open source, no account or user API key when hosted, and approved for the Claude directory (9 of 9) and the ChatGPT directory (9 of 9). This status is dated; check the agencies for newer releases.
 
 ## Compared with the best free alternative (researched September 24, 2026)
 
-- SAM.gov: 20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check, plus a keyless 6-tool edition for contract opportunities, entity registrations and exclusions in the Claude directory. Best free alternative: [cliwant/mcp-sam-gov](https://github.com/cliwant/mcp-sam-gov), about 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional.
+- SAM.gov: 20 tools with a free key, including reps and certs, integrity records, and a one-call vendor responsibility check, plus a keyless 6-tool edition for contract opportunities, entity registrations and exclusions in the Claude and ChatGPT directories. Best free alternative: [cliwant/mcp-sam-gov](https://github.com/cliwant/mcp-sam-gov), about 12 SAM.gov tools inside a 150+ tool local package; SAM.gov key optional.
 - USAspending: Three times the tools, and listings in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/usaspending-mcp-server](https://github.com/cyanheads/usaspending-mcp-server), 18 tools, free, hosted or local.
 - GSA CALC+: The only GSA CALC+ MCP in the Claude and ChatGPT directories, with 8 IGCE and price-analysis tools. Best free alternative: [pipeworx-io/mcp-gsa-calc](https://github.com/pipeworx-io/mcp-gsa-calc), 3 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally.
 - BLS OEWS: Built for the OEWS wage research behind IGCEs and price analysis, in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/bls-labor-mcp-server](https://github.com/cyanheads/bls-labor-mcp-server), general BLS data, 4 to 7 tools; free, hosted or local.
 - GSA Per Diem: 7 per diem tools, including trip cost estimates, in both the Claude and ChatGPT directories. Best free alternative: [pipeworx-io/mcp-gsa-perdiem](https://github.com/pipeworx-io/mcp-gsa-perdiem), 2 tools; hosted gateway free for 50 calls a day (200 with a free account, shared across the gateway), then paid per call, or run locally.
 - eCFR: 13 eCFR tools focused on FAR, DFARS, and agency supplements, in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), 7 tools shared across eCFR, Federal Register, and Regulations.gov; free, hosted or local.
-- Federal Register: FAR case history tracing, open comment periods, and a Claude directory listing. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server (see eCFR).
-- Regulations.gov: 9 docket and comment tools and a Claude directory listing. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server; Regulations.gov part needs a key.
+- Federal Register: FAR case history tracing, open comment periods, and listings in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server (see eCFR).
+- Regulations.gov: 9 docket and comment tools and listings in both the Claude and ChatGPT directories. Best free alternative: [cyanheads/federal-regulations-mcp-server](https://github.com/cyanheads/federal-regulations-mcp-server), shared regulations server; Regulations.gov part needs a key.
 - Acquisition.gov: The only known MCP server for FAR Overhaul model parts and agency class deviations, in both the Claude and ChatGPT directories. No other MCP server for Acquisition.gov RFO model text or agency deviations.
 
 The alternatives are general-purpose servers. 1102tools servers are built for contracting work, with tools such as IGCE benchmarks and price-reasonableness checks (GSA CALC+), FAR clause lookup (eCFR), FAR case history (Federal Register and Regulations.gov), and a one-call vendor responsibility check (SAM.gov full edition). Every 1102tools server publishes its testing record. No directory listing was found for the best free alternatives in the Claude or ChatGPT directories. Full details: [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare).
@@ -214,6 +217,7 @@ Hosted addresses for AI apps that connect by URL:
 - October 6, 2026: Acquisition.gov, SAM.gov and BLS OEWS published in the Claude directory, completing all nine.
 - October 7, 2026: Acquisition.gov published in the ChatGPT directory, the fourth there.
 - October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.
+- October 26, 2026: SAM.gov, Federal Register and Regulations.gov published in the ChatGPT directory, completing all nine.
 
 ## Release validation
 
@@ -222,7 +226,7 @@ Each release has a public record of its versions, fixes and test results.
 ## MCP sources
 
 - [SAM.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp): Contract opportunities, entity registrations, SBA certifications, and exclusions. Access: Local full edition: free SAM.gov key. Hosted: no key. Free and open source, in two editions. Page: https://1102tools.com/mcp/sam-gov
-  Directory edition (hosted, no key): 6 tools for searching and reading contract opportunities, award notices, and justifications; looking up public entity registrations by UEI or CAGE and searching by name, NAICS, state, business/SBA certification codes, and active status; checking exclusions by UEI, CAGE, or name, built from SAM.gov's public files: opportunities checked every two hours, exclusions checked every four hours with an extra check after usual daily publication, and monthly entity registrations checked alongside exclusions; unchanged files write no rows. Answers report source file names and dates, and entities that opted out of public display are not included in the hosted public mirror. Install: [Claude directory](https://claude.ai/directory/sam-gov-by-1102tools). Coming soon to the ChatGPT directory.
+  Directory edition (hosted, no key): 6 tools for searching and reading contract opportunities, award notices, and justifications; looking up public entity registrations by UEI or CAGE and searching by name, NAICS, state, business/SBA certification codes, and active status; checking exclusions by UEI, CAGE, or name, built from SAM.gov's public files: opportunities checked every two hours, exclusions checked every four hours with an extra check after usual daily publication, and monthly entity registrations checked alongside exclusions; unchanged files write no rows. Answers report source file names and dates, and entities that opted out of public display are not included in the hosted public mirror. Install: [Claude directory](https://claude.ai/directory/sam-gov-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ad986ea765081919a8856a5b5233f40).
   Full local edition (free SAM.gov key): 20 tools. Everything in hosted, plus contract awards, subawards, reps and certs, and past terminations and legal proceedings. It is not in the directories; install it locally.
 - [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Contracts, grants, loans, recipients, agencies, and subawards. Access: No user API key. Free and open source; 55 tools. Page: https://1102tools.com/mcp/usaspending
   Department of Defense contracts: DoD awards appear 90 days after signing, here and in every other public source, SAM.gov included. Awards over $9 million go up each business day at 5 p.m. Eastern in the department's daily contract announcements: https://www.war.gov/News/Contracts/. If someone asks about a recent DoD award, point them there.
@@ -236,11 +240,9 @@ Each release has a public record of its versions, fixes and test results.
 - [eCFR](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/ecfr-mcp): The FAR, DFARS, and agency supplements: clause text, definitions, and what changed and when. Access: No user API key. Free and open source; 13 tools. Page: https://1102tools.com/mcp/ecfr
   Install: [Claude directory](https://claude.ai/directory/ecfr-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ef0341b04819192935fd4e5cd9b34)
 - [Federal Register](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp): Published rules, notices, comment periods, and FAR cases. Access: No user API key. Free and open source; 8 tools. Page: https://1102tools.com/mcp/federal-register
-  Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools)
-  Coming soon to the ChatGPT directory, with no user API key.
+  Install: [Claude directory](https://claude.ai/directory/federal-register-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ad989cff4d4819187ca95781427b399)
 - [Regulations.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp): Rulemaking dockets, documents, and public comments. Access: Local: free key. Hosted: no key. Free and open source; 9 tools. Page: https://1102tools.com/mcp/regulations-gov
-  Install: [Claude directory](https://claude.ai/directory/regulations-gov-by-1102tools)
-  Coming soon to the ChatGPT directory, with no user API key.
+  Install: [Claude directory](https://claude.ai/directory/regulations-gov-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ad988bee41c8191a72c0b0e94d84eb9)
 - [Acquisition.gov](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/acquisition-gov-mcp): FAR Overhaul model text, posted agency deviations, and guidance. The only known MCP server for this source. Access: No user API key. Free and open source; 5 tools. Page: https://1102tools.com/mcp/acquisition-gov
   Install: [Claude directory](https://claude.ai/directory/acquisition-gov-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333)
 

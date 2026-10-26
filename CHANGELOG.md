@@ -28,6 +28,7 @@
 - List Acquisition.gov, SAM.gov (hosted 4-tool edition) and BLS OEWS as published in the Claude directory (approved October 6, 2026), bringing the Claude directory to all nine servers. BLS OEWS access now reads "No user API key", matching the bundled-data release.
 - List Acquisition.gov as published in the ChatGPT directory (approved October 7, 2026), bringing ChatGPT to four servers.
 - List GSA Per Diem and BLS OEWS as published in the ChatGPT directory (approved October 9, 2026), bringing ChatGPT to six servers.
+- List SAM.gov, Federal Register and Regulations.gov as published in the ChatGPT directory (approved October 26, 2026), bringing ChatGPT to all nine servers.
 
 # September 2026
 

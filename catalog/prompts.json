@@ -13,7 +13,7 @@
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/sam-gov-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/sam-gov-by-1102tools",
-        "chatgpt": null
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ad986ea765081919a8856a5b5233f40"
       },
       "hosted_edition": {
         "status": "listed",
@@ -162,7 +162,7 @@
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/federal-register-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/federal-register-by-1102tools",
-        "chatgpt": null
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ad989cff4d4819187ca95781427b399"
       },
       "proof": {
         "tools": 8,
@@ -185,7 +185,7 @@
       "url": "https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/regulations-gov-mcp",
       "directories": {
         "claude": "https://claude.ai/directory/regulations-gov-by-1102tools",
-        "chatgpt": null
+        "chatgpt": "https://chatgpt.com/plugins/plugin_asdk_app_6ad988bee41c8191a72c0b0e94d84eb9"
       },
       "card_access": "Local: free key. Hosted: no key",
       "proof": {

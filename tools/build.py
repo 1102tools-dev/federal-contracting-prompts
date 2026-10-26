@@ -70,7 +70,7 @@ def readme():
     f'The print guide and the online library contain the same {PROMPT_COUNT} prompts for all nine MCP sources. These examples describe available source tools; this edition is not a claim that every prompt has been re-run against live APIs.','',
     ]
     claude_count,chatgpt_count=(number_word(sum(1 for x in SOURCE_ORDER if SERVERS[x]['directories'][key])) for key,_ in DIRECTORIES)
-    lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Local or hosted','',f'Every MCP works in Claude or ChatGPT two ways. **Local** runs it on your computer, inside the Claude or ChatGPT desktop app or another AI app. **Hosted** runs it on Cloudflare, so it works anywhere you use Claude or ChatGPT. Local is the better setup for daily work, and you don\'t have to set it up by hand: give your AI the [local setup guide]({MR}#local-setup) and ask it to set it up or walk you through it.','',f'All nine are in the Claude directory and {chatgpt_count.lower()} in ChatGPT as hosted installs. The rest are coming soon to ChatGPT.','','| MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |','|---|---|---|---|']
+    lines+=['<a id="available-in-claude-and-chatgpt"></a>','## Local or hosted','',f'Every MCP works in Claude or ChatGPT two ways. **Local** runs it on your computer, inside the Claude or ChatGPT desktop app or another AI app. **Hosted** runs it on Cloudflare, so it works anywhere you use Claude or ChatGPT. Local is the better setup for daily work, and you don\'t have to set it up by hand: give your AI the [local setup guide]({MR}#local-setup) and ask it to set it up or walk you through it.','',('All nine are in the Claude and ChatGPT directories as hosted installs.' if chatgpt_count=='Nine' else f'All nine are in the Claude directory and {chatgpt_count.lower()} in ChatGPT as hosted installs. The rest are coming soon to ChatGPT.'),'','| MCP | Local setup (desktop) | Claude (hosted) | ChatGPT (hosted) |','|---|---|---|---|']
     for server in (SERVERS[x] for x in SOURCE_ORDER if SERVERS[x].get('directories')):
         local=f"[Setup guide]({server['url']}#{'install' if server['id']=='acq' else 'installation'})"+(f" (full {server['proof']['tools']}-tool edition, free key)" if server.get('hosted_edition') else ' (free key only for city names its bundled Census and county data can\'t place, or years before FY2021)' if server['id']=='travel' else ' (free key)' if server['id']=='regs' else '')
         edition=f" ({server['hosted_edition']['tools']}-tool edition, no key)" if server.get('hosted_edition') else ''
@@ -251,7 +251,7 @@ def website(out,pdf,pages):
         '## Why 1102tools','',
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
         f"- Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the {number_word(st['servers']).lower()} servers went through seven rounds of content checks with real contracting questions.",
-        "- No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude directory, and the rest are planned for ChatGPT; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.",
+        "- No user keys when hosted: directory installs need no 1102tools account or user API key. "+('All nine are in the Claude and ChatGPT directories' if len(st['directory']['ChatGPT'])==9 else 'All nine are in the Claude directory, and the rest are planned for ChatGPT')+"; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.",
@@ -412,7 +412,8 @@ def llms_story(st):
         '- September 30, 2026: Regulations.gov and GSA Per Diem published in the Claude directory.',
         '- October 6, 2026: Acquisition.gov, SAM.gov and BLS OEWS published in the Claude directory, completing all nine.',
         '- October 7, 2026: Acquisition.gov published in the ChatGPT directory, the fourth there.',
-        '- October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.','']
+        '- October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.',
+        '- October 26, 2026: SAM.gov, Federal Register and Regulations.gov published in the ChatGPT directory, completing all nine.','']
 
 def compare_page(out,css_version):
     st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
