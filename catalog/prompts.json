@@ -33,7 +33,18 @@
         "id": "2CnYSrNIuWU",
         "published": "2026-10-25T00:16:00-07:00",
         "duration": "PT3M24S"
-      }
+      },
+      "demo_title": "Search SAM.gov with Claude",
+      "demo_sub": "The demo · 3:24",
+      "more_videos": [
+        {
+          "title": "USAspending vs SAM.gov",
+          "sub": "Limits, keys and Defense award timing · 4:48",
+          "src": "/downloads/1102tools-usaspending-vs-sam.mp4",
+          "youtube": "TlPaQOu2fgY",
+          "youtube_public": false
+        }
+      ]
     },
     {
       "id": "usa",

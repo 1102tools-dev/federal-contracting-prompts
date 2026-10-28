@@ -465,6 +465,26 @@ def youtube_url(s):return 'https://www.youtube.com/watch?v='+s['youtube']['id']
 def card_badges(s):
     return '<span class="badge badge-free">FREE</span><span class="badge badge-license">OPEN SOURCE</span>'+('<span class="badge badge-only">THE ONLY ONE</span>' if s['id']=='acq' else '')+('<span class="badge badge-mco">MINI CONTRACTING OFFICER</span>' if s['id']=='ecfr' else '')
 def local_href(s):return s['url']+('#install' if s['id']=='acq' else '#installation')
+DEMO_INTRO_ONE='A short narrated demo in Claude. It works the same way in ChatGPT and other AI apps that support MCP.'
+DEMO_INTRO_MANY='Short narrated videos in Claude. They work the same way in ChatGPT and other AI apps that support MCP.'
+PLAY_SCRIPT="<script>document.querySelectorAll('.play-wrap video').forEach(v=>{v.controls=false;const b=document.createElement('button');b.type='button';b.className='server-play';b.setAttribute('aria-label','Play video');b.addEventListener('click',()=>{b.remove();v.controls=true;v.play().catch(()=>{});});v.after(b);});</script>"
+def demo_videos(s):
+    """The server page's demo section: one player (all servers), or players side by side when the catalog lists more_videos (SAM.gov since Oct 28, 2026)."""
+    def player(src,label):
+        return (f'<div class="play-wrap"><video class="server-demo" controls playsinline preload="metadata" poster="{src.replace('.mp4','.jpg',1)}" src="{src}">'
+            f'<a href="{src}">Download the {label} video</a></video></div>')
+    yt=lambda url:f'<a class="youtube-link" href="{url}">Watch on YouTube <span aria-hidden="true">↗</span></a>' if url else ''
+    more=s.get('more_videos',[])
+    if not more:
+        return DEMO_INTRO_ONE,player(s['demo'],ESC(s['name'])+' demo')+PLAY_SCRIPT+yt(youtube_url(s))
+    items=[(s['demo_title'],s['demo_sub'],s['demo'],ESC(s['name'])+' demo',youtube_url(s))]
+    items+=[(v['title'],v['sub'],v['src'],ESC(v['title']),f"https://www.youtube.com/watch?v={v['youtube']}" if v.get('youtube_public') else '') for v in more]
+    css=('<style>.video-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1100px}.video-item{margin:0}.video-item .play-wrap{max-width:none}'
+        '.video-item figcaption{display:flex;flex-direction:column;gap:2px;margin-bottom:10px}.video-item figcaption strong{font-size:17px}'
+        '.video-item figcaption span{font-size:14px;color:var(--muted)}@media(max-width:760px){.video-pair{grid-template-columns:1fr}}</style>')
+    figs=''.join(f'<figure class="video-item"><figcaption><strong>{ESC(t)}</strong><span>{ESC(sub)}</span></figcaption>{player(src,label)}{yt(url)}</figure>' for t,sub,src,label,url in items)
+    return DEMO_INTRO_MANY,css+'<div class="video-pair">'+figs+'</div>'+PLAY_SCRIPT
+
 def server_pages(out,css_version):
     for sid in SOURCE_ORDER:
         s=SERVERS[sid];name=s['name'];canonical='https://1102tools.com'+page_url(sid);hosted=f'https://{HOSTS[sid]}.1102tools.com/mcp'
@@ -516,7 +536,7 @@ def server_pages(out,css_version):
         values={'TITLE':f'{name} MCP Server: Free, Hosted, No API Key | 1102tools','OG_TITLE':f'{name} MCP server by 1102tools','DESCRIPTION':ESC(description),'CANONICAL':canonical,
             'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'CSS_VERSION':css_version,'NAME':ESC(name),'ID':sid,'BADGES':card_badges(s),
             'FULL_NAME':f'<p class="full-name">{ESC(FULL_NAMES[sid])}</p>' if sid in FULL_NAMES else '','INTRO':ESC(s['description']+' Best for '+s['best_for'][0].lower()+s['best_for'][1:]),'INSTALL':install,
-            'HOSTED_URL':hosted,'DEMO':s['demo'],'POSTER':s['demo'].replace('.mp4','.jpg',1),'YOUTUBE':youtube_url(s),'ASK':''.join(f'<li>“{ESC(q)}”</li>' for q in WHEN[sid]),'PROMPTS':prompts,'GLANCE':''.join(f'<li>{x}</li>' for x in glance),
+            'HOSTED_URL':hosted,'DEMO_INTRO':demo_videos(s)[0],'VIDEOS':demo_videos(s)[1],'ASK':''.join(f'<li>“{ESC(q)}”</li>' for q in WHEN[sid]),'PROMPTS':prompts,'GLANCE':''.join(f'<li>{x}</li>' for x in glance),
             'NOTE':note,'HOSTED_TEXT':ESC(hosted_text),'LOCAL_TEXT':ESC(local_text),'LOCAL_URL':local_href(s),'FAQ':faq_html,'OTHERS':others}
         page=(ROOT/'templates/server.html').read_text()
         for k,v in values.items():page=page.replace('{{'+k+'}}',v)
