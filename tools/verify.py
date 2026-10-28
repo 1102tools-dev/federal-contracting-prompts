@@ -54,6 +54,7 @@ server_files=sorted((ROOT/'site/mcp').glob('*.html'))
 assert len(server_files)==len(data['servers']),'one page per server'
 directory_urls={url for s in data['servers'] for url in s.get('directories',{}).values() if url}
 youtube_urls={'https://www.youtube.com/watch?v='+s['youtube']['id'] for s in data['servers'] if s.get('youtube')}
+youtube_urls|={'https://www.youtube.com/watch?v='+x['youtube'] for s in data['servers'] for x in s.get('more_videos',[]) if x.get('youtube_public')}
 server_texts=[]
 for f in server_files:
  sp=Page();sp.feed(f.read_text());server_texts.append(''.join(sp.texts))
