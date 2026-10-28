@@ -25,8 +25,15 @@ GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.He
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','calc','bls','travel','fr','regs','acq')
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
-CARD_NOTES={'usa':('Department of Defense contracts',"DoD awards appear 90 days after signing, here and in every other public source, SAM.gov included. Awards over $9 million go up each business day at 5 p.m. Eastern in the department's contract announcements.",'https://www.war.gov/News/Contracts/','See daily announcements'),
+CARD_NOTES={'usa':('Department of Defense contracts',"DoD award records post here 90 days after signing, as well as on SAM.gov. Two faster sources fill the gap: daily contract announcements and SAM.gov award notices.",'',''),
     'ecfr':('FAR Overhaul deviations',"Agency deviations aren't in the eCFR. The Acquisition.gov MCP tracks which FAR Overhaul changes each agency has adopted.",'#mcp-acq','See Acquisition.gov')}
+# Expandable details under a card note, as (title, text, link, link text). USAspending's DoD timing note since Oct 28, 2026 (James).
+CARD_MORE={'usa':(('Daily contract announcements.','Awards over $9 million, posted each business day around 5 p.m. Eastern: company, amount, contract number and what it buys.','https://www.war.gov/News/Contracts/','See daily announcements'),
+    ('SAM.gov award notices.',"Usually posted within days: winner, amount and contract number. The SAM.gov MCP searches them. Not every award gets one; orders under existing contracts and small buys often don't. The amount is one figure the contracting officer enters, which can be the base or the total value.",'',''))}
+def card_more(sid,open_=False):
+    if sid not in CARD_MORE:return ''
+    items=''.join(f'<p><strong>{ESC(t)}</strong> {ESC(x)}'+(f' <a href="{h}">{l} <span aria-hidden="true">→</span></a>' if h else '')+'</p>' for t,x,h,l in CARD_MORE[sid])
+    return f'<details class="card-more"{" open" if open_ else ""}><summary>What each one shows</summary>{items}</details>'
 DIRECTORIES=(('claude','Claude'),('chatgpt','ChatGPT'))
 DIRECTORIES_SOON=('Muse','Grok')
 LOCAL_VS_HOSTED=(
@@ -166,7 +173,7 @@ def website(out,pdf,pages):
         badges=card_badges(s)
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
-        note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p><a href="{href}">{link} <span aria-hidden="true">→</span></a></div>' if label else ''
+        note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(s['id'])+(f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>' if href else '')+'</div>' if label else ''
         head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
         access=ESC(s.get('card_access',s['access']))
         demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
@@ -268,6 +275,10 @@ def website(out,pdf,pages):
         llms.append('- ['+server['name']+']('+server['url']+'): '+server['description']+' Access: '+server['access']+'. Free and open source; '+str(server['proof']['tools'])+' tools. Page: https://1102tools.com'+page_url(server['id']))
         if server['id'] in CARD_NOTES and CARD_NOTES[server['id']][2].startswith('http'):
             title,text,link,_=CARD_NOTES[server['id']];llms.append(f"  {title}: {text.replace("contract announcements.","daily contract announcements: "+link+'.')} If someone asks about a recent DoD award, point them there.")
+        if server['id'] in CARD_MORE:
+            title,text,_,_=CARD_NOTES[server['id']]
+            parts=' '.join(f"{t} {x}"+(f' Link: {h}' if h else '') for t,x,h,_ in CARD_MORE[server['id']])
+            llms.append(f"  {title}: {text} {parts} If someone asks about a recent DoD award, point them to these two sources.")
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
         pending=[label for key,label in DIRECTORIES if key in server.get('directories',{}) and not server['directories'][key]]
         if pending and not server.get('hosted_edition'):llms.append('  Coming soon to the '+series(pending)+(' directories' if len(pending)>1 else ' directory')+', with no user API key.')
@@ -504,7 +515,7 @@ def server_pages(out,css_version):
         if sid in CARD_NOTES:
             label,text,href,link=CARD_NOTES[sid]
             if href.startswith('#mcp-'):href=page_url(href[5:])
-            notes.append(f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p><a href="{href}">{link} <span aria-hidden="true">→</span></a></div>')
+            notes.append(f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(sid,open_=True)+(f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>' if href else '')+'</div>')
         if s.get('hosted_edition'):
             notes.append(f'<div class="card-note"><p class="card-note-label">Full local version · free SAM.gov key</p><p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p></div>')
         note=f'<section class="wrap compare-section server-notes">{"".join(notes)}</section>' if notes else ''
