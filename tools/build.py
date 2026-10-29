@@ -43,6 +43,7 @@ LOCAL_VS_HOSTED=(
     ('Rate limits','Your own, in full','Pooled across all users. Your lookups stay private'),
     ('Relies on','Government sources','Government sources and Cloudflare'),
     ('Privacy','Runs on your computer. Nothing passes through 1102tools',"No tracking. Searches aren't logged and IP addresses aren't kept"),
+    ('CUI','Lookups go straight from your computer to the government source. Nothing reaches 1102tools. Use it with an AI your agency approves for CUI',"Only the lookup your AI sends (like a NAICS code or vendor name) reaches the server. Never your chat or files, and searches aren't logged. Whether CUI can go in your chat depends on the AI you use"),
     ('Updates',"Manual. Local installs don't update themselves. Ask your AI to update them",'Automatic. Always runs the latest release'),
     ('SAM.gov',f'Full edition: {SERVERS["sam"]["proof"]["tools"]} tools, free key',f'{SERVERS["sam"]["hosted_edition"]["tools"]} tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
@@ -381,7 +382,8 @@ def llms_help():
         *[f"  - {SERVERS[sid]['name']}: {FRESHNESS[sid]}" for sid in SOURCE_ORDER],
         '- Can competitors or the government see what I research? No. Searches are not logged or saved, and on hosted servers government sites see requests from 1102tools, not from you. SAM.gov, BLS OEWS and Acquisition.gov searches never leave 1102tools\' own copy of the data.',
         '- Does it replace a paid GovCon platform? It covers the research for free: opportunities, award history, incumbents, labor rates and regulations. Paid platforms add pipeline, capture and proposal workflows. See the comparison: https://1102tools.com/compare',
-        '- Can I use it at work? The servers only read public government data. Do not put proprietary pricing, CUI, source selection information or other sensitive details in prompts, and follow your company\'s or agency\'s AI policy. The local version keeps 1102tools out of the path, but your AI app still sees the conversation.',
+        '- Can I use it at work? The servers only read public government data. Do not put proprietary pricing, source selection information or other sensitive details in prompts, and follow your company\'s or agency\'s AI policy. The local version keeps 1102tools out of the path, but your AI app still sees the conversation.',
+        '- Can I use it with CUI (Controlled Unclassified Information)? The servers only read public government data; nothing about your work is sent to the government sources. Local: lookups go straight from your computer to the government source and nothing reaches 1102tools. Hosted: only the lookup your AI sends (like a NAICS code or vendor name) reaches the server, never your chat or files, and searches aren\'t logged. Whether CUI can go in your chat depends on the AI you use and your agency\'s or company\'s rules, not on 1102tools. For CUI work, run the local version with an AI approved for CUI.',
         '- Does it work with other AI apps? Hosted works with any app that connects to remote MCP servers by URL; local works with any MCP client.',
         '- Is it maintained? Yes. Each server publishes its testing record, and the hosted servers are checked automatically every 30 minutes.','',
         '## Support','',
@@ -529,6 +531,7 @@ def server_pages(out,css_version):
             ('Which AI apps does it work with?',f"Claude{' and ChatGPT' if len(found)>1 else ''} through {'their directories' if len(found)>1 else 'its directory'}, plus any AI app that connects to a remote MCP server by URL. The local version works with any MCP client, such as Claude Desktop, Claude Code and Codex."),
             ('How current is the data?',FRESHNESS[sid]),
             ('Can anyone see what I search?',"No. Searches aren't logged or saved, and IP addresses aren't kept. When the hosted server calls a government site, the request comes from 1102tools, not from you. Your AI app handles the conversation under its own privacy policy."),
+            ('Can I use it with CUI?',f"It depends on your AI, not the server. The {name} server only reads public government data. Locally, lookups go straight from your computer to the source and nothing reaches 1102tools. Hosted, only the lookup your AI sends (like a NAICS code or vendor name) reaches the server, never your chat or files, and searches aren't logged. Whether CUI (Controlled Unclassified Information) can go in your chat depends on the AI you use and your agency's or company's rules."),
             ('Who builds it?','A federal contracting officer who has worked in the 1102 contracting series since 2012. Most people who use 1102tools are small businesses, capture and business development teams, proposal writers and consultants.')]
         faq_html=''.join(f'<div><dt>{ESC(q)}</dt><dd>{ESC(a)}</dd></div>' for q,a in faq)
         faq_html+=f'<div><dt>Where is the privacy notice?</dt><dd>See the <a href="https://{HOSTS[sid]}.1102tools.com/privacy">{ESC(name)} server notice</a> and the <a href="/privacy">1102tools privacy page</a>.</dd></div>'

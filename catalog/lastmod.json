@@ -4,11 +4,11 @@
   "/privacy": "2026-10-18",
   "/mcp/sam-gov": "2026-10-28",
   "/mcp/usaspending": "2026-10-28",
-  "/mcp/ecfr": "2026-10-25",
-  "/mcp/gsa-calc": "2026-10-25",
-  "/mcp/bls-oews": "2026-10-25",
-  "/mcp/gsa-per-diem": "2026-10-25",
-  "/mcp/federal-register": "2026-10-26",
-  "/mcp/regulations-gov": "2026-10-26",
-  "/mcp/acquisition-gov": "2026-10-25"
+  "/mcp/ecfr": "2026-10-28",
+  "/mcp/gsa-calc": "2026-10-28",
+  "/mcp/bls-oews": "2026-10-28",
+  "/mcp/gsa-per-diem": "2026-10-28",
+  "/mcp/federal-register": "2026-10-28",
+  "/mcp/regulations-gov": "2026-10-28",
+  "/mcp/acquisition-gov": "2026-10-28"
 }
