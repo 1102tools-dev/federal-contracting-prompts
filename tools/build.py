@@ -421,9 +421,11 @@ def compare_page(out,css_version):
     st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
     me=('<tr class="me"><th scope="row">1102tools</th><td><strong>Free</strong></td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
         f'<td>{dir_chips(mine)}</td><td>Source research across {st["servers"]} federal data sources</td></tr>')
-    # Free first, then free tier with paid, then paid only; catalog order within each group.
+    # The best-known names show first; the rest go free first, then free tier with paid, then paid only, catalog order within each group.
+    featured=['Tango','GovTribe','HigherGov','Govly']
     order={'Free':0,'Free tier with paid':1,'Paid':2}
-    platforms=''.join(('<tr class="more">' if i>1 else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(sorted(COMPARE['platforms'],key=lambda x:order[x['pricing']])))
+    rank=lambda x:(0,featured.index(x['name'])) if x['name'] in featured else (1,order[x['pricing']])
+    platforms=''.join(('<tr class="more">' if i>=len(featured) else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(sorted(COMPARE['platforms'],key=rank)))
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. paid GovCon platforms","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
     y,m,d=COMPARE['researched'].split('-')
     values={'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'RESEARCHED':f'{MONTHS[int(m)-1]} {int(d)}, {y}','HERO_PROOF':hero_proof(),
