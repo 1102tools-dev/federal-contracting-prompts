@@ -262,8 +262,8 @@ def website(out,pdf,pages):
         "- No user keys when hosted: directory installs need no 1102tools account or user API key. "+('All nine are in the Claude and ChatGPT directories' if len(st['directory']['ChatGPT'])==9 else 'All nine are in the Claude directory, and the rest are planned for ChatGPT')+"; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
-        "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks. The best free alternatives are general-purpose data servers.",
-        "- [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare): paid platforms and other MCP servers compared source by source.",'',
+        "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks.",
+        "- [1102tools vs. paid GovCon platforms](https://1102tools.com/compare): price, account and directory listings compared.",'',
         *llms_story(st),
         '## Release validation','',DATA.get('release_validation',{}).get('summary',''),'','## MCP sources','']
     for server in (SERVERS[x] for x in SOURCE_ORDER):
@@ -390,16 +390,8 @@ def llms_help():
         '- Email: james@1102tools.com',
         '- Issues and feature requests: https://github.com/1102tools-dev/federal-contracting-mcps/issues','']
 def llms_story(st):
-    """Narrative sections for llms.txt: who builds it, official status, comparison, history."""
+    """Narrative sections for llms.txt: who builds it, official status, history."""
     claude=len(st['directory']['Claude']);chatgpt=len(st['directory']['ChatGPT'])
-    alts=[]
-    for row in COMPARE['sources']:
-        name=SERVERS[row['id']]['name']
-        if row['alt']:
-            alts.append(f"- {name}: {row['edge']} Best free alternative: [{row['alt']}]({row['alt_url']}), {row['alt_detail'][0].lower()+row['alt_detail'][1:]}.")
-        else:
-            alts.append(f"- {name}: {row['edge']} {row['alt_detail']}.")
-    y,m,d=COMPARE['researched'].split('-');researched=f"{MONTHS[int(m)-1]} {int(d)}, {y}"
     return ['## Who builds it','',
         f"1102tools is built and maintained by James Jenrette, a federal contracting officer with an unlimited warrant who has worked in the 1102 contracting series since July 2012 ({years_since(2012, 7)} years). LinkedIn: https://www.linkedin.com/in/jamesjenrette. The name comes from 1102, the federal job series for contracting. Most people who use 1102tools are on the industry side: small businesses, capture and business development teams, proposal writers and consultants chasing federal contracts. The tools give them the buyer's view, the same market research, cost estimates, price analysis, responsibility checks and FAR research a contracting officer uses when evaluating their bids. Contracting officers and contract specialists use them too. 1102tools is independent; no federal agency is affiliated with it or endorses it.",'',
         '## Official government MCP servers (status checked October 8, 2026)','',
@@ -408,9 +400,6 @@ def llms_story(st):
         "- The Government Publishing Office's GovInfo MCP server, a public preview with two tools and a required API key, partly overlaps eCFR and the Federal Register: it searches Federal Register issues and the annual edition of the CFR. It does not provide daily eCFR text, version comparisons, FAR clause lookup, public inspection documents or open comment periods.",
         '- No official or pilot MCP server was found for GSA CALC+, BLS OEWS or Acquisition.gov.',
         f"- Until an agency publishes its own, 1102tools is the closest thing to an official MCP server for these sources: free, open source, no account or user API key when hosted, and approved for the Claude directory ({claude} of 9) and the ChatGPT directory ({chatgpt} of 9). This status is dated; check the agencies for newer releases.",'',
-        f'## Compared with the best free alternative (researched {researched})','',
-        *alts,'',
-        "The alternatives are general-purpose servers. 1102tools servers are built for contracting work, with tools such as IGCE benchmarks and price-reasonableness checks (GSA CALC+), FAR clause lookup (eCFR), FAR case history (Federal Register and Regulations.gov), and a one-call vendor responsibility check (SAM.gov full edition). Every 1102tools server publishes its testing record. No directory listing was found for the best free alternatives in the Claude or ChatGPT directories. Full details: [1102tools vs. other federal contracting MCPs](https://1102tools.com/compare).",'',
         '## Works with','',
         '- Hosted: Claude (web, desktop and mobile) and ChatGPT through their directories, plus other AI apps that connect to remote MCP servers, such as Perplexity. No account or user API key.',
         '- Local: free Python packages on PyPI for Claude Desktop, Claude Code, Codex and other MCP clients. Users who have never set up an MCP server can give their AI the setup guide in each README and ask it to do the setup or walk them through it.',
@@ -435,27 +424,10 @@ def compare_page(out,css_version):
     # Free first, then free tier with paid, then paid only; catalog order within each group.
     order={'Free':0,'Free tier with paid':1,'Paid':2}
     platforms=''.join(('<tr class="more">' if i>1 else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(sorted(COMPARE['platforms'],key=lambda x:order[x['pricing']])))
-    rows=[]
-    source_cut=next(i for i,r in enumerate(COMPARE['sources']) if r['id']=='calc')
-    for i,row in enumerate(COMPARE['sources']):
-        s=SERVERS[row['id']];pr=s['proof']
-        listed_in=', '.join(label for label,_ in listed(s))
-        where=dir_chips({key:bool(s.get('directories',{}).get(key)) for key,_ in DIRECTORIES}) if listed_in or row['id'] in ('sam','bls') else '<span>Local install</span>'
-        ours=f'<strong>{pr["tools"]} tools</strong><span><a href="{s["url"]}">Source and testing records</a></span>{where}'
-        if s.get('hosted_edition'):
-            he=s['hosted_edition']
-            ours=(f'<strong>{he["tools"]} tools in the directories</strong><span>Hosted edition, no key: contract opportunities, public registrations and certification codes, and exclusions</span>{where}'
-                f'<strong>{pr["tools"]} tools installed locally</strong><span>Full edition with a free SAM.gov key · <a href="{s["url"]}">Source and testing records</a></span>')
-        alt=(f'<a href="{ESC(row["alt_url"])}">{ESC(row["alt"])}</a><span>{ESC(row["alt_detail"])}</span>{dir_chips(row.get("alt_directories",{}))}' if row['alt'] else f'<span>{ESC(row["alt_detail"])}</span>')
-        rows.append(('<tr class="more">' if i>source_cut else '<tr>')+f'<th scope="row"><a href="/#mcp-{s["id"]}">{ESC(s["name"])}</a></th><td class="ours">{ours}</td><td>{ESC(row["others"])}</td><td class="alt">{alt}</td><td>{ESC(row["edge"])}</td></tr>')
-    alts=[r for r in COMPARE['sources'] if r['alt']]
-    missing=[label for key,label in DIRECTORIES if alts and all(r.get('alt_directories',{}).get(key) is False for r in alts)]
-    callout=(f'<p class="callout"><strong>No directory listing was found for the best free alternatives below in the {series(missing,"or")} {"directory" if len(missing)==1 else "directories"}</strong> (searches on September 24, 2026). '
-        +'1102tools has '+' and '.join(f"{len(found)} {'server' if len(found)==1 else 'servers'} in the {label} directory" for label,found in st['directory'].items() if found)+'.</p>') if missing else ''
-    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. other federal contracting MCPs","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms and other MCP servers.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
+    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. paid GovCon platforms","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
     y,m,d=COMPARE['researched'].split('-')
     values={'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'RESEARCHED':f'{MONTHS[int(m)-1]} {int(d)}, {y}','HERO_PROOF':hero_proof(),
-        'PLATFORM_ROWS':me+platforms,'COMPANY_COUNT':str(len(COMPARE['platforms'])+1),'SOURCE_COUNT':str(len(COMPARE['sources'])),'SOURCE_ROWS':''.join(rows),'SOURCE_CALLOUT':callout,'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' if isinstance(x,str) else f'<li>{ESC(x["before"])}<a href="{ESC(x["url"])}">{ESC(x["link"])}</a>{ESC(x["after"])}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
+        'PLATFORM_ROWS':me+platforms,'COMPANY_COUNT':str(len(COMPARE['platforms'])+1),'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' if isinstance(x,str) else f'<li>{ESC(x["before"])}<a href="{ESC(x["url"])}">{ESC(x["link"])}</a>{ESC(x["after"])}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
     page=(ROOT/'templates/compare.html').read_text()
     for k,v in values.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page

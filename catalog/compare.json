@@ -1,6 +1,6 @@
 {
   "researched": "2026-09-24",
-  "method": "Researched September 24, 2026. Claude directory status comes from Anthropic's public directory data; ChatGPT directory status comes from searching the public ChatGPT app directory. Prices are quoted from each vendor's public pricing page on that date; tiers change, so check the linked source before buying. Other MCP servers were found through the official MCP Registry, GitHub, Smithery, PulseMCP, and Glama. Competitor tool counts come from their public listings; competitor software and tests were not run.",
+  "method": "Researched September 24, 2026. Claude directory status comes from Anthropic's public directory data; ChatGPT directory status comes from searching the public ChatGPT app directory. Prices are quoted from each vendor's public pricing page on that date; tiers change, so check the linked source before buying. Competitor software was not run.",
   "platforms": [
     {
       "name": "Tango",
