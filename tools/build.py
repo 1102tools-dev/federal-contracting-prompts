@@ -24,6 +24,8 @@ ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','calc','bls','travel','fr','regs','acq')
+# Homepage card sash: the three most-used servers, in order (James, Oct 31, 2026). Keep it true: update the order when usage changes.
+MOST_USED={'sam':1,'usa':2,'ecfr':3}
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
 CARD_NOTES={'usa':('Department of Defense contracts',"DoD award records post here 90 days after signing, as well as on SAM.gov. Two faster sources fill the gap: daily contract announcements and SAM.gov award notices.",'',''),
     'ecfr':('FAR Overhaul deviations',"Agency deviations aren't in the eCFR. The Acquisition.gov MCP tracks which FAR Overhaul changes each agency has adopted.",'#mcp-acq','See Acquisition.gov')}
@@ -175,7 +177,9 @@ def website(out,pdf,pages):
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
         note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(s['id'])+(f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>' if href else '')+'</div>' if label else ''
-        head=f'<article class="server-card" id="mcp-{s["id"]}"><div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
+        rank=MOST_USED.get(s['id'])
+        sash=f'<span class="rank-sash rank-{rank}">#{rank} most used</span>' if rank else ''
+        head=f'<article class="server-card{" ranked" if rank else ""}" id="mcp-{s["id"]}">{sash}<div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
         access=ESC(s.get('card_access',s['access']))
         demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
         demo=f'<div class="card-actions">{demo}<a class="learn-link" href="{page_url(s["id"])}" aria-label="Learn more about the {ESC(s["name"],quote=True)} MCP server">Learn more <span aria-hidden="true">→</span></a></div>'
