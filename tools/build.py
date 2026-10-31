@@ -188,12 +188,14 @@ def website(out,pdf,pages):
             one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
             directory='<div class="directory-links">'+local_link+one_click+'</div>'
         badges=card_badges(s)
+        mco='<span class="badge badge-mco">'
+        badges=badges.replace(mco,CF_ROW+mco) if mco in badges else badges+CF_ROW  # eCFR: Cloudflare line above Mini Contracting Officer
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
         note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(s['id'])+(f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>' if href else '')+'</div>' if label else ''
         rank=MOST_USED.get(s['id'])
         sash=f'<span class="rank-sash rank-{rank}">#{rank} most used</span>' if rank else ''
-        head=f'<article class="server-card{" ranked" if rank else ""}" id="mcp-{s["id"]}">{sash}<div class="badges">{badges}{CF_ROW}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
+        head=f'<article class="server-card{" ranked" if rank else ""}" id="mcp-{s["id"]}">{sash}<div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
         access=ESC(s.get('card_access',s['access']))
         demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
         demo=f'<div class="card-actions">{demo}<a class="learn-link" href="{page_url(s["id"])}" aria-label="Learn more about the {ESC(s["name"],quote=True)} MCP server">Learn more <span aria-hidden="true">→</span></a></div>'
