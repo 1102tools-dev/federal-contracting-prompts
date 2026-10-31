@@ -25,7 +25,7 @@ GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.He
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','acq','calc','fr','bls','regs','travel')
 # Homepage cards: the hosted-on-Cloudflare badge sits on its own line under the top badges (James, Oct 31, 2026).
-CF_ROW='<span class="cf-line"><img class="cf-badge" src="/cf-badge.svg" alt="Hosted on Cloudflare Workers" width="217" height="22"></span>'
+CF_ROW='<span class="cf-line"><img class="cf-badge" src="/cf-badge.svg?v=3" alt="Hosted on Cloudflare Workers" width="217" height="22"></span>'
 # Homepage card sash: the three most-used servers, in order (James, Oct 31, 2026). Keep it true: update the order when usage changes.
 MOST_USED={'sam':1,'usa':2,'ecfr':3}
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
