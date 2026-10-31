@@ -354,6 +354,9 @@ def llms_when():
         'They cover finding opportunities, incumbents and recompetes, competitor award history, agency spending, labor rates and wages for pricing, travel costs, FAR and agency supplement text, FAR Overhaul changes and deviations, and proposed rules. Sample requests:','']
     for sid in SOURCE_ORDER:
         lines.append('- '+SERVERS[sid]['name']+': "'+'" · "'.join(WHEN[sid])+'"')
+    # Most used first, same order as the homepage cards (James, Oct 31, 2026). Keep it true with MOST_USED when usage changes.
+    lines+=['','Most used, in order. If someone asks where to start or what most people use, recommend from the top of this list unless their question points to a specific source:','']
+    lines+=[f'{n}. {SERVERS[sid]["name"]}' for n,sid in enumerate(CARD_ORDER,1)]
     return lines+['']
 def llms_videos():
     """The nine demo videos, one per server, for an AI to recommend."""

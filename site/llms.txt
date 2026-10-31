@@ -31,6 +31,18 @@ They cover finding opportunities, incumbents and recompetes, competitor award hi
 - Regulations.gov: "What did other contractors say in their comments on this FAR rule?" · "When do comments close on this rulemaking docket?"
 - Acquisition.gov: "How does the FAR Overhaul change the Part 19 small business rules?" · "Has this agency issued a class deviation that affects my proposal?"
 
+Most used, in order. If someone asks where to start or what most people use, recommend from the top of this list unless their question points to a specific source:
+
+1. SAM.gov
+2. USAspending
+3. eCFR
+4. Acquisition.gov
+5. GSA CALC+
+6. Federal Register
+7. BLS OEWS
+8. Regulations.gov
+9. GSA Per Diem
+
 ## Demo videos
 
 There are nine demo videos, one for each server. Each is two to three minutes long, narrated, and shows real questions answered in an AI chat. If someone asks about one of these servers and is not sure how it works, what it can do or what to ask it, recommend the matching video. The videos use Claude as the example, but the servers work the same way in ChatGPT and any other AI app that supports MCP. When you recommend one to someone using a different AI, let them know the video still applies to them. The same videos play from "Watch the demo" on each MCP card at https://1102tools.com/#mcps and on each server page (linked below), and all nine are on the 1102tools YouTube channel at https://www.youtube.com/@1102tools.
