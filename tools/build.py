@@ -11,7 +11,7 @@ from datetime import date
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.platypus import BaseDocTemplate,Frame,PageTemplate,Paragraph,Spacer,PageBreak,KeepTogether,Table,TableStyle
+from reportlab.platypus import Flowable,BaseDocTemplate,Frame,PageTemplate,Paragraph,Spacer,PageBreak,KeepTogether,Table,TableStyle
 from reportlab.platypus.tableofcontents import TableOfContents
 ROOT=Path(__file__).resolve().parents[1]
 DATA=json.loads((ROOT/'catalog/prompts.json').read_text())
@@ -114,6 +114,18 @@ def page(c,doc):
     if doc.page>1:
         c.setFont('Helvetica',8);c.setFillColor(MUTED);c.drawString(52,758,'1102tools  /  MCP PROMPT GUIDE');c.drawRightString(560,758,DATA['edition'].upper())
         c.setStrokeColor(LINE);c.line(52,45,560,45);c.setFont('Helvetica',8);c.drawString(52,31,'COPY · PASTE · ADAPT');c.drawRightString(560,31,str(doc.page))
+class Sash(Flowable):
+    """Gold / silver / bronze corner sash for the cover tiles, matching the homepage cards."""
+    METAL={1:('#d4a52a','#f6dc85','#3d2c00'),2:('#aeb6be','#eef1f4','#22272c'),3:('#c07a40','#f0c29b','#3a1d08')}
+    def __init__(self,rank):super().__init__();self.rank=rank
+    def wrap(self,aw,ah):self.aw=aw;return (0,0)
+    def draw(self):
+        c=self.canv;edge,light,ink=(colors.HexColor(x) for x in self.METAL[self.rank]);cx,cy=self.aw+14,13
+        c.saveState();clip=c.beginPath();clip.rect(cx-100,cy-100,100,100);c.clipPath(clip,stroke=0,fill=0)
+        c.translate(cx,cy);c.rotate(-45);band=c.beginPath();band.rect(-60,-36.5,120,13);c.clipPath(band,stroke=0,fill=0)
+        c.linearGradient(-60,0,60,0,(edge,light,edge),(0,.5,1),extend=False)
+        c.setFillColor(ink);c.setFont('Helvetica-Bold',6.2);c.drawCentredString(0,-32.2,f'#{self.rank} MOST USED');c.restoreState()
+
 def build_pdf(dest):
     dest.parent.mkdir(parents=True,exist_ok=True)
     styles={
@@ -131,7 +143,7 @@ def build_pdf(dest):
     grid=[]
     for i in range(0,9,3):
         row=[]
-        for s in DATA['servers'][i:i+3]:row.append([Paragraph(ESC(s['name']),styles['title']),Paragraph(ESC(s['description']),styles['small'])])
+        for s in [SERVERS[x] for x in CARD_ORDER][i:i+3]:row.append(([Sash(MOST_USED[s['id']])] if s['id'] in MOST_USED else [])+[Paragraph(ESC(s['name']),styles['title']),Paragraph(ESC(s['description']),styles['small'])])
         grid.append(row)
     table=Table(grid,colWidths=[170,169,169]);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.5,LINE),('LEFTPADDING',(0,0),(-1,-1),14),('RIGHTPADDING',(0,0),(-1,-1),14),('TOPPADDING',(0,0),(-1,-1),13),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story += [table,Spacer(1,35),Paragraph(DATA['edition'].upper()+f'  ·  {PDF_COUNT} PROMPTS  ·  9 MCP SOURCES',styles['eyebrow']),Paragraph(f'<link href="{PR}" color="#008766">Federal contracting prompts</link>  /  <link href="{MR}" color="#008766">MCP servers and setup</link>',styles['small']),PageBreak()]
     story += [Paragraph('Start with the work',ParagraphStyle('Start',parent=styles['section'],spaceBefore=0)),Paragraph('<b>A prompt does not install an MCP.</b> Install and connect every required MCP in your AI client before running a prompt. If two are listed, both are required.',styles['body']),Paragraph('1. Check the <b>Required MCPs</b> line. Each source name links to its setup instructions.<br/>2. Configure any API keys outside chat and confirm your client can see the tools.<br/>3. Replace the brackets, run the prompt, and check the sources and dates.',styles['body']),Paragraph('Ask for the exact source, data period, and retrieval date. Keep missing records, incomplete pages, and uncertain matches visible.',styles['body']),Paragraph('<link href="https://1102tools.com/#mcps" color="#008766">Setup and available Claude and ChatGPT installs: 1102tools.com/#mcps</link>',styles['small']),Spacer(1,6),Paragraph('Find a prompt',ParagraphStyle('IndexTitle',parent=styles['section'],spaceBefore=0))]
