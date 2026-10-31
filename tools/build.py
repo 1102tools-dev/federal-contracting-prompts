@@ -23,7 +23,7 @@ MR='https://github.com/1102tools-dev/federal-contracting-mcps'
 ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
-CARD_ORDER=('sam','usa','ecfr','calc','bls','travel','fr','regs','acq')
+CARD_ORDER=('sam','usa','ecfr','acq','calc','fr','bls','regs','travel')
 # Homepage card sash: the three most-used servers, in order (James, Oct 31, 2026). Keep it true: update the order when usage changes.
 MOST_USED={'sam':1,'usa':2,'ecfr':3}
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
