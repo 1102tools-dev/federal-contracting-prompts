@@ -24,8 +24,8 @@ ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','acq','calc','fr','bls','regs','travel')
-# Homepage cards: the hosted-on-Cloudflare badge sits between Local setup and the hosted installs (James, Oct 31, 2026).
-CF_ROW='<div class="cf-row"><img class="cf-badge" src="/cf-badge.svg" alt="Hosted on Cloudflare Workers" width="217" height="22"></div>'
+# Homepage cards: the hosted-on-Cloudflare badge sits on its own line under the top badges (James, Oct 31, 2026).
+CF_ROW='<span class="cf-line"><img class="cf-badge" src="/cf-badge.svg" alt="Hosted on Cloudflare Workers" width="217" height="22"></span>'
 # Homepage card sash: the three most-used servers, in order (James, Oct 31, 2026). Keep it true: update the order when usage changes.
 MOST_USED={'sam':1,'usa':2,'ecfr':3}
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
@@ -186,14 +186,14 @@ def website(out,pdf,pages):
         if s.get('directories'):
             local_link=f'<a class="directory-link" href="{local_href(s)}"><b>Local setup</b><em>{"full edition, desktop" if s.get("hosted_edition") else "desktop only"}</em><span aria-hidden="true">→</span></a>'
             one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
-            directory='<div class="directory-links">'+local_link+CF_ROW+one_click+'</div>'
+            directory='<div class="directory-links">'+local_link+one_click+'</div>'
         badges=card_badges(s)
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
         note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(s['id'])+(f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>' if href else '')+'</div>' if label else ''
         rank=MOST_USED.get(s['id'])
         sash=f'<span class="rank-sash rank-{rank}">#{rank} most used</span>' if rank else ''
-        head=f'<article class="server-card{" ranked" if rank else ""}" id="mcp-{s["id"]}">{sash}<div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
+        head=f'<article class="server-card{" ranked" if rank else ""}" id="mcp-{s["id"]}">{sash}<div class="badges">{badges}{CF_ROW}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
         access=ESC(s.get('card_access',s['access']))
         demo=f'<a class="demo-link" href="{s["demo"]}" aria-haspopup="dialog">Watch the demo ▶</a>' if s.get('demo') else ''
         demo=f'<div class="card-actions">{demo}<a class="learn-link" href="{page_url(s["id"])}" aria-label="Learn more about the {ESC(s["name"],quote=True)} MCP server">Learn more <span aria-hidden="true">→</span></a></div>'
