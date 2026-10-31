@@ -24,6 +24,8 @@ ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','acq','calc','fr','bls','regs','travel')
+# Homepage cards: the hosted-on-Cloudflare badge sits between Local setup and the hosted installs (James, Oct 31, 2026).
+CF_ROW='<div class="cf-row"><img class="cf-badge" src="/cf-badge.svg" alt="Hosted on Cloudflare Workers" width="217" height="22"></div>'
 # Homepage card sash: the three most-used servers, in order (James, Oct 31, 2026). Keep it true: update the order when usage changes.
 MOST_USED={'sam':1,'usa':2,'ecfr':3}
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
@@ -184,7 +186,7 @@ def website(out,pdf,pages):
         if s.get('directories'):
             local_link=f'<a class="directory-link" href="{local_href(s)}"><b>Local setup</b><em>{"full edition, desktop" if s.get("hosted_edition") else "desktop only"}</em><span aria-hidden="true">→</span></a>'
             one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
-            directory='<div class="directory-links">'+local_link+one_click+'</div>'
+            directory='<div class="directory-links">'+local_link+CF_ROW+one_click+'</div>'
         badges=card_badges(s)
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
@@ -240,7 +242,7 @@ def website(out,pdf,pages):
     compare_page(out,replacements['CSS_VERSION'])
     privacy_page(out,replacements['CSS_VERSION'])
     server_pages(out,replacements['CSS_VERSION'])
-    for file in ['styles.css','app.js','muse.webp']:shutil.copy2(ROOT/'templates'/file,out/file)
+    for file in ['styles.css','app.js','muse.webp','cf-badge.svg']:shutil.copy2(ROOT/'templates'/file,out/file)
     (out/'prompts.json').write_text(json.dumps(DATA,indent=2)+'\n')
     (out/'.well-known').mkdir(exist_ok=True);shutil.copy2(ROOT/'templates/mcp-registry-auth',out/'.well-known/mcp-registry-auth')
     (out/'favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#007a59"/><text x="32" y="41" text-anchor="middle" font-family="monospace" font-size="30" font-weight="bold" fill="white">02</text></svg>')
