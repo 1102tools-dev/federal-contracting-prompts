@@ -199,7 +199,7 @@ Hosted addresses for AI apps that connect by URL:
 - Can I use it at work? The servers only read public government data. Do not put proprietary pricing, source selection information or other sensitive details in prompts, and follow your company's or agency's AI policy. The local version keeps 1102tools out of the path, but your AI app still sees the conversation.
 - Can I use it with CUI (Controlled Unclassified Information)? CUI is a question for your AI app, not for 1102tools. The servers only look up public government data. Your chat, your files and anything you paste stay with your AI app, so whether CUI can go in your chat depends on that app and your agency's or company's rules. This is the same for Local and Hosted. On hosted, 1102tools gets only the search your AI sends, like a NAICS code or a vendor name, and doesn't log it.
 - Does it work with other AI apps? Hosted works with any app that connects to remote MCP servers by URL; local works with any MCP client.
-- Is it maintained? Yes. Each server publishes its testing record. Every 30 minutes, each hosted server runs a real lookup. Every week, the tests rerun on the newest MCP SDK and the government sites are checked for changes. If something fails, an alert goes out naming the cause: 1102tools or the government site.
+- Is it maintained? Yes. Each server publishes its testing record. Every 30 minutes, each hosted server runs a real lookup. Every day, the government sites are checked for changes, and every week the tests rerun on the newest MCP SDK. If something fails, an alert goes out naming the cause: 1102tools or the government site.
 
 ## Support
 
