@@ -25,7 +25,6 @@ GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.He
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
 CARD_ORDER=('sam','usa','ecfr','acq','calc','fr','bls','regs','travel')
 # Homepage cards: the hosted-on-Cloudflare badge sits on its own line under the top badges (James, Oct 31, 2026).
-CF_ROW='<span class="cf-line"><img class="cf-badge" src="/cf-badge.svg?v=3" alt="Hosted on Cloudflare Workers" width="217" height="22"></span>'
 # Homepage card sash: the three most-used servers, in order (James, Oct 31, 2026). Keep it true: update the order when usage changes.
 MOST_USED={'sam':1,'usa':2,'ecfr':3}
 FULL_NAMES={'ecfr':'Electronic Code of Federal Regulations','calc':'Contract-Awarded Labor Category','bls':'Occupational Employment and Wage Statistics'}
@@ -76,7 +75,7 @@ def requirement_text(p):return 'Required MCPs: '+names(p)+'. '+edition_requireme
 def names(p):return ' + '.join(SERVERS[x]['name'] for x in source_ids(p))
 def linklabel(p):return ' + '.join(f"[{SERVERS[x]['name']}]({SERVERS[x]['url']})" for x in source_ids(p))
 def readme():
-    lines=['# Federal contracting MCP prompts','','[![price: free](https://img.shields.io/badge/price-free-007a59)](https://1102tools.com/#why) [![license: MIT](https://img.shields.io/badge/license-MIT-007a59)](license) [![prompts](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2F1102tools.com%2Fprompts.json&query=%24.prompts.length&label=prompts&color=007a59)](https://1102tools.com/#prompts) [![regression tests](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/1102tools-dev/federal-contracting-mcps/main/badges/tests-total.json)](https://github.com/1102tools-dev/federal-contracting-mcps#testing)','',f"**{DATA['edition']} · Copy, paste, adapt.**",'',
+    lines=['# Federal contracting MCP prompts','',f"**{DATA['edition']} · Copy, paste, adapt.**",'',
     'Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.','',
     '[Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf)<br>\n[Local setup guide]('+MR+'#local-setup) · [Demo videos on YouTube](https://www.youtube.com/@1102tools) · [Live usage](https://1102tools.com/usage)','',
     '## Start here','','1. Choose a prompt and check its **Required MCPs** line.','2. Set up the required MCPs locally from their setup guides, or install the hosted versions from the Claude and ChatGPT directories. Configure any required API keys outside chat and confirm that your client can see the tools.','3. Replace the bracketed details, then ask your assistant to run the prompt. Check source links, dates, and missing information before using the results.','',
@@ -189,8 +188,6 @@ def website(out,pdf,pages):
             one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
             directory='<div class="directory-links">'+local_link+one_click+'</div>'
         badges=card_badges(s)
-        mco='<span class="badge badge-mco">'
-        badges=badges.replace(mco,CF_ROW+mco) if mco in badges else badges+CF_ROW  # eCFR: Cloudflare line above Mini Contracting Officer
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
         note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(s['id'])+(f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>' if href else '')+'</div>' if label else ''
@@ -246,7 +243,7 @@ def website(out,pdf,pages):
     privacy_page(out,replacements['CSS_VERSION'])
     usage_page(out,replacements['CSS_VERSION'])
     server_pages(out,replacements['CSS_VERSION'])
-    for file in ['styles.css','app.js','usage.js','muse.webp','cf-badge.svg']:shutil.copy2(ROOT/'templates'/file,out/file)
+    for file in ['styles.css','app.js','usage.js','muse.webp']:shutil.copy2(ROOT/'templates'/file,out/file)
     (out/'prompts.json').write_text(json.dumps(DATA,indent=2)+'\n')
     (out/'.well-known').mkdir(exist_ok=True);shutil.copy2(ROOT/'templates/mcp-registry-auth',out/'.well-known/mcp-registry-auth')
     (out/'favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#007a59"/><text x="32" y="41" text-anchor="middle" font-family="monospace" font-size="30" font-weight="bold" fill="white">02</text></svg>')
