@@ -21,7 +21,6 @@ class Page(HTMLParser):
   self.texts.append(s)
   if self.current:self.card_texts[self.current]+=s
   if self.in_text and self.current:self.prompts[self.current]+=s
-compare=json.loads((ROOT/'catalog/compare.json').read_text())
 APPROVED={'https://github.com/1102tools-dev/federal-contracting-mcps','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/','https://www.youtube.com/@1102tools','https://www.youtube.com/@1102tools/shorts','https://www.war.gov/News/Contracts/','https://www.youtube.com/playlist?list=PLdrqO_0dQ1LM','https://www.youtube.com/watch?v=ybkwXEZXsaw&list=PLdrqO_0dQ1LM','https://www.youtube.com/watch?v=V8MDVOluNRg&list=PLdrqO_0dQ1LM','https://www.youtube.com/watch?v=f1623C0UoUU&list=PLdrqO_0dQ1LM'}
 page=Page();page.feed((ROOT/'site/index.html').read_text())
 assert len(page.ids)==len(set(page.ids)),'duplicate HTML IDs'
@@ -41,14 +40,6 @@ for link in page.links:
  if link.startswith('#'):assert link[1:] in page.ids,link
  if link.startswith('https://'):assert link in APPROVED or link in {url for s in data['servers'] for url in s.get('directories',{}).values() if url} or link in {s['demo'] for s in data['servers'] if s.get('demo')} or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
  else:assert link.startswith(('#','/')),link
-compare_page=Page();compare_page.feed((ROOT/'site/compare.html').read_text())
-compare_urls={x['url'] for x in compare['platforms']}|{x['price_url'] for x in compare['platforms'] if x.get('price_url')}|{x['alt_url'] for x in compare['sources'] if x['alt_url']}
-for link in compare_page.links:
- if link.startswith('https://'):assert link in APPROVED or link in compare_urls or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),link
- else:assert link.startswith(('/','#')),link
- if link.startswith('/#'):assert link[2:] in page.ids,link
- if link.startswith('#'):assert link[1:] in compare_page.ids,link
-assert {x['id'] for x in compare['sources']}=={s['id'] for s in data['servers']},'compare page must cover every source'
 # One page per server under /mcp/, each linked from its card.
 server_files=sorted((ROOT/'site/mcp').glob('*.html'))
 assert len(server_files)==len(data['servers']),'one page per server'
@@ -84,7 +75,7 @@ for page_ in pdf.pages:
   if action and action.get('/URI'):
    url=str(action['/URI']);assert url == 'https://1102tools.com/#mcps' or url.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),url
 for forbidden in ['universal-setup','agent-setup','federal-contracting-agents','federal-contracting-skills','August 2026','124 TOOLS','every pattern run live','plain English','one click','recommended']:
- assert forbidden.lower() not in (text+'\n'+readme+'\n'+''.join(page.texts)+'\n'+''.join(compare_page.texts)+'\n'+''.join(server_texts)).lower(),forbidden
+ assert forbidden.lower() not in (text+'\n'+readme+'\n'+''.join(page.texts)+'\n'+''.join(server_texts)).lower(),forbidden
 assert data==json.loads((ROOT/'site/prompts.json').read_text())
 assert (ROOT/'docs/1102tools-mcp-prompt-guide.pdf').read_bytes()==(ROOT/'site/downloads/1102tools-prompt-guide.pdf').read_bytes()
 print(f'PASS: {len(data["prompts"])} README/web prompts; {sum(p["in_pdf"] for p in data["prompts"])} complete PDF prompts; approved links; no retired offerings; duplicate-free anchors;',len(pdf.pages),'PDF pages.')

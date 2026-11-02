@@ -51,7 +51,6 @@ LOCAL_VS_HOSTED=(
     ('SAM.gov',f'Full edition: {SERVERS["sam"]["proof"]["tools"]} tools, free key',f'{SERVERS["sam"]["hosted_edition"]["tools"]} tools, no key'))
 def listed(s):return [(label,s['directories'][key]) for key,label in DIRECTORIES if s.get('directories',{}).get(key)]
 def series(items,conj='and'):return items[0] if len(items)==1 else f' {conj} '.join(items) if len(items)==2 else ', '.join(items[:-1])+f', {conj} '+items[-1]
-COMPARE=json.loads((ROOT/'catalog/compare.json').read_text())
 MONTHS=('January','February','March','April','May','June','July','August','September','October','November','December')
 def month_year(iso):y,m,_=iso.split('-');return MONTHS[int(m)-1]+' '+y
 def number_word(n):return ('Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten')[n] if n<=10 else str(n)
@@ -239,7 +238,6 @@ def website(out,pdf,pages):
     for k,v in replacements.items():template=template.replace('{{'+k+'}}',v)
     assert '{{' not in template
     (out/'index.html').write_text(template)
-    compare_page(out,replacements['CSS_VERSION'])
     privacy_page(out,replacements['CSS_VERSION'])
     usage_page(out,replacements['CSS_VERSION'])
     server_pages(out,replacements['CSS_VERSION'])
@@ -248,7 +246,7 @@ def website(out,pdf,pages):
     (out/'.well-known').mkdir(exist_ok=True);shutil.copy2(ROOT/'templates/mcp-registry-auth',out/'.well-known/mcp-registry-auth')
     (out/'favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#007a59"/><text x="32" y="41" text-anchor="middle" font-family="monospace" font-size="30" font-weight="bold" fill="white">02</text></svg>')
     (out/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Cache-Control: public, max-age=0, must-revalidate\n/downloads/*\n  Content-Disposition: inline\n')
-    (out/'_redirects').write_text('/tools /#mcps 302\n/tools.html /#mcps 302\n/setup /#mcps 302\n/setup.html /#mcps 302\n/examples /#prompts 302\n/examples.html /#prompts 302\n/about / 302\n/about.html / 302\n/install /#mcps 302\n/downloads/1102tools-mcp-prompt-guide.pdf /downloads/1102tools-prompt-guide.pdf 302\n/downloads/1102tools-agent-setup-guide.pdf /#guide 302\n/downloads/1102tools-universal-setup-guide.pdf /#mcps 302\n/.well-known/agent-skills/* /retired-content 302\n')
+    (out/'_redirects').write_text('/tools /#mcps 302\n/tools.html /#mcps 302\n/setup /#mcps 302\n/setup.html /#mcps 302\n/examples /#prompts 302\n/examples.html /#prompts 302\n/about / 302\n/about.html / 302\n/install /#mcps 302\n/downloads/1102tools-mcp-prompt-guide.pdf /downloads/1102tools-prompt-guide.pdf 302\n/downloads/1102tools-agent-setup-guide.pdf /#guide 302\n/downloads/1102tools-universal-setup-guide.pdf /#mcps 302\n/.well-known/agent-skills/* /retired-content 302\n/compare / 301\n/compare.html / 301\n')
     (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://1102tools.com/sitemap.xml\n')
     dates=lastmods(out);(out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>https://1102tools.com{url}</loc><lastmod>{d}</lastmod></url>' for url,d in dates.items())+'</urlset>')
     (out/(INDEXNOW_KEY+'.txt')).write_text(INDEXNOW_KEY)
@@ -283,7 +281,7 @@ def website(out,pdf,pages):
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks.",
-        "- [1102tools vs. paid GovCon platforms](https://1102tools.com/compare): price, account and directory listings compared.",'',
+        '',
         *llms_story(st),
         '## Release validation','',DATA.get('release_validation',{}).get('summary',''),'','## MCP sources','']
     for server in (SERVERS[x] for x in SOURCE_ORDER):
@@ -404,7 +402,7 @@ def llms_help():
         '- How current is the data?',
         *[f"  - {SERVERS[sid]['name']}: {FRESHNESS[sid]}" for sid in SOURCE_ORDER],
         '- Can competitors or the government see what I research? No. Searches are not logged or saved, and on hosted servers government sites see requests from 1102tools, not from you. SAM.gov, BLS OEWS and Acquisition.gov searches never leave 1102tools\' own copy of the data.',
-        '- Does it replace a paid GovCon platform? It covers the research for free: opportunities, award history, incumbents, labor rates and regulations. Paid platforms add pipeline, capture and proposal workflows. See the comparison: https://1102tools.com/compare',
+        '- Does it replace a paid GovCon platform? It covers the research for free: opportunities, award history, incumbents, labor rates and regulations. Paid platforms add pipeline, capture and proposal workflows.',
         '- Can I use it at work? The servers only read public government data. Do not put proprietary pricing, source selection information or other sensitive details in prompts, and follow your company\'s or agency\'s AI policy. The local version keeps 1102tools out of the path, but your AI app still sees the conversation.',
         '- Can I use it with CUI (Controlled Unclassified Information)? CUI is a question for your AI app, not for 1102tools. The servers only look up public government data. Your chat, your files and anything you paste stay with your AI app, so whether CUI can go in your chat depends on that app and your agency\'s or company\'s rules. This is the same for Local and Hosted. On hosted, 1102tools gets only the search your AI sends, like a NAICS code or a vendor name, and doesn\'t log it.',
         '- Does it work with other AI apps? Hosted works with any app that connects to remote MCP servers by URL; local works with any MCP client.',
@@ -439,24 +437,6 @@ def llms_story(st):
         '- October 7, 2026: Acquisition.gov published in the ChatGPT directory, the fourth there.',
         '- October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.',
         '- October 26, 2026: SAM.gov, Federal Register and Regulations.gov published in the ChatGPT directory, completing all nine.','']
-
-def compare_page(out,css_version):
-    st=stats();mine={key:bool(st['directory'][label]) for key,label in DIRECTORIES}
-    me=('<tr class="me"><th scope="row">1102tools</th><td><strong>Free</strong></td><td>No. Directory installs need no 1102tools account or user API key.</td><td>Yes</td>'
-        f'<td>{dir_chips(mine)}</td><td>Source research across {st["servers"]} federal data sources</td></tr>')
-    # The best-known names show first; the rest go free first, then free tier with paid, then paid only, catalog order within each group.
-    featured=['Tango','GovTribe','HigherGov','Govly']
-    order={'Free':0,'Free tier with paid':1,'Paid':2}
-    rank=lambda x:(0,featured.index(x['name'])) if x['name'] in featured else (1,order[x['pricing']])
-    platforms=''.join(('<tr class="more">' if i>=len(featured) else '<tr>')+f'<th scope="row"><a href="{ESC(x["url"])}">{ESC(x["name"])}</a></th><td>{price_cell(x)}</td><td>{ESC(x["account"])}</td><td>{ESC(x["open_source"])}</td><td>{dir_chips(x.get("directories",{}))}</td><td>{ESC(x["focus"])}</td></tr>' for i,x in enumerate(sorted(COMPARE['platforms'],key=rank)))
-    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/compare#webpage","url":"https://1102tools.com/compare","name":"1102tools vs. paid GovCon platforms","description":"How 1102tools' free, open-source federal contracting MCP servers compare with paid GovCon platforms.","isPartOf":{"@id":"https://1102tools.com/#website"},"dateModified":COMPARE['researched'],"inLanguage":"en"}
-    y,m,d=COMPARE['researched'].split('-')
-    values={'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'RESEARCHED':f'{MONTHS[int(m)-1]} {int(d)}, {y}','HERO_PROOF':hero_proof(),
-        'PLATFORM_ROWS':me+platforms,'COMPANY_COUNT':str(len(COMPARE['platforms'])+1),'FIT_ITEMS':''.join(f'<li>{ESC(x)}</li>' if isinstance(x,str) else f'<li>{ESC(x["before"])}<a href="{ESC(x["url"])}">{ESC(x["link"])}</a>{ESC(x["after"])}</li>' for x in COMPARE['fit']),'METHOD':ESC(COMPARE['method'])}
-    page=(ROOT/'templates/compare.html').read_text()
-    for k,v in values.items():page=page.replace('{{'+k+'}}',v)
-    assert '{{' not in page
-    (out/'compare.html').write_text(page)
 
 def privacy_page(out,css_version):
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/privacy#webpage","url":"https://1102tools.com/privacy","name":"1102tools privacy","description":"How 1102tools handles data: no accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
@@ -569,7 +549,7 @@ CHECK=False
 def lastmods(out):
     stored=json.loads((ROOT/'catalog/lastmod.json').read_text());today=date.today().isoformat()
     text=lambda f:re.sub(r'\?v=[0-9a-f]{12}','',f.read_text()) if f.exists() else None
-    pages={'/':'index.html','/compare':'compare.html','/privacy':'privacy.html','/usage':'usage.html',**{page_url(sid):page_url(sid)[1:]+'.html' for sid in CARD_ORDER}}
+    pages={'/':'index.html','/privacy':'privacy.html','/usage':'usage.html',**{page_url(sid):page_url(sid)[1:]+'.html' for sid in CARD_ORDER}}
     return {url:stored.get(url,today) if CHECK or text(out/f)==text(ROOT/'site'/f) else today for url,f in pages.items()}
 def build(out):
     out.mkdir(parents=True,exist_ok=True)
