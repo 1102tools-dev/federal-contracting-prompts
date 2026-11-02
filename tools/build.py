@@ -65,8 +65,9 @@ def stats():
         'directory':{label:[s['name'] for s in servers if s.get('directories',{}).get(key)] for key,label in DIRECTORIES}}
 def hero_proof():
     st=stats();listed_in=[label for label,found in st['directory'].items() if found]
-    return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free, MIT-licensed</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
-        f'<li><strong>{st["tools"]}</strong><span>tools</span></li><li><strong>0</strong><span>user API keys when hosted</span></li></ul>'
+    # The tool-call count is filled in the browser by usage.js from /data/usage.json, so it's never stale; hidden if that fails.
+    return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li><strong>$0</strong><span>Free<br>MIT license</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
+        '<li hidden><a href="/usage"><strong data-usage-total></strong><span>tool calls<br>this week →</span></a></li></ul>'
         '<p class="directory-proof"><span class="badge-row">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()} DIRECTORY</span>' for label in listed_in)
         +'</span><span class="badge-row">'+''.join(f'<span class="badge badge-soon">COMING SOON · {label.upper()} DIRECTORY</span>' for label in DIRECTORIES_SOON)+'</span></p>')
 def source_ids(p):return p['mcps']
@@ -243,8 +244,9 @@ def website(out,pdf,pages):
     (out/'index.html').write_text(template)
     compare_page(out,replacements['CSS_VERSION'])
     privacy_page(out,replacements['CSS_VERSION'])
+    usage_page(out,replacements['CSS_VERSION'])
     server_pages(out,replacements['CSS_VERSION'])
-    for file in ['styles.css','app.js','muse.webp','cf-badge.svg']:shutil.copy2(ROOT/'templates'/file,out/file)
+    for file in ['styles.css','app.js','usage.js','muse.webp','cf-badge.svg']:shutil.copy2(ROOT/'templates'/file,out/file)
     (out/'prompts.json').write_text(json.dumps(DATA,indent=2)+'\n')
     (out/'.well-known').mkdir(exist_ok=True);shutil.copy2(ROOT/'templates/mcp-registry-auth',out/'.well-known/mcp-registry-auth')
     (out/'favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#007a59"/><text x="32" y="41" text-anchor="middle" font-family="monospace" font-size="30" font-weight="bold" fill="white">02</text></svg>')
@@ -263,7 +265,8 @@ def website(out,pdf,pages):
         f'- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): {PDF_COUNT} prompts for the nine sources, organized by task.',
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.',
-        "- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. The page links to each hosted server's privacy notice.",'',
+        "- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. The page links to each hosted server's privacy notice.",
+        "- [Live usage](https://1102tools.com/usage): tool calls across the nine hosted servers in the last 7 full days, by app (Claude, Claude Code, ChatGPT, Codex, Perplexity and other apps). Counted from each server's own log with 1102tools' own test checks left out, and updated nightly. The same numbers as JSON: https://1102tools.com/data/usage.json.",'',
         *llms_when(),
         *llms_videos(),
         *llms_pricing_series(),
@@ -495,6 +498,13 @@ def demo_videos(s):
     figs=''.join(f'<figure class="video-item"><figcaption><strong>{ESC(t)}</strong><span>{ESC(sub)}</span></figcaption>{player(src,label)}{yt(url)}</figure>' for t,sub,src,label,url in items)
     return DEMO_INTRO_MANY,css+'<div class="video-pair">'+figs+'</div>'+PLAY_SCRIPT
 
+def usage_page(out,css_version):
+    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/usage#webpage","url":"https://1102tools.com/usage","name":"1102tools live usage","description":"Tool calls across the nine free 1102tools MCP servers in the last 7 full days, by app. Counted from each server's own log and updated nightly.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
+    page=(ROOT/'templates/usage.html').read_text()
+    for k,v in {'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c')}.items():page=page.replace('{{'+k+'}}',v)
+    assert '{{' not in page
+    (out/'usage.html').write_text(page)
+
 def server_pages(out,css_version):
     for sid in SOURCE_ORDER:
         s=SERVERS[sid];name=s['name'];canonical='https://1102tools.com'+page_url(sid);hosted=f'https://{HOSTS[sid]}.1102tools.com/mcp'
@@ -562,7 +572,7 @@ CHECK=False
 def lastmods(out):
     stored=json.loads((ROOT/'catalog/lastmod.json').read_text());today=date.today().isoformat()
     text=lambda f:re.sub(r'\?v=[0-9a-f]{12}','',f.read_text()) if f.exists() else None
-    pages={'/':'index.html','/compare':'compare.html','/privacy':'privacy.html',**{page_url(sid):page_url(sid)[1:]+'.html' for sid in CARD_ORDER}}
+    pages={'/':'index.html','/compare':'compare.html','/privacy':'privacy.html','/usage':'usage.html',**{page_url(sid):page_url(sid)[1:]+'.html' for sid in CARD_ORDER}}
     return {url:stored.get(url,today) if CHECK or text(out/f)==text(ROOT/'site'/f) else today for url,f in pages.items()}
 def build(out):
     out.mkdir(parents=True,exist_ok=True)
