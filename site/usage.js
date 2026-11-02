@@ -46,16 +46,10 @@ function pie(sums,grand,small){
 }
 
 function bars(days,w){ // w: drawing width, matched to the screen so the text stays readable
-  const h=236,padL=48,padB=50,padT=26,slot=(w-padL)/days.length,bar=(w-padL)/12*.5;
+  const h=220,padL=48,padB=50,padT=10,slot=(w-padL)/days.length,bar=(w-padL)/12*.5;
   const most=Math.max(1,...days.map(d=>APPS.reduce((s,a)=>s+d.counts[a[0]],0)));
   const step=Math.pow(10,Math.floor(Math.log10(most)))/2,top=Math.ceil(most/step)*step; // a round top line
   const parts=[`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Tool calls per day">`];
-  const weekend=days.map((d,i)=>[d,i]).filter(([d])=>[0,6].includes(day(d.date).getUTCDay())).map(([,i])=>i);
-  for(let k=0;k<weekend.length;k++){ // one shaded band per run of weekend days
-    if(k&&weekend[k]===weekend[k-1]+1)continue;let e=k;while(e+1<weekend.length&&weekend[e+1]===weekend[e]+1)e++;
-    const x0=padL+weekend[k]*slot+3,x1=padL+(weekend[e]+1)*slot-3;
-    parts.push(`<rect x="${x0.toFixed(1)}" y="2" width="${(x1-x0).toFixed(1)}" height="${h-4}" rx="10" fill="#eef1f4"/><text x="${((x0+x1)/2).toFixed(1)}" y="17" text-anchor="middle" font-size="10" letter-spacing="1.5" font-weight="600" fill="#8695a5">WEEKEND</text>`);
-  }
   for(const frac of [0,.5,1]){
     const y=padT+(h-padT-padB)*(1-frac);
     parts.push(`<line x1="${padL}" x2="${w}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#e3eaf0"/><text x="${padL-8}" y="${(y+4).toFixed(1)}" text-anchor="end" font-size="11" fill="#617184">${fmt(Math.round(top*frac))}</text>`);
