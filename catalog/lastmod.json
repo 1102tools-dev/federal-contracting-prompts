@@ -1,15 +1,14 @@
 {
   "/": "2026-11-02",
-  "/compare": "2026-11-01",
-  "/privacy": "2026-10-30",
-  "/usage": "2026-11-01",
-  "/mcp/sam-gov": "2026-10-31",
-  "/mcp/usaspending": "2026-10-31",
-  "/mcp/ecfr": "2026-10-31",
-  "/mcp/acquisition-gov": "2026-10-31",
-  "/mcp/gsa-calc": "2026-10-31",
-  "/mcp/federal-register": "2026-10-31",
-  "/mcp/bls-oews": "2026-10-31",
-  "/mcp/regulations-gov": "2026-10-31",
-  "/mcp/gsa-per-diem": "2026-10-31"
+  "/privacy": "2026-11-02",
+  "/usage": "2026-11-02",
+  "/mcp/sam-gov": "2026-11-02",
+  "/mcp/usaspending": "2026-11-02",
+  "/mcp/ecfr": "2026-11-02",
+  "/mcp/acquisition-gov": "2026-11-02",
+  "/mcp/gsa-calc": "2026-11-02",
+  "/mcp/federal-register": "2026-11-02",
+  "/mcp/bls-oews": "2026-11-02",
+  "/mcp/regulations-gov": "2026-11-02",
+  "/mcp/gsa-per-diem": "2026-11-02"
 }
