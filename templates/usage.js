@@ -1,6 +1,6 @@
 'use strict';
-// Reads the nightly numbers file and fills the homepage stat and the /usage page.
-// The file holds daily tool-call counts per app for the last 7 finished days (UTC), nothing else.
+// Reads the daily numbers file (updated at 12 a.m. Eastern) and fills the homepage stat and the /usage page.
+// The file holds daily tool-call counts per app for the last 7 finished Eastern days, midnight to midnight, nothing else.
 (function(){
 const APPS=[['claude','Claude','#168276'],['claude-code','Claude Code','#5fae9f'],['chatgpt','ChatGPT','#2e5f94'],['codex','Codex','#7a9fd0'],['other','Other','#8a6fb0'],['perplexity','Perplexity','#d9a441']];
 const FAMILIES=[['Anthropic',['claude','claude-code']],['OpenAI',['chatgpt','codex']],['Perplexity',['perplexity']],['Other',['other']]];
