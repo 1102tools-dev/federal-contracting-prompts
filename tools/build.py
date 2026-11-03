@@ -261,7 +261,7 @@ def website(out,pdf,pages):
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.',
         "- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. The page links to each hosted server's privacy notice.",
-        "- [Live usage](https://1102tools.com/usage): tool calls across the nine hosted servers in the last 7 full days, by app (Claude, Claude Code, ChatGPT, Codex, Perplexity and other apps). Counted from each server's own log with 1102tools' own test checks left out, and updated nightly. The same numbers as JSON: https://1102tools.com/data/usage.json.",'',
+        "- [Live usage](https://1102tools.com/usage): tool calls across the nine hosted servers in the last 7 full days, by app (Claude, Claude Code, ChatGPT, Codex, Perplexity and other apps). Counted from each server's own log with 1102tools' own test checks left out, and updated daily at 12 a.m. Eastern (days run midnight to midnight Eastern). The same numbers as JSON: https://1102tools.com/data/usage.json.",'',
         *llms_when(),
         *llms_videos(),
         *llms_pricing_series(),
@@ -476,7 +476,7 @@ def demo_videos(s):
     return DEMO_INTRO_MANY,css+'<div class="video-pair">'+figs+'</div>'+PLAY_SCRIPT
 
 def usage_page(out,css_version):
-    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/usage#webpage","url":"https://1102tools.com/usage","name":"1102tools live usage","description":"Tool calls across the nine free 1102tools MCP servers in the last 7 full days, by app. Counted from each server's own log and updated nightly.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
+    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/usage#webpage","url":"https://1102tools.com/usage","name":"1102tools live usage","description":"Tool calls across the nine free 1102tools MCP servers in the last 7 full days, by app. Counted from each server's own log and updated daily at 12 a.m. Eastern.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
     page=(ROOT/'templates/usage.html').read_text()
     for k,v in {'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c')}.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page
