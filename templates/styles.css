@@ -158,4 +158,9 @@ nav a[aria-current="page"]{color:var(--green);font-weight:600}
 .usage-apps{flex:1 1 100%;list-style:none;margin:0;padding:0;display:grid;gap:8px}.usage-apps li{display:grid;grid-template-columns:auto 1fr auto 44px;align-items:center;gap:10px;font-size:15px}.usage-apps i{width:12px;height:12px;border-radius:3px}.usage-apps b{font-weight:650}.usage-apps small{text-align:right;color:#617184;font-size:13px}
 .usage-error{margin-top:34px;color:#617184}.proof-stats li[hidden]{display:none}.proof-stats a{display:contents;color:inherit;text-decoration:none}.proof-stats a:hover span{color:var(--green)}
 @media(max-width:700px){.usage-hero{flex-direction:column;gap:12px;padding:22px}.usage-intro br{display:none}}
-@media(max-width:680px){.proof-stats{grid-template-columns:repeat(3,auto);gap:0}.proof-stats li{padding:0 14px}.proof-stats li:first-child{padding-left:0}.proof-stats li:nth-child(3){padding-left:14px;border-left:1px solid var(--line)}}
+@media(max-width:680px){.proof-stats{grid-template-columns:repeat(4,auto);gap:0}.proof-stats li{padding:0 10px}.proof-stats li:first-child{padding-left:0}.proof-stats li:nth-child(3){padding-left:10px;border-left:1px solid var(--line)}.proof-stats span{white-space:normal}}
+
+/* GitHub stat (first in the hero stats row) and the live tool-call pill in the MCP section header */
+.gh-stat strong{display:flex;align-items:center;height:33px}.gh-cat{width:30px;height:30px;color:var(--text)}.gh-stat a:hover .gh-cat{color:var(--green)}
+.usage-pill{display:inline-flex;align-items:center;flex-wrap:wrap;margin-top:18px;padding:9px 16px;border:1px solid #b7d7c4;border-radius:999px;background:#e4f2e9;color:#116847;text-decoration:none;font:14px var(--sans)}.usage-pill[hidden]{display:none}.usage-pill strong{font-weight:700}.usage-pill-sep{margin:0 10px;color:#7aa891}.usage-pill-link{font:600 13px var(--mono);color:var(--green)}.usage-pill:hover{background:#d4e8db}
+@media(max-width:680px){.gh-stat strong{height:29px}.gh-cat{width:26px;height:26px}.usage-pill{border-radius:12px;padding:12px 16px}.usage-pill-sep{display:none}.usage-pill-link{flex-basis:100%;margin-top:6px}}
