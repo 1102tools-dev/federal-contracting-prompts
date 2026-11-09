@@ -190,7 +190,7 @@ def website(out,pdf,pages):
         badges=card_badges(s)
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
-        note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(s['id'])+(f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>' if href else '')+'</div>' if label else ''
+        note=f'<div class="card-note"><p class="card-note-label">{label}</p><p>{ESC(text)}</p>'+card_more(s['id'])+((f'<a href="{href}">{link} below <span aria-hidden="true">↓</span></a>' if href.startswith('#') else f'<a href="{href}">{link} <span aria-hidden="true">→</span></a>') if href else '')+'</div>' if label else ''
         rank=MOST_USED.get(s['id'])
         sash=f'<span class="rank-sash rank-{rank}">#{rank} most used</span>' if rank else ''
         head=f'<article class="server-card{" ranked" if rank else ""}" id="mcp-{s["id"]}">{sash}<div class="badges">{badges}</div><h3>{ESC(s["name"])}</h3>{full_name}<p class="best-for"><span>Best for</span>{ESC(s["best_for"])}</p><p>{ESC(s["description"])}</p>{note}'
