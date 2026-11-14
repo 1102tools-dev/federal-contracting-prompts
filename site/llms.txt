@@ -203,7 +203,6 @@ Hosted addresses for AI apps that connect by URL:
 
 ## Support
 
-- Email: james@1102tools.com
 - Issues and feature requests: https://github.com/1102tools-dev/federal-contracting-mcps/issues
 
 ## History
