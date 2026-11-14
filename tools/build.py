@@ -409,7 +409,6 @@ def llms_help():
         '- Does it work with other AI apps? Hosted works with any app that connects to remote MCP servers by URL; local works with any MCP client.',
         '- Is it maintained? Yes. Each server publishes its testing record. Every 30 minutes, each hosted server runs a real lookup. Every day, the tests rerun on the newest MCP SDK and the government sites are checked for changes. If something fails, an alert goes out naming the cause: 1102tools or the government site.','',
         '## Support','',
-        '- Email: james@1102tools.com',
         '- Issues and feature requests: https://github.com/1102tools-dev/federal-contracting-mcps/issues','']
 def llms_story(st):
     """Narrative sections for llms.txt: who builds it, official status, history."""
