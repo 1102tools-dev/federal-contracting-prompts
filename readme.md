@@ -5,7 +5,7 @@
 Practical questions for federal opportunities, competitor research, teaming, pricing, and regulations, built for free, open-source MCP servers. Choose the work, install and connect the required MCPs, and replace the bracketed details.
 
 [Browse the readable website](https://1102tools.com/#prompts) · [Download the printable guide](docs/1102tools-mcp-prompt-guide.pdf)<br>
-[Local setup guide](https://github.com/1102tools-dev/federal-contracting-mcps#local-setup) · [Demo videos on YouTube](https://www.youtube.com/@1102tools) · [Live usage](https://1102tools.com/usage)
+[Local setup guide](https://github.com/1102tools-dev/federal-contracting-mcps#local-setup) · [YouTube](https://www.youtube.com/@WhatAmericaBuysTV) · [Live usage](https://1102tools.com/usage)
 
 ## Start here
 
