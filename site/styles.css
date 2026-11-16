@@ -166,3 +166,7 @@ nav a[aria-current="page"]{color:var(--green);font-weight:600}
 .gh-stat strong{display:flex;align-items:center;height:33px}.gh-cat{width:30px;height:30px;color:var(--text)}.gh-stat a:hover .gh-cat{color:var(--green)}
 .usage-pill{display:inline-flex;align-items:center;flex-wrap:wrap;margin-top:18px;padding:9px 16px;border:1px solid #b7d7c4;border-radius:999px;background:#e4f2e9;color:#116847;text-decoration:none;font:14px var(--sans)}.usage-pill[hidden]{display:none}.usage-pill strong{font-weight:700}.usage-pill-sep{margin:0 10px;color:#7aa891}.usage-pill-link{font:600 13px var(--mono);color:var(--green)}.usage-pill:hover{background:#d4e8db}
 @media(max-width:680px){.gh-stat strong{height:29px}.gh-cat{width:26px;height:26px}.usage-pill{border-radius:12px;padding:12px 16px}.usage-pill-sep{display:none}.usage-pill-link{flex-basis:100%;margin-top:6px}}
+/* Labor rate walkthrough beside the printable guide: three columns on wide screens (James, Nov 15, 2026). */
+.guide-grid.has-video{grid-template-columns:300px 1fr 1.15fr;gap:56px;max-width:1240px}.guide-video{align-self:center}.guide-grid>.guide-video>p:not(.eyebrow){font-size:14px;max-width:none}
+@media(max-width:1100px){.guide-grid.has-video{grid-template-columns:1fr 1.3fr;gap:50px;max-width:950px}.guide-video{grid-column:1/-1;max-width:560px;width:100%;margin:auto}}
+@media(max-width:680px){.guide-grid.has-video{grid-template-columns:1fr;gap:48px}}
