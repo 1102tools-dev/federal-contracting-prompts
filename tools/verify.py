@@ -21,7 +21,7 @@ class Page(HTMLParser):
   self.texts.append(s)
   if self.current:self.card_texts[self.current]+=s
   if self.in_text and self.current:self.prompts[self.current]+=s
-APPROVED={'https://github.com/1102tools-dev/federal-contracting-mcps','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/','https://www.youtube.com/@1102tools','https://www.youtube.com/@1102tools/shorts','https://www.youtube.com/playlist?list=PLNIe568rLgNM','https://www.youtube.com/shorts/4BIOd2eQ87I','https://www.youtube.com/shorts/XVEnGz1Z5MU','https://www.youtube.com/shorts/TK3ydatqaIk','https://www.youtube.com/shorts/1WANBgXzxDo','https://www.war.gov/News/Contracts/','https://www.youtube.com/playlist?list=PLdrqO_0dQ1LM','https://www.youtube.com/watch?v=ybkwXEZXsaw&list=PLdrqO_0dQ1LM','https://www.youtube.com/watch?v=V8MDVOluNRg&list=PLdrqO_0dQ1LM','https://www.youtube.com/watch?v=f1623C0UoUU&list=PLdrqO_0dQ1LM'}
+APPROVED={'https://github.com/1102tools-dev/federal-contracting-mcps','https://tango.makegov.com/','https://tango.makegov.com/subscriptions/pricing/','https://kthq.org/','https://www.youtube.com/@WhatAmericaBuysTV','https://www.youtube.com/@WhatAmericaBuysTV/shorts','https://www.youtube.com/shorts/4BIOd2eQ87I','https://www.youtube.com/shorts/XVEnGz1Z5MU','https://www.youtube.com/shorts/TK3ydatqaIk','https://www.youtube.com/shorts/1WANBgXzxDo','https://www.war.gov/News/Contracts/'}
 page=Page();page.feed((ROOT/'site/index.html').read_text())
 assert len(page.ids)==len(set(page.ids)),'duplicate HTML IDs'
 assert len(page.prompts)==len(data['prompts'])
@@ -44,14 +44,12 @@ for link in page.links:
 server_files=sorted((ROOT/'site/mcp').glob('*.html'))
 assert len(server_files)==len(data['servers']),'one page per server'
 directory_urls={url for s in data['servers'] for url in s.get('directories',{}).values() if url}
-youtube_urls={'https://www.youtube.com/watch?v='+s['youtube']['id'] for s in data['servers'] if s.get('youtube')}
-youtube_urls|={'https://www.youtube.com/watch?v='+x['youtube'] for s in data['servers'] for x in s.get('more_videos',[]) if x.get('youtube_public')}
 server_texts=[]
 for f in server_files:
  sp=Page();sp.feed(f.read_text());server_texts.append(''.join(sp.texts))
  assert len(sp.ids)==len(set(sp.ids)),f.name
  for link in sp.links:
-  if link.startswith('https://'):assert link in APPROVED or link in directory_urls or link in youtube_urls or re.fullmatch(r'https://[a-z-]+\.1102tools\.com/privacy',link) or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),(f.name,link)
+  if link.startswith('https://'):assert link in APPROVED or link in directory_urls or re.fullmatch(r'https://[a-z-]+\.1102tools\.com/privacy',link) or link.startswith(('https://github.com/1102tools-dev/federal-contracting-prompts','https://github.com/1102tools-dev/federal-contracting-mcps')),(f.name,link)
   elif link.startswith('#'):assert link[1:] in sp.ids,(f.name,link)
   else:assert link.startswith('/'),(f.name,link)
   if link.startswith('/#'):assert link[2:] in page.ids,(f.name,link)
