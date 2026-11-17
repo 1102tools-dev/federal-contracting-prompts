@@ -443,7 +443,15 @@ def privacy_page(out,css_version):
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/privacy#webpage","url":"https://1102tools.com/privacy","name":"1102tools privacy","description":"How 1102tools handles data: no accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
     links=''.join(f'<li><a href="https://{HOSTS[sid]}.1102tools.com/privacy">{ESC(SERVERS[sid]["name"])}</a></li>' for sid in SOURCE_ORDER)
     page=(ROOT/'templates/privacy.html').read_text()
-    for k,v in {'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'SERVER_LINKS':links}.items():page=page.replace('{{'+k+'}}',v)
+    # The Local / Hosted table is the homepage's own, lifted from templates/index.html so the two never drift (James, Nov 17, 2026).
+    home=(ROOT/'templates/index.html').read_text()
+    i=home.index('<div class="runways-grid">');j=home.index('<p class="runways-note">',i)
+    table=home[i:j]
+    for old,new in (('<a href="/privacy">Details</a>','<a href="#privacy-title">Details</a>'),('href="#mcps">Hosted install links <span aria-hidden="true">↓</span>','href="/#mcps">Hosted install links <span aria-hidden="true">→</span>'),
+        ('{{SAM_LOCAL_TOOLS}}',str(SERVERS['sam']['proof']['tools'])),('{{SAM_HOSTED_TOOLS}}',str(SERVERS['sam']['hosted_edition']['tools']))):
+        assert old in table,old
+        table=table.replace(old,new)
+    for k,v in {'LOCAL_HOSTED_TABLE':table,'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'SERVER_LINKS':links}.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page
     (out/'privacy.html').write_text(page)
 
