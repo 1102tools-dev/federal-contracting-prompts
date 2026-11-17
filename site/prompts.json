@@ -28,13 +28,13 @@
         "version": "1.0.14"
       },
       "card_access": "No user API key",
-      "demo": "/downloads/1102tools-sam-gov-free-ai.mp4",
+      "demo": "/downloads/1102tools-sam-gov-free-ai.mp4?v=20261117",
       "youtube": {
         "published": "2026-10-25T00:16:00-07:00",
-        "duration": "PT3M24S"
+        "duration": "PT1M44S"
       },
-      "demo_title": "Search SAM.gov with Claude",
-      "demo_sub": "The demo \u00b7 3:24",
+      "demo_title": "How to search SAM.gov with AI",
+      "demo_sub": "The demo \u00b7 1:44",
       "more_videos": [
         {
           "title": "USAspending vs SAM.gov",
