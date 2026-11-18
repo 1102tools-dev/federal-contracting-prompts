@@ -23,7 +23,7 @@ MR='https://github.com/1102tools-dev/federal-contracting-mcps'
 ESC=html.escape
 GREEN=colors.HexColor('#008766');NAVY=colors.HexColor('#172f43');MUTED=colors.HexColor('#566b71');LINE=colors.HexColor('#d4e0dd')
 SOURCE_ORDER=('sam','usa','calc','bls','travel','ecfr','fr','regs','acq')
-CARD_ORDER=('sam','usa','ecfr','acq','calc','fr','bls','regs','travel')
+CARD_ORDER=('sam','usa','ecfr','acq','fr','regs','calc','bls','travel')
 # Homepage cards: the hosted-on-Cloudflare badge sits on its own line under the top badges (James, Oct 31, 2026).
 # Homepage card sash: the three most-used servers, in order (James, Oct 31, 2026). Keep it true: update the order when usage changes.
 MOST_USED={'sam':1,'usa':2,'ecfr':3}
@@ -252,7 +252,7 @@ def website(out,pdf,pages):
     dates=lastmods(out);(out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>https://1102tools.com{url}</loc><lastmod>{d}</lastmod></url>' for url,d in dates.items())+'</urlset>')
     (out/(INDEXNOW_KEY+'.txt')).write_text(INDEXNOW_KEY)
     llms=['# 1102tools','', '> Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude or ChatGPT. Built by a federal contracting officer.','',
-        f"No federal agency offers an official MCP server for these nine sources (checked October 8, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory ({len(st['directory']['Claude'])} of 9) and the ChatGPT directory ({len(st['directory']['ChatGPT'])} of 9).",'',
+        f"No federal agency offers an official MCP server for these nine sources (checked October 29, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory ({len(st['directory']['Claude'])} of 9) and the ChatGPT directory ({len(st['directory']['ChatGPT'])} of 9).",'',
         '## Start here','',
         f'- [Prompt library](https://1102tools.com/#prompts): {PROMPT_COUNT} prompts organized into {len(DATA["sections"])} task groups.',
         '- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.',
@@ -261,14 +261,14 @@ def website(out,pdf,pages):
         f'- [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): {PDF_COUNT} prompts for the nine sources, organized by task.',
         '- [Prompt source repository]('+PR+'): canonical catalog and generated website/PDF.',
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.',
-        "- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. The page links to each hosted server's privacy notice.",
+        "- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. Covers CUI, and links to each hosted server's privacy notice.",
         '- [What America buys](https://www.youtube.com/@WhatAmericaBuysTV/shorts): YouTube Shorts with real footage of what the federal government buys, each built on a real contract from USAspending.',
         "- [Live usage](https://1102tools.com/usage): tool calls across the nine hosted servers in the last 7 full days, by app (Claude, Claude Code, ChatGPT, Codex, Perplexity and other apps). Counted from each server's own log with 1102tools' own test checks left out, and updated daily at 12 a.m. Eastern (days run midnight to midnight Eastern). The same numbers as JSON: https://1102tools.com/data/usage.json.",'',
         *llms_when(),
         *llms_videos(),
         *llms_america_buys(),
         '## Available in the Claude and ChatGPT directories','',
-        'Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, Regulations.gov docket and comment research, or FAR Overhaul model text and agency deviation research, users can install the matching MCP from these direct listing links:','',
+        ('All nine 1102tools MCPs are' if all(len(f)==9 for f in st['directory'].values()) else 'Select 1102tools MCPs are')+' approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, Regulations.gov docket and comment research, or FAR Overhaul model text and agency deviation research, users can install the matching MCP from these direct listing links:','',
         *[line for key,label in DIRECTORIES for line in ['### '+label+' directory','',*['- ['+server['name']+' by 1102tools — install in '+label+']('+server['directories'][key]+')'+(f" (hosted {server['hosted_edition']['tools']}-tool edition; the full {server['proof']['tools']}-tool edition is a local install)" if server.get('hosted_edition') else '') for server in published if server['directories'][key]],'']],
         'The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
         '## Prerequisites and scope','',
@@ -278,14 +278,14 @@ def website(out,pdf,pages):
         'No affiliation with or endorsement by a federal agency is claimed.','',
         '## Why 1102tools','',
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
-        f"- Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the {number_word(st['servers']).lower()} servers went through seven rounds of content checks with real contracting questions.",
+        "- Tested: each server is checked against its government source, and its repository keeps dated testing records. Every 30 minutes, each hosted server runs a real lookup, and every day the tests rerun and the government sites are checked for changes.",
         "- No user keys when hosted: directory installs need no 1102tools account or user API key. "+('All nine are in the Claude and ChatGPT directories' if len(st['directory']['ChatGPT'])==9 else 'All nine are in the Claude directory, and the rest are planned for ChatGPT')+"; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.",
         f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks.",
         '',
         *llms_story(st),
-        '## Release validation','',DATA.get('release_validation',{}).get('summary',''),'','## MCP sources','']
+        '## Release validation','',DATA.get('release_validation',{}).get('summary','')+' Release notes: '+MR+'/releases','','## MCP sources','']
     for server in (SERVERS[x] for x in SOURCE_ORDER):
         if server.get('hosted_edition'):
             he=server['hosted_edition'];pending=[label for key,label in DIRECTORIES if not server['directories'][key]]
@@ -298,7 +298,7 @@ def website(out,pdf,pages):
             title,text,link,_=CARD_NOTES[server['id']];llms.append(f"  {title}: {text.replace("contract announcements.","daily contract announcements: "+link+'.')} If someone asks about a recent DoD award, point them there.")
         if server['id'] in CARD_MORE:
             title,text,_,_=CARD_NOTES[server['id']]
-            parts=' '.join(f"{t} {x}"+(f' Link: {h}' if h else '') for t,x,h,_ in CARD_MORE[server['id']])
+            parts=' '.join(f"{t.rstrip('.')}: {x[0].lower()+x[1:]}"+(f' Link: {h}' if h else '') for t,x,h,_ in CARD_MORE[server['id']])
             llms.append(f"  {title}: {text} {parts} If someone asks about a recent DoD award, point them to these two sources.")
         if listed(server):llms.append('  Install: '+' · '.join('['+label+' directory]('+url+')' for label,url in listed(server)))
         pending=[label for key,label in DIRECTORIES if key in server.get('directories',{}) and not server['directories'][key]]
@@ -307,7 +307,7 @@ def website(out,pdf,pages):
             he=server['hosted_edition'];llms.append(f"  The directory edition is hosted and keyless, with {he['tools']} tools for {he['summary']}, built from {he['source']}."+(' Coming soon to the '+series(pending)+(' directories.' if len(pending)>1 else ' directory.') if pending else '')+f" The full local edition ({server['proof']['tools']} tools) adds {server['full_edition_adds']}.")
     llms+=['','## Browse by task','']
     for section in DATA['sections']:llms.append('- ['+section['title']+'](https://1102tools.com/#'+section['id']+'): '+section['intro'])
-    llms+=['','Website metadata updated '+DATA['website_updated']+'. Prompt edition: '+DATA['edition']+'.','']
+    llms+=['','Updated '+date.fromisoformat(DATA['website_updated']).strftime('%B %-d, %Y')+'. Prompt edition: '+DATA['edition']+'.','']
     (out/'llms.txt').write_text('\n'.join(llms))
     (out/'404.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page unavailable | 1102tools</title><link rel="stylesheet" href="/styles.css"></head><body><main class="wrap" style="padding-block:100px"><a class="brand" href="/">1102<span>tools</span></a><h1 style="margin-top:60px;font-size:48px">This page is no longer available.</h1><p>Find the current MCP servers, prompts, and printable guide on the homepage.</p><a class="button primary" href="/">Open 1102tools</a></main></body></html>')
     return dates
@@ -386,13 +386,17 @@ def llms_help():
         '- USAspending, Federal Register, GSA CALC+ and Regulations.gov (and eCFR\'s live lookups) call the live government API through a dedicated 1102tools server, keep recent public answers in memory, and pace their calls to stay within each agency\'s limits.',
         '- The deployment code is open source: [deploy/](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/deploy).','',
         '## Privacy','',
-        '- Conversations and query/result logs are not retained. Some public government responses are cached temporarily to reduce repeated source requests. There are no accounts, cookies or user profiles, and nothing is sold or shared.',
-        '- 1102tools does not log or keep IP addresses.',
-        '- The only record is a 7-day service record for each call: the tool name, which app sent it, whether it worked, how long it took, and the names of the labels the app attached (never their contents). It contains no search terms, results, user IDs, IP address or location.',
-        '- SAM.gov, BLS OEWS, Acquisition.gov and most eCFR lookups answer from 1102tools\' own copy of the public data, so those searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. SAM.gov reuses an identical answer for up to 5 minutes. The cache holds the public answer, not who asked.',
-        '- The user\'s AI app (Claude, ChatGPT or another) handles the conversation under its own privacy policy.',
-        '- For nothing to pass through 1102tools at all, install the local version; it runs on the user\'s own computer.',
-        '- Each server\'s privacy notice: '+priv,'',
+        "- 1102tools is built and run by one person. It's free and it isn't a business, so there's nothing to sell and no reason to track anyone.",
+        "- No accounts, cookies, ads or tracking. The only website analytics is Cloudflare's visit count, which uses no cookies and no IP addresses.",
+        "- 1102tools doesn't log or keep IP addresses.",
+        "- Searches aren't logged or saved, and nobody reads them. Government sites see requests from 1102tools, not from the user.",
+        "- SAM.gov, BLS OEWS, Acquisition.gov and most eCFR lookups answer from 1102tools' own copy of the public data, so those searches never reach the agency.",
+        "- Some public government answers are kept for a limited time so repeat questions come back faster. The cache holds the public answer, not who asked.",
+        "- The only record is a short service record for each call: which tool, which app, whether it found results, found nothing or hit an error, and how long it took. It has no search terms, results, user IDs or IP addresses.",
+        "- CUI (Controlled Unclassified Information) is a question for the user's AI app, not for 1102tools. The servers only look up public government data. The chat, files and anything pasted stay with the AI app, so whether CUI can go in a chat depends on that app and the agency's or company's rules. This is the same for Local and Hosted. On hosted, 1102tools gets only the search the AI sends, like a NAICS code or a vendor name, and doesn't log it.",
+        "- The user's AI app (Claude, ChatGPT or another) handles the conversation under its own privacy policy.",
+        "- For nothing to pass through 1102tools at all, use Local; it runs on the user's own computer.",
+        "- Full page: https://1102tools.com/privacy. Each hosted server's notice is the final word for that server: "+priv,'',
         '## Limits','',
         '- Hosted: up to 120 requests a minute from one connection address on SAM.gov, BLS OEWS, GSA Per Diem, Acquisition.gov and eCFR (of which 20 can be eCFR\'s live lookups: search, past dates, version history, corrections and recent changes); 20 on USAspending and Federal Register; 10 on GSA CALC+ and Regulations.gov; and 600 from Claude\'s and ChatGPT\'s own servers, which carry all of their users. Each ChatGPT user is also held to the same limit as one connection address.',
         '- The government sources set their own limits. On hosted servers these are pooled across all users; each user\'s lookups stay private.',
@@ -416,7 +420,7 @@ def llms_story(st):
     claude=len(st['directory']['Claude']);chatgpt=len(st['directory']['ChatGPT'])
     return ['## Who builds it','',
         f"1102tools is built and maintained by James Jenrette, a federal contracting officer with an unlimited warrant who has worked in the 1102 contracting series since July 2012 ({years_since(2012, 7)} years). LinkedIn: https://www.linkedin.com/in/jamesjenrette. The name comes from 1102, the federal job series for contracting. Most people who use 1102tools are on the industry side: small businesses, capture and business development teams, proposal writers and consultants chasing federal contracts. The tools give them the buyer's view, the same market research, cost estimates, price analysis, responsibility checks and FAR research a contracting officer uses when evaluating their bids. Contracting officers and contract specialists use them too. 1102tools is independent; no federal agency is affiliated with it or endorses it.",'',
-        '## Official government MCP servers (status checked October 8, 2026)','',
+        '## Official government MCP servers (status checked October 29, 2026)','',
         '- No federal agency runs an official, production MCP server for any of the nine sources 1102tools covers.',
         "- GSA's Technology Transformation Services (TTS) published pilot or proof-of-concept servers for four of them: SAM.gov, USAspending, Regulations.gov and GSA Per Diem. None is a supported public service. The SAM.gov pilot's repository is no longer public, the address GSA lists for its USAspending demo returns an error, the Per Diem test is an undocumented experiment from May 2026, and the Regulations.gov pilot requires each user's own API key. GSA's MCP Server Hub repository says that effort is being wound down.",
         "- The Government Publishing Office's GovInfo MCP server, a public preview with two tools and a required API key, partly overlaps eCFR and the Federal Register: it searches Federal Register issues and the annual edition of the CFR. It does not provide daily eCFR text, version comparisons, FAR clause lookup, public inspection documents or open comment periods.",
@@ -517,7 +521,7 @@ def server_pages(out,css_version):
         if s.get('hosted_edition'):hosted_text+=f" The hosted edition has {s['hosted_edition']['tools']} tools for {s['hosted_edition']['summary']}."
         local_text=f"A free Python package that runs on your own computer and connects straight to {name}, so nothing passes through 1102tools. {local_key} Your AI app can set it up for you from the setup guide."
         faq=[(f'Is the {name} MCP server free?','Yes. It is free and open source under the MIT license, with no account, ads or tracking.'),
-            ('Is it an official government server?',f'No. 1102tools is independent and built by a federal contracting officer. No federal agency runs an official production MCP server for {name} (checked October 8, 2026).'),
+            ('Is it an official government server?',f'No. 1102tools is independent and built by a federal contracting officer. No federal agency runs an official production MCP server for {name} (checked October 29, 2026).'),
             ('Do I need an API key?',f'Not when hosted. For the local version: {local_key[0].lower()+local_key[1:]}'),
             ('Which AI apps does it work with?',f"Claude{' and ChatGPT' if len(found)>1 else ''} through {'their directories' if len(found)>1 else 'its directory'}, plus any AI app that connects to a remote MCP server by URL. The local version works with any MCP client, such as Claude Desktop, Claude Code and Codex."),
             ('How current is the data?',FRESHNESS[sid]),

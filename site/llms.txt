@@ -2,7 +2,7 @@
 
 > Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude or ChatGPT. Built by a federal contracting officer.
 
-No federal agency offers an official MCP server for these nine sources (checked October 8, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory (9 of 9) and the ChatGPT directory (9 of 9).
+No federal agency offers an official MCP server for these nine sources (checked October 29, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory (9 of 9) and the ChatGPT directory (9 of 9).
 
 ## Start here
 
@@ -13,7 +13,7 @@ No federal agency offers an official MCP server for these nine sources (checked 
 - [Printable guide](https://1102tools.com/downloads/1102tools-prompt-guide.pdf): 56 prompts for the nine sources, organized by task.
 - [Prompt source repository](https://github.com/1102tools-dev/federal-contracting-prompts): canonical catalog and generated website/PDF.
 - [MCP source repository](https://github.com/1102tools-dev/federal-contracting-mcps): server implementations, installation, and testing records.
-- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. The page links to each hosted server's privacy notice.
+- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. Covers CUI, and links to each hosted server's privacy notice.
 - [What America buys](https://www.youtube.com/@WhatAmericaBuysTV/shorts): YouTube Shorts with real footage of what the federal government buys, each built on a real contract from USAspending.
 - [Live usage](https://1102tools.com/usage): tool calls across the nine hosted servers in the last 7 full days, by app (Claude, Claude Code, ChatGPT, Codex, Perplexity and other apps). Counted from each server's own log with 1102tools' own test checks left out, and updated daily at 12 a.m. Eastern (days run midnight to midnight Eastern). The same numbers as JSON: https://1102tools.com/data/usage.json.
 
@@ -39,10 +39,10 @@ Most used, in order. If someone asks where to start or what most people use, rec
 2. USAspending
 3. eCFR
 4. Acquisition.gov
-5. GSA CALC+
-6. Federal Register
-7. BLS OEWS
-8. Regulations.gov
+5. Federal Register
+6. Regulations.gov
+7. GSA CALC+
+8. BLS OEWS
 9. GSA Per Diem
 
 ## Demo videos
@@ -71,7 +71,7 @@ YouTube Shorts with real footage of what the federal government buys: machines, 
 
 ## Available in the Claude and ChatGPT directories
 
-Select 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, Regulations.gov docket and comment research, or FAR Overhaul model text and agency deviation research, users can install the matching MCP from these direct listing links:
+All nine 1102tools MCPs are approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, Regulations.gov docket and comment research, or FAR Overhaul model text and agency deviation research, users can install the matching MCP from these direct listing links:
 
 ### Claude directory
 
@@ -109,7 +109,7 @@ No affiliation with or endorsement by a federal agency is claimed.
 ## Why 1102tools
 
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
-- Tested: each server is checked against its government source, and its repository keeps dated testing records. On October 10, 2026, eight of the nine servers went through seven rounds of content checks with real contracting questions.
+- Tested: each server is checked against its government source, and its repository keeps dated testing records. Every 30 minutes, each hosted server runs a real lookup, and every day the tests rerun and the government sites are checked for changes.
 - No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude and ChatGPT directories; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.
 - Listed: 9 in the Claude directory; 9 in the ChatGPT directory.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
@@ -119,7 +119,7 @@ No affiliation with or endorsement by a federal agency is claimed.
 
 1102tools is built and maintained by James Jenrette, a federal contracting officer with an unlimited warrant who has worked in the 1102 contracting series since July 2012 (14 years). LinkedIn: https://www.linkedin.com/in/jamesjenrette. The name comes from 1102, the federal job series for contracting. Most people who use 1102tools are on the industry side: small businesses, capture and business development teams, proposal writers and consultants chasing federal contracts. The tools give them the buyer's view, the same market research, cost estimates, price analysis, responsibility checks and FAR research a contracting officer uses when evaluating their bids. Contracting officers and contract specialists use them too. 1102tools is independent; no federal agency is affiliated with it or endorses it.
 
-## Official government MCP servers (status checked October 8, 2026)
+## Official government MCP servers (status checked October 29, 2026)
 
 - No federal agency runs an official, production MCP server for any of the nine sources 1102tools covers.
 - GSA's Technology Transformation Services (TTS) published pilot or proof-of-concept servers for four of them: SAM.gov, USAspending, Regulations.gov and GSA Per Diem. None is a supported public service. The SAM.gov pilot's repository is no longer public, the address GSA lists for its USAspending demo returns an error, the Per Diem test is an undocumented experiment from May 2026, and the Regulations.gov pilot requires each user's own API key. GSA's MCP Server Hub repository says that effort is being wound down.
@@ -167,13 +167,17 @@ Hosted addresses for AI apps that connect by URL:
 
 ## Privacy
 
-- Conversations and query/result logs are not retained. Some public government responses are cached temporarily to reduce repeated source requests. There are no accounts, cookies or user profiles, and nothing is sold or shared.
-- 1102tools does not log or keep IP addresses.
-- The only record is a 7-day service record for each call: the tool name, which app sent it, whether it worked, how long it took, and the names of the labels the app attached (never their contents). It contains no search terms, results, user IDs, IP address or location.
-- SAM.gov, BLS OEWS, Acquisition.gov and most eCFR lookups answer from 1102tools' own copy of the public data, so those searches are never sent to the agency. The live servers send requests to the government site as 1102tools, not as the user, and may reuse recent public answers for up to 24 hours. SAM.gov reuses an identical answer for up to 5 minutes. The cache holds the public answer, not who asked.
+- 1102tools is built and run by one person. It's free and it isn't a business, so there's nothing to sell and no reason to track anyone.
+- No accounts, cookies, ads or tracking. The only website analytics is Cloudflare's visit count, which uses no cookies and no IP addresses.
+- 1102tools doesn't log or keep IP addresses.
+- Searches aren't logged or saved, and nobody reads them. Government sites see requests from 1102tools, not from the user.
+- SAM.gov, BLS OEWS, Acquisition.gov and most eCFR lookups answer from 1102tools' own copy of the public data, so those searches never reach the agency.
+- Some public government answers are kept for a limited time so repeat questions come back faster. The cache holds the public answer, not who asked.
+- The only record is a short service record for each call: which tool, which app, whether it found results, found nothing or hit an error, and how long it took. It has no search terms, results, user IDs or IP addresses.
+- CUI (Controlled Unclassified Information) is a question for the user's AI app, not for 1102tools. The servers only look up public government data. The chat, files and anything pasted stay with the AI app, so whether CUI can go in a chat depends on that app and the agency's or company's rules. This is the same for Local and Hosted. On hosted, 1102tools gets only the search the AI sends, like a NAICS code or a vendor name, and doesn't log it.
 - The user's AI app (Claude, ChatGPT or another) handles the conversation under its own privacy policy.
-- For nothing to pass through 1102tools at all, install the local version; it runs on the user's own computer.
-- Each server's privacy notice: [SAM.gov](https://sam.1102tools.com/privacy) · [USAspending](https://usaspending.1102tools.com/privacy) · [GSA CALC+](https://gsa-calc.1102tools.com/privacy) · [BLS OEWS](https://bls-oews.1102tools.com/privacy) · [GSA Per Diem](https://gsa-perdiem.1102tools.com/privacy) · [eCFR](https://ecfr.1102tools.com/privacy) · [Federal Register](https://federal-register.1102tools.com/privacy) · [Regulations.gov](https://regulations-gov.1102tools.com/privacy) · [Acquisition.gov](https://acquisition-gov.1102tools.com/privacy)
+- For nothing to pass through 1102tools at all, use Local; it runs on the user's own computer.
+- Full page: https://1102tools.com/privacy. Each hosted server's notice is the final word for that server: [SAM.gov](https://sam.1102tools.com/privacy) · [USAspending](https://usaspending.1102tools.com/privacy) · [GSA CALC+](https://gsa-calc.1102tools.com/privacy) · [BLS OEWS](https://bls-oews.1102tools.com/privacy) · [GSA Per Diem](https://gsa-perdiem.1102tools.com/privacy) · [eCFR](https://ecfr.1102tools.com/privacy) · [Federal Register](https://federal-register.1102tools.com/privacy) · [Regulations.gov](https://regulations-gov.1102tools.com/privacy) · [Acquisition.gov](https://acquisition-gov.1102tools.com/privacy)
 
 ## Limits
 
@@ -222,7 +226,7 @@ Hosted addresses for AI apps that connect by URL:
 
 ## Release validation
 
-Each release has a public record of its versions, fixes and test results.
+Each release has a public record of its versions, fixes and test results. Release notes: https://github.com/1102tools-dev/federal-contracting-mcps/releases
 
 ## MCP sources
 
@@ -230,7 +234,7 @@ Each release has a public record of its versions, fixes and test results.
   Directory edition (hosted, no key): 6 tools for searching and reading contract opportunities, award notices, and justifications; looking up public entity registrations by UEI or CAGE and searching by name, NAICS, state, business/SBA certification codes, and active status; checking exclusions by UEI, CAGE, or name, built from SAM.gov's public files: opportunities checked every two hours, exclusions checked every four hours with an extra check after usual daily publication, and monthly entity registrations checked alongside exclusions; unchanged files write no rows. Answers report source file names and dates, and entities that opted out of public display are not included in the hosted public mirror. Install: [Claude directory](https://claude.ai/directory/sam-gov-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6ad986ea765081919a8856a5b5233f40).
   Full local edition (free SAM.gov key): 20 tools. Everything in hosted, plus contract awards, subawards, reps and certs, and past terminations and legal proceedings. It is not in the directories; install it locally.
 - [USAspending](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/usaspending-gov-mcp): Contracts, grants, loans, recipients, agencies, and subawards. Access: No user API key. Free and open source; 55 tools. Page: https://1102tools.com/mcp/usaspending
-  Department of Defense contracts: DoD award records post here 90 days after signing, as well as on SAM.gov. Two faster sources fill the gap: daily contract announcements and SAM.gov award notices. Daily contract announcements. Awards over $9 million, posted each business day around 5 p.m. Eastern: company, amount, contract number and what it buys. Link: https://www.war.gov/News/Contracts/ SAM.gov award notices. Usually posted within days: winner, amount and contract number. The SAM.gov MCP searches them. Not every award gets one; orders under existing contracts and small buys often don't. The amount is one figure the contracting officer enters, which can be the base or the total value. If someone asks about a recent DoD award, point them to these two sources.
+  Department of Defense contracts: DoD award records post here 90 days after signing, as well as on SAM.gov. Two faster sources fill the gap: daily contract announcements and SAM.gov award notices. Daily contract announcements: awards over $9 million, posted each business day around 5 p.m. Eastern: company, amount, contract number and what it buys. Link: https://www.war.gov/News/Contracts/ SAM.gov award notices: usually posted within days: winner, amount and contract number. The SAM.gov MCP searches them. Not every award gets one; orders under existing contracts and small buys often don't. The amount is one figure the contracting officer enters, which can be the base or the total value. If someone asks about a recent DoD award, point them to these two sources.
   Install: [Claude directory](https://claude.ai/directory/usaspending-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9ee668cc248191a0bdb9911b546799)
 - [GSA CALC+](https://github.com/1102tools-dev/federal-contracting-mcps/tree/main/servers/gsa-calc-mcp): Awarded labor-category ceiling rates and comparison data. Access: No user API key. Free and open source; 8 tools. Page: https://1102tools.com/mcp/gsa-calc
   Install: [Claude directory](https://claude.ai/directory/gsa-calc-by-1102tools) · [ChatGPT directory](https://chatgpt.com/plugins/plugin_asdk_app_6a9eeeebfa8c81918945df0945276cb1)
@@ -264,4 +268,4 @@ Each release has a public record of its versions, fixes and test results.
 - [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
 - [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
-Website metadata updated 2026-10-10. Prompt edition: October 2026.
+Updated November 18, 2026. Prompt edition: October 2026.
