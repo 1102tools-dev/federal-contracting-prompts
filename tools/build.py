@@ -443,18 +443,23 @@ def llms_story(st):
         '- October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.',
         '- October 26, 2026: SAM.gov, Federal Register and Regulations.gov published in the ChatGPT directory, completing all nine.','']
 
+def home_table(swaps):
+    """The homepage's Local / Hosted table, lifted from templates/index.html so other pages never drift from it; swaps are (old,new) pairs that must all match."""
+    home=(ROOT/'templates/index.html').read_text()
+    i=home.index('<div class="runways-grid">');j=home.index('<p class="runways-note">',i)
+    table=home[i:j]
+    for old,new in swaps:
+        assert old in table,old
+        table=table.replace(old,new)
+    return table
+
 def privacy_page(out,css_version):
     structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/privacy#webpage","url":"https://1102tools.com/privacy","name":"1102tools privacy","description":"How 1102tools handles data: no accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
     links=''.join(f'<li><a href="https://{HOSTS[sid]}.1102tools.com/privacy">{ESC(SERVERS[sid]["name"])}</a></li>' for sid in SOURCE_ORDER)
     page=(ROOT/'templates/privacy.html').read_text()
     # The Local / Hosted table is the homepage's own, lifted from templates/index.html so the two never drift (James, Nov 17, 2026).
-    home=(ROOT/'templates/index.html').read_text()
-    i=home.index('<div class="runways-grid">');j=home.index('<p class="runways-note">',i)
-    table=home[i:j]
-    for old,new in (('<a href="/privacy">Details</a>','<a href="#privacy-title">Details</a>'),('href="#mcps">Hosted install links <span aria-hidden="true">↓</span>','href="/#mcps">Hosted install links <span aria-hidden="true">→</span>'),
-        ('{{SAM_LOCAL_TOOLS}}',str(SERVERS['sam']['proof']['tools'])),('{{SAM_HOSTED_TOOLS}}',str(SERVERS['sam']['hosted_edition']['tools']))):
-        assert old in table,old
-        table=table.replace(old,new)
+    table=home_table((('<a href="/privacy">Details</a>','<a href="#privacy-title">Details</a>'),('href="#mcps">Hosted install links <span aria-hidden="true">↓</span>','href="/#mcps">Hosted install links <span aria-hidden="true">→</span>'),
+        ('{{SAM_LOCAL_TOOLS}}',str(SERVERS['sam']['proof']['tools'])),('{{SAM_HOSTED_TOOLS}}',str(SERVERS['sam']['hosted_edition']['tools']))))
     for k,v in {'LOCAL_HOSTED_TABLE':table,'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'SERVER_LINKS':links}.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page
     (out/'privacy.html').write_text(page)
@@ -500,7 +505,7 @@ def server_pages(out,css_version):
         description=f"Free {name} MCP server for Claude, ChatGPT and other AI apps. {s['description']} Hosted with no account or API key, or run it locally. Open source."
         install=''.join(f'<a class="button primary" href="{url}">Install in {label} <span aria-hidden="true">→</span></a>' for label,url in found)
         install+=''.join(f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES if not s['directories'].get(key))
-        install='<div class="page-install">'+install+f'<a class="button" href="{local_href(s)}">Local setup <span aria-hidden="true">→</span></a></div>'
+        install='<div id="install" class="page-install">'+install+f'<a class="button" href="{local_href(s)}">Local setup <span aria-hidden="true">→</span></a></div>'
         tools=f"<strong>{s['hosted_edition']['tools']}</strong> tools hosted · <strong>{s['proof']['tools']}</strong> in the full local edition" if s.get('hosted_edition') else f"<strong>{s['proof']['tools']}</strong> tools"
         local_key=LOCAL_KEYS.get(sid,'No API key needed.')
         glance=[tools,'<strong>Free</strong> · MIT license','<strong>No API key</strong> when hosted',f'In the {where} {"directories" if len(found)>1 else "directory"}',
@@ -516,10 +521,14 @@ def server_pages(out,css_version):
         if s.get('hosted_edition'):
             notes.append(f'<div class="card-note"><p class="card-note-label">Full local version · free SAM.gov key</p><p><strong>{s["proof"]["tools"]} tools</strong>. Everything in hosted, plus {ESC(s["full_edition_adds"])}.</p></div>')
         note=f'<section class="wrap compare-section server-notes">{"".join(notes)}</section>' if notes else ''
-        hosted_text=(f"Install {name} from the {where} {'directories' if len(found)>1 else 'directory'}, or add {hosted} as a custom connector in any AI app that connects to an MCP server by URL. "
-            "No account or API key, always the latest release, and it works on web, desktop and phone.")
-        if s.get('hosted_edition'):hosted_text+=f" The hosted edition has {s['hosted_edition']['tools']} tools for {s['hosted_edition']['summary']}."
-        local_text=f"A free Python package that runs on your own computer and connects straight to {name}, so nothing passes through 1102tools. {local_key} Your AI app can set it up for you from the setup guide."
+        sam_row=('<div class="runway-row"><span>SAM.gov</span><p>Full edition: {{SAM_LOCAL_TOOLS}} tools, free key</p></div>','<div class="runway-row"><span>SAM.gov</span><p>{{SAM_HOSTED_TOOLS}} tools, no key</p></div>')
+        local_tools=f"{s['proof']['tools']} tools"+(', full edition, free key' if s.get('hosted_edition') else '')
+        hosted_tools=f"{s['hosted_edition']['tools'] if s.get('hosted_edition') else s['proof']['tools']} tools, no key"
+        table=home_table((('https://github.com/1102tools-dev/federal-contracting-mcps#local-setup">setup guide</a>. Free keys for SAM.gov, Regulations.gov, and GSA Per Diem',local_href(s)+'">setup guide</a>. '+local_key.rstrip('.')),
+            ('<a class="runway-link" href="https://github.com/1102tools-dev/federal-contracting-mcps#local-setup">','<a class="runway-link" href="'+local_href(s)+'">'),
+            ('<a href="/privacy">Details</a>',f'<a href="https://{HOSTS[sid]}.1102tools.com/privacy">Details</a>'),
+            ('href="#mcps">Hosted install links <span aria-hidden="true">↓</span>','href="#install">Hosted install links <span aria-hidden="true">↑</span>'),
+            (sam_row[0],f'<div class="runway-row"><span>Tools</span><p>{local_tools}</p></div>'),(sam_row[1],f'<div class="runway-row"><span>Tools</span><p>{hosted_tools}</p></div>')))
         faq=[(f'Is the {name} MCP server free?','Yes. It is free and open source under the MIT license, with no account, ads or tracking.'),
             ('Is it an official government server?',f'No. 1102tools is independent and built by a federal contracting officer. No federal agency runs an official production MCP server for {name} (checked October 29, 2026).'),
             ('Do I need an API key?',f'Not when hosted. For the local version: {local_key[0].lower()+local_key[1:]}'),
@@ -546,7 +555,7 @@ def server_pages(out,css_version):
             'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'CSS_VERSION':css_version,'NAME':ESC(name),'ID':sid,'BADGES':card_badges(s),
             'FULL_NAME':f'<p class="full-name">{ESC(FULL_NAMES[sid])}</p>' if sid in FULL_NAMES else '','INTRO':ESC(s['description']+' Best for '+s['best_for'][0].lower()+s['best_for'][1:]),'INSTALL':install,
             'HOSTED_URL':hosted,'DEMO_INTRO':demo_videos(s)[0],'VIDEOS':demo_videos(s)[1],'ASK':''.join(f'<li>“{ESC(q)}”</li>' for q in WHEN[sid]),'PROMPTS':prompts,'GLANCE':''.join(f'<li>{x}</li>' for x in glance),
-            'NOTE':note,'HOSTED_TEXT':ESC(hosted_text),'LOCAL_TEXT':ESC(local_text),'LOCAL_URL':local_href(s),'FAQ':faq_html,'OTHERS':others}
+            'NOTE':note,'LOCAL_HOSTED_TABLE':table,'FAQ':faq_html,'OTHERS':others}
         page=(ROOT/'templates/server.html').read_text()
         for k,v in values.items():page=page.replace('{{'+k+'}}',v)
         assert '{{' not in page
