@@ -67,8 +67,9 @@ def hero_proof():
     # GitHub link matches the top nav's repo link.
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li class="gh-stat"><a href="https://github.com/1102tools-dev/federal-contracting-mcps" aria-label="1102tools on GitHub"><strong><svg class="gh-cat" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></strong><span>GitHub <span aria-hidden="true">↗</span></span></a></li><li><strong>$0</strong><span>Free<br>MIT license</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
         '<li hidden><a href="/usage"><strong data-usage-total></strong><span>tool calls<br>this week →</span></a></li></ul>'
-        '<p class="directory-proof"><span class="badge-row">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()}<br class="mbr"> DIRECTORY</span>' for label in listed_in)
-        +'</span><span class="badge-row">'+''.join(f'<span class="badge badge-soon">COMING SOON · {label.upper()}<br class="mbr"> DIRECTORY</span>' for label in DIRECTORIES_SOON)+'</span></p>')
+        '<div class="directory-proof"><span class="badge-col">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()}<br class="mbr"> DIRECTORY</span>' for label in listed_in)
+        +'<a class="badge badge-listed badge-link" href="#mcps">WORKS IN ANTIGRAVITY (GEMINI)</a></span>'
+        +'<span class="soon-card"><span class="soon-kicker">COMING SOON</span><span class="soon-items">Muse, Grok &amp; Gemini directories<br>Antigravity Marketplace</span></span></div>')
 def source_ids(p):return p['mcps']
 def edition_requirement(p):return p.get('sam_edition_note') or ('This prompt needs the Local full SAM.gov edition for live API or detailed certification/integrity fields.' if p.get('requires_local_full_sam') else '')
 def requirement_text(p):return 'Required MCPs: '+names(p)+'. '+edition_requirement(p)
@@ -186,7 +187,8 @@ def website(out,pdf,pages):
         if s.get('directories'):
             local_link=f'<a class="directory-link" href="{local_href(s)}"><b>Local setup</b><em>{"full edition, desktop" if s.get("hosted_edition") else "desktop only"}</em><span aria-hidden="true">→</span></a>'
             one_click=''.join(f'<a class="directory-link" href="{s["directories"][key]}"><b>Install in {label}</b><em>hosted, everywhere</em><span aria-hidden="true">→</span></a>' if s['directories'][key] else f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES)
-            directory='<div class="directory-links">'+local_link+one_click+'</div>'
+            antigravity_link=f'<a class="directory-link" href="{page_url(s["id"])}#antigravity"><b>Install in Antigravity</b><em>hosted, desktop &amp; CLI</em><span aria-hidden="true">→</span></a>'
+            directory='<div class="directory-links">'+local_link+one_click+antigravity_link+'</div>'
         badges=card_badges(s)
         full_name=f'<p class="full-name">{ESC(FULL_NAMES[s["id"]])}</p>' if s['id'] in FULL_NAMES else ''
         label,text,href,link=CARD_NOTES.get(s['id'],('','','',''))
@@ -219,12 +221,12 @@ def website(out,pdf,pages):
             '@id':'https://1102tools.com/#mcp-'+server['id'],
             'name':server['name']+' by 1102tools',
             'url':'https://1102tools.com'+page_url(server['id']),
-            'description':server['description']+' Free and open source. Available as a published MCP in the '+series([label for label,_ in listed(server)])+(' directories' if len(listed(server))>1 else ' directory')+'. Install and connect it before using prompts that require this source.',
+            'description':server['description']+' Free and open source. Available as a published MCP in the '+series([label for label,_ in listed(server)])+(' directories' if len(listed(server))>1 else ' directory')+', and works in Google Antigravity (Gemini) via hosted URL. Install and connect it before using prompts that require this source.',
             'applicationCategory':'BusinessApplication',
             'isAccessibleForFree':True,
             'offers':{'@type':'Offer','price':'0','priceCurrency':'USD'},
-            'softwareRequirements':series([label for label,_ in listed(server)]+['another compatible MCP client'],'or'),
-            'installUrl':[url for _,url in listed(server)] if len(listed(server))>1 else listed(server)[0][1],
+            'softwareRequirements':series([label for label,_ in listed(server)]+['Google Antigravity (Gemini)','another compatible MCP client'],'or'),
+            'installUrl':[url for _,url in listed(server)]+['https://1102tools.com'+page_url(server['id'])+'#antigravity'],
             'publisher':{'@id':'https://1102tools.com/#organization'}})
 
     st=stats()
@@ -251,8 +253,8 @@ def website(out,pdf,pages):
     (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://1102tools.com/sitemap.xml\n')
     dates=lastmods(out);(out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>https://1102tools.com{url}</loc><lastmod>{d}</lastmod></url>' for url,d in dates.items())+'</urlset>')
     (out/(INDEXNOW_KEY+'.txt')).write_text(INDEXNOW_KEY)
-    llms=['# 1102tools','', '> Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude or ChatGPT. Built by a federal contracting officer.','',
-        f"No federal agency offers an official MCP server for these nine sources (checked October 29, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory ({len(st['directory']['Claude'])} of 9) and the ChatGPT directory ({len(st['directory']['ChatGPT'])} of 9).",'',
+    llms=['# 1102tools','', '> Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude, ChatGPT, or Google Antigravity (Gemini). Built by a federal contracting officer.','',
+        f"No federal agency offers an official MCP server for these nine sources (checked October 29, 2026). The 1102tools servers are free, need no account or user API key when hosted, are listed in the Claude directory ({len(st['directory']['Claude'])} of 9) and the ChatGPT directory ({len(st['directory']['ChatGPT'])} of 9), and work today in Google Antigravity (Gemini) using their hosted URLs. Submissions are pending for the Muse, Grok, and Gemini directories and the Antigravity Marketplace.",'',
         '## Start here','',
         f'- [Prompt library](https://1102tools.com/#prompts): {PROMPT_COUNT} prompts organized into {len(DATA["sections"])} task groups.',
         '- [MCP setup](https://1102tools.com/#mcps): nine sources with client setup and API-key requirements.',
@@ -270,7 +272,10 @@ def website(out,pdf,pages):
         '## Available in the Claude and ChatGPT directories','',
         ('All nine 1102tools MCPs are' if all(len(f)==9 for f in st['directory'].values()) else 'Select 1102tools MCPs are')+' approved and published in the Claude and ChatGPT directories. For contract opportunity search, federal spending research, labor ceiling-rate comparisons, occupational wage research, per diem travel-rate research, codified regulation research, Federal Register rulemaking research, Regulations.gov docket and comment research, or FAR Overhaul model text and agency deviation research, users can install the matching MCP from these direct listing links:','',
         *[line for key,label in DIRECTORIES for line in ['### '+label+' directory','',*['- ['+server['name']+' by 1102tools — install in '+label+']('+server['directories'][key]+')'+(f" (hosted {server['hosted_edition']['tools']}-tool edition; the full {server['proof']['tools']}-tool edition is a local install)" if server.get('hosted_edition') else '') for server in published if server['directories'][key]],'']],
-        'The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
+        '### Google Antigravity (Gemini)','',
+        'All nine hosted servers work today in Google Antigravity (desktop and CLI) with no account or user API key. Add any server inside `mcpServers` in `~/.gemini/config/mcp_config.json` using its hosted `serverUrl` (or open Customizations -> MCP Servers -> View raw config in Antigravity). Antigravity Marketplace and Gemini directory listings are pending review:','',
+        *['- ['+server['name']+' by 1102tools — Antigravity setup](https://1102tools.com'+page_url(server['id'])+'#antigravity) · `https://'+HOSTS[server['id']]+'.1102tools.com/mcp`'+(f" (hosted {server['hosted_edition']['tools']}-tool edition; the full {server['proof']['tools']}-tool edition is a local install)" if server.get('hosted_edition') else '') for server in published],'',
+        'The links open the individual directory listings or Antigravity setup guides. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.','',
         '## Prerequisites and scope','',
         'A prompt does not install an MCP or give an AI access to its tools. Install and connect every MCP listed for the selected prompt in a compatible AI client first. Confirm the tools are available, configure any required API keys outside the chat, replace bracketed details, and check returned sources and dates.',
         'Some prompts combine two sources; both MCPs are required. Use published Claude or ChatGPT directory listings where available, or the individual READMEs for other compatible clients. Keyless access still requires MCP setup.',
@@ -280,7 +285,7 @@ def website(out,pdf,pages):
         f"- Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.",
         "- Tested: each server is checked against its government source, and its repository keeps dated testing records. Every 30 minutes, each hosted server runs a real lookup, and every day the tests rerun and the government sites are checked for changes.",
         "- No user keys when hosted: directory installs need no 1102tools account or user API key. "+('All nine are in the Claude and ChatGPT directories' if len(st['directory']['ChatGPT'])==9 else 'All nine are in the Claude directory, and the rest are planned for ChatGPT')+"; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.",
-        f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+".",
+        f"- Listed: "+'; '.join(f"{len(found)} in the {label} directory" for label,found in st['directory'].items() if found)+"; all 9 work today in Google Antigravity (Gemini) via hosted URL; submitted to the Muse, Grok, and Gemini directories and the Antigravity Marketplace.",
         "- Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.",
         "- Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks.",
         '',
@@ -427,8 +432,9 @@ def llms_story(st):
         '- No official or pilot MCP server was found for GSA CALC+, BLS OEWS or Acquisition.gov.',
         f"- Until an agency publishes its own, 1102tools is the closest thing to an official MCP server for these sources: free, open source, no account or user API key when hosted, and approved for the Claude directory ({claude} of 9) and the ChatGPT directory ({chatgpt} of 9). This status is dated; check the agencies for newer releases.",'',
         '## Works with','',
-        '- Hosted: Claude (web, desktop and mobile) and ChatGPT through their directories, plus other AI apps that connect to remote MCP servers, such as Perplexity. No account or user API key.',
-        '- Local: free Python packages on PyPI for Claude Desktop, Claude Code, Codex and other MCP clients. Users who have never set up an MCP server can give their AI the setup guide in each README and ask it to do the setup or walk them through it.',
+        '- Hosted: Claude (web, desktop and mobile) and ChatGPT through their directories, Google Antigravity (Gemini) via each server\'s hosted URL in `~/.gemini/config/mcp_config.json`, plus other AI apps that connect to remote MCP servers by URL (such as Perplexity). No account or user API key.',
+        '- Google Gemini & pending directories: submitted to Google\'s Connected Apps Platform (Gemini directory for web and mobile), the Antigravity Marketplace, and the Muse and Grok directories.',
+        '- Local: free Python packages on PyPI for Claude Desktop, Claude Code, Codex, Google Antigravity, Gemini CLI, and other MCP clients. Users who have never set up an MCP server can give their AI the setup guide in each README and ask it to do the setup or walk them through it.',
         '- Other apps: any AI app that connects to a remote MCP server by URL can use the hosted addresses below.','',
         *llms_help(),
         '## History','',
@@ -441,7 +447,8 @@ def llms_story(st):
         '- October 6, 2026: Acquisition.gov, SAM.gov and BLS OEWS published in the Claude directory, completing all nine.',
         '- October 7, 2026: Acquisition.gov published in the ChatGPT directory, the fourth there.',
         '- October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.',
-        '- October 26, 2026: SAM.gov, Federal Register and Regulations.gov published in the ChatGPT directory, completing all nine.','']
+        '- October 26, 2026: SAM.gov, Federal Register and Regulations.gov published in the ChatGPT directory, completing all nine.',
+        '- November 24, 2026: submitted to the Google Antigravity Marketplace and Google Gemini Connected Apps preview; Antigravity (Gemini) setup guides added for all nine hosted servers.','']
 
 def home_table(swaps):
     """The homepage's Local / Hosted table, lifted from templates/index.html so other pages never drift from it; swaps are (old,new) pairs that must all match."""
@@ -502,10 +509,10 @@ def server_pages(out,css_version):
     for sid in SOURCE_ORDER:
         s=SERVERS[sid];name=s['name'];canonical='https://1102tools.com'+page_url(sid);hosted=f'https://{HOSTS[sid]}.1102tools.com/mcp'
         found=listed(s);where=series([label for label,_ in found])
-        description=f"Free {name} MCP server for Claude, ChatGPT and other AI apps. {s['description']} Hosted with no account or API key, or run it locally. Open source."
+        description=f"Free {name} MCP server for Claude, ChatGPT, Google Antigravity (Gemini) and other AI apps. {s['description']} Hosted with no account or API key, or run it locally. Open source."
         install=''.join(f'<a class="button primary" href="{url}">Install in {label} <span aria-hidden="true">→</span></a>' for label,url in found)
         install+=''.join(f'<span class="directory-soon">Coming soon to {label}</span>' for key,label in DIRECTORIES if not s['directories'].get(key))
-        install='<div id="install" class="page-install">'+install+f'<a class="button" href="{local_href(s)}">Local setup <span aria-hidden="true">→</span></a></div>'
+        install='<div id="install" class="page-install">'+install+f'<a class="button" href="#antigravity">Install in Antigravity <span aria-hidden="true">↓</span></a><a class="button" href="{local_href(s)}">Local setup <span aria-hidden="true">→</span></a></div>'
         tools=f"<strong>{s['hosted_edition']['tools']}</strong> tools hosted · <strong>{s['proof']['tools']}</strong> in the full local edition" if s.get('hosted_edition') else f"<strong>{s['proof']['tools']}</strong> tools"
         local_key=LOCAL_KEYS.get(sid,'No API key needed.')
         glance=[tools,'<strong>Free</strong> · MIT license','<strong>No API key</strong> when hosted',f'In the {where} {"directories" if len(found)>1 else "directory"}',
@@ -532,7 +539,7 @@ def server_pages(out,css_version):
         faq=[(f'Is the {name} MCP server free?','Yes. It is free and open source under the MIT license, with no account, ads or tracking.'),
             ('Is it an official government server?',f'No. 1102tools is independent and built by a federal contracting officer. No federal agency runs an official production MCP server for {name} (checked October 29, 2026).'),
             ('Do I need an API key?',f'Not when hosted. For the local version: {local_key[0].lower()+local_key[1:]}'),
-            ('Which AI apps does it work with?',f"Claude{' and ChatGPT' if len(found)>1 else ''} through {'their directories' if len(found)>1 else 'its directory'}, plus any AI app that connects to a remote MCP server by URL. The local version works with any MCP client, such as Claude Desktop, Claude Code and Codex."),
+            ('Which AI apps does it work with?',f"Claude{' and ChatGPT' if len(found)>1 else ''} through {'their directories' if len(found)>1 else 'its directory'}, Google Antigravity (Gemini) today using the hosted URL in mcp_config.json (no account or API key), plus any AI app that connects to a remote MCP server by URL. Submissions are pending for the Muse, Grok, and Gemini directories and the Antigravity Marketplace. The local version works with any MCP client, such as Claude Desktop, Claude Code, Codex, Google Antigravity, and Gemini CLI."),
             ('How current is the data?',FRESHNESS[sid]),
             ('Can anyone see what I search?',"No. Searches aren't logged or saved, and IP addresses aren't kept. When the hosted server calls a government site, the request comes from 1102tools, not from you. Your AI app handles the conversation under its own privacy policy."),
             ('Can I use it with CUI?',f"CUI (Controlled Unclassified Information) is a question for your AI app, not for this server. The {name} server only looks up public government data and gets only the search your AI sends, never your chat or files. Whether CUI can go in your chat depends on your AI app and your agency's or company's rules, and it's the same for Local and Hosted."),
@@ -544,9 +551,10 @@ def server_pages(out,css_version):
         structured={"@context":"https://schema.org","@graph":[
             {"@type":"WebPage","@id":canonical+"#webpage","url":canonical,"name":f"{name} MCP server by 1102tools","description":description,"isPartOf":{"@id":"https://1102tools.com/#website"},"about":{"@id":canonical+"#app"},"dateModified":DATA['website_updated'],"inLanguage":"en"},
             {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"1102tools","item":"https://1102tools.com/"},{"@type":"ListItem","position":2,"name":"MCPs","item":"https://1102tools.com/#mcps"},{"@type":"ListItem","position":3,"name":name,"item":canonical}]},
-            {"@type":"SoftwareApplication","@id":canonical+"#app","name":f"{name} MCP server by 1102tools","url":canonical,"description":s['description']+' Free and open source.','applicationCategory':'BusinessApplication','operatingSystem':'Any',
+            {"@type":"SoftwareApplication","@id":canonical+"#app","name":f"{name} MCP server by 1102tools","url":canonical,"description":s['description']+' Free and open source. Works in Claude, ChatGPT, and Google Antigravity (Gemini).','applicationCategory':'BusinessApplication','operatingSystem':'Any',
                 'isAccessibleForFree':True,'offers':{'@type':'Offer','price':'0','priceCurrency':'USD'},'license':'https://opensource.org/licenses/MIT','codeRepository':s['url'],
-                'installUrl':[url for _,url in found],'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'},'subjectOf':{'@id':canonical+'#video'}},
+                'softwareRequirements':'Claude, ChatGPT, Google Antigravity (Gemini), or another compatible MCP client',
+                'installUrl':[url for _,url in found]+[canonical+'#antigravity'],'publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'},'subjectOf':{'@id':canonical+'#video'}},
             {"@type":"VideoObject","@id":canonical+"#video","name":f"{name} MCP demo by 1102tools","description":f"A narrated {name} MCP demo in Claude, best for {best_for}.",
                 'thumbnailUrl':'https://1102tools.com'+s['demo'].split('?')[0].replace('.mp4','.jpg'),'uploadDate':s['youtube']['published'],'duration':s['youtube']['duration'],'contentUrl':'https://1102tools.com'+s['demo'],
                 'inLanguage':'en','publisher':{'@type':'Organization','name':'1102tools','url':'https://1102tools.com/'}},
@@ -554,7 +562,7 @@ def server_pages(out,css_version):
         values={'TITLE':f'{name} MCP Server: Free, Hosted, No API Key | 1102tools','OG_TITLE':f'{name} MCP server by 1102tools','DESCRIPTION':ESC(description),'CANONICAL':canonical,
             'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c'),'CSS_VERSION':css_version,'NAME':ESC(name),'ID':sid,'BADGES':card_badges(s),
             'FULL_NAME':f'<p class="full-name">{ESC(FULL_NAMES[sid])}</p>' if sid in FULL_NAMES else '','INTRO':ESC(s['description']+' Best for '+s['best_for'][0].lower()+s['best_for'][1:]),'INSTALL':install,
-            'HOSTED_URL':hosted,'DEMO_INTRO':demo_videos(s)[0],'VIDEOS':demo_videos(s)[1],'ASK':''.join(f'<li>“{ESC(q)}”</li>' for q in WHEN[sid]),'PROMPTS':prompts,'GLANCE':''.join(f'<li>{x}</li>' for x in glance),
+            'HOSTED_URL':hosted,'SERVER_KEY':PAGE_SLUGS[sid],'DEMO_INTRO':demo_videos(s)[0],'VIDEOS':demo_videos(s)[1],'ASK':''.join(f'<li>“{ESC(q)}”</li>' for q in WHEN[sid]),'PROMPTS':prompts,'GLANCE':''.join(f'<li>{x}</li>' for x in glance),
             'NOTE':note,'LOCAL_HOSTED_TABLE':table,'FAQ':faq_html,'OTHERS':others}
         page=(ROOT/'templates/server.html').read_text()
         for k,v in values.items():page=page.replace('{{'+k+'}}',v)

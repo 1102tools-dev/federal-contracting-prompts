@@ -55,8 +55,8 @@ for f in server_files:
   if link.startswith('/#'):assert link[2:] in page.ids,(f.name,link)
   if link.startswith('/mcp/'):assert (ROOT/'site'/(link[1:]+'.html')).exists(),(f.name,link)
 for link in page.links:
- if link.startswith('/mcp/'):assert (ROOT/'site'/(link[1:]+'.html')).exists(),link
-assert sum(l.startswith('/mcp/') for l in page.links)==len(data['servers']),'each card links to its server page'
+ if link.startswith('/mcp/'):assert (ROOT/'site'/(link.split('#')[0][1:]+'.html')).exists(),link
+assert len({l.split('#')[0] for l in page.links if l.startswith('/mcp/')})==len(data['servers']),'each card links to its server page'
 normalize=lambda s:re.sub(r'\s+','',s)
 readme=(ROOT/'readme.md').read_text()
 blocks=re.findall(r'```text\n(.*?)```',readme,re.S)

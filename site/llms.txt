@@ -1,8 +1,8 @@
 # 1102tools
 
-> Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude or ChatGPT. Built by a federal contracting officer.
+> Free, open-source MCP servers and prompts for winning federal contracts: find opportunities, research incumbents and competitors, track recompetes, benchmark labor rates and read the FAR, right inside Claude, ChatGPT, or Google Antigravity (Gemini). Built by a federal contracting officer.
 
-No federal agency offers an official MCP server for these nine sources (checked October 29, 2026). The 1102tools servers are free, need no account or user API key when hosted, and are listed in the Claude directory (9 of 9) and the ChatGPT directory (9 of 9).
+No federal agency offers an official MCP server for these nine sources (checked October 29, 2026). The 1102tools servers are free, need no account or user API key when hosted, are listed in the Claude directory (9 of 9) and the ChatGPT directory (9 of 9), and work today in Google Antigravity (Gemini) using their hosted URLs. Submissions are pending for the Muse, Grok, and Gemini directories and the Antigravity Marketplace.
 
 ## Start here
 
@@ -97,7 +97,21 @@ All nine 1102tools MCPs are approved and published in the Claude and ChatGPT dir
 - [Regulations.gov by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ad988bee41c8191a72c0b0e94d84eb9)
 - [Acquisition.gov by 1102tools — install in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ab2757102e08191887f75cc506c2333)
 
-The links open the individual directory listings. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.
+### Google Antigravity (Gemini)
+
+All nine hosted servers work today in Google Antigravity (desktop and CLI) with no account or user API key. Add any server inside `mcpServers` in `~/.gemini/config/mcp_config.json` using its hosted `serverUrl` (or open Customizations -> MCP Servers -> View raw config in Antigravity). Antigravity Marketplace and Gemini directory listings are pending review:
+
+- [SAM.gov by 1102tools — Antigravity setup](https://1102tools.com/mcp/sam-gov#antigravity) · `https://sam.1102tools.com/mcp` (hosted 6-tool edition; the full 20-tool edition is a local install)
+- [USAspending by 1102tools — Antigravity setup](https://1102tools.com/mcp/usaspending#antigravity) · `https://usaspending.1102tools.com/mcp`
+- [GSA CALC+ by 1102tools — Antigravity setup](https://1102tools.com/mcp/gsa-calc#antigravity) · `https://gsa-calc.1102tools.com/mcp`
+- [BLS OEWS by 1102tools — Antigravity setup](https://1102tools.com/mcp/bls-oews#antigravity) · `https://bls-oews.1102tools.com/mcp`
+- [GSA Per Diem by 1102tools — Antigravity setup](https://1102tools.com/mcp/gsa-per-diem#antigravity) · `https://gsa-perdiem.1102tools.com/mcp`
+- [eCFR by 1102tools — Antigravity setup](https://1102tools.com/mcp/ecfr#antigravity) · `https://ecfr.1102tools.com/mcp`
+- [Federal Register by 1102tools — Antigravity setup](https://1102tools.com/mcp/federal-register#antigravity) · `https://federal-register.1102tools.com/mcp`
+- [Regulations.gov by 1102tools — Antigravity setup](https://1102tools.com/mcp/regulations-gov#antigravity) · `https://regulations-gov.1102tools.com/mcp`
+- [Acquisition.gov by 1102tools — Antigravity setup](https://1102tools.com/mcp/acquisition-gov#antigravity) · `https://acquisition-gov.1102tools.com/mcp`
+
+The links open the individual directory listings or Antigravity setup guides. Installation and connection are required before a prompt can use their tools. For other compatible MCP clients, use the setup instructions linked under MCP sources.
 
 ## Prerequisites and scope
 
@@ -111,7 +125,7 @@ No affiliation with or endorsement by a federal agency is claimed.
 - Free: every server is MIT-licensed and costs nothing; directory installs need no 1102tools account or user API key. Commercial GovCon platforms add capture and proposal workflows, and most charge for AI or MCP access.
 - Tested: each server is checked against its government source, and its repository keeps dated testing records. Every 30 minutes, each hosted server runs a real lookup, and every day the tests rerun and the government sites are checked for changes.
 - No user keys when hosted: directory installs need no 1102tools account or user API key. All nine are in the Claude and ChatGPT directories; local SAM.gov and Regulations.gov use free API keys. Local Per Diem needs a free key only for city names its bundled Census and county data can't place, or years before FY2021.
-- Listed: 9 in the Claude directory; 9 in the ChatGPT directory.
+- Listed: 9 in the Claude directory; 9 in the ChatGPT directory; all 9 work today in Google Antigravity (Gemini) via hosted URL; submitted to the Muse, Grok, and Gemini directories and the Antigravity Marketplace.
 - Unique: the only known MCP server for Acquisition.gov FAR Overhaul (RFO) model text and agency class deviations.
 - Built for winning federal work: opportunity search, recompete tracking, incumbent and competitor research, labor-rate benchmarks and FAR research, designed by a federal contracting officer who knows what the government checks.
 
@@ -129,8 +143,9 @@ No affiliation with or endorsement by a federal agency is claimed.
 
 ## Works with
 
-- Hosted: Claude (web, desktop and mobile) and ChatGPT through their directories, plus other AI apps that connect to remote MCP servers, such as Perplexity. No account or user API key.
-- Local: free Python packages on PyPI for Claude Desktop, Claude Code, Codex and other MCP clients. Users who have never set up an MCP server can give their AI the setup guide in each README and ask it to do the setup or walk them through it.
+- Hosted: Claude (web, desktop and mobile) and ChatGPT through their directories, Google Antigravity (Gemini) via each server's hosted URL in `~/.gemini/config/mcp_config.json`, plus other AI apps that connect to remote MCP servers by URL (such as Perplexity). No account or user API key.
+- Google Gemini & pending directories: submitted to Google's Connected Apps Platform (Gemini directory for web and mobile), the Antigravity Marketplace, and the Muse and Grok directories.
+- Local: free Python packages on PyPI for Claude Desktop, Claude Code, Codex, Google Antigravity, Gemini CLI, and other MCP clients. Users who have never set up an MCP server can give their AI the setup guide in each README and ask it to do the setup or walk them through it.
 - Other apps: any AI app that connects to a remote MCP server by URL can use the hosted addresses below.
 
 ## Local or hosted
@@ -223,6 +238,7 @@ Hosted addresses for AI apps that connect by URL:
 - October 7, 2026: Acquisition.gov published in the ChatGPT directory, the fourth there.
 - October 9, 2026: GSA Per Diem and BLS OEWS published in the ChatGPT directory, bringing it to six.
 - October 26, 2026: SAM.gov, Federal Register and Regulations.gov published in the ChatGPT directory, completing all nine.
+- November 24, 2026: submitted to the Google Antigravity Marketplace and Google Gemini Connected Apps preview; Antigravity (Gemini) setup guides added for all nine hosted servers.
 
 ## Release validation
 
@@ -268,4 +284,4 @@ Each release has a public record of its versions, fixes and test results. Releas
 - [Explore dockets and comments](https://1102tools.com/#regulationsgov): Make the docket, deadline, sample, and supporting documents clear.
 - [FAR Overhaul and deviations](https://1102tools.com/#far-overhaul-and-agency-deviations): Keep codified text, FAR Overhaul model text, and agency deviations separate, with source dates.
 
-Updated November 18, 2026. Prompt edition: October 2026.
+Updated November 24, 2026. Prompt edition: October 2026.
