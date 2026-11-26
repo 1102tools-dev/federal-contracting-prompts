@@ -66,7 +66,7 @@ def hero_proof():
     # The tool-call count is filled in the browser by usage.js from /data/usage.json, so it's never stale; hidden if that fails.
     # GitHub link matches the top nav's repo link.
     return (f'<ul class="proof-stats" aria-label="1102tools at a glance"><li class="gh-stat"><a href="https://github.com/1102tools-dev/federal-contracting-mcps" aria-label="1102tools on GitHub"><strong><svg class="gh-cat" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></strong><span>GitHub <span aria-hidden="true">↗</span></span></a></li><li><strong>$0</strong><span>Free<br>MIT license</span></li><li><strong>{st["servers"]}</strong><span>MCP servers</span></li>'
-        '<li hidden><a href="/usage"><strong data-usage-total></strong><span>tool calls<br>this week →</span></a></li></ul>'
+        '<li hidden><a href="/usage"><strong data-usage-total></strong><span>tool calls<br>this month →</span></a></li></ul>'
         '<div class="directory-proof"><span class="badge-col">'+''.join(f'<span class="badge badge-listed">IN THE {label.upper()}<br class="mbr"> DIRECTORY</span>' for label in listed_in)
         +'<a class="badge badge-listed badge-link" href="#mcps">WORKS IN ANTIGRAVITY (GEMINI)</a></span>'
         +'<span class="soon-card"><span class="soon-kicker">COMING SOON</span><span class="soon-items">Muse, Grok &amp; Gemini directories<br>Antigravity Marketplace</span></span></div>')
@@ -265,7 +265,7 @@ def website(out,pdf,pages):
         '- [MCP source repository]('+MR+'): server implementations, installation, and testing records.',
         "- [Privacy](https://1102tools.com/privacy): 1102tools is one person's free project, not a business. No accounts, cookies, ads or tracking; IP addresses aren't kept and searches aren't logged. Covers CUI, and links to each hosted server's privacy notice.",
         '- [What America buys](https://www.youtube.com/@WhatAmericaBuysTV/shorts): YouTube Shorts with real footage of what the federal government buys, each built on a real contract from USAspending.',
-        "- [Live usage](https://1102tools.com/usage): tool calls across the nine hosted servers in the last 7 full days, by app (Claude, Claude Code, ChatGPT, Codex, Perplexity and other apps). Counted from each server's own log with 1102tools' own test checks left out, and updated daily at 12 a.m. Eastern (days run midnight to midnight Eastern). The same numbers as JSON: https://1102tools.com/data/usage.json.",'',
+        "- [Live usage](https://1102tools.com/usage): tool calls across the nine hosted servers in the last 30 full days, by app (Claude, Claude Code, ChatGPT, Codex, Perplexity and other apps). Counted from each server's own log with 1102tools' own test checks left out, and updated daily at 12 a.m. Eastern (days run midnight to midnight Eastern). The same numbers as JSON: https://1102tools.com/data/usage.json.",'',
         *llms_when(),
         *llms_videos(),
         *llms_america_buys(),
@@ -499,7 +499,7 @@ def demo_videos(s):
     return DEMO_INTRO_MANY,css+'<div class="video-pair">'+figs+'</div>'+PLAY_SCRIPT
 
 def usage_page(out,css_version):
-    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/usage#webpage","url":"https://1102tools.com/usage","name":"1102tools live usage","description":"Tool calls across the nine free 1102tools MCP servers in the last 7 full days, by app. Counted from each server's own log and updated daily at 12 a.m. Eastern.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
+    structured={"@context":"https://schema.org","@type":"WebPage","@id":"https://1102tools.com/usage#webpage","url":"https://1102tools.com/usage","name":"1102tools live usage","description":"Tool calls across the nine free 1102tools MCP servers in the last 30 full days, by app. Counted from each server's own log and updated daily at 12 a.m. Eastern.","isPartOf":{"@id":"https://1102tools.com/#website"},"inLanguage":"en"}
     page=(ROOT/'templates/usage.html').read_text()
     for k,v in {'CSS_VERSION':css_version,'STRUCTURED_DATA':json.dumps(structured,ensure_ascii=False).replace('<','\\u003c')}.items():page=page.replace('{{'+k+'}}',v)
     assert '{{' not in page

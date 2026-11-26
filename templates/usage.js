@@ -1,6 +1,6 @@
 'use strict';
 // Reads the daily numbers file (updated at 12 a.m. Eastern) and fills the homepage stat and the /usage page.
-// The file holds daily tool-call counts per app for the last 7 finished Eastern days, midnight to midnight, nothing else.
+// The file holds daily tool-call counts per app for the last 30 finished Eastern days, midnight to midnight, nothing else.
 (function(){
 const APPS=[['claude','Claude','#168276'],['claude-code','Claude Code','#5fae9f'],['chatgpt','ChatGPT','#2e5f94'],['codex','Codex','#7a9fd0'],['other','Other','#8a6fb0'],['perplexity','Perplexity','#d9a441']];
 const FAMILIES=[['Anthropic',['claude','claude-code']],['OpenAI',['chatgpt','codex']],['Perplexity',['perplexity']],['Other',['other']]];
@@ -45,26 +45,35 @@ function pie(sums,grand,small){
   return `<div class="usage-card usage-pie-wrap"><svg class="usage-pie" viewBox="0 0 ${w} ${h}" role="img" aria-label="Tool calls by app">${parts.join('')}${labels.join('')}</svg>${apps}<ul class="usage-family">${rows}<li class="usage-family-all"><span>All</span><b>${fmt(grand)}</b><small>100%</small></li></ul></div>`;
 }
 
-function bars(days,w){ // w: drawing width, matched to the screen so the text stays readable
-  const h=220,padL=48,padB=50,padT=10,slot=(w-padL)/days.length,bar=(w-padL)/12*.5;
-  const most=Math.max(1,...days.map(d=>APPS.reduce((s,a)=>s+d.counts[a[0]],0)));
-  const step=Math.pow(10,Math.floor(Math.log10(most)))/2,top=Math.ceil(most/step)*step; // a round top line
+function bars(days){ // Matches the 30-day stacked bar chart on the progress dashboard, without the 7-day trend line.
+  const w=900,h=200,padL=54,padB=26,padT=22,count=days.length,slot=(w-padL)/count;
+  const bar=Math.min(slot*(count>12?.62:.5),(w-padL)/12*.5);
+  const peak=Math.max(1,...days.map(d=>APPS.reduce((s,a)=>s+d.counts[a[0]],0)));
+  let step=2500;
+  outer:for(let k=0;k<12;k++)for(const n of [1,2,2.5,5]){const c=n*Math.pow(10,k);if(c*6>=peak){step=Math.max(2500,Math.trunc(c));break outer}}
+  const lines=Math.max(4,Math.ceil(peak/step)),top=step*lines;
+  const marks=count>7?new Set([0,Math.floor(count/2),count-1]):new Set(days.map((_,i)=>i));
   const parts=[`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Tool calls per day">`];
-  for(const frac of [0,.5,1]){
+  for(let k=0;k<=lines;k++){
+    const frac=k/lines;
     const y=padT+(h-padT-padB)*(1-frac);
     parts.push(`<line x1="${padL}" x2="${w}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#e3eaf0"/><text x="${padL-8}" y="${(y+4).toFixed(1)}" text-anchor="end" font-size="11" fill="#617184">${fmt(Math.round(top*frac))}</text>`);
   }
   days.forEach((d,i)=>{
-    const x0=padL+i*slot+(slot-bar)/2,tx=padL+i*slot+slot/2,name=dateLabel(d.date,{weekday:'short',month:'short',day:'numeric'});let y=h-padB;
+    const x0=padL+i*slot+(slot-bar)/2,name=dateLabel(d.date,{month:'short',day:'numeric'});let y=h-padB;
     for(const [key,label,color] of APPS){
       const n=d.counts[key];if(!n)continue;const bh=(h-padT-padB)*n/top;y-=bh;
       parts.push(`<rect x="${x0.toFixed(1)}" y="${y.toFixed(1)}" width="${bar.toFixed(1)}" height="${bh.toFixed(1)}" rx="2" fill="${color}"><title>${name} · ${label}: ${fmt(n)}</title></rect>`);
     }
-    parts.push(`<text x="${tx.toFixed(1)}" y="${h-30}" text-anchor="middle" font-size="11" fill="#33414f">${dateLabel(d.date,{month:'short',day:'numeric'})}</text><text x="${tx.toFixed(1)}" y="${h-15}" text-anchor="middle" font-size="10" fill="#8695a5">${dateLabel(d.date,{weekday:'short'})}</text>`);
+    if(marks.has(i)){
+      let tx=padL+i*slot+slot/2,anchor='middle';
+      if(count>7&&i===0){tx=padL;anchor='start'}else if(count>7&&i===count-1){tx=w;anchor='end'}
+      parts.push(`<text x="${tx.toFixed(1)}" y="${h-6}" text-anchor="${anchor}" font-size="11" fill="#617184">${name}</text>`);
+    }
   });
   parts.push('</svg>');
   const legend=APPS.map(([,label,color])=>`<span><i style="background:${color}"></i>${label}</span>`).join('');
-  return `<div class="usage-card usage-bars">${parts.join('')}<div class="usage-legend">${legend}</div></div>`;
+  return `<div class="usage-card usage-bars"><div class="usage-bars-scroll">${parts.join('')}</div><div class="usage-legend">${legend}</div></div>`;
 }
 
 let last=null,width=0;
@@ -75,9 +84,9 @@ function render(data){
   const page=document.getElementById('usage-charts');if(!page)return;
   const sums=Object.fromEntries(APPS.map(([k])=>[k,data.days.reduce((s,d)=>s+d.counts[k],0)]));
   document.getElementById('usage-range').textContent=dateLabel(data.start,{month:'long',day:'numeric'})+' – '+dateLabel(data.end,{month:'long',day:'numeric'});
-  document.getElementById('usage-headline').textContent=fmt(total)+' tool calls in the last 7 days';
+  document.getElementById('usage-headline').textContent=fmt(total)+' tool calls in the last '+data.days.length+' days';
   width=page.clientWidth;const inner=Math.max(300,width-50);
-  page.innerHTML=`<section><h2>Tool calls by app</h2>${pie(sums,total,inner<560)}</section><section><h2>Tool calls per day</h2>${bars(data.days,Math.min(900,Math.max(330,inner)))}</section>`;
+  page.innerHTML=`<section><h2>Tool calls by app</h2>${pie(sums,total,inner<560)}</section><section><h2>Tool calls per day</h2>${bars(data.days)}</section>`;
 }
 let timer;addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{const page=document.getElementById('usage-charts');if(last&&page&&Math.abs(page.clientWidth-width)>40)render(last)},200)});
 
